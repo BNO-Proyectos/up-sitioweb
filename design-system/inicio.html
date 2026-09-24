@@ -6,268 +6,310 @@
 <title>Posgrados Panamericana · Maestrías, especialidades y doctorados en CDMX, Guadalajara y Aguascalientes</title>
 <meta name="description" content="150 programas de posgrado en tres campus. Maestrías, especialidades, doctorados y educación continua con horarios para profesionales.">
 <meta name="robots" content="noindex, nofollow">
-<link rel="stylesheet" href="ds.css">
+<link rel="stylesheet" href="ds.css?v=6">
+<link rel="stylesheet" href="camino.css?v=6">
 </head>
 <body>
 <a class="oculto-visual" href="#contenido">Saltar al contenido</a>
 
-<!-- ===================== Cabecera (estructura aprobada por el cliente) ===================== -->
-<header class="cabecera">
-  <div class="cabecera__institucional">
-    <a class="cabecera__marca" href="https://www.up.edu.mx/">Universidad Panamericana</a>
-    <nav class="cabecera__utiles" aria-label="Institucional">
-      <a href="#sedes">Campus</a>
-      <a href="#" rel="external">Portal alumnos</a>
-      <button type="button" id="abrir-buscador" aria-expanded="false" aria-controls="buscador"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M11 11l4 4" stroke="currentColor" stroke-width="1.6"/></svg>Buscar</button>
-    </nav>
+<!-- ============ Cabecera: presencia inicial aprobada por el cliente; plegada: logo · capítulo · CTA · Menú ============ -->
+<header class="cab" id="cab">
+  <div class="cab__inst">
+    <div class="contenedor">
+      <a class="marca-texto" href="https://www.up.edu.mx/">Universidad Panamericana</a>
+      <nav aria-label="Institucional"><a href="#pie">Campus</a><a href="#" rel="external">Portal alumnos</a><a href="#" id="abrir-buscar">Buscar</a></nav>
+    </div>
   </div>
-  <div class="cabecera__barra">
-    <a class="cabecera__logo" href="#" aria-label="Posgrados Panamericana — Inicio"><img src="img/logo-posgrados.webp" width="137" height="160" alt=""></a>
-    <nav class="cabecera__nav" aria-label="Principal">
-      <div class="desplegable"><button class="desplegable__boton" aria-expanded="false" aria-controls="d-oferta">Oferta académica<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
-        <ul class="desplegable__panel" id="d-oferta" hidden><li><a href="#">Todos los programas<small>150 en tres campus</small></a></li><li><a href="#">Doctorados<small>10 programas</small></a></li><li><a href="#">Maestrías<small>84 programas</small></a></li><li><a href="#">Especialidades<small>41 programas</small></a></li><li><a href="#">Educación continua<small>15 diplomados, cursos y acreditaciones</small></a></li></ul></div>
-      <div class="desplegable"><button class="desplegable__boton" aria-expanded="false" aria-controls="d-conoce">Conoce Posgrados UP<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
-        <ul class="desplegable__panel" id="d-conoce" hidden><li><a href="#">Nosotros</a></li><li><a href="#sedes">Sedes</a></li><li><a href="#">Admisiones</a></li><li><a href="#">Becas, financiamiento y convenios</a></li></ul></div>
-      <div class="desplegable"><button class="desplegable__boton" aria-expanded="false" aria-controls="d-comunidad">Comunidad<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
-        <ul class="desplegable__panel" id="d-comunidad" hidden><li><a href="#noticias">Noticias</a></li><li><a href="#">Eventos</a></li></ul></div>
-      <a href="#">Contacto</a>
-    </nav>
-    <a class="boton boton--primario" href="#form" data-ir-form>Solicitar información</a>
-    <button class="cabecera__menu" id="abrir-menu" aria-expanded="false" aria-controls="menu-movil">Menú</button>
-  </div>
-  <div class="buscador" id="buscador" hidden>
-    <form role="search" onsubmit="return false">
-      <div class="campo"><label class="campo__etiqueta" for="q">Buscar en Posgrados Panamericana</label><input class="campo__control" id="q" type="search" placeholder="Programa, tema, noticia…"></div>
-      <div style="align-self:end"><button class="boton boton--secundario" type="submit">Buscar</button></div>
-    </form>
+  <div class="cab__barra">
+    <div class="contenedor">
+      <a class="cab__logo" href="#" aria-label="Posgrados Panamericana — Inicio"><img src="img/logo-posgrados.webp" width="137" height="160" alt=""></a>
+      <span class="cab__capitulo" aria-live="polite"><span class="cap-etiqueta" id="cab-capitulo">I · Apertura</span></span>
+      <nav class="cab__nav" aria-label="Principal">
+        <button type="button" data-abre-menu data-grupo="oferta">Oferta académica<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+        <button type="button" data-abre-menu data-grupo="conoce">Conoce Posgrados UP<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+        <button type="button" data-abre-menu data-grupo="comunidad">Comunidad<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+        <a href="#">Contacto</a>
+      </nav>
+      <a class="boton boton--primario" href="#cierre" data-ir-cierre>Solicitar información</a>
+      <button class="cab__menu" id="abrir-menu" aria-expanded="false" aria-controls="capa-menu"><span class="hamb" aria-hidden="true"><i></i><i></i><i></i></span>Menú</button>
+    </div>
   </div>
 </header>
-<div class="menu-movil" id="menu-movil" role="dialog" aria-modal="true" aria-label="Menú" hidden>
-  <div class="menu-movil__panel">
-    <button class="boton boton--secundario menu-movil__cerrar" id="cerrar-menu">Cerrar</button>
-    <nav class="primaria" aria-label="Principal">
-      <a href="#">Oferta académica</a><a href="#" style="padding-left:16px;font-weight:400;font-size:var(--texto-cuerpo)">Todos los programas</a><a href="#" style="padding-left:16px;font-weight:400;font-size:var(--texto-cuerpo)">Doctorados</a><a href="#" style="padding-left:16px;font-weight:400;font-size:var(--texto-cuerpo)">Maestrías</a><a href="#" style="padding-left:16px;font-weight:400;font-size:var(--texto-cuerpo)">Especialidades</a><a href="#" style="padding-left:16px;font-weight:400;font-size:var(--texto-cuerpo)">Educación continua</a>
-      <a href="#">Conoce Posgrados UP</a><a href="#" style="padding-left:16px;font-weight:400;font-size:var(--texto-cuerpo)">Nosotros</a><a href="#sedes" style="padding-left:16px;font-weight:400;font-size:var(--texto-cuerpo)">Sedes</a><a href="#" style="padding-left:16px;font-weight:400;font-size:var(--texto-cuerpo)">Admisiones</a><a href="#" style="padding-left:16px;font-weight:400;font-size:var(--texto-cuerpo)">Becas, financiamiento y convenios</a>
-      <a href="#">Comunidad</a><a href="#noticias" style="padding-left:16px;font-weight:400;font-size:var(--texto-cuerpo)">Noticias</a><a href="#" style="padding-left:16px;font-weight:400;font-size:var(--texto-cuerpo)">Eventos</a>
-      <a href="#">Contacto</a>
-    </nav>
-    <a class="boton boton--primario boton--bloque" href="#form" data-ir-form>Solicitar información</a>
-    <nav aria-label="Institucional"><a href="#sedes">Campus</a><a href="#">Portal alumnos</a></nav>
+
+<!-- ============ Menú en capa: el camino como índice ============ -->
+<div class="capa" id="capa-menu" role="dialog" aria-modal="true" aria-label="Menú" hidden>
+  <div class="banda banda--atenuada banda--traza" aria-hidden="true"></div>
+  <div class="contenedor">
+    <div class="capa__cabeza">
+      <span class="marca-texto">Posgrados Panamericana</span>
+      <button class="cab__menu" id="cerrar-menu">Cerrar</button>
+    </div>
+    <div class="capa__cuerpo">
+      <nav class="capa__indice" aria-label="Capítulos">
+        <a href="#apertura"><span class="rom">I</span><span class="nom">Apertura</span><span class="est"></span></a>
+        <a href="#manifiesto"><span class="rom">II</span><span class="nom">Manifiesto</span><span class="est">¿Por qué Posgrados Panamericana?</span></a>
+        <a href="#indice"><span class="rom">III</span><span class="nom">Índice</span><span class="est">150 programas · 3 campus</span></a>
+        <a href="#lugar"><span class="rom">IV</span><span class="nom">Lugar</span><span class="est"></span></a>
+        <a href="#voces"><span class="rom">V</span><span class="nom">Voces</span><span class="est">Quienes ya cursaron</span></a>
+        <a href="#actualidad"><span class="rom">VI</span><span class="nom">Actualidad</span><span class="est">Noticias</span></a>
+        <a href="#dudas"><span class="rom">VII</span><span class="nom">Dudas</span><span class="est">Preguntas frecuentes</span></a>
+        <a href="#cierre"><span class="rom">VIII</span><span class="nom">Cierre</span><span class="est">Solicitar información</span></a>
+      </nav>
+      <div class="capa__grupos">
+        <div class="capa__grupo" id="g-oferta"><h3>Oferta académica</h3><a href="#">Todos los programas</a><a href="#">Doctorados</a><a href="#">Maestrías</a><a href="#">Especialidades</a><a href="#">Educación continua</a></div>
+        <div class="capa__grupo" id="g-conoce"><h3>Conoce Posgrados UP</h3><a href="#">Nosotros</a><a href="#">Sedes</a><a href="#">Admisiones</a><a href="#">Becas, financiamiento y convenios</a></div>
+        <div class="capa__grupo" id="g-comunidad"><h3>Comunidad</h3><a href="#">Noticias</a><a href="#">Eventos</a><a href="#">Contacto</a></div>
+        <div class="capa__grupo"><h3>Universidad Panamericana</h3><a href="https://www.up.edu.mx/">up.edu.mx</a><a href="#">Campus</a><a href="#">Portal alumnos</a><a href="#">Buscar</a></div>
+      </div>
+    </div>
   </div>
 </div>
 
-<main class="pagina" id="contenido">
+<main id="contenido">
 
-  <!-- 1. Banner principal: foto a sangre + bloque verde superpuesto -->
-  <section class="hero revela" aria-labelledby="h-hero" style="--foco: 42% 45%; --tahali-x: 66%">
-    <div class="hero__foto"><img src="img/escena-03.jpg" width="1440" height="960" alt="Clase de posgrado en el campus Mixcoac: el profesor explica frente al grupo" fetchpriority="high"><div class="tahali" aria-hidden="true"></div></div>
-    <div class="hero__bloque">
-      <p class="t-etiqueta">Posgrados Panamericana</p>
-      <h1 class="t-display--xl" id="h-hero" data-palabras>Tu siguiente nivel empieza aquí.</h1>
-      <p class="hero__apoyo">150 programas de posgrado en tres campus, con horarios pensados para quien trabaja. <span class="ds__tag ds__tag--placeholder" style="border-color:rgba(247,245,240,.5);color:inherit">PLACEHOLDER</span></p>
-      <div class="franco__acciones"><a class="boton boton--primario" href="#form" data-ir-form>Solicitar información</a><a class="boton boton--secundario" href="#h-oferta">Explorar la oferta</a></div>
+  <!-- ============ I · Apertura ============ -->
+  <section class="capitulo apertura" id="apertura" aria-labelledby="h-apertura" data-capitulo="I · Apertura" style="--foco: 44% 42%; --foco-movil: 50% 30%">
+    <div class="escenario" data-parallax><img src="img/escena-03.jpg" width="1440" height="960" alt="Clase de posgrado en el campus Mixcoac: el profesor explica frente al grupo" fetchpriority="high"></div>
+    <div class="banda banda--traza" aria-hidden="true"></div>
+    <p class="apertura__meta apertura__meta--tl cap-etiqueta">I · Posgrados Panamericana</p>
+    <p class="apertura__meta apertura__meta--tr">150 programas<br>3 campus · 4 sedes</p>
+    <div class="apertura__voz">
+      <h1 class="cap-titulo" id="h-apertura" data-palabras><span class="linea">Tu siguiente</span><span class="linea">nivel</span><span class="linea">empieza aquí.</span></h1>
+      <p class="apoyo">Maestrías, especialidades y doctorados con horarios pensados para quien trabaja. <span class="ds__tag ds__tag--placeholder" style="border-color:rgba(247,245,240,.5);color:inherit">PLACEHOLDER</span></p>
+      <div class="acciones"><a class="boton boton--primario" href="#cierre" data-ir-cierre style="background:var(--superficie-base);color:var(--contenido-marca);border-color:var(--superficie-base)">Solicitar información</a></div>
+    </div>
+    <p class="apertura__meta apertura__meta--br cap-etiqueta"><span>Scroll</span><i aria-hidden="true"></i></p>
+  </section>
+
+  <!-- ============ II · Manifiesto ============ -->
+  <section class="capitulo manifiesto" id="manifiesto" aria-labelledby="h-manifiesto" data-capitulo="II · Manifiesto">
+    <div class="contenedor">
+      <div class="manifiesto__titulo">
+        <p class="cap-etiqueta">II · Manifiesto</p>
+        <h2 class="cap-titulo" id="h-manifiesto">¿Por qué Posgrados Panamericana?</h2>
+        <p style="max-width:22rem;opacity:.85">Seis razones, de la más concreta a la más institucional. <span class="ds__tag ds__tag--placeholder" style="border-color:rgba(247,245,240,.5);color:inherit">PLACEHOLDER</span></p>
+      </div>
+      <ol class="manifiesto__razones" id="razones">
+        <li class="razon"><h3>Horarios pensados para quien trabaja</h3><p>Clases entre semana por la noche y los sábados, con la duración que aparece en cada ficha: la maestría cabe en una vida con trabajo.</p></li>
+        <li class="razon"><h3>Un asesor con nombre desde el primer contacto</h3><p>Texto de longitud realista sobre la atención personalizada que el sitio actual ya ofrece en cada programa.</p></li>
+        <li class="razon"><h3>Tres campus, una misma exigencia</h3><p>Texto de longitud realista sobre Ciudad de México, Guadalajara y Aguascalientes.</p></li>
+        <li class="razon"><h3>Título de la cuarta razón, hasta cincuenta caracteres</h3><p>Texto de entre ochenta y doscientos caracteres, sin cifras ni acreditaciones hasta que el cliente las respalde con una fuente.</p></li>
+        <li class="razon"><h3>Título de la quinta razón</h3><p>Texto de longitud realista, entre ochenta y doscientos caracteres.</p></li>
+        <li class="razon"><h3>Título de la sexta razón</h3><p>Texto de longitud realista, entre ochenta y doscientos caracteres.</p></li>
+      </ol>
     </div>
   </section>
 
-  <!-- 2. Explora la oferta (propuesta B&O) -->
-  <section class="seccion seccion--media" aria-labelledby="h-oferta">
-    <div class="seccion__cabeza" data-entra><div class="encabezado encabezado--filete"><h2 class="t-h2" id="h-oferta">Explora la oferta</h2><p class="encabezado__apoyo">Elige por nivel, o filtra por campus y área.</p></div><span class="ds__tag">Propuesta B&amp;O · no estaba en la estructura del cliente</span></div>
-    <div class="accesos" data-entra-grupo>
-      <a class="acceso" href="#"><span class="acceso__cifra" data-cuenta="10">10</span><span class="acceso__nombre">Doctorados</span><span class="acceso__nota">Investigación y docencia</span></a>
-      <a class="acceso" href="#"><span class="acceso__cifra" data-cuenta="84">84</span><span class="acceso__nombre">Maestrías</span><span class="acceso__nota">Incluye Máster</span></a>
-      <a class="acceso" href="#"><span class="acceso__cifra" data-cuenta="41">41</span><span class="acceso__nombre">Especialidades</span><span class="acceso__nota">Incluye Especialización</span></a>
-      <a class="acceso" href="#"><span class="acceso__cifra" data-cuenta="15">15</span><span class="acceso__nombre">Educación continua</span><span class="acceso__nota">Diplomados, cursos y acreditaciones</span></a>
-    </div>
-    <form class="filtros" style="margin-top:var(--espacio-grupo);grid-template-columns:1fr 1fr auto;align-items:end" onsubmit="return false" aria-label="Filtro rápido" data-entra style="--i:2">
-      <div class="campo"><label class="campo__etiqueta" for="fr-campus">Campus</label><select class="campo__control" id="fr-campus"><option>Todos</option><option>CDMX</option><option>Guadalajara</option><option>Aguascalientes</option></select></div>
-      <div class="campo"><label class="campo__etiqueta" for="fr-area">Área</label><select class="campo__control" id="fr-area"><option>Todas</option><option>Agroalimentos</option><option>Arquitectura</option><option>Bellas Artes</option><option>Ciencias de la Salud</option><option>Comunicación</option><option>Derecho</option><option>Empresariales</option><option>ESDAI</option><option>Filosofía</option><option>Gobierno y Economía</option><option>Ingeniería</option><option>Pedagogía</option><option>Psicología</option></select></div>
-      <div><a class="boton boton--primario" href="#">Ver programas</a></div>
-    </form>
-  </section>
-
-  <!-- 3. ¿Por qué Posgrados Panamericana? -->
-  <section class="seccion seccion--marca seccion--brand inverso" aria-labelledby="h-porque">
-    <div class="tahali tahali--atenuado" aria-hidden="true"></div>
-    <div class="seccion__cabeza" data-entra><div class="encabezado encabezado--filete"><h2 class="t-h2" id="h-porque">¿Por qué Posgrados Panamericana?</h2><p class="encabezado__apoyo">Seis razones, de la más concreta a la más institucional. <span class="ds__tag ds__tag--placeholder">PLACEHOLDER</span> — las redacta el cliente; sin cifras ni acreditaciones sin fuente.</p></div></div>
-    <ol class="razones" data-entra-grupo>
-      <li class="razon"><div><h3>Título de la primera razón, hasta cincuenta caracteres</h3><p>Texto de longitud realista, entre ochenta y doscientos caracteres, que explica la razón sin cifras ni rankings hasta que el cliente los respalde con una fuente.</p></div></li>
-      <li class="razon"><div><h3>Horarios pensados para quien trabaja</h3><p>Texto de longitud realista que describe la modalidad vespertina y de fin de semana, tal como aparece hoy en las fichas de programa.</p></div></li>
-      <li class="razon"><div><h3>Un asesor con nombre desde el primer contacto</h3><p>Texto de longitud realista sobre la atención personalizada que el sitio actual ya ofrece en cada ficha.</p></div></li>
-      <li class="razon"><div><h3>Tres campus, una misma exigencia</h3><p>Texto de longitud realista sobre CDMX, Guadalajara y Aguascalientes.</p></div></li>
-      <li class="razon"><div><h3>Título de la quinta razón</h3><p>Texto de longitud realista, entre ochenta y doscientos caracteres.</p></div></li>
-      <li class="razon"><div><h3>Título de la sexta razón</h3><p>Texto de longitud realista, entre ochenta y doscientos caracteres.</p></div></li>
-    </ol>
-  </section>
-
-  <!-- 3b. Sedes · banda tipográfica (propuesta B&O) -->
-  <section class="ciudades" aria-labelledby="h-ciudades">
-    <div class="seccion__cabeza" data-entra style="max-width:var(--contenedor-maximo)"><div class="encabezado encabezado--filete"><h2 class="t-h2" id="h-ciudades">Tres campus, cuatro sedes</h2></div><span class="ds__tag">Propuesta B&amp;O · no estaba en la estructura del cliente</span></div>
-    <ul data-entra-grupo style="max-width:var(--contenedor-maximo)">
-      <li><a href="#sedes"><span class="t-display--l">Ciudad de México</span><span class="ciudades__meta"><b>75</b>programas · Mixcoac y Santa Fe</span></a></li>
-      <li><a href="#sedes"><span class="t-display--l">Guadalajara</span><span class="ciudades__meta"><b>44</b>programas</span></a></li>
-      <li><a href="#sedes"><span class="t-display--l">Aguascalientes</span><span class="ciudades__meta"><b>31</b>programas</span></a></li>
-    </ul>
-  </section>
-
-  <!-- 4. Testimonios -->
-  <section class="seccion seccion--elevada seccion--brand" aria-labelledby="h-testimonios">
-    <div class="seccion__cabeza" data-entra><div class="encabezado encabezado--filete"><h2 class="t-h2" id="h-testimonios">La experiencia de quienes ya cursaron nuestros posgrados</h2><p class="encabezado__apoyo">Testimonios en imagen y en video. <span class="ds__tag ds__tag--placeholder">PLACEHOLDER</span> — esta sección <strong>no se publica</strong> hasta tener personas reales con consentimiento (BRIEF B27).</p></div></div>
-    <ul class="testimonios" data-entra-grupo>
-      <li class="testimonio--destacado"><figure class="testimonio testimonio--destacado"><div class="testimonio__media">Video · póster · subtítulos<button class="boton boton--primario testimonio__reproducir" type="button">Reproducir testimonio</button></div><blockquote>«Cita de entre ciento veinte y doscientos ochenta caracteres, en la voz de la persona egresada, sobre qué cambió en su trabajo después del programa.»</blockquote><figcaption><span class="testimonio__nombre">Nombre y apellido</span><span class="testimonio__programa">Maestría en Finanzas · Guadalajara</span></figcaption></figure></li>
-      <li><figure class="testimonio"><div class="testimonio__media testimonio__media--retrato">Foto 1:1</div><blockquote>«Cita de longitud realista de una persona egresada, con nombre, programa y sede, que el cliente entregará con consentimiento.»</blockquote><figcaption><span class="testimonio__nombre">Nombre y apellido</span><span class="testimonio__programa">Especialidad en Ciencia de Datos · CDMX</span></figcaption></figure></li>
-      <li><figure class="testimonio"><div class="testimonio__media testimonio__media--retrato">Foto 1:1</div><blockquote>«Cita de longitud realista de una persona egresada, con nombre, programa y sede.»</blockquote><figcaption><span class="testimonio__nombre">Nombre y apellido</span><span class="testimonio__programa">Doctorado en Ingeniería · Aguascalientes</span></figcaption></figure></li>
-    </ul>
-  </section>
-
-  <!-- 5. Noticias -->
-  <section class="seccion" aria-labelledby="h-noticias" id="noticias">
-    <div class="seccion__cabeza" data-entra><div class="encabezado encabezado--filete"><h2 class="t-h2" id="h-noticias">Noticias</h2></div><a href="#">Ver todas las noticias</a></div>
-    <ul class="contenidos" data-entra-grupo>
-      <li><article class="contenido"><time datetime="2026-09-15">15 de septiembre de 2026</time><h3 class="contenido__titulo"><a href="#">Título de noticia de longitud realista, hasta noventa caracteres</a></h3><p class="t-pequeno" style="color:var(--contenido-secundario)">Resumen de hasta ciento sesenta caracteres. <span class="ds__tag ds__tag--placeholder">PLACEHOLDER</span> — desde el blog de HubSpot o HubDB (B24).</p></article></li>
-      <li><article class="contenido"><time datetime="2026-09-08">8 de septiembre de 2026</time><h3 class="contenido__titulo"><a href="#">Segundo título de noticia de longitud realista</a></h3><p class="t-pequeno" style="color:var(--contenido-secundario)">Resumen de hasta ciento sesenta caracteres que anticipa el contenido.</p></article></li>
-      <li><article class="contenido"><time datetime="2026-09-01">1 de septiembre de 2026</time><h3 class="contenido__titulo"><a href="#">Tercer título de noticia</a></h3><p class="t-pequeno" style="color:var(--contenido-secundario)">Resumen de hasta ciento sesenta caracteres.</p></article></li>
-    </ul>
-  </section>
-
-  <!-- 6. Preguntas frecuentes -->
-  <section class="seccion seccion--media" aria-labelledby="h-faq">
-    <div class="encabezado" style="margin-bottom:var(--espacio-modulo)" data-entra><h2 class="t-h2" id="h-faq">Preguntas frecuentes sobre posgrados Panamericana</h2><p class="encabezado__apoyo"><span class="ds__tag ds__tag--placeholder">PLACEHOLDER</span> — las preguntas reales salen de lo que escucha Admisiones (B2).</p></div>
-    <div class="acordeon" data-entra style="--i:1">
-      <div class="acordeon__item"><h3><button class="acordeon__boton" aria-expanded="true" aria-controls="faq-1">¿Puedo estudiar un posgrado mientras trabajo?<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 7l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2"/></svg></button></h3><div class="acordeon__panel" id="faq-1"><div><p>Respuesta de longitud realista, entre ochenta y cuatrocientos caracteres, que resuelve la duda con datos concretos: horarios vespertinos y de sábado, duración y modalidad.</p></div></div></div>
-      <div class="acordeon__item"><h3><button class="acordeon__boton" aria-expanded="false" aria-controls="faq-2">¿Qué requisitos de admisión hay?<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 7l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2"/></svg></button></h3><div class="acordeon__panel" id="faq-2" data-cerrado><div><p>Respuesta de longitud realista.</p></div></div></div>
-      <div class="acordeon__item"><h3><button class="acordeon__boton" aria-expanded="false" aria-controls="faq-3">¿Hay becas o financiamiento?<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 7l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2"/></svg></button></h3><div class="acordeon__panel" id="faq-3" data-cerrado><div><p>Respuesta de longitud realista.</p></div></div></div>
-      <div class="acordeon__item"><h3><button class="acordeon__boton" aria-expanded="false" aria-controls="faq-4">¿Los programas tienen RVOE?<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 7l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2"/></svg></button></h3><div class="acordeon__panel" id="faq-4" data-cerrado><div><p>Respuesta de longitud realista.</p></div></div></div>
-      <div class="acordeon__item"><h3><button class="acordeon__boton" aria-expanded="false" aria-controls="faq-5">¿Cuándo inician las siguientes generaciones?<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 7l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2"/></svg></button></h3><div class="acordeon__panel" id="faq-5" data-cerrado><div><p>Respuesta de longitud realista.</p></div></div></div>
+  <!-- ============ III · Índice ============ -->
+  <section class="capitulo indice" id="indice" aria-labelledby="h-indice" data-capitulo="III · Índice">
+    <figure class="margen-foto" id="margen-indice" aria-hidden="true"><img src="img/mosaico-01.jpg" alt=""></figure>
+    <div class="contenedor">
+      <div class="indice__cabeza"><p class="cap-etiqueta">III · Índice</p><h2 class="indice-linea" id="h-indice" style="font-weight:600;max-width:20ch">Todo el posgrado de la UP, en dos ejes.</h2></div>
+      <div class="indice__ejes">
+        <div class="indice__eje"><h3>Por nivel</h3><ul>
+          <li><a href="#" data-img="img/mosaico-02.jpg"><span class="indice-linea">Doctorados<small>Investigación y docencia</small></span><span class="cifra" data-cuenta="10">10</span></a></li>
+          <li><a href="#" data-img="img/mosaico-04.jpg"><span class="indice-linea">Maestrías<small>Incluye Máster</small></span><span class="cifra" data-cuenta="84">84</span></a></li>
+          <li><a href="#" data-img="img/mosaico-05.jpg"><span class="indice-linea">Especialidades<small>Incluye Especialización</small></span><span class="cifra" data-cuenta="41">41</span></a></li>
+          <li><a href="#" data-img="img/mosaico-03.jpg"><span class="indice-linea">Educación continua<small>Diplomados, cursos y acreditaciones</small></span><span class="cifra" data-cuenta="15">15</span></a></li>
+        </ul></div>
+        <div class="indice__eje"><h3>Por ciudad</h3><ul>
+          <li><a href="#" data-img="img/mosaico-01.jpg"><span class="indice-linea">Ciudad de México<small>Mixcoac y Santa Fe</small></span><span class="cifra" data-cuenta="75">75</span></a></li>
+          <li><a href="#"><span class="indice-linea">Guadalajara<small>Ciudad Granja, Zapopan</small></span><span class="cifra" data-cuenta="44">44</span></a></li>
+          <li><a href="#"><span class="indice-linea">Aguascalientes<small>Villas Bonaterra</small></span><span class="cifra" data-cuenta="31">31</span></a></li>
+        </ul></div>
+      </div>
+      <p class="indice__pie"><a class="enlace-filete" href="#">Ver los 150 programas</a></p>
     </div>
   </section>
 
-  <!-- 7. Solicitar información -->
-  <section class="seccion seccion--elevada seccion--media" aria-labelledby="h-form" id="form">
-    <div class="encabezado" style="margin-bottom:var(--espacio-grupo)" data-entra><h2 class="t-h2" id="h-form" tabindex="-1">Solicita información</h2><p class="encabezado__apoyo">Un asesor del campus y área que elijas te contacta en menos de 24 horas hábiles. <span class="ds__tag ds__tag--placeholder">PLACEHOLDER</span></p></div>
-    <form class="formulario" onsubmit="return false">
-      <div class="formulario__fila">
-        <div class="campo"><label class="campo__etiqueta" for="f-nombre">Nombre(s) <span>(obligatorio)</span></label><input class="campo__control" id="f-nombre" type="text" autocomplete="given-name" required></div>
-        <div class="campo"><label class="campo__etiqueta" for="f-apellido">Apellido paterno <span>(obligatorio)</span></label><input class="campo__control" id="f-apellido" type="text" autocomplete="family-name" required></div>
+  <!-- ============ IV · Lugar ============ -->
+  <section class="capitulo lugar" id="lugar" aria-labelledby="h-lugar" data-capitulo="IV · Lugar" style="--foco: 50% 55%">
+    <div class="escenario" data-parallax><img src="img/mosaico-01.jpg" width="960" height="640" alt="Salón de posgrados del campus Mixcoac durante una clase" loading="lazy"></div>
+    <div class="banda banda--multiply banda--traza" data-traza-en-vista aria-hidden="true"></div>
+    <div class="lugar__voz">
+      <p class="cap-etiqueta">IV · Mixcoac, Ciudad de México</p>
+      <h2 class="linea" id="h-lugar">Clases entre semana por la noche y los sábados. <span class="ds__tag ds__tag--placeholder" style="border-color:rgba(247,245,240,.5);color:inherit;font-family:var(--fuente-texto);font-style:normal">PLACEHOLDER</span></h2>
+    </div>
+  </section>
+
+  <!-- ============ V · Voces ============ -->
+  <section class="capitulo voces" id="voces" aria-labelledby="h-voces" data-capitulo="V · Voces">
+    <div class="contenedor">
+      <div class="voces__cabeza"><div><p class="cap-etiqueta">V · Voces</p><h2 class="indice-linea" id="h-voces" style="margin-top:var(--espacio-base)">La experiencia de quienes ya cursaron nuestros posgrados</h2></div><div class="voces__control solo-escritorio"><button type="button" id="voz-ant" aria-label="Testimonio anterior">←</button><span class="pos" id="voz-pos">1 / 3</span><button type="button" id="voz-sig" aria-label="Siguiente testimonio">→</button></div></div>
+      <ul class="voces__lista" id="voces-lista">
+        <li class="voz voz--activa"><div class="voz__retrato">Retrato 1:1<br>con consentimiento</div><blockquote class="cita">«Cita de entre ciento veinte y doscientos ochenta caracteres, en la voz de una persona egresada, sobre lo que cambió en su trabajo después del programa. Sin inventar nombres.»</blockquote><figcaption><b>Nombre y apellido</b><span>Maestría en Finanzas · Guadalajara</span><span class="ds__tag ds__tag--placeholder">PLACEHOLDER</span></figcaption></li>
+        <li class="voz voz--video"><div class="voz__poster">Video · póster · subtítulos obligatorios<button class="boton boton--primario" type="button">Reproducir testimonio</button></div><blockquote>Una línea que resume el testimonio en video, en la voz de la persona.</blockquote><figcaption><b>Nombre y apellido</b><span>Especialidad en Ciencia de Datos · CDMX</span></figcaption></li>
+        <li class="voz"><div class="voz__retrato">Retrato 1:1</div><blockquote class="cita">«Cita de longitud realista de una persona egresada, con nombre, programa y sede, que el cliente entregará con consentimiento.»</blockquote><figcaption><b>Nombre y apellido</b><span>Doctorado en Ingeniería · Aguascalientes</span></figcaption></li>
+      </ul>
+      <p class="t-pequeno solo-movil" style="color:var(--contenido-terciario)">Desliza para ver más voces.</p>
+      <p class="t-pequeno" style="color:var(--contenido-terciario)">Esta sección no se publica hasta tener personas reales con consentimiento (BRIEF B27).</p>
+    </div>
+  </section>
+
+  <!-- ============ VI · Actualidad ============ -->
+  <section class="capitulo actualidad" id="actualidad" aria-labelledby="h-actualidad" data-capitulo="VI · Actualidad">
+    <figure class="margen-foto" id="margen-actualidad" aria-hidden="true"><img src="img/mosaico-06.jpg" alt=""></figure>
+    <div class="contenedor">
+      <div class="actualidad__cabeza"><div><p class="cap-etiqueta">VI · Actualidad</p><h2 class="indice-linea" id="h-actualidad" style="margin-top:var(--espacio-base)">Noticias</h2></div><a class="enlace-filete" href="#">Todas las noticias</a></div>
+      <ol>
+        <li><a href="#" data-img="img/mosaico-06.jpg"><span class="mini" aria-hidden="true"></span><time datetime="2026-09-15">15 sep 2026</time><span class="titulo">Título de noticia de longitud realista, hasta noventa caracteres <span class="ds__tag ds__tag--placeholder">PLACEHOLDER</span></span></a></li>
+        <li><a href="#" data-img="img/mosaico-03.jpg"><span class="mini" aria-hidden="true"></span><time datetime="2026-09-08">8 sep 2026</time><span class="titulo">Segundo título de noticia de longitud realista</span></a></li>
+        <li><a href="#" data-img="img/mosaico-02.jpg"><span class="mini" aria-hidden="true"></span><time datetime="2026-09-01">1 sep 2026</time><span class="titulo">Tercer título de noticia</span></a></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ VII · Dudas ============ -->
+  <section class="capitulo dudas" id="dudas" aria-labelledby="h-dudas" data-capitulo="VII · Dudas">
+    <div class="contenedor grid12">
+      <div class="dudas__titulo"><p class="cap-etiqueta">VII · Dudas</p><h2 class="indice-linea" id="h-dudas">Preguntas frecuentes sobre posgrados Panamericana</h2><p style="color:var(--contenido-terciario);max-width:20rem"><span class="ds__tag ds__tag--placeholder">PLACEHOLDER</span> — las preguntas reales salen de lo que escucha Admisiones (B2).</p><span class="dudas__filete" aria-hidden="true"></span></div>
+      <div class="dudas__lista">
+        <div class="acordeon">
+          <div class="acordeon__item"><h3><button class="acordeon__boton" aria-expanded="true" aria-controls="faq-1"><span class="n">01</span><span class="q">¿Puedo estudiar un posgrado mientras trabajo?</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 7l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2"/></svg></button></h3><div class="acordeon__panel" id="faq-1"><div><p>Respuesta de longitud realista, entre ochenta y cuatrocientos caracteres, que resuelve la duda con datos concretos: horarios vespertinos y de sábado, duración y modalidad.</p></div></div></div>
+          <div class="acordeon__item"><h3><button class="acordeon__boton" aria-expanded="false" aria-controls="faq-2"><span class="n">02</span><span class="q">¿Qué requisitos de admisión hay?</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 7l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2"/></svg></button></h3><div class="acordeon__panel" id="faq-2" data-cerrado><div><p>Respuesta de longitud realista.</p></div></div></div>
+          <div class="acordeon__item"><h3><button class="acordeon__boton" aria-expanded="false" aria-controls="faq-3"><span class="n">03</span><span class="q">¿Hay becas o financiamiento?</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 7l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2"/></svg></button></h3><div class="acordeon__panel" id="faq-3" data-cerrado><div><p>Respuesta de longitud realista.</p></div></div></div>
+          <div class="acordeon__item"><h3><button class="acordeon__boton" aria-expanded="false" aria-controls="faq-4"><span class="n">04</span><span class="q">¿Los programas tienen RVOE?</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 7l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2"/></svg></button></h3><div class="acordeon__panel" id="faq-4" data-cerrado><div><p>Respuesta de longitud realista.</p></div></div></div>
+          <div class="acordeon__item"><h3><button class="acordeon__boton" aria-expanded="false" aria-controls="faq-5"><span class="n">05</span><span class="q">¿Cuándo inician las siguientes generaciones?</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 7l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2"/></svg></button></h3><div class="acordeon__panel" id="faq-5" data-cerrado><div><p>Respuesta de longitud realista.</p></div></div></div>
+        </div>
       </div>
-      <div class="campo"><label class="campo__etiqueta" for="f-apellido2">Apellido materno</label><input class="campo__control" id="f-apellido2" type="text" autocomplete="additional-name"></div>
-      <div class="campo"><label class="campo__etiqueta" for="f-correo">Correo electrónico <span>(obligatorio)</span></label><input class="campo__control" id="f-correo" type="email" autocomplete="email" required><p class="campo__ayuda">Te enviamos la información a este correo.</p></div>
-      <div class="campo"><label class="campo__etiqueta" for="f-tel">Número de teléfono</label><input class="campo__control" id="f-tel" type="tel" autocomplete="tel"><p class="campo__ayuda">Te contacta un asesor por WhatsApp o llamada.</p></div>
-      <div class="formulario__fila">
-        <div class="campo"><label class="campo__etiqueta" for="f-campus">Campus <span>(obligatorio)</span></label><select class="campo__control" id="f-campus" required><option value="">Selecciona</option><option>CDMX</option><option>Guadalajara</option><option>Aguascalientes</option></select></div>
-        <div class="campo"><label class="campo__etiqueta" for="f-programa">Programa de interés <span>(obligatorio)</span></label><select class="campo__control" id="f-programa" required><option value="">Selecciona</option><optgroup label="Derecho"><option>Maestría en Derecho Fiscal</option><option>Maestría en Derecho de la Empresa</option></optgroup><optgroup label="Empresariales"><option>Maestría en Finanzas</option><option>Maestría en Impuestos</option></optgroup><optgroup label="Ingeniería"><option>Maestría en Ciencia de Datos</option></optgroup></select><p class="campo__ayuda">Si aún no lo decides, elige el área.</p></div>
+    </div>
+  </section>
+
+  <!-- ============ VIII · Cierre ============ -->
+  <section class="capitulo cierre" id="cierre" aria-labelledby="h-cierre" data-capitulo="VIII · Cierre">
+    <div class="banda banda--traza" data-traza-en-vista aria-hidden="true"></div>
+    <div class="contenedor">
+      <div class="cierre__voz">
+        <p class="cap-etiqueta">VIII · Hablemos</p>
+        <h2 class="cap-titulo" id="h-cierre" tabindex="-1">Hablemos.</h2>
+        <p>Un asesor del campus y área que elijas te contacta en menos de 24 horas hábiles. <span class="ds__tag ds__tag--placeholder" style="border-color:rgba(247,245,240,.5);color:inherit">PLACEHOLDER</span></p>
+        <div class="cierre__asesor"><div class="retrato">Retrato</div><div><b>Nombre del asesor</b><small>Asesor de admisión · placeholder hasta G4</small></div></div>
       </div>
-      <div class="formulario__fila">
-        <div class="campo"><label class="campo__etiqueta" for="f-perfil">Perfil laboral <span>(obligatorio)</span></label><select class="campo__control" id="f-perfil" required><option value="">Selecciona</option><option>En preparación (menos de 5 años de experiencia)</option><option>En desarrollo (5 a 10 años de experiencia)</option><option>En consolidación (más de 10 años de experiencia)</option></select></div>
-        <div class="campo"><label class="campo__etiqueta" for="f-ciclo">¿Cuándo te gustaría empezar?</label><select class="campo__control" id="f-ciclo"><option value="">Selecciona</option><option>2026</option><option>2027</option></select></div>
-      </div>
-      <div class="campo campo--casilla"><input type="checkbox" id="f-priv" required><label for="f-priv">He leído el <a href="#">aviso de privacidad para aspirantes</a> y acepto el tratamiento de mis datos para recibir información sobre el programa.</label></div>
-      <button class="boton boton--primario boton--bloque" type="submit">Solicitar información</button>
-    </form>
+      <form class="formulario" onsubmit="return false" aria-label="Solicitar información">
+        <div class="formulario__fila">
+          <div class="campo"><label class="campo__etiqueta" for="f-nombre">Nombre(s) <span>(obligatorio)</span></label><input class="campo__control" id="f-nombre" type="text" autocomplete="given-name" required></div>
+          <div class="campo"><label class="campo__etiqueta" for="f-apellido">Apellido paterno <span>(obligatorio)</span></label><input class="campo__control" id="f-apellido" type="text" autocomplete="family-name" required></div>
+        </div>
+        <div class="formulario__fila">
+          <div class="campo"><label class="campo__etiqueta" for="f-correo">Correo electrónico <span>(obligatorio)</span></label><input class="campo__control" id="f-correo" type="email" autocomplete="email" required></div>
+          <div class="campo"><label class="campo__etiqueta" for="f-tel">Número de teléfono</label><input class="campo__control" id="f-tel" type="tel" autocomplete="tel"><p class="campo__ayuda">Te contacta un asesor por WhatsApp o llamada.</p></div>
+        </div>
+        <div class="formulario__fila">
+          <div class="campo"><label class="campo__etiqueta" for="f-campus">Campus <span>(obligatorio)</span></label><select class="campo__control" id="f-campus" required><option value="">Selecciona</option><option>CDMX</option><option>Guadalajara</option><option>Aguascalientes</option></select></div>
+          <div class="campo"><label class="campo__etiqueta" for="f-programa">Programa de interés <span>(obligatorio)</span></label><select class="campo__control" id="f-programa" required><option value="">Selecciona</option><optgroup label="Derecho"><option>Maestría en Derecho Fiscal</option><option>Maestría en Derecho de la Empresa</option></optgroup><optgroup label="Empresariales"><option>Maestría en Finanzas</option><option>Maestría en Impuestos</option></optgroup><optgroup label="Ingeniería"><option>Maestría en Ciencia de Datos</option></optgroup></select></div>
+        </div>
+        <div class="formulario__fila">
+          <div class="campo"><label class="campo__etiqueta" for="f-perfil">Perfil laboral <span>(obligatorio)</span></label><select class="campo__control" id="f-perfil" required><option value="">Selecciona</option><option>En preparación (menos de 5 años de experiencia)</option><option>En desarrollo (5 a 10 años de experiencia)</option><option>En consolidación (más de 10 años de experiencia)</option></select></div>
+          <div class="campo"><label class="campo__etiqueta" for="f-ciclo">¿Cuándo te gustaría empezar?</label><select class="campo__control" id="f-ciclo"><option value="">Selecciona</option><option>2026</option><option>2027</option></select></div>
+        </div>
+        <div class="campo campo--casilla"><input type="checkbox" id="f-priv" required><label for="f-priv">He leído el <a href="#">aviso de privacidad para aspirantes</a> y acepto el tratamiento de mis datos para recibir información sobre el programa.</label></div>
+        <div><button class="boton boton--primario" type="submit">Solicitar información</button></div>
+      </form>
+    </div>
   </section>
 
 </main>
 
-<!-- ===================== Pie (estructura del cliente + fila propuesta) ===================== -->
-<footer class="pie inverso" id="sedes">
-  <div style="display:grid;gap:var(--espacio-base)">
-    <p class="cabecera__marca" style="font-size:var(--texto-h3);font-weight:500">Universidad Panamericana</p>
-    <nav aria-label="Pie de página"><ul style="display:flex;flex-wrap:wrap;gap:var(--espacio-bloque);font-size:var(--texto-pequeno)"><li><a href="#">Oferta académica</a></li><li><a href="#">Admisiones</a></li><li><a href="#sedes">Campus</a></li><li><a href="#">Comunidad</a></li><li><a href="#">Contacto</a></li><li><a href="#">Aviso de privacidad</a></li></ul></nav>
+<!-- ============ Pie ============ -->
+<footer class="pie-camino" id="pie">
+  <div class="contenedor">
+    <div style="display:grid;gap:var(--espacio-base)">
+      <p class="marca-texto">Universidad Panamericana</p>
+      <nav aria-label="Pie de página"><ul><li><a href="#">Oferta académica</a></li><li><a href="#">Admisiones</a></li><li><a href="#">Campus</a></li><li><a href="#">Comunidad</a></li><li><a href="#">Contacto</a></li><li><a href="#">Aviso de privacidad</a></li></ul></nav>
+    </div>
+    <div class="sedes">
+      <address>CDMX · Mixcoac<br>Augusto Rodin 498, Col. Insurgentes Mixcoac, C.P. 03920<br><a href="tel:+525554821600">+52 (55) 5482 1600</a></address>
+      <address>CDMX · Santa Fe<br>Av. Javier Barros Sierra 540, piso 3, Col. Santa Fe, C.P. 01210</address>
+      <address>Guadalajara<br>Av. Álvaro del Portillo 49, Ciudad Granja, Zapopan, C.P. 45010<br><a href="tel:+523313682200">+52 (33) 1368 2200</a></address>
+      <address>Aguascalientes<br>José María Escrivá de Balaguer 101, Villas Bonaterra, C.P. 20296<br><a href="tel:+524499106200">+52 (449) 910 6200</a></address>
+    </div>
+    <p class="legal"><span>© Centros Culturales de México A.C.</span><a href="#">Cookies</a></p>
   </div>
-  <div class="pie__cols" style="padding-top:var(--espacio-grupo);border-top:1px solid rgba(247,245,240,0.2)">
-    <address>CDMX · Mixcoac<br>Augusto Rodin 498, Col. Insurgentes Mixcoac, C.P. 03920<br><a href="tel:+525554821600">+52 (55) 5482 1600</a></address>
-    <address>CDMX · Santa Fe<br>Av. Javier Barros Sierra 540, piso 3, Col. Santa Fe, C.P. 01210</address>
-    <address>Guadalajara<br>Av. Álvaro del Portillo 49, Ciudad Granja, Zapopan, C.P. 45010<br><a href="tel:+523313682200">+52 (33) 1368 2200</a></address>
-    <address>Aguascalientes<br>José María Escrivá de Balaguer 101, Villas Bonaterra, C.P. 20296<br><a href="tel:+524499106200">+52 (449) 910 6200</a></address>
-  </div>
-  <p class="pie__legal"><span>© Centros Culturales de México A.C.</span><span><a href="#">Cookies</a></span><span class="ds__tag" style="border-color:rgba(247,245,240,.4);color:inherit">Fila de sedes y legales: propuesta B&amp;O, no estaba en el wireframe</span></p>
 </footer>
 
-
-
 <script>
-// Titular palabra por palabra (una vez)
-document.querySelectorAll('[data-palabras]').forEach(h => { const w = h.textContent.trim().split(/\s+/); h.innerHTML = w.map((p, i) => `<span class="palabra"><span style="--i:${i}">${p}</span></span>`).join(' '); });
+// Modo de captura (solo verificación): ?captura=1 fija alturas de viewport y desactiva transiciones
+if (location.search.includes('captura=1')) { const st = document.createElement('style'); st.textContent = '*{transition:none!important;animation:none!important} .apertura{min-height:800px!important} .razon{min-height:'+(innerWidth<600?420:800)+'px!important} .manifiesto__titulo{position:static!important;height:auto!important;padding-top:96px!important} .voces{min-height:0!important} .voces .contenedor{position:static!important;min-height:0!important} .lugar{min-height:640px!important} .capitulo--brand{min-height:0!important}'; document.head.appendChild(st); addEventListener('load', () => { document.querySelectorAll('.banda--traza,.apertura').forEach(e => e.classList.add('trazada')); document.querySelectorAll('.razon').forEach(r => r.classList.add('razon--activa')); }); }
+const reducido = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const esEscritorio = () => matchMedia('(min-width: 900px)').matches;
 
-// Cabecera pegajosa: pliega la barra institucional tras 120 px
-const cab = document.querySelector('.cabecera');
-addEventListener('scroll', () => cab.classList.toggle('cabecera--compacta', scrollY > 120), { passive: true });
+// Titular palabra por palabra (una vez); conserva las líneas
+document.querySelectorAll('[data-palabras] .linea').forEach(l => { const w = l.textContent.trim().split(/\s+/); l.innerHTML = w.map(p => `<span class="palabra"><span>${p}</span></span>`).join(' '); });
+let i = 0; document.querySelectorAll('[data-palabras] .palabra > span').forEach(s => s.style.setProperty('--i', i++));
 
-// Entrada de módulos: una vez, al 20 % visible; fail-safe a 2 s
-const entradas = [...document.querySelectorAll('[data-entra], [data-entra-grupo]')];
-const ioEntra = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('en-vista'); ioEntra.unobserve(e.target); } }), { threshold: 0.2, rootMargin: '0px 0px -8% 0px' });
-entradas.forEach(el => ioEntra.observe(el));
-setTimeout(() => entradas.forEach(el => { if (el.getBoundingClientRect().top < innerHeight) el.classList.add('en-vista'); }), 2000);
+// Telón: la banda de apertura se traza al cargar; las de Lugar y Cierre, al entrar en vista
+const apertura = document.getElementById('apertura');
+requestAnimationFrame(() => requestAnimationFrame(() => apertura.classList.add('trazada')));
+setTimeout(() => apertura.classList.add('trazada'), 1200);
+const ioTraza = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('trazada'); ioTraza.unobserve(e.target); } }), { threshold: 0.4 });
+document.querySelectorAll('[data-traza-en-vista]').forEach(b => ioTraza.observe(b));
 
-// Cifras que cuentan (una vez)
-const reducidoMov = matchMedia('(prefers-reduced-motion: reduce)').matches;
+// Cabecera: se pliega tras 120 px; muestra el capítulo actual
+const cab = document.getElementById('cab'), cabCap = document.getElementById('cab-capitulo');
+addEventListener('scroll', () => cab.classList.toggle('cab--plegada', scrollY > 120), { passive: true });
+const capitulos = [...document.querySelectorAll('[data-capitulo]')];
+const enlacesIndice = [...document.querySelectorAll('.capa__indice a')];
+const spy = new IntersectionObserver(es => es.forEach(e => { if (!e.isIntersecting) return; cabCap.textContent = e.target.dataset.capitulo; enlacesIndice.forEach(a => { if (a.getAttribute('href') === '#' + e.target.id) a.setAttribute('aria-current', 'location'); else a.removeAttribute('aria-current'); }); }), { rootMargin: '-45% 0px -45% 0px' });
+capitulos.forEach(c => spy.observe(c));
+
+// Desplazamiento ≤ 6 % de las fotos de escenario
+if (!reducido) {
+  const escenarios = [...document.querySelectorAll('[data-parallax]')];
+  let pendiente = false;
+  const mover = () => { pendiente = false; escenarios.forEach(el => { const r = el.getBoundingClientRect(); if (r.bottom < 0 || r.top > innerHeight) return; const p = (r.top + r.height / 2 - innerHeight / 2) / innerHeight; el.querySelector('img').style.setProperty('--parallax', `${(-p * r.height * 0.06).toFixed(1)}px`); }); };
+  addEventListener('scroll', () => { if (!pendiente) { pendiente = true; requestAnimationFrame(mover); } }, { passive: true }); mover();
+}
+
+// Manifiesto: razón activa (escritorio)
+const razones = [...document.querySelectorAll('.razon')];
+const ioRazon = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { razones.forEach(r => r.classList.remove('razon--activa')); e.target.classList.add('razon--activa'); } }), { rootMargin: '-40% 0px -40% 0px' });
+razones.forEach(r => ioRazon.observe(r));
+
+// Índice y Actualidad: foto al margen al pasar el cursor (solo escritorio ancho)
+function fotoMargen(idSeccion, idFigura) {
+  const sec = document.getElementById(idSeccion), fig = document.getElementById(idFigura); if (!sec || !fig) return;
+  sec.querySelectorAll('a[data-img]').forEach(a => {
+    const mostrar = () => { fig.querySelector('img').src = a.dataset.img; const r = a.getBoundingClientRect(), s = sec.getBoundingClientRect(); fig.style.top = `${Math.max(0, r.top - s.top - 80)}px`; fig.classList.add('visible'); };
+    a.addEventListener('mouseenter', mostrar); a.addEventListener('focus', mostrar);
+    a.addEventListener('mouseleave', () => fig.classList.remove('visible')); a.addEventListener('blur', () => fig.classList.remove('visible'));
+  });
+}
+fotoMargen('indice', 'margen-indice'); fotoMargen('actualidad', 'margen-actualidad');
+
+// Cifras que cuentan al entrar en vista
 const ioCuenta = new IntersectionObserver(es => es.forEach(e => {
   if (!e.isIntersecting) return; ioCuenta.unobserve(e.target);
-  const fin = +e.target.dataset.cuenta; if (reducidoMov) { e.target.textContent = fin; return; }
+  const fin = +e.target.dataset.cuenta; if (reducido) { e.target.textContent = fin; return; }
   const t0 = performance.now(), dur = 900;
   const paso = t => { const p = Math.min(1, (t - t0) / dur), k = 1 - Math.pow(1 - p, 3); e.target.textContent = Math.round(fin * k); if (p < 1) requestAnimationFrame(paso); };
   e.target.textContent = '0'; requestAnimationFrame(paso);
 }), { threshold: 0.6 });
 document.querySelectorAll('[data-cuenta]').forEach(el => ioCuenta.observe(el));
 
-// Revelado del hero (una vez) con fail-safe
-const revelar = el => { el.classList.remove('revelado'); void el.offsetWidth; requestAnimationFrame(() => el.classList.add('revelado')); };
-const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { revelar(e.target); io.unobserve(e.target); } }), { threshold: 0.35 });
-document.querySelectorAll('.revela').forEach(el => io.observe(el));
-setTimeout(() => document.querySelectorAll('.revela:not(.revelado)').forEach(el => el.classList.add('revelado')), 1500);
-
-// CTA → #form con foco en el encabezado
-const reducido = matchMedia('(prefers-reduced-motion: reduce)').matches;
-document.querySelectorAll('[data-ir-form]').forEach(a => a.addEventListener('click', e => {
-  e.preventDefault(); const h = document.getElementById('h-form');
-  document.getElementById('form').scrollIntoView({ behavior: reducido ? 'auto' : 'smooth', block: 'start' });
-  setTimeout(() => h.focus({ preventScroll: true }), reducido ? 0 : 450);
-  if (!document.getElementById('menu-movil').hidden) cerrarMenu();
-}));
-
-// Menús desplegables
-const desplegables = [...document.querySelectorAll('.desplegable')];
-function cerrarDesplegables(except) { desplegables.forEach(d => { if (d === except) return; d.querySelector('.desplegable__boton').setAttribute('aria-expanded', 'false'); d.querySelector('.desplegable__panel').hidden = true; }); }
-desplegables.forEach(d => {
-  const b = d.querySelector('.desplegable__boton'), p = d.querySelector('.desplegable__panel');
-  b.addEventListener('click', () => { const abierto = b.getAttribute('aria-expanded') === 'true'; cerrarDesplegables(d); b.setAttribute('aria-expanded', String(!abierto)); p.hidden = abierto; if (!abierto) p.querySelector('a').focus(); });
-  let t; d.addEventListener('mouseenter', () => { t = setTimeout(() => { cerrarDesplegables(d); b.setAttribute('aria-expanded', 'true'); p.hidden = false; }, 150); });
-  d.addEventListener('mouseleave', () => { clearTimeout(t); });
-  d.addEventListener('keydown', e => {
-    const links = [...p.querySelectorAll('a')], i = links.indexOf(document.activeElement);
-    if (e.key === 'Escape') { b.setAttribute('aria-expanded', 'false'); p.hidden = true; b.focus(); }
-    if (e.key === 'ArrowDown' && !p.hidden) { e.preventDefault(); (links[i + 1] || links[0]).focus(); }
-    if (e.key === 'ArrowUp' && !p.hidden) { e.preventDefault(); (links[i - 1] || links[links.length - 1]).focus(); }
-  });
-  d.addEventListener('focusout', e => { if (!d.contains(e.relatedTarget)) { b.setAttribute('aria-expanded', 'false'); p.hidden = true; } });
-});
-document.addEventListener('click', e => { if (!e.target.closest('.desplegable')) cerrarDesplegables(); });
-
-// Buscador
-const bBus = document.getElementById('abrir-buscador'), bus = document.getElementById('buscador');
-bBus.addEventListener('click', () => { const ab = bBus.getAttribute('aria-expanded') === 'true'; bBus.setAttribute('aria-expanded', String(!ab)); bus.hidden = ab; if (!ab) document.getElementById('q').focus(); });
-bus.addEventListener('keydown', e => { if (e.key === 'Escape') { bus.hidden = true; bBus.setAttribute('aria-expanded', 'false'); bBus.focus(); } });
+// Voces: escritorio cambia por control; móvil desliza
+const voces = [...document.querySelectorAll('#voces-lista > .voz')]; let vozActual = 0;
+const pos = document.getElementById('voz-pos');
+function irVoz(n) { vozActual = (n + voces.length) % voces.length; voces.forEach((v, k) => v.classList.toggle('voz--activa', k === vozActual)); pos.textContent = `${vozActual + 1} / ${voces.length}`; }
+document.getElementById('voz-ant').addEventListener('click', () => irVoz(vozActual - 1));
+document.getElementById('voz-sig').addEventListener('click', () => irVoz(vozActual + 1));
+document.getElementById('voces').addEventListener('keydown', e => { if (!esEscritorio()) return; if (e.key === 'ArrowRight') irVoz(vozActual + 1); if (e.key === 'ArrowLeft') irVoz(vozActual - 1); });
 
 // Acordeón
-document.querySelectorAll('.acordeon__boton').forEach(b => b.addEventListener('click', () => {
-  const abierto = b.getAttribute('aria-expanded') === 'true';
-  b.setAttribute('aria-expanded', String(!abierto));
-  document.getElementById(b.getAttribute('aria-controls')).toggleAttribute('data-cerrado', abierto);
-}));
+document.querySelectorAll('.acordeon__boton').forEach(b => b.addEventListener('click', () => { const ab = b.getAttribute('aria-expanded') === 'true'; b.setAttribute('aria-expanded', String(!ab)); document.getElementById(b.getAttribute('aria-controls')).toggleAttribute('data-cerrado', ab); }));
 
-// Menú móvil
-const menu = document.getElementById('menu-movil'), abrir = document.getElementById('abrir-menu'), cerrar = document.getElementById('cerrar-menu');
-const focables = () => [...menu.querySelectorAll('a, button')];
-function abrirMenu() { menu.hidden = false; abrir.setAttribute('aria-expanded', 'true'); cerrar.focus(); document.addEventListener('keydown', teclaMenu); }
-function cerrarMenu() { menu.hidden = true; abrir.setAttribute('aria-expanded', 'false'); abrir.focus(); document.removeEventListener('keydown', teclaMenu); }
-function teclaMenu(e) {
-  if (e.key === 'Escape') return cerrarMenu();
-  if (e.key !== 'Tab') return;
-  const f = focables(), primero = f[0], ultimo = f[f.length - 1];
-  if (e.shiftKey && document.activeElement === primero) { e.preventDefault(); ultimo.focus(); }
-  else if (!e.shiftKey && document.activeElement === ultimo) { e.preventDefault(); primero.focus(); }
-}
-abrir.addEventListener('click', abrirMenu); cerrar.addEventListener('click', cerrarMenu);
-menu.addEventListener('click', e => { if (e.target === menu) cerrarMenu(); });
+// CTA → cierre con foco
+document.querySelectorAll('[data-ir-cierre]').forEach(a => a.addEventListener('click', e => { e.preventDefault(); cerrarMenu(); document.getElementById('cierre').scrollIntoView({ behavior: reducido ? 'auto' : 'smooth', block: 'start' }); setTimeout(() => document.getElementById('h-cierre').focus({ preventScroll: true }), reducido ? 0 : 500); }));
+
+// Menú en capa (foco atrapado, Esc, banda que se traza)
+const capa = document.getElementById('capa-menu'), abrir = document.getElementById('abrir-menu'), cerrar = document.getElementById('cerrar-menu');
+let ultimoFoco = null;
+function abrirMenu(grupo) { ultimoFoco = document.activeElement; capa.hidden = false; abrir.setAttribute('aria-expanded', 'true'); document.body.style.overflow = 'hidden'; requestAnimationFrame(() => capa.querySelector('.banda').classList.add('trazada')); (grupo ? document.getElementById('g-' + grupo)?.querySelector('a') : cerrar).focus(); document.addEventListener('keydown', teclaMenu); }
+function cerrarMenu() { if (capa.hidden) return; capa.hidden = true; capa.querySelector('.banda').classList.remove('trazada'); abrir.setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; document.removeEventListener('keydown', teclaMenu); ((ultimoFoco && ultimoFoco !== document.body) ? ultimoFoco : abrir).focus(); }
+function teclaMenu(e) { if (e.key === 'Escape') return cerrarMenu(); if (e.key !== 'Tab') return; const f = [...capa.querySelectorAll('a, button')], p = f[0], u = f[f.length - 1]; if (e.shiftKey && document.activeElement === p) { e.preventDefault(); u.focus(); } else if (!e.shiftKey && document.activeElement === u) { e.preventDefault(); p.focus(); } }
+abrir.addEventListener('click', () => abrirMenu()); cerrar.addEventListener('click', cerrarMenu);
+document.querySelectorAll('[data-abre-menu]').forEach(b => b.addEventListener('click', () => abrirMenu(b.dataset.grupo)));
+capa.querySelectorAll('.capa__indice a').forEach(a => a.addEventListener('click', () => { cerrarMenu(); }));
+document.getElementById('abrir-buscar').addEventListener('click', e => { e.preventDefault(); abrirMenu(); });
 </script>
 </body>
 </html>
