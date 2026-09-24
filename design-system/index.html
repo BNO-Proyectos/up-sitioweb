@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Design system · Posgrados Panamericana</title>
+<meta name="robots" content="noindex, nofollow">
+<style>
+/* ==========================================================================
+   0. Fuentes — archivos del proyecto, servidos localmente. No se publica.
+   ========================================================================== */
+@font-face { font-family: "Panamericana"; src: url("fonts/Panamericana-Regular.ttf") format("truetype"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Panamericana"; src: url("fonts/Panamericana-SemiBold.ttf") format("truetype"); font-weight: 600; font-display: swap; }
+@font-face { font-family: "Panamericana"; src: url("fonts/Panamericana-Italic.ttf") format("truetype"); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: "Seravek"; src: url("fonts/Seravek-Regular.otf") format("opentype"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Seravek"; src: url("fonts/Seravek-RegularItalic.otf") format("opentype"); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: "Seravek"; src: url("fonts/Seravek-Medium.otf") format("opentype"); font-weight: 500; font-display: swap; }
+@font-face { font-family: "Seravek"; src: url("fonts/Seravek-Bold.otf") format("opentype"); font-weight: 700; font-display: swap; }
+
+/* ==========================================================================
+   1. Tokens — nombres y valores de TOKENS.md. Nada visual fuera de aquí.
+   ========================================================================== */
+:root {
+  /* Color · superficie */
+  --superficie-base: #F7F5F0;
+  --superficie-elevada: #FFFFFF;
+  --superficie-marca: #00685E;
+  --superficie-marca-atenuada: #408E86;
+  --superficie-marca-tinte: #E3EEEB;
+  --superficie-profunda: #14211F;
+  --superficie-velo: rgba(20, 33, 31, 0.6);
+  /* Color · contenido */
+  --contenido-primario: #14211F;
+  --contenido-secundario: #3A4A47;
+  --contenido-terciario: #5C6B68;
+  --contenido-marca: #00685E;
+  --contenido-inverso: #F7F5F0;
+  --contenido-acento-inverso: #B9975B;
+  --contenido-error: #A83A2D;
+  /* Color · borde y acento */
+  --borde-suave: #C9D6D3;
+  --borde-campo: #5C6B68;
+  --borde-marca: #00685E;
+  --acento-ceremonial: #B9975B;
+  --acento-ceremonial-metalico: #AB8855;
+  /* Tipografía */
+  --fuente-titulos: "Panamericana", Georgia, "Times New Roman", serif;
+  --fuente-texto: "Seravek", Verdana, "Helvetica Neue", Arial, sans-serif;
+  --texto-display: clamp(2.5rem, 1.45rem + 4.35vw, 4rem);
+  --texto-h1: clamp(1.875rem, 1.26rem + 2.5vw, 2.75rem);
+  --texto-h2: clamp(1.5rem, 1.15rem + 1.45vw, 2rem);
+  --texto-contador: clamp(2rem, 1.65rem + 1.45vw, 2.5rem);
+  --texto-cifra: clamp(1.375rem, 1.2rem + 0.75vw, 1.625rem);
+  --texto-h3: clamp(1.125rem, 1.04rem + 0.36vw, 1.25rem);
+  --texto-cuerpo-grande: clamp(1.125rem, 1.08rem + 0.18vw, 1.1875rem);
+  --texto-cuerpo: 1rem;
+  --texto-etiqueta: 0.875rem;
+  --texto-pequeno: 0.875rem;
+  --texto-boton: 1rem;
+  --medida-texto: 36rem;
+  /* Espaciado */
+  --espacio-hilo: 4px; --espacio-compacto: 8px; --espacio-base: 16px; --espacio-bloque: 24px;
+  --espacio-grupo: 32px; --espacio-modulo: 48px;
+  --espacio-seccion-compacta: 48px; --espacio-seccion: 64px; --espacio-seccion-amplia: 80px;
+  /* Grid */
+  --contenedor-maximo: 1200px; --contenedor-lectura: var(--medida-texto); --contenedor-formulario: 32rem;
+  --margen-lateral: 20px; --canal: var(--espacio-bloque);
+  /* Sistema gráfico */
+  --tahali-angulo: 60deg; --tahali-ancho: 48px; --franco-cuartel-relleno: var(--espacio-modulo);
+  /* Radios · bordes · elevación */
+  --radio-nulo: 0; --radio-campo: 2px; --radio-pastilla: 999px;
+  --borde-fino: 1px; --borde-medio: 1.5px; --borde-grueso: 2px; --borde-acento: 4px;
+  --sombra-nula: none; --sombra-flotante: 0 8px 24px rgba(20, 33, 31, 0.16);
+  /* Movimiento */
+  --duracion-instante: 120ms; --duracion-base: 200ms; --duracion-contador: 400ms;
+  --curva-estandar: cubic-bezier(0.2, 0, 0, 1); --curva-salida: cubic-bezier(0.4, 0, 1, 1);
+  --desplazamiento-entrada: 8px;
+  /* Capas */
+  --capa-base: 0; --capa-relieve: 1; --capa-fija: 10; --capa-desplegable: 20; --capa-banner: 30; --capa-velo: 40; --capa-modal: 50;
+  /* Foco */
+  --foco-anillo: 3px solid var(--contenido-marca);
+  --foco-anillo-inverso: 3px solid var(--contenido-inverso);
+}
+@media (min-width: 600px) { :root { --margen-lateral: 32px; } }
+@media (min-width: 900px) { :root { --margen-lateral: 48px; --tahali-ancho: 72px; --espacio-seccion-compacta: 64px; --espacio-seccion: 96px; --espacio-seccion-amplia: 128px; } }
+@media (min-width: 1200px) { :root { --tahali-ancho: 96px; } }
+@media (prefers-reduced-motion: reduce) { :root { --duracion-instante: 1ms; --duracion-base: 1ms; --duracion-contador: 1ms; --desplazamiento-entrada: 0px; } }
+
+/* ==========================================================================
+   2. Normalización y elementos
+   ========================================================================== */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--superficie-base); color: var(--contenido-primario); font-family: var(--fuente-texto); font-size: var(--texto-cuerpo); line-height: 1.6; }
+h1, h2, h3, h4, p, ul, ol, dl, figure { margin: 0; }
+ul, ol { padding: 0; list-style: none; }
+img { display: block; max-width: 100%; height: auto; }
+button { font: inherit; color: inherit; }
+a { color: var(--contenido-marca); text-decoration: underline; text-underline-offset: 0.15em; text-decoration-thickness: 1px; transition: color var(--duracion-instante) var(--curva-estandar), text-decoration-thickness var(--duracion-instante) var(--curva-estandar); }
+a:hover { color: var(--contenido-primario); text-decoration-thickness: 2px; }
+:focus-visible { outline: var(--foco-anillo); outline-offset: 2px; }
+.inverso :focus-visible, .inverso:focus-visible { outline: var(--foco-anillo-inverso); }
+.oculto-visual { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* Escala tipográfica */
+.t-display { font-family: var(--fuente-titulos); font-size: var(--texto-display); font-weight: 600; line-height: 1.05; letter-spacing: -0.01em; }
+.t-h1 { font-family: var(--fuente-titulos); font-size: var(--texto-h1); font-weight: 600; line-height: 1.1; letter-spacing: -0.005em; }
+.t-h2 { font-family: var(--fuente-titulos); font-size: var(--texto-h2); font-weight: 400; line-height: 1.15; }
+.t-contador { font-family: var(--fuente-titulos); font-size: var(--texto-contador); font-weight: 400; line-height: 1; }
+.t-cifra { font-family: var(--fuente-titulos); font-size: var(--texto-cifra); font-weight: 400; line-height: 1.2; }
+.t-h3 { font-family: var(--fuente-texto); font-size: var(--texto-h3); font-weight: 700; line-height: 1.3; }
+.t-cuerpo-grande { font-size: var(--texto-cuerpo-grande); line-height: 1.55; }
+.t-cuerpo { font-size: var(--texto-cuerpo); line-height: 1.6; }
+.t-etiqueta { font-size: var(--texto-etiqueta); font-weight: 500; line-height: 1.4; }
+.t-pequeno { font-size: var(--texto-pequeno); line-height: 1.5; }
+.t-boton { font-size: var(--texto-boton); font-weight: 500; line-height: 1; }
+
+/* ==========================================================================
+   3. Composición de la página de muestra (no es parte del sistema)
+   ========================================================================== */
+.ds { display: grid; grid-template-columns: 1fr; }
+.ds__nav { display: none; }
+.ds__cuerpo { padding: 0 var(--margen-lateral) var(--espacio-seccion-amplia); max-width: var(--contenedor-maximo); min-width: 0; }
+.ds { overflow-x: clip; }
+.ds__seccion { padding-top: var(--espacio-seccion-amplia); border-top: var(--borde-fino) solid var(--borde-suave); margin-top: var(--espacio-seccion-amplia); }
+.ds__seccion:first-of-type { border-top: 0; margin-top: 0; }
+.ds__sub { margin-top: var(--espacio-seccion-compacta); }
+.ds__nota { color: var(--contenido-terciario); font-size: var(--texto-pequeno); max-width: var(--contenedor-lectura); margin-top: var(--espacio-compacto); }
+.ds__meta { display: flex; flex-wrap: wrap; gap: var(--espacio-compacto) var(--espacio-bloque); color: var(--contenido-terciario); font-size: var(--texto-pequeno); margin-top: var(--espacio-base); }
+.ds__meta strong { color: var(--contenido-primario); font-weight: 500; }
+.ds__tag { display: inline-block; font-size: var(--texto-pequeno); font-weight: 500; padding: 2px 8px; border: var(--borde-fino) solid var(--borde-campo); border-radius: var(--radio-campo); color: var(--contenido-secundario); }
+.ds__tag--placeholder { border-style: dashed; }
+.ds__lienzo { background: var(--superficie-elevada); border: var(--borde-fino) solid var(--borde-suave); padding: var(--espacio-bloque); margin-top: var(--espacio-bloque); }
+.ds__lienzo--papel { background: var(--superficie-base); }
+.ds__lienzo--sangre { padding: 0 0 var(--espacio-modulo); overflow: hidden; }
+.ds__fila { display: flex; flex-wrap: wrap; gap: var(--espacio-base); align-items: flex-start; }
+.ds__col { display: grid; gap: var(--espacio-base); }
+.ds__estado { font-size: var(--texto-pequeno); color: var(--contenido-terciario); margin-bottom: var(--espacio-hilo); }
+.ds__scroll { overflow-x: auto; margin-top: var(--espacio-bloque); }
+.ds__tabla { width: 100%; min-width: 640px; border-collapse: collapse; font-size: var(--texto-pequeno); }
+.ds__tabla th, .ds__tabla td { text-align: left; vertical-align: top; padding: var(--espacio-compacto) var(--espacio-base) var(--espacio-compacto) 0; border-bottom: var(--borde-fino) solid var(--borde-suave); }
+.ds__tabla th { font-weight: 500; color: var(--contenido-secundario); }
+code { font-family: ui-monospace, Menlo, monospace; font-size: 0.85em; background: var(--superficie-marca-tinte); padding: 1px 5px; border-radius: var(--radio-campo); }
+@media (min-width: 900px) {
+  .ds { grid-template-columns: 220px 1fr; }
+  .ds__nav { display: block; position: sticky; top: 0; align-self: start; height: 100vh; overflow: auto; padding: var(--espacio-grupo) var(--espacio-bloque); border-right: var(--borde-fino) solid var(--borde-suave); }
+  .ds__nav a { display: block; color: var(--contenido-secundario); text-decoration: none; padding: 6px 0; font-size: var(--texto-pequeno); }
+  .ds__nav a:hover { color: var(--contenido-primario); text-decoration: underline; text-decoration-thickness: 2px; }
+  .ds__nav strong { display: block; font-weight: 500; margin: var(--espacio-base) 0 var(--espacio-hilo); color: var(--contenido-terciario); font-size: var(--texto-pequeno); }
+}
+
+/* Color: muestras */
+.muestras { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: var(--espacio-base); margin-top: var(--espacio-bloque); }
+.muestra { border: var(--borde-fino) solid var(--borde-suave); }
+.muestra__color { height: 72px; }
+.muestra__info { padding: var(--espacio-compacto) var(--espacio-base); font-size: var(--texto-pequeno); background: var(--superficie-elevada); }
+.muestra__info code { display: block; margin-top: 2px; }
+.pares { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: var(--espacio-base); margin-top: var(--espacio-bloque); }
+.par { padding: var(--espacio-base); border: var(--borde-fino) solid var(--borde-suave); display: grid; gap: var(--espacio-hilo); }
+.par__ratio { font-family: var(--fuente-titulos); font-size: var(--texto-cifra); }
+.par__uso { font-size: var(--texto-pequeno); opacity: 0.85; }
+
+/* Espaciado */
+.escala-espacio { display: grid; gap: var(--espacio-compacto); margin-top: var(--espacio-bloque); }
+.escala-espacio__fila { display: grid; grid-template-columns: 1fr; align-items: center; gap: var(--espacio-hilo) var(--espacio-base); font-size: var(--texto-pequeno); }
+@media (min-width: 600px) { .escala-espacio__fila { grid-template-columns: 220px 1fr; } }
+.escala-espacio__barra { height: 12px; background: var(--superficie-marca); }
+.ritmo { display: grid; gap: 0; margin-top: var(--espacio-bloque); }
+.ritmo__bloque { background: var(--superficie-elevada); border: var(--borde-fino) solid var(--borde-suave); padding: var(--espacio-base); font-size: var(--texto-pequeno); }
+.ritmo__hueco { display: grid; place-items: center; color: var(--contenido-terciario); font-size: var(--texto-pequeno); background: repeating-linear-gradient(0deg, transparent 0 7px, var(--superficie-marca-tinte) 7px 8px); }
+
+/* Grid */
+.rejilla { display: grid; grid-template-columns: repeat(12, 1fr); gap: var(--canal); margin-top: var(--espacio-bloque); }
+.rejilla > span { background: var(--superficie-marca-tinte); height: 64px; display: grid; place-items: center; font-size: var(--texto-pequeno); color: var(--contenido-marca); }
+@media (max-width: 899px) { .rejilla { grid-template-columns: repeat(6, 1fr); } .rejilla > span:nth-child(n+7) { display: none; } }
+@media (max-width: 599px) { .rejilla { grid-template-columns: 1fr; } .rejilla > span:nth-child(n+2) { display: none; } }
+
+/* Radios · bordes · elevación */
+.forma { width: 120px; height: 72px; background: var(--superficie-elevada); border: var(--borde-medio) solid var(--borde-campo); display: grid; place-items: center; font-size: var(--texto-pequeno); }
+.forma--flotante { box-shadow: var(--sombra-flotante); border-color: var(--borde-suave); }
+
+/* ==========================================================================
+   4. Componentes — clases por rol, especificidad plana
+   ========================================================================== */
+/* Botón */
+.boton { display: inline-flex; align-items: center; justify-content: center; gap: var(--espacio-compacto); min-height: 48px; padding: 12px 24px; border-radius: var(--radio-campo); border: var(--borde-medio) solid transparent; font-size: var(--texto-boton); font-weight: 500; line-height: 1; text-decoration: none; cursor: pointer; transition: background-color var(--duracion-instante) var(--curva-estandar), outline-color var(--duracion-instante) var(--curva-estandar), transform var(--duracion-instante) var(--curva-estandar); }
+.boton--primario { background: var(--superficie-marca); color: var(--contenido-inverso); border-color: var(--superficie-marca); }
+.boton--primario:hover { outline: 2px solid var(--acento-ceremonial); outline-offset: 2px; }
+.boton--primario:focus-visible { outline: var(--foco-anillo); outline-offset: 2px; }
+.boton--secundario { background: transparent; color: var(--contenido-marca); border-color: var(--borde-marca); }
+.boton--secundario:hover { background: var(--superficie-marca-tinte); }
+.boton--enlace { background: transparent; color: var(--contenido-marca); text-decoration: underline; text-underline-offset: 0.15em; padding-left: 8px; padding-right: 8px; }
+.boton--enlace:hover { color: var(--contenido-primario); text-decoration-thickness: 2px; }
+.boton:active { transform: translateY(1px); }
+.boton[aria-disabled="true"] { background: var(--superficie-marca-tinte); color: var(--contenido-terciario); border-color: transparent; cursor: default; }
+.boton[aria-disabled="true"]:hover { outline: 0; }
+.boton--bloque { width: 100%; }
+.inverso .boton--secundario { color: var(--contenido-inverso); border-color: var(--contenido-inverso); }
+.inverso .boton--secundario:hover { background: rgba(247, 245, 240, 0.12); }
+.inverso .boton--primario { background: var(--superficie-base); color: var(--contenido-marca); border-color: var(--superficie-base); }
+
+/* Chip */
+.chip { display: inline-flex; align-items: center; gap: var(--espacio-compacto); min-height: 44px; padding: 8px 16px; border-radius: var(--radio-pastilla); border: var(--borde-medio) solid var(--borde-marca); color: var(--contenido-marca); background: transparent; font-size: var(--texto-etiqueta); font-weight: 500; cursor: pointer; transition: background-color var(--duracion-instante) var(--curva-estandar), color var(--duracion-instante) var(--curva-estandar); }
+.chip:hover { background: var(--superficie-marca-tinte); }
+.chip input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.chip__ok { display: none; width: 14px; height: 14px; }
+.chip--activo, .chip:has(input:checked) { background: var(--superficie-marca); color: var(--contenido-inverso); border-color: var(--superficie-marca); }
+.chip--activo .chip__ok, .chip:has(input:checked) .chip__ok { display: block; }
+.chip:has(input:focus-visible) { outline: var(--foco-anillo); outline-offset: 2px; }
+.chip--nivel { min-height: 0; padding: 2px 10px; border: 0; background: var(--superficie-marca-tinte); color: var(--contenido-marca); cursor: default; font-weight: 500; }
+
+/* Campo de formulario */
+.campo { display: grid; gap: var(--espacio-hilo); }
+.campo__etiqueta { font-size: var(--texto-etiqueta); font-weight: 500; }
+.campo__etiqueta span { font-weight: 400; color: var(--contenido-terciario); }
+.campo__control { min-height: 48px; width: 100%; padding: 12px 16px; font: inherit; color: var(--contenido-primario); background: var(--superficie-elevada); border: var(--borde-medio) solid var(--borde-campo); border-radius: var(--radio-campo); transition: border-color var(--duracion-instante) var(--curva-estandar); }
+.campo__control::placeholder { color: var(--contenido-terciario); }
+.campo__control:focus-visible { border-color: var(--borde-marca); border-width: var(--borde-grueso); outline: var(--foco-anillo); outline-offset: 2px; }
+.campo--error .campo__control { border-color: var(--contenido-error); border-width: var(--borde-grueso); }
+.campo__ayuda { font-size: var(--texto-pequeno); color: var(--contenido-terciario); }
+.campo__error { font-size: var(--texto-pequeno); color: var(--contenido-error); display: flex; gap: var(--espacio-hilo); align-items: flex-start; }
+.campo--casilla { grid-template-columns: 24px 1fr; gap: var(--espacio-compacto); align-items: start; }
+.campo--casilla input { width: 24px; height: 24px; margin: 2px 0 0; accent-color: var(--superficie-marca); }
+.campo--casilla label { font-size: var(--texto-pequeno); }
+.formulario { display: grid; gap: var(--espacio-bloque); max-width: var(--contenedor-formulario); }
+.formulario__fila { display: grid; gap: var(--espacio-bloque); }
+@media (min-width: 600px) { .formulario__fila { grid-template-columns: 1fr 1fr; } }
+
+/* Mensaje de estado */
+.mensaje { display: grid; grid-template-columns: 24px 1fr; gap: var(--espacio-compacto); padding: var(--espacio-base); border-radius: var(--radio-campo); font-size: var(--texto-cuerpo); }
+.mensaje svg { width: 24px; height: 24px; }
+.mensaje__titulo { font-weight: 700; display: block; }
+.mensaje--exito { background: var(--superficie-marca-tinte); color: var(--contenido-marca); }
+.mensaje--error { background: var(--superficie-elevada); color: var(--contenido-error); border: var(--borde-grueso) solid var(--contenido-error); }
+.mensaje--advertencia { background: var(--superficie-elevada); color: var(--contenido-primario); border-left: var(--borde-acento) solid var(--acento-ceremonial); }
+.mensaje--advertencia svg { color: var(--acento-ceremonial-metalico); }
+.mensaje--informacion { background: var(--superficie-marca-tinte); color: var(--contenido-primario); }
+
+/* Encabezado de sección */
+.encabezado { display: grid; gap: var(--espacio-compacto); }
+.encabezado--filete::after { content: ""; display: block; width: 48px; height: var(--borde-fino); background: var(--acento-ceremonial); }
+.encabezado__apoyo { color: var(--contenido-secundario); max-width: var(--contenedor-lectura); }
+
+/* Franco cuartel + Tahalí */
+.franco { position: relative; display: grid; background: var(--superficie-base); overflow-x: clip; }
+.franco__bloque { position: relative; background: var(--superficie-marca); color: var(--contenido-inverso); padding: var(--franco-cuartel-relleno) var(--margen-lateral); display: grid; gap: var(--espacio-bloque); align-content: center; z-index: var(--capa-base); }
+.franco__foto { position: relative; }
+.franco__foto .tahali { top: 0; height: 112%; left: 58%; }
+.franco__foto img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 1 / 1; }
+.franco__apoyo { font-size: var(--texto-cuerpo-grande); max-width: var(--contenedor-lectura); }
+.franco__meta { display: flex; flex-wrap: wrap; gap: var(--espacio-compacto) var(--espacio-base); font-size: var(--texto-pequeno); }
+.franco__acciones { display: flex; flex-wrap: wrap; gap: var(--espacio-base); }
+.tahali { position: absolute; z-index: var(--capa-relieve); width: var(--tahali-ancho); background: var(--superficie-marca); pointer-events: none; transform: skewX(calc(90deg - var(--tahali-angulo))); }
+.tahali--multiply { mix-blend-mode: multiply; }
+.tahali--contorno { background: transparent; border: var(--borde-fino) solid var(--acento-ceremonial); }
+@media (min-width: 900px) {
+  .franco { grid-template-columns: 5fr 7fr; }
+  .franco__foto img { aspect-ratio: 3 / 2; height: 100%; }
+  .franco__foto .tahali { left: 0; }
+}
+.franco--sinfoto { grid-template-columns: 1fr; }
+.franco--sinfoto { overflow: hidden; }
+.franco--sinfoto .franco__bloque { padding-right: calc(var(--margen-lateral) + var(--tahali-ancho) * 2); min-height: 320px; }
+.franco--sinfoto .tahali { top: -10%; height: 120%; left: auto; right: calc(var(--tahali-ancho) * 1.2); }
+.datos { display: grid; gap: var(--espacio-base); }
+.datos__fila { display: grid; gap: var(--espacio-hilo); }
+.datos dt { font-size: var(--texto-etiqueta); font-weight: 500; opacity: 0.85; }
+.datos dd { font-family: var(--fuente-titulos); font-size: var(--texto-cifra); line-height: 1.2; }
+.datos dd.datos--largo { font-family: var(--fuente-texto); font-size: var(--texto-cuerpo); line-height: 1.5; }
+.datos--papel { background: var(--superficie-marca-tinte); padding: var(--espacio-bloque); }
+@media (min-width: 600px) { .datos--papel { grid-template-columns: 1fr 1fr; } }
+
+/* Cabecera */
+.cabecera { background: var(--superficie-base); border-bottom: var(--borde-fino) solid var(--borde-suave); }
+.cabecera__util { display: none; }
+.cabecera__barra { display: flex; align-items: center; gap: var(--espacio-bloque); min-height: 56px; padding: 0 var(--margen-lateral); }
+.cabecera__logo { display: flex; align-items: center; gap: var(--espacio-compacto); text-decoration: none; color: var(--contenido-primario); margin-right: auto; }
+.cabecera__logo img { height: 40px; width: auto; }
+.cabecera__nav { display: none; }
+.cabecera__nav a { color: var(--contenido-primario); text-decoration: none; padding: 8px 0; border-bottom: var(--borde-grueso) solid transparent; }
+.cabecera__nav a:hover { border-bottom-color: var(--borde-suave); }
+.cabecera__nav a[aria-current="page"] { color: var(--contenido-marca); font-weight: 500; border-bottom-color: var(--contenido-marca); }
+.cabecera__menu { min-height: 44px; min-width: 44px; background: transparent; border: var(--borde-medio) solid var(--borde-marca); border-radius: var(--radio-campo); color: var(--contenido-marca); font-weight: 500; padding: 0 12px; }
+@media (min-width: 900px) {
+  .cabecera__util { display: flex; justify-content: flex-end; gap: var(--espacio-bloque); padding: 0 var(--margen-lateral); min-height: 32px; align-items: center; font-size: var(--texto-pequeno); border-bottom: var(--borde-fino) solid var(--borde-suave); }
+  .cabecera__util a { color: var(--contenido-secundario); text-decoration: none; }
+  .cabecera__util a:hover { text-decoration: underline; text-decoration-thickness: 2px; }
+  .cabecera__barra { min-height: 72px; }
+  .cabecera__logo img { height: 56px; }
+  .cabecera__nav { display: flex; gap: var(--espacio-bloque); }
+  .cabecera__menu { display: none; }
+}
+
+/* Filtros · Contador · Tarjeta de programa */
+.filtros { background: var(--superficie-marca-tinte); padding: var(--espacio-bloque) var(--espacio-base); display: grid; gap: var(--espacio-bloque); }
+.filtros fieldset { border: 0; padding: 0; margin: 0; display: grid; gap: var(--espacio-compacto); }
+.filtros legend { font-size: var(--texto-etiqueta); font-weight: 500; padding: 0; margin-bottom: var(--espacio-compacto); }
+.filtros__chips { display: flex; gap: var(--espacio-compacto); overflow-x: auto; padding-bottom: 2px; }
+.filtros__chips .chip { position: relative; flex: 0 0 auto; }
+@media (min-width: 600px) { .filtros { grid-template-columns: 1fr 1fr; } .filtros__chips { flex-wrap: wrap; overflow: visible; } .filtros__acciones { grid-column: 1 / -1; } }
+.contador { display: flex; align-items: baseline; gap: var(--espacio-compacto); flex-wrap: wrap; margin: var(--espacio-grupo) 0 var(--espacio-bloque); }
+.contador__n { font-family: var(--fuente-titulos); font-size: var(--texto-contador); line-height: 1; font-variant-numeric: tabular-nums; }
+.contador__apoyo { color: var(--contenido-terciario); font-size: var(--texto-pequeno); }
+.lista-programas { display: grid; gap: 0; }
+.programa { position: relative; display: grid; gap: var(--espacio-compacto); padding: var(--espacio-bloque) var(--espacio-base); border-bottom: var(--borde-fino) solid var(--borde-suave); transition: background-color var(--duracion-instante) var(--curva-estandar); }
+.programa:hover { background: var(--superficie-elevada); }
+.programa:hover .programa__nombre { text-decoration-thickness: 2px; }
+.programa__nombre { font-size: var(--texto-h3); font-weight: 700; line-height: 1.3; color: var(--contenido-primario); text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 0.15em; }
+.programa__nombre::after { content: ""; position: absolute; inset: 0; }
+.programa:focus-within { outline: var(--foco-anillo); outline-offset: -3px; }
+.programa__meta { display: flex; flex-wrap: wrap; gap: var(--espacio-hilo) var(--espacio-base); font-size: var(--texto-pequeno); color: var(--contenido-terciario); align-items: center; }
+.programa--destacado { background: var(--superficie-elevada); border-top: var(--borde-acento) solid var(--acento-ceremonial); border-bottom: 0; }
+.programa--oculto { display: none; }
+@media (min-width: 600px) { .lista-programas { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 1200px) { .lista-programas { grid-template-columns: 1fr 1fr 1fr; } }
+.vacio { background: var(--superficie-marca-tinte); padding: var(--espacio-modulo) var(--espacio-bloque); display: grid; gap: var(--espacio-base); max-width: var(--contenedor-lectura); }
+
+/* Bloque de asesor · RVOE */
+.asesor { display: grid; gap: var(--espacio-bloque); background: var(--superficie-elevada); border: var(--borde-fino) solid var(--borde-suave); padding: var(--espacio-bloque); }
+.asesor__foto { width: 96px; aspect-ratio: 1; object-fit: cover; }
+.asesor__acciones { display: grid; gap: var(--espacio-compacto); }
+@media (min-width: 600px) { .asesor { grid-template-columns: 96px 1fr; } .asesor__acciones { grid-column: 2; display: flex; flex-wrap: wrap; gap: var(--espacio-base); } }
+.rvoe { padding-top: var(--espacio-grupo); border-top: var(--borde-fino) solid var(--borde-suave); font-size: var(--texto-pequeno); color: var(--contenido-terciario); max-width: var(--contenedor-lectura); }
+
+/* Tarjeta de sede · Mosaico · Tarjeta de contenido */
+.sedes { display: grid; gap: var(--espacio-bloque); }
+@media (min-width: 600px) { .sedes { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 1200px) { .sedes { grid-template-columns: repeat(4, 1fr); } }
+.sede { position: relative; background: var(--superficie-elevada); border: var(--borde-fino) solid var(--borde-suave); display: grid; }
+.sede__foto { aspect-ratio: 3 / 2; object-fit: cover; width: 100%; }
+.sede__franja { aspect-ratio: 3 / 2; background: var(--superficie-marca); color: var(--contenido-inverso); display: grid; align-content: end; padding: var(--espacio-base); font-family: var(--fuente-titulos); font-size: var(--texto-h2); position: relative; overflow: hidden; }
+.sede__franja .tahali { top: -20%; height: 140%; right: 18%; left: auto; width: 24px; background: transparent; border: var(--borde-fino) solid var(--acento-ceremonial); }
+.sede__cuerpo { padding: var(--espacio-base); display: grid; gap: var(--espacio-hilo); }
+.sede__nombre { font-size: var(--texto-h3); font-weight: 700; }
+.sede__nombre a { color: inherit; text-decoration: none; }
+.sede__nombre a::after { content: ""; position: absolute; inset: 0; }
+.sede:hover .sede__nombre a { text-decoration: underline; text-decoration-thickness: 2px; }
+.sede address { font-style: normal; font-size: var(--texto-pequeno); color: var(--contenido-terciario); }
+.mosaico { display: grid; gap: var(--espacio-grupo); }
+.mosaico__texto { display: grid; gap: var(--espacio-base); max-width: var(--contenedor-lectura); align-content: start; }
+.mosaico__fotos { display: grid; grid-template-columns: 1fr 1fr; gap: var(--espacio-compacto); }
+.mosaico__fotos li:first-child { grid-column: 1 / -1; }
+.mosaico__fotos li:nth-child(n+4) { display: none; }
+.mosaico__fotos img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 1; }
+.mosaico__fotos li:first-child img { aspect-ratio: 3 / 2; }
+.mosaico__vacio { position: relative; overflow: hidden; background: var(--superficie-marca); color: var(--contenido-inverso); min-height: 280px; display: grid; align-content: end; padding: var(--espacio-grupo); font-family: var(--fuente-titulos); font-size: var(--texto-display); line-height: 1.05; }
+.mosaico__vacio .tahali { top: -10%; height: 120%; right: 22%; left: auto; background: transparent; border: var(--borde-fino) solid var(--acento-ceremonial); }
+@media (min-width: 600px) { .mosaico__fotos { grid-template-columns: repeat(3, 1fr); } .mosaico__fotos li:first-child { grid-column: 1 / 3; grid-row: 1 / 3; } .mosaico__fotos li:nth-child(n+4) { display: block; } .mosaico__fotos li:first-child img { aspect-ratio: auto; } }
+@media (min-width: 900px) { .mosaico { grid-template-columns: 5fr 7fr; } }
+.contenidos { display: grid; gap: var(--espacio-bloque); }
+@media (min-width: 600px) { .contenidos { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 1200px) { .contenidos { grid-template-columns: repeat(3, 1fr); } }
+.contenido { position: relative; display: grid; gap: var(--espacio-compacto); padding: var(--espacio-bloque) 0; border-top: var(--borde-fino) solid var(--borde-suave); }
+.contenido time { font-size: var(--texto-pequeno); color: var(--contenido-terciario); }
+.contenido__titulo { font-size: var(--texto-h3); font-weight: 700; }
+.contenido__titulo a { color: inherit; text-decoration: none; }
+.contenido__titulo a::after { content: ""; position: absolute; inset: 0; }
+.contenido:hover .contenido__titulo a { text-decoration: underline; text-decoration-thickness: 2px; }
+.contenido--evento { grid-template-columns: 64px 1fr; column-gap: var(--espacio-base); }
+.contenido--evento .fecha { display: grid; text-align: left; line-height: 1; }
+.contenido--evento .fecha b { font-family: var(--fuente-titulos); font-size: var(--texto-cifra); font-weight: 400; }
+.contenido--evento .fecha span { font-size: var(--texto-pequeno); color: var(--contenido-terciario); }
+.contenido--evento > *:not(.fecha) { grid-column: 2; }
+
+/* Paso · Acordeón · Migas · Anclas */
+.pasos { display: grid; gap: var(--espacio-grupo); counter-reset: paso; max-width: var(--contenedor-lectura); }
+.paso { display: grid; grid-template-columns: 48px 1fr; gap: var(--espacio-base); counter-increment: paso; position: relative; }
+.paso::before { content: counter(paso, decimal-leading-zero); font-family: var(--fuente-titulos); font-size: var(--texto-cifra); color: var(--contenido-marca); line-height: 1.2; }
+.paso:not(:last-child)::after { content: ""; position: absolute; left: 12px; top: 36px; bottom: calc(-1 * var(--espacio-grupo)); width: var(--borde-fino); background: var(--borde-suave); }
+.paso h3 { font-size: var(--texto-h3); font-weight: 700; }
+.acordeon { border-top: var(--borde-fino) solid var(--borde-suave); max-width: var(--contenedor-lectura); }
+.acordeon__item { border-bottom: var(--borde-fino) solid var(--borde-suave); }
+.acordeon__boton { width: 100%; display: flex; justify-content: space-between; align-items: center; gap: var(--espacio-base); padding: var(--espacio-base) 0; background: transparent; border: 0; text-align: left; font-size: var(--texto-h3); font-weight: 700; cursor: pointer; }
+.acordeon__boton:hover { background: var(--superficie-marca-tinte); }
+.acordeon__boton svg { width: 20px; height: 20px; flex: 0 0 auto; transition: transform var(--duracion-base) var(--curva-estandar); }
+.acordeon__boton[aria-expanded="true"] svg { transform: rotate(180deg); }
+.acordeon__panel { padding: 0 0 var(--espacio-base); color: var(--contenido-secundario); }
+.acordeon__panel[hidden] { display: none; }
+.migas ol { display: flex; flex-wrap: wrap; gap: var(--espacio-compacto); font-size: var(--texto-pequeno); color: var(--contenido-terciario); }
+.migas a { color: var(--contenido-secundario); text-decoration: none; }
+.migas a:hover { text-decoration: underline; text-decoration-thickness: 2px; }
+.migas li + li::before { content: "›"; margin-right: var(--espacio-compacto); }
+.anclas { border-bottom: var(--borde-fino) solid var(--borde-suave); background: var(--superficie-base); }
+.anclas ul { display: flex; gap: var(--espacio-bloque); overflow-x: auto; padding: 0 var(--espacio-base); }
+.anclas a { display: block; white-space: nowrap; padding: 12px 0; font-size: var(--texto-etiqueta); font-weight: 500; color: var(--contenido-secundario); text-decoration: none; border-bottom: var(--borde-grueso) solid transparent; }
+.anclas a[aria-current="location"] { color: var(--contenido-marca); border-bottom-color: var(--contenido-marca); }
+
+/* Banner de cookies · WhatsApp · Pie */
+.cookies { background: var(--superficie-elevada); border-top: var(--borde-fino) solid var(--borde-suave); box-shadow: var(--sombra-flotante); padding: var(--espacio-bloque) var(--margen-lateral); display: grid; gap: var(--espacio-base); }
+.cookies__acciones { display: grid; gap: var(--espacio-compacto); }
+@media (min-width: 600px) { .cookies { grid-template-columns: 1fr auto; align-items: center; } .cookies__acciones { display: flex; } }
+.whatsapp { display: inline-flex; align-items: center; gap: var(--espacio-compacto); min-height: 56px; min-width: 56px; padding: 0 20px; border-radius: var(--radio-pastilla); background: var(--superficie-marca); color: var(--contenido-inverso); text-decoration: none; font-weight: 500; box-shadow: var(--sombra-flotante); }
+.whatsapp svg { width: 24px; height: 24px; }
+.pie { background: var(--superficie-profunda); color: var(--contenido-inverso); padding: var(--espacio-seccion) var(--margen-lateral) var(--espacio-grupo); border-top: var(--borde-fino) solid var(--acento-ceremonial); display: grid; gap: var(--espacio-grupo); }
+.pie h3 { color: var(--contenido-acento-inverso); font-family: var(--fuente-titulos); font-weight: 400; font-size: var(--texto-h3); margin-bottom: var(--espacio-compacto); }
+.pie a { color: var(--contenido-inverso); }
+.pie address { font-style: normal; font-size: var(--texto-pequeno); line-height: 1.5; }
+.pie__cols { display: grid; gap: var(--espacio-grupo); }
+.pie__legal { font-size: var(--texto-pequeno); opacity: 0.85; display: flex; flex-wrap: wrap; gap: var(--espacio-base); padding-top: var(--espacio-bloque); border-top: 1px solid rgba(247,245,240,0.2); }
+@media (min-width: 600px) { .pie__cols { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 900px) { .pie__cols { grid-template-columns: 2fr 2fr 1fr 1fr; } }
+
+/* Movimiento: demo */
+.demo-mov { display: grid; gap: var(--espacio-base); }
+.demo-mov__caja { width: 64px; height: 64px; background: var(--superficie-marca); transition: transform var(--duracion-base) var(--curva-estandar), opacity var(--duracion-base) var(--curva-estandar); }
+.demo-mov__caja.fuera { transform: translateY(var(--desplazamiento-entrada)); opacity: 0; }
+</style>
+</head>
+<body>
+<a class="oculto-visual" href="#contenido">Saltar al contenido</a>
+<div class="ds">
+  <nav class="ds__nav" aria-label="Secciones del design system">
+    <strong>Fundamentos</strong>
+    <a href="#portada">Portada</a><a href="#color">Color</a><a href="#tipografia">Tipografía</a><a href="#espaciado">Espaciado y ritmo</a><a href="#grid">Grid</a><a href="#forma">Radios, bordes, elevación</a><a href="#movimiento">Movimiento</a>
+    <strong>Sistema gráfico</strong>
+    <a href="#franco">Franco cuartel + Tahalí</a>
+    <strong>Componentes</strong>
+    <a href="#c-cabecera">Cabecera</a><a href="#c-boton">Botón y enlace</a><a href="#c-chip">Chip</a><a href="#c-campo">Campo y formulario</a><a href="#c-mensaje">Mensaje de estado</a><a href="#c-catalogo">Filtros, contador, tarjeta</a><a href="#c-ficha">Datos clave, asesor, RVOE</a><a href="#c-sedes">Sedes y mosaico</a><a href="#c-contenido">Noticias y eventos</a><a href="#c-varios">Pasos, acordeón, migas, anclas</a><a href="#c-flotantes">Cookies y WhatsApp</a><a href="#c-pie">Pie</a>
+  </nav>
+
+  <main class="ds__cuerpo" id="contenido">
+
+    <!-- ================================================================ -->
+    <section class="ds__seccion" id="portada">
+      <p class="t-etiqueta" style="color:var(--contenido-marca)">Posgrados Panamericana · Design system</p>
+      <h1 class="t-display" style="margin-top:var(--espacio-compacto)">Tokens y componentes, renderizados</h1>
+      <p class="t-cuerpo-grande" style="max-width:var(--contenedor-lectura);margin-top:var(--espacio-bloque)">Muestra visual de <code>TOKENS.md</code> y <code>COMPONENTS.md</code> para juzgar el GATE 2. Todo valor visual de esta página sale de un token; los textos son material existente del sitio actual o del inventario oficial, salvo los marcados como placeholder.</p>
+      <div class="ds__meta">
+        <span><strong>Estado</strong> GATE 2 · PENDING</span>
+        <span><strong>Fecha</strong> 2026-09-24</span>
+        <span><strong>Fuente de verdad</strong> DESIGN.md (GATE 1 APPROVED) · TOKENS.md · COMPONENTS.md</span>
+        <span><span class="ds__tag ds__tag--placeholder">PLACEHOLDER</span> = texto de longitud realista, no contenido del cliente</span>
+      </div>
+      <p class="ds__nota">Documento de trabajo de Black &amp; Orange para la Universidad Panamericana. Tipografías Panamericana y Seravek con autorización de uso para este proyecto. No indexable.</p>
+    </section>
+
+    <!-- ================================================================ -->
+    <section class="ds__seccion" id="color">
+      <div class="encabezado encabezado--filete"><h2 class="t-h2">Color</h2><p class="encabezado__apoyo">Estrategia <strong>Comprometida</strong>: el verde 329 CP es la identidad; los neutros se matizan hacia él; el dorado es línea, icono o texto sobre tinta. Todos los valores de marca son del manual; los neutros de interfaz son decisión B&O.</p></div>
+
+      <h3 class="t-h3 ds__sub">Superficie</h3>
+      <ul class="muestras">
+        <li class="muestra"><div class="muestra__color" style="background:var(--superficie-base)"></div><div class="muestra__info">Base (papel)<code>--superficie-base · #F7F5F0</code></div></li>
+        <li class="muestra"><div class="muestra__color" style="background:var(--superficie-elevada)"></div><div class="muestra__info">Elevada<code>--superficie-elevada · #FFFFFF</code></div></li>
+        <li class="muestra"><div class="muestra__color" style="background:var(--superficie-marca)"></div><div class="muestra__info">Marca · 329 CP 100 %<code>--superficie-marca · #00685E</code></div></li>
+        <li class="muestra"><div class="muestra__color" style="background:var(--superficie-marca-atenuada)"></div><div class="muestra__info">Marca atenuada · 329 CP 75 %<code>--superficie-marca-atenuada · #408E86</code></div></li>
+        <li class="muestra"><div class="muestra__color" style="background:var(--superficie-marca-tinte)"></div><div class="muestra__info">Marca tinte<code>--superficie-marca-tinte · #E3EEEB</code></div></li>
+        <li class="muestra"><div class="muestra__color" style="background:var(--superficie-profunda)"></div><div class="muestra__info">Profunda (pie)<code>--superficie-profunda · #14211F</code></div></li>
+      </ul>
+
+      <h3 class="t-h3 ds__sub">Contenido y acento</h3>
+      <ul class="muestras">
+        <li class="muestra"><div class="muestra__color" style="background:var(--contenido-primario)"></div><div class="muestra__info">Tinta<code>--contenido-primario · #14211F</code></div></li>
+        <li class="muestra"><div class="muestra__color" style="background:var(--contenido-secundario)"></div><div class="muestra__info">Secundario<code>--contenido-secundario · #3A4A47</code></div></li>
+        <li class="muestra"><div class="muestra__color" style="background:var(--contenido-terciario)"></div><div class="muestra__info">Terciario<code>--contenido-terciario · #5C6B68</code></div></li>
+        <li class="muestra"><div class="muestra__color" style="background:var(--contenido-error)"></div><div class="muestra__info">Error<code>--contenido-error · #A83A2D</code></div></li>
+        <li class="muestra"><div class="muestra__color" style="background:var(--acento-ceremonial)"></div><div class="muestra__info">Dorado 465 CP<code>--acento-ceremonial · #B9975B</code></div></li>
+        <li class="muestra"><div class="muestra__color" style="background:var(--acento-ceremonial-metalico)"></div><div class="muestra__info">Dorado metálico 10403 C<code>--acento-ceremonial-metalico · #AB8855</code></div></li>
+        <li class="muestra"><div class="muestra__color" style="background:var(--borde-suave)"></div><div class="muestra__info">Borde suave<code>--borde-suave · #C9D6D3</code></div></li>
+      </ul>
+
+      <h3 class="t-h3 ds__sub">Pares medidos (WCAG 2.2)</h3>
+      <ul class="pares">
+        <li class="par" style="background:var(--superficie-base);color:var(--contenido-primario)"><span class="par__ratio">15.21 : 1</span><span>Tinta sobre papel</span><span class="par__uso">texto principal · ✅</span></li>
+        <li class="par" style="background:var(--superficie-base);color:var(--contenido-secundario)"><span class="par__ratio">8.56 : 1</span><span>Secundario sobre papel</span><span class="par__uso">descripciones · ✅</span></li>
+        <li class="par" style="background:var(--superficie-base);color:var(--contenido-terciario)"><span class="par__ratio">5.13 : 1</span><span>Terciario sobre papel</span><span class="par__uso">metadatos, RVOE · ✅</span></li>
+        <li class="par" style="background:var(--superficie-base);color:var(--contenido-marca)"><span class="par__ratio">6.13 : 1</span><span>Verde sobre papel</span><span class="par__uso">enlaces, botón secundario · ✅</span></li>
+        <li class="par" style="background:var(--superficie-marca);color:var(--contenido-inverso)"><span class="par__ratio">6.13 : 1</span><span>Papel sobre verde</span><span class="par__uso">CTA, franco cuartel · ✅</span></li>
+        <li class="par" style="background:var(--superficie-marca-tinte);color:var(--contenido-marca)"><span class="par__ratio">5.63 : 1</span><span>Verde sobre tinte</span><span class="par__uso">chip, filtro activo · ✅</span></li>
+        <li class="par" style="background:var(--superficie-profunda);color:var(--contenido-acento-inverso)"><span class="par__ratio">6.03 : 1</span><span>Dorado sobre tinta</span><span class="par__uso">títulos del pie · ✅ único uso del dorado como texto</span></li>
+        <li class="par" style="background:var(--superficie-base);color:var(--contenido-error)"><span class="par__ratio">5.83 : 1</span><span>Error sobre papel</span><span class="par__uso">mensajes de error · ✅</span></li>
+        <li class="par" style="background:var(--superficie-base);color:var(--acento-ceremonial)"><span class="par__ratio">2.7 : 1</span><span>Dorado sobre papel</span><span class="par__uso">❌ nunca como texto — solo filete o icono ≥ 24 px</span></li>
+        <li class="par" style="background:var(--superficie-marca-atenuada);color:var(--contenido-inverso)"><span class="par__ratio">3.55 : 1</span><span>Papel sobre verde 75 %</span><span class="par__uso">solo texto grande / superficie</span></li>
+      </ul>
+    </section>
+
+    <!-- ================================================================ -->
+    <section class="ds__seccion" id="tipografia">
+      <div class="encabezado encabezado--filete"><h2 class="t-h2">Tipografía</h2><p class="encabezado__apoyo">Panamericana (serif propia) en títulos y cifras; Seravek (sans humanista) en cuerpo e interfaz. Georgia y Verdana solo como respaldo. Escala fluida entre 360 y 1280 px.</p></div>
+      <div class="ds__lienzo">
+        <p class="ds__estado">--texto-display · Panamericana 600 · 40→64 px · 1.05</p>
+        <p class="t-display">Conoce la oferta de Posgrados que la Universidad Panamericana te ofrece en sus diferentes Campus.</p>
+        <p class="ds__estado" style="margin-top:var(--espacio-grupo)">--texto-h1 · Panamericana 600 · 30→44 px · 1.1 · caso más largo del inventario (80 caracteres)</p>
+        <p class="t-h1">Especialización en Derecho de las Tecnologías de la Información y Comunicación</p>
+        <p class="ds__estado" style="margin-top:var(--espacio-grupo)">--texto-h2 · Panamericana 400 · 24→32 px · 1.15</p>
+        <p class="t-h2">¿Cuál es su valor agregado?</p>
+        <p class="ds__estado" style="margin-top:var(--espacio-grupo)">--texto-contador · Panamericana 400 · 32→40 px &nbsp;|&nbsp; --texto-cifra · 22→26 px</p>
+        <p><span class="t-contador">150 programas</span> &nbsp; <span class="t-cifra">18 meses · Marzo 2026 · Presencial</span></p>
+        <p class="ds__estado" style="margin-top:var(--espacio-grupo)">--texto-h3 · Seravek 700 · 18→20 px · 1.3</p>
+        <p class="t-h3">Maestría en Propiedad Industrial, Derechos de Autor y Nuevas Tecnologías</p>
+        <p class="ds__estado" style="margin-top:var(--espacio-grupo)">--texto-cuerpo-grande · Seravek 400 · 18→19 px · 1.55 · medida 36 rem</p>
+        <p class="t-cuerpo-grande" style="max-width:var(--medida-texto)">La Maestría en Comunicación Institucional forma profesionales con competencias avanzadas en las áreas comunicación interna, cambio organizacional, manejo de crisis, comunicación digital, gestión de comunicación y construcción de relaciones.</p>
+        <p class="ds__estado" style="margin-top:var(--espacio-grupo)">--texto-cuerpo · Seravek 400 · 16 px · 1.6</p>
+        <p class="t-cuerpo" style="max-width:var(--medida-texto)">Anclado a una metodología comprobable, la Maestría en Comunicación Institucional brinda el conocimiento y experiencia de docentes con amplia experiencia internacional que hacen de ésta, una Maestría fundamentada en el trabajo diario con una solidez teórica. <a href="#">Solicita una cita para atención personalizada.</a></p>
+        <p class="ds__estado" style="margin-top:var(--espacio-grupo)">--texto-etiqueta · Seravek 500 · 14 px &nbsp;|&nbsp; --texto-pequeno · Seravek 400 · 14 px · 1.5</p>
+        <p class="t-etiqueta">Modalidad · Duración · Sede</p>
+        <p class="t-pequeno" style="max-width:var(--medida-texto);color:var(--contenido-terciario)">RVOE SEP 20200723 de fecha 15/10/2020, Plan 2020, modalidad escolarizada, Augusto Rodin 498, Col. Insurgentes Mixcoac, Benito Juárez, CP 03920, Ciudad de México, México.</p>
+      </div>
+      <div class="ds__scroll"><table class="ds__tabla">
+        <thead><tr><th>Paso</th><th>Familia · peso</th><th>360 → 1280</th><th>Interlineado</th><th>Uso</th></tr></thead>
+        <tbody>
+          <tr><td><code>--texto-display</code></td><td>Panamericana 600</td><td>40 → 64</td><td>1.05</td><td>Hero, portada de sede</td></tr>
+          <tr><td><code>--texto-h1</code></td><td>Panamericana 600</td><td>30 → 44</td><td>1.10</td><td>Título de página, nombre de programa</td></tr>
+          <tr><td><code>--texto-h2</code></td><td>Panamericana 400</td><td>24 → 32</td><td>1.15</td><td>Secciones</td></tr>
+          <tr><td><code>--texto-contador</code></td><td>Panamericana 400</td><td>32 → 40</td><td>1.00</td><td>Contador de resultados</td></tr>
+          <tr><td><code>--texto-cifra</code></td><td>Panamericana 400</td><td>22 → 26</td><td>1.20</td><td>Valor de dato clave</td></tr>
+          <tr><td><code>--texto-h3</code></td><td>Seravek 700</td><td>18 → 20</td><td>1.30</td><td>Nombre en listado, subtítulos</td></tr>
+          <tr><td><code>--texto-cuerpo-grande</code></td><td>Seravek 400</td><td>18 → 19</td><td>1.55</td><td>Intro de ficha</td></tr>
+          <tr><td><code>--texto-cuerpo</code></td><td>Seravek 400</td><td>16</td><td>1.60</td><td>Texto corrido, campos, nav</td></tr>
+          <tr><td><code>--texto-etiqueta</code></td><td>Seravek 500</td><td>14</td><td>1.40</td><td>Etiquetas, chips (nunca versalitas)</td></tr>
+          <tr><td><code>--texto-pequeno</code></td><td>Seravek 400</td><td>14</td><td>1.50</td><td>RVOE, legales, metadatos</td></tr>
+          <tr><td><code>--texto-boton</code></td><td>Seravek 500</td><td>16</td><td>1.00</td><td>Botones</td></tr>
+        </tbody>
+      </table></div>
+    </section>
+
+    <!-- ================================================================ -->
+    <section class="ds__seccion" id="espaciado">
+      <div class="encabezado encabezado--filete"><h2 class="t-h2">Espaciado y ritmo</h2><p class="encabezado__apoyo">Base 8 px. Tres valores de sección que se alternan según el registro: compacta (Product), sección (mixto), amplia (Brand). Un solo valor uniforme está prohibido.</p></div>
+      <div class="escala-espacio">
+        <div class="escala-espacio__fila"><code>--espacio-hilo · 4</code><div class="escala-espacio__barra" style="width:4px"></div></div>
+        <div class="escala-espacio__fila"><code>--espacio-compacto · 8</code><div class="escala-espacio__barra" style="width:8px"></div></div>
+        <div class="escala-espacio__fila"><code>--espacio-base · 16</code><div class="escala-espacio__barra" style="width:16px"></div></div>
+        <div class="escala-espacio__fila"><code>--espacio-bloque · 24</code><div class="escala-espacio__barra" style="width:24px"></div></div>
+        <div class="escala-espacio__fila"><code>--espacio-grupo · 32</code><div class="escala-espacio__barra" style="width:32px"></div></div>
+        <div class="escala-espacio__fila"><code>--espacio-modulo · 48</code><div class="escala-espacio__barra" style="width:48px"></div></div>
+        <div class="escala-espacio__fila"><code>--espacio-seccion-compacta · 64</code><div class="escala-espacio__barra" style="width:64px"></div></div>
+        <div class="escala-espacio__fila"><code>--espacio-seccion · 96</code><div class="escala-espacio__barra" style="width:96px"></div></div>
+        <div class="escala-espacio__fila"><code>--espacio-seccion-amplia · 128</code><div class="escala-espacio__barra" style="width:128px"></div></div>
+      </div>
+      <h3 class="t-h3 ds__sub">Ritmo en una ficha (Brand → Product → mixto)</h3>
+      <div class="ritmo">
+        <div class="ritmo__bloque">Franco cuartel (Brand)</div>
+        <div class="ritmo__hueco" style="height:var(--espacio-seccion-compacta)">--espacio-seccion-compacta</div>
+        <div class="ritmo__bloque">Datos clave · plan de estudios (Product)</div>
+        <div class="ritmo__hueco" style="height:var(--espacio-seccion)">--espacio-seccion</div>
+        <div class="ritmo__bloque">Asesor · formulario (mixto)</div>
+        <div class="ritmo__hueco" style="height:var(--espacio-seccion-amplia)">--espacio-seccion-amplia</div>
+        <div class="ritmo__bloque">También en otra sede · eventos (Brand)</div>
+      </div>
+    </section>
+
+    <!-- ================================================================ -->
+    <section class="ds__seccion" id="grid">
+      <div class="encabezado encabezado--filete"><h2 class="t-h2">Grid y contenedores</h2><p class="encabezado__apoyo">12 columnas a ≥ 900 px, 6 entre 600 y 899, flujo por debajo. Canal 24 px. Máximo 1200 px, anclado a la izquierda. Breakpoints provisionales: 600 · 900 · 1200, por dónde se rompe el contenido.</p></div>
+      <div class="rejilla"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span></div>
+      <p class="ds__nota">Franco cuartel en ficha: bloque de marca 5/12, contenido 7/12. Columna de lectura: 36 rem. Formulario: 32 rem.</p>
+    </section>
+
+    <!-- ================================================================ -->
+    <section class="ds__seccion" id="forma">
+      <div class="encabezado encabezado--filete"><h2 class="t-h2">Radios, bordes y elevación</h2><p class="encabezado__apoyo">Voz de marca: tela, roble, filete. Materiales con canto. Radio máximo 2 px; la pastilla solo en chips. Sombra únicamente en lo que flota.</p></div>
+      <div class="ds__fila" style="margin-top:var(--espacio-bloque)">
+        <div class="forma" style="border-radius:var(--radio-nulo)">--radio-nulo · 0</div>
+        <div class="forma" style="border-radius:var(--radio-campo)">--radio-campo · 2</div>
+        <div class="forma" style="border-radius:var(--radio-pastilla);width:160px">--radio-pastilla</div>
+        <div class="forma" style="border-width:var(--borde-fino);border-color:var(--borde-suave)">--borde-fino · 1</div>
+        <div class="forma" style="border-width:var(--borde-medio)">--borde-medio · 1.5</div>
+        <div class="forma" style="border-width:var(--borde-grueso);border-color:var(--borde-marca)">--borde-grueso · 2</div>
+        <div class="forma" style="border:0;border-left:var(--borde-acento) solid var(--acento-ceremonial)">--borde-acento · 4</div>
+        <div class="forma forma--flotante">--sombra-flotante</div>
+      </div>
+    </section>
+
+    <!-- ================================================================ -->
+    <section class="ds__seccion" id="movimiento">
+      <div class="encabezado encabezado--filete"><h2 class="t-h2">Movimiento · L2</h2><p class="encabezado__apoyo">Tres duraciones: 120 ms (hover, foco), 200 ms (menús, chips, mensajes), 400 ms (el contador). Dos curvas. Solo <code>opacity</code>, <code>transform</code> y colores. Con <code>prefers-reduced-motion</code> todo pasa a 1 ms y el contador se anuncia por región viva.</p></div>
+      <div class="ds__lienzo demo-mov">
+        <div class="ds__fila">
+          <button class="boton boton--secundario" id="demo-entrada">Reproducir entrada (200 ms)</button>
+          <div class="demo-mov__caja" id="demo-caja" aria-hidden="true"></div>
+        </div>
+        <p class="ds__nota">El único momento con movimiento intencional del sitio es el contador de la Oferta: ver <a href="#c-catalogo">Filtros, contador, tarjeta</a>.</p>
+      </div>
+    </section>
+
+    <!-- ================================================================ -->
+    <section class="ds__seccion" id="franco">
+      <div class="encabezado encabezado--filete"><h2 class="t-h2">Sistema gráfico · Franco cuartel + Tahalí</h2><p class="encabezado__apoyo">El bloque de marca aloja título, contexto y CTA sobre verde sólido; el tahalí (60°, una vez por página) cruza el borde entre bloque y foto o papel. Texto nunca sobre la foto.</p></div>
+
+      <h3 class="t-h3 ds__sub">Variante campaña (Inicio) — referencia ESIC</h3>
+      <p class="ds__estado">Titular de campaña <span class="ds__tag ds__tag--placeholder">PLACEHOLDER</span> · foto del banco (Mixcoac) · un CTA · estático</p>
+      <div class="ds__lienzo ds__lienzo--sangre">
+        <section class="franco inverso" aria-labelledby="h-campana">
+          <div class="franco__bloque">
+            <p class="t-etiqueta">Posgrados Panamericana</p>
+            <h1 class="t-display" id="h-campana">Lo que sabes te trajo aquí. Lo que aprendas te lleva más lejos.</h1>
+            <p class="franco__apoyo">Maestrías, especialidades y doctorados en tres campus, con horarios pensados para quien trabaja.</p>
+            <div class="franco__acciones"><a class="boton boton--primario" href="#c-catalogo">Explorar los programas</a></div>
+          </div>
+          <div class="franco__foto"><img src="img/escena-01.jpg" width="1440" height="960" alt="Estudiantes de posgrado conversan en un aula del campus Mixcoac"><div class="tahali tahali--multiply" aria-hidden="true"></div></div>
+        </section>
+      </div>
+
+      <h3 class="t-h3 ds__sub">Variante cabecera de ficha — con Datos clave y Chip de nivel</h3>
+      <p class="ds__estado">Contenido real de la ficha actual de Maestría en Comunicación Institucional (CDMX)</p>
+      <div class="ds__lienzo ds__lienzo--sangre">
+        <nav class="migas" aria-label="Ubicación" style="padding:var(--espacio-base) var(--margen-lateral)"><ol><li><a href="#">Programas</a></li><li><a href="#">Comunicación</a></li><li aria-current="page">Maestría en Comunicación Institucional</li></ol></nav>
+        <section class="franco inverso" aria-labelledby="h-ficha">
+          <div class="franco__bloque">
+            <div class="franco__meta"><span class="chip chip--nivel" style="background:rgba(247,245,240,0.16);color:var(--contenido-inverso)">Maestría</span><span>Comunicación</span><span>CDMX · Mixcoac</span></div>
+            <h1 class="t-h1" id="h-ficha">Maestría en Comunicación Institucional</h1>
+            <dl class="datos">
+              <div class="datos__fila"><dt>Inicio de clases</dt><dd>Marzo 2026</dd></div>
+              <div class="datos__fila"><dt>Horario</dt><dd class="datos--largo">Jueves de 19:00 a 22:00 hrs y sábado de 9:00 a 12:00 hrs</dd></div>
+              <div class="datos__fila"><dt>Modalidad</dt><dd>Presencial</dd></div>
+              <div class="datos__fila"><dt>Duración</dt><dd>18 meses</dd></div>
+              <div class="datos__fila"><dt>Sede</dt><dd>UP CDMX · Mixcoac</dd></div>
+            </dl>
+            <div class="franco__acciones"><a class="boton boton--primario" href="#c-campo">Inicia tu proceso de admisión</a><a class="boton boton--secundario" href="#">Agendar una cita</a></div>
+          </div>
+          <div class="franco__foto"><img src="img/escena-02.jpg" width="1440" height="960" alt="Profesor conversa con dos estudiantes frente al escudo de la Universidad Panamericana"><div class="tahali tahali--multiply" aria-hidden="true"></div></div>
+        </section>
+      </div>
+
+      <h3 class="t-h3 ds__sub">Variante sin foto — sedes sin fotografía propia</h3>
+      <p class="ds__estado">Guadalajara, Aguascalientes y Santa Fe mientras no exista material. El tahalí va sólido con contorno dorado; nada de banco.</p>
+      <div class="ds__lienzo ds__lienzo--sangre">
+        <section class="franco franco--sinfoto inverso" aria-labelledby="h-sinfoto">
+          <div class="franco__bloque">
+            <p class="t-etiqueta">Sede</p>
+            <h1 class="t-display" id="h-sinfoto">Aguascalientes</h1>
+            <p class="franco__apoyo">31 programas de posgrado en Ingeniería, Empresariales, Pedagogía, Derecho y Agroalimentos.</p>
+            <div class="franco__acciones"><a class="boton boton--primario" href="#">Ver programas en Aguascalientes</a></div>
+          </div>
+          <div class="tahali tahali--contorno" aria-hidden="true"></div>
+        </section>
+      </div>
+    </section>
+
+    <!-- ================================================================ -->
+    <section class="ds__seccion" id="c-cabecera">
+      <div class="encabezado"><h2 class="t-h2">Cabecera</h2><p class="encabezado__apoyo">Cinco elementos en primaria + CTA; secundaria en barra utilitaria a ≥ 900 px; menú en móvil. El enlace actual lleva atributo, línea y peso.</p></div>
+      <div class="ds__lienzo ds__lienzo--sangre">
+        <header class="cabecera">
+          <nav class="cabecera__util" aria-label="Secundaria"><a href="#">Nosotros</a><a href="#">Noticias</a><a href="#">Eventos</a><a href="#">Contacto</a></nav>
+          <div class="cabecera__barra">
+            <a class="cabecera__logo" href="#" aria-label="Posgrados Panamericana — Inicio"><img src="img/logo-posgrados.webp" width="137" height="160" alt=""></a>
+            <nav class="cabecera__nav" aria-label="Principal"><a href="#" aria-current="page">Programas</a><a href="#">Sedes</a><a href="#">Admisiones</a><a href="#">Becas y financiamiento</a></nav>
+            <a class="boton boton--primario" href="#">Inicia tu proceso</a>
+            <button class="cabecera__menu" aria-expanded="false" aria-controls="menu-movil">Menú</button>
+          </div>
+        </header>
+      </div>
+      <p class="ds__nota">El logotipo es el WebP de 137 × 160 px disponible; se sustituye por el vector cuando llegue (B10).</p>
+    </section>
+
+    <!-- ================================================================ -->
+    <section class="ds__seccion" id="c-boton">
+      <div class="encabezado"><h2 class="t-h2">Botón y enlace</h2><p class="encabezado__apoyo">Un primario por viewport. El hover del primario no cambia el fondo (el manual no permite variar el 329): añade un filete dorado exterior.</p></div>
+      <div class="ds__lienzo">
+        <div class="ds__fila">
+          <div class="ds__col"><span class="ds__estado">primario</span><button class="boton boton--primario">Inicia tu proceso de admisión</button></div>
+          <div class="ds__col"><span class="ds__estado">secundario</span><button class="boton boton--secundario">Agendar una cita</button></div>
+          <div class="ds__col"><span class="ds__estado">enlace-botón</span><button class="boton boton--enlace">Quitar filtros</button></div>
+          <div class="ds__col"><span class="ds__estado">deshabilitado / enviando</span><button class="boton boton--primario" aria-disabled="true" aria-busy="true">Enviando…</button></div>
+        </div>
+        <p class="ds__nota">Pasa el cursor y tabula para ver hover y foco. Enlace en texto: <a href="#">color marca y subrayado</a>; en hover, tinta y subrayado de 2 px.</p>
+      </div>
+      <div class="ds__lienzo inverso" style="background:var(--superficie-marca);color:var(--contenido-inverso)">
+        <div class="ds__fila"><span class="ds__estado" style="color:inherit;opacity:.8">sobre marca (franco cuartel)</span><button class="boton boton--primario">Explorar programas</button><button class="boton boton--secundario">Agendar una cita</button></div>
+      </div>
+    </section>
+
+    <!-- ================================================================ -->
+    <section class="ds__seccion" id="c-chip">
+      <div class="encabezado"><h2 class="t-h2">Chip</h2><p class="encabezado__apoyo">Filtro (interactivo; el estado activo lleva fondo, texto inverso y ✓) y etiqueta de nivel (estática). La única forma redonda del sitio.</p></div>
+      <div class="ds__lienzo">
+        <div class="ds__fila">
+          <label class="chip" style="position:relative"><input type="checkbox"><svg class="chip__ok" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8.5l3.5 3.5L14 3.5" fill="none" stroke="currentColor" stroke-width="2"/></svg>Guadalajara</label>
+          <label class="chip" style="position:relative"><input type="checkbox" checked><svg class="chip__ok" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8.5l3.5 3.5L14 3.5" fill="none" stroke="currentColor" stroke-width="2"/></svg>Derecho</label>
+          <span class="chip chip--nivel">Maestría</span><span class="chip chip--nivel">Doctorado</span><span class="chip chip--nivel">Educación continua</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================ -->
+    <section class="ds__seccion" id="c-campo">
+      <div class="encabezado"><h2 class="t-h2">Campo y formulario de prospecto</h2><p class="encabezado__apoyo">Un solo esquema de campos en todo el sitio. Etiqueta visible siempre; obligatorio en texto; error junto al campo con icono y texto. Campus y programa prellenados en la variante ficha.</p></div>
+      <div class="ds__lienzo">
+        <form class="formulario" aria-labelledby="h-form" onsubmit="return false">
+          <h3 class="t-h2" id="h-form">Inicia tu proceso de admisión</h3>
+          <div class="formulario__fila">
+            <div class="campo"><label class="campo__etiqueta" for="f-nombre">Nombre(s) <span>(obligatorio)</span></label><input class="campo__control" id="f-nombre" type="text" autocomplete="given-name" required></div>
+            <div class="campo"><label class="campo__etiqueta" for="f-apellido">Apellido paterno <span>(obligatorio)</span></label><input class="campo__control" id="f-apellido" type="text" autocomplete="family-name" required></div>
+          </div>
+          <div class="campo campo--error"><label class="campo__etiqueta" for="f-correo">Correo electrónico <span>(obligatorio)</span></label><input class="campo__control" id="f-correo" type="email" autocomplete="email" value="nombre@correo" aria-invalid="true" aria-describedby="f-correo-err"><p class="campo__error" id="f-correo-err"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" style="flex:0 0 auto;margin-top:2px"><circle cx="8" cy="8" r="7" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 4.5v4M8 11v.5" stroke="currentColor" stroke-width="1.5"/></svg>Error: escribe un correo con el formato nombre@dominio.com</p></div>
+          <div class="campo"><label class="campo__etiqueta" for="f-tel">Número de teléfono</label><input class="campo__control" id="f-tel" type="tel" autocomplete="tel" placeholder="10 dígitos"><p class="campo__ayuda">Te contacta un asesor por WhatsApp o llamada.</p></div>
+          <div class="campo"><label class="campo__etiqueta" for="f-perfil">Perfil laboral <span>(obligatorio)</span></label><select class="campo__control" id="f-perfil" required><option value="">Selecciona</option><option>En preparación (menos de 5 años de experiencia)</option><option>En desarrollo (5 a 10 años de experiencia)</option><option>En consolidación (más de 10 años de experiencia)</option></select></div>
+          <div class="campo campo--casilla"><input type="checkbox" id="f-priv" required><label for="f-priv">He leído el <a href="#">aviso de privacidad para aspirantes</a> y acepto el tratamiento de mis datos para recibir información sobre el programa. <span class="ds__tag ds__tag--placeholder">PLACEHOLDER</span></label></div>
+          <button class="boton boton--primario boton--bloque" type="submit">Enviar</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- ================================================================ -->
+    <section class="ds__seccion" id="c-mensaje">
+      <div class="encabezado"><h2 class="t-h2">Mensaje de estado y estado vacío</h2><p class="encabezado__apoyo">Texto, no solo color. El dorado aparece como borde en advertencia, nunca como texto.</p></div>
+      <div class="ds__lienzo ds__col">
+        <div class="mensaje mensaje--exito" role="status"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="currentColor" stroke-width="2"/></svg><p><span class="mensaje__titulo">Recibimos tu solicitud</span>Un asesor de Comunicación en CDMX te contacta en menos de 24 horas hábiles. <span class="ds__tag ds__tag--placeholder">PLACEHOLDER</span></p></div>
+        <div class="mensaje mensaje--error" role="alert"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v6M12 16v1" stroke="currentColor" stroke-width="2"/></svg><p><span class="mensaje__titulo">Error: no pudimos enviar tu solicitud</span>Tus datos siguen aquí. <button class="boton boton--enlace" style="min-height:0;padding:0">Reintentar</button></p></div>
+        <div class="mensaje mensaje--advertencia" role="status"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9.5 17h-19z" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M12 10v4M12 17v1" stroke="currentColor" stroke-width="2"/></svg><p><span class="mensaje__titulo">Próxima apertura</span>La fecha de inicio publicada ya pasó. Consulta con tu asesor la siguiente generación.</p></div>
+        <div class="mensaje mensaje--informacion" role="status"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M12 11v6M12 7v1" stroke="currentColor" stroke-width="2"/></svg><p>Este programa también se imparte en Guadalajara con horario de fin de semana.</p></div>
+        <section class="vacio" aria-labelledby="h-vacio"><h3 class="t-h3" id="h-vacio">No hay programas de Filosofía en Aguascalientes</h3><p>Prueba quitando un filtro, o revisa la oferta de Filosofía en CDMX.</p><div class="ds__fila"><button class="boton boton--enlace">Quitar el filtro de sede</button><a class="boton boton--secundario" href="#">Hablar con un asesor</a></div></section>
+      </div>
+    </section>
+
+    <!-- ================================================================ -->
+    <section class="ds__seccion" id="c-catalogo">
+      <div class="encabezado"><h2 class="t-h2">Filtros, contador y tarjeta de programa</h2><p class="encabezado__apoyo">Demo funcional con 18 programas del inventario oficial. El contador es la región viva y el único movimiento intencional del sitio. La tarjeta es tipográfica: los programas no tienen foto.</p></div>
+      <div class="ds__lienzo ds__lienzo--papel">
+        <form class="filtros" role="search" aria-label="Filtrar programas" id="filtros" onsubmit="return false">
+          <fieldset><legend>Campus</legend><div class="filtros__chips">
+            <label class="chip"><input type="checkbox" name="campus" value="CDMX"><svg class="chip__ok" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8.5l3.5 3.5L14 3.5" fill="none" stroke="currentColor" stroke-width="2"/></svg>CDMX</label>
+            <label class="chip"><input type="checkbox" name="campus" value="Guadalajara"><svg class="chip__ok" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8.5l3.5 3.5L14 3.5" fill="none" stroke="currentColor" stroke-width="2"/></svg>Guadalajara</label>
+            <label class="chip"><input type="checkbox" name="campus" value="Aguascalientes"><svg class="chip__ok" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8.5l3.5 3.5L14 3.5" fill="none" stroke="currentColor" stroke-width="2"/></svg>Aguascalientes</label>
+          </div></fieldset>
+          <fieldset><legend>Nivel</legend><div class="filtros__chips">
+            <label class="chip"><input type="checkbox" name="nivel" value="Doctorado"><svg class="chip__ok" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8.5l3.5 3.5L14 3.5" fill="none" stroke="currentColor" stroke-width="2"/></svg>Doctorados</label>
+            <label class="chip"><input type="checkbox" name="nivel" value="Maestría"><svg class="chip__ok" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8.5l3.5 3.5L14 3.5" fill="none" stroke="currentColor" stroke-width="2"/></svg>Maestrías</label>
+            <label class="chip"><input type="checkbox" name="nivel" value="Especialidad"><svg class="chip__ok" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8.5l3.5 3.5L14 3.5" fill="none" stroke="currentColor" stroke-width="2"/></svg>Especialidades</label>
+            <label class="chip"><input type="checkbox" name="nivel" value="Diplomado"><svg class="chip__ok" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8.5l3.5 3.5L14 3.5" fill="none" stroke="currentColor" stroke-width="2"/></svg>Educación continua</label>
+          </div></fieldset>
+          <div class="filtros__acciones"><button class="boton boton--enlace" type="reset" id="quitar">Quitar filtros</button></div>
+        </form>
+        <p class="contador" aria-live="polite" aria-atomic="true"><span class="contador__n" id="contador-n">18</span><span id="contador-s">programas</span><span class="contador__apoyo" id="contador-apoyo">en la muestra</span></p>
+        <ul class="lista-programas" id="lista"></ul>
+        <section class="vacio" id="vacio" hidden aria-labelledby="h-vacio2"><h3 class="t-h3" id="h-vacio2">No hay programas con esa combinación</h3><p>Prueba quitando un filtro.</p><div><button class="boton boton--enlace" id="quitar2">Quitar filtros</button></div></section>
+      </div>
+      <h3 class="t-h3 ds__sub">Variante destacada (Inicio)</h3>
+      <div class="ds__lienzo ds__lienzo--papel"><ul class="lista-programas"><li class="programa programa--destacado"><a class="programa__nombre" href="#">Maestría en Inteligencia Artificial y Ciencia de Datos</a><div class="programa__meta"><span class="chip chip--nivel">Maestría</span><span>Ingeniería</span><span>Aguascalientes</span></div></li><li class="programa programa--destacado"><a class="programa__nombre" href="#">Doctorado en Ciencias Empresariales</a><div class="programa__meta"><span class="chip chip--nivel">Doctorado</span><span>Empresariales</span><span>CDMX · Guadalajara</span></div></li></ul></div>
+    </section>
+
+    <!-- ================================================================ -->
+    <section class="ds__seccion" id="c-ficha">
+      <div class="encabezado"><h2 class="t-h2">Datos clave sobre papel, bloque de asesor y RVOE</h2><p class="encabezado__apoyo">Los cinco datos en la misma posición en las 150 fichas. Un dato ausente se muestra, no se oculta. El asesor es una persona real cuando exista consentimiento; aquí, placeholder.</p></div>
+      <div class="ds__lienzo ds__lienzo--papel ds__col">
+        <dl class="datos datos--papel">
+          <div class="datos__fila"><dt>Inicio de clases</dt><dd>Marzo 2026</dd></div>
+          <div class="datos__fila"><dt>Horario</dt><dd class="datos--largo">Jueves de 19:00 a 22:00 hrs y sábado de 9:00 a 12:00 hrs</dd></div>
+          <div class="datos__fila"><dt>Modalidad</dt><dd>Presencial</dd></div>
+          <div class="datos__fila"><dt>Duración</dt><dd>18 meses</dd></div>
+          <div class="datos__fila"><dt>Sede</dt><dd>UP CDMX · Mixcoac</dd></div>
+          <div class="datos__fila"><dt>Costo</dt><dd class="datos--largo" style="color:var(--contenido-terciario)">Consulta con tu asesor</dd></div>
+        </dl>
+        <section class="asesor" aria-labelledby="h-asesor">
+          <img class="asesor__foto" src="img/retrato-01.jpg" width="600" height="600" alt="">
+          <div><h3 class="t-h3" id="h-asesor">Nombre del asesor <span class="ds__tag ds__tag--placeholder">PLACEHOLDER</span></h3><p class="t-pequeno" style="color:var(--contenido-terciario)">Asesora de admisión · Comunicación · CDMX</p><p class="t-pequeno"><a href="#">asesor@up.edu.mx</a> · Cel. 55 0000 0000</p></div>
+          <div class="asesor__acciones"><a class="boton boton--secundario" href="#">Agendar cita <span class="oculto-visual">con Nombre del asesor (abre en ventana nueva)</span></a><a class="boton boton--secundario" href="#">Escribir por WhatsApp<span class="oculto-visual"> a Nombre del asesor</span></a></div>
+        </section>
+        <p class="rvoe"><strong>RVOE</strong> SEP 20200723 de fecha 15/10/2020, Plan 2020, modalidad escolarizada, Augusto Rodin 498, Col. Insurgentes Mixcoac, Benito Juárez, CP 03920, Ciudad de México, México.</p>
+      </div>
+    </section>
+
+    <!-- ================================================================ -->
+    <section class="ds__seccion" id="c-sedes">
+      <div class="encabezado"><h2 class="t-h2">Tarjeta de sede y Mosaico de sede</h2><p class="encabezado__apoyo">Cuatro sedes en tres campus. Solo Mixcoac tiene fotografía; las demás usan la variante sin fotografía hasta que exista material (nunca banco).</p></div>
+      <div class="ds__lienzo ds__lienzo--papel">
+        <ul class="sedes">
+          <li class="sede"><img class="sede__foto" src="img/escena-03.jpg" width="1440" height="960" alt="Aula del campus Mixcoac con estudiantes y profesor"><div class="sede__cuerpo"><h3 class="sede__nombre"><a href="#">CDMX · Mixcoac</a></h3><address>Augusto Rodin 498, Col. Insurgentes Mixcoac</address></div></li>
+          <li class="sede"><div class="sede__franja">Santa Fe<div class="tahali" aria-hidden="true"></div></div><div class="sede__cuerpo"><h3 class="sede__nombre"><a href="#">CDMX · Santa Fe</a></h3><address>Av. Javier Barros Sierra 540, Col. Santa Fe</address></div></li>
+          <li class="sede"><div class="sede__franja">Guadalajara<div class="tahali" aria-hidden="true"></div></div><div class="sede__cuerpo"><h3 class="sede__nombre"><a href="#">Guadalajara</a></h3><address>Av. Álvaro del Portillo 49, Ciudad Granja, Zapopan</address></div></li>
+          <li class="sede"><div class="sede__franja">Aguascalientes<div class="tahali" aria-hidden="true"></div></div><div class="sede__cuerpo"><h3 class="sede__nombre"><a href="#">Aguascalientes</a></h3><address>José María Escrivá de Balaguer 101, Villas Bonaterra</address></div></li>
+        </ul>
+      </div>
+      <h3 class="t-h3 ds__sub">Mosaico de sede — con fotografía (Mixcoac)</h3>
+      <p class="ds__estado">Narrativa <span class="ds__tag ds__tag--placeholder">PLACEHOLDER</span> de longitud realista (≈ 430 caracteres, como la referencia ESIC)</p>
+      <div class="ds__lienzo ds__lienzo--papel">
+        <section class="mosaico" aria-labelledby="h-mixcoac">
+          <div class="mosaico__texto"><h3 class="t-h2" id="h-mixcoac">CDMX · Mixcoac</h3><p class="t-cuerpo-grande">Texto narrativo sobre la sede: por qué estudiar aquí, qué tiene la ciudad y el campus, cómo se vive el posgrado entre semana por la noche y los sábados. Este párrafo tiene la extensión que tendrá el contenido real, alrededor de cuatrocientos treinta caracteres, para que el bloque se diseñe con la medida correcta y no con una frase corta que después no cabe.</p><div><a class="boton boton--secundario" href="#">Ver programas en Mixcoac</a></div></div>
+          <ul class="mosaico__fotos">
+            <li><figure><img src="img/mosaico-01.jpg" width="960" height="640" alt="Salón de posgrados del campus Mixcoac durante una clase"></figure></li>
+            <li><figure><img src="img/mosaico-02.jpg" width="960" height="640" alt=""></figure></li>
+            <li><figure><img src="img/mosaico-03.jpg" width="960" height="639" alt=""></figure></li>
+            <li><figure><img src="img/mosaico-04.jpg" width="960" height="639" alt=""></figure></li>
+            <li><figure><img src="img/mosaico-05.jpg" width="960" height="640" alt=""></figure></li>
+            <li><figure><img src="img/mosaico-06.jpg" width="960" height="640" alt=""></figure></li>
+          </ul>
+        </section>
+      </div>
+      <h3 class="t-h3 ds__sub">Mosaico de sede — sin fotografía (Guadalajara)</h3>
+      <div class="ds__lienzo ds__lienzo--papel">
+        <section class="mosaico" aria-labelledby="h-gdl">
+          <div class="mosaico__texto"><h3 class="t-h2" id="h-gdl">Guadalajara</h3><p class="t-cuerpo-grande">Texto narrativo sobre la sede con la misma extensión que el anterior, para que la página de Sedes no cojee entre ciudades con foto y ciudades sin foto. Cuando lleguen las seis fotografías propias de Guadalajara, la plantilla cambia sola a la variante con mosaico; el editor no elige la variante. <span class="ds__tag ds__tag--placeholder">PLACEHOLDER</span></p><div><a class="boton boton--secundario" href="#">Ver programas en Guadalajara</a></div></div>
+          <div class="mosaico__vacio">Guadalajara<div class="tahali" aria-hidden="true"></div></div>
+        </section>
+      </div>
+    </section>
+
+    <!-- ================================================================ -->
+    <section class="ds__seccion" id="c-contenido">
+      <div class="encabezado"><h2 class="t-h2">Tarjeta de contenido · noticia y evento</h2><p class="encabezado__apoyo">Se lanzan solo si hay contenido real para tres meses (B24). Aquí todo es placeholder.</p></div>
+      <div class="ds__lienzo ds__lienzo--papel"><ul class="contenidos">
+        <li><article class="contenido"><time datetime="2026-09-15">15 de septiembre de 2026</time><h3 class="contenido__titulo"><a href="#">Título de noticia de longitud realista, hasta noventa caracteres, sobre la vida académica</a></h3><p class="t-pequeno" style="color:var(--contenido-secundario)">Resumen de hasta ciento sesenta caracteres que anticipa el contenido sin repetir el título. <span class="ds__tag ds__tag--placeholder">PLACEHOLDER</span></p></article></li>
+        <li><article class="contenido contenido--evento"><div class="fecha"><b>28</b><span>oct</span></div><h3 class="contenido__titulo"><a href="#">Sesión informativa: Maestría en Finanzas</a></h3><p class="t-pequeno" style="color:var(--contenido-terciario)">19:00 · En línea · Empresariales <span class="ds__tag ds__tag--placeholder">PLACEHOLDER</span></p><div><button class="boton boton--enlace" style="padding-left:0">Registrarme</button></div></article></li>
+        <li><article class="contenido contenido--evento"><div class="fecha"><b>03</b><span>sep</span></div><h3 class="contenido__titulo"><a href="#">Open house de posgrados · Guadalajara</a></h3><p class="t-pequeno" style="color:var(--contenido-terciario)">10:00 · Presencial <span class="chip chip--nivel">Realizado</span></p></article></li>
+      </ul></div>
+    </section>
+
+    <!-- ================================================================ -->
+    <section class="ds__seccion" id="c-varios">
+      <div class="encabezado"><h2 class="t-h2">Pasos, acordeón, migas y anclas</h2><p class="encabezado__apoyo">El proceso de admisión es la única secuencia numerada del sitio. El acordeón solo contiene contenido opcional, nunca datos clave ni RVOE.</p></div>
+      <div class="ds__lienzo ds__col" style="gap:var(--espacio-seccion-compacta)">
+        <ol class="pasos">
+          <li class="paso"><div><h3>Envía tu solicitud</h3><p class="t-cuerpo" style="color:var(--contenido-secundario)">Completa el formulario y un asesor te contacta para resolver dudas y revisar tu perfil. <span class="ds__tag ds__tag--placeholder">PLACEHOLDER</span></p></div></li>
+          <li class="paso"><div><h3>Entrega tus documentos</h3><p class="t-cuerpo" style="color:var(--contenido-secundario)">Texto de longitud realista sobre qué documentos se piden y en qué formato.</p></div></li>
+          <li class="paso"><div><h3>Entrevista y admisión</h3><p class="t-cuerpo" style="color:var(--contenido-secundario)">Texto de longitud realista sobre la entrevista y la carta de aceptación.</p></div></li>
+        </ol>
+        <div class="acordeon" id="acordeon">
+          <div class="acordeon__item"><h3><button class="acordeon__boton" aria-expanded="true" aria-controls="ac-1">Plan de estudios<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 7l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2"/></svg></button></h3><div class="acordeon__panel" id="ac-1"><p>Contenido opcional y largo: materias por semestre, créditos, seminarios. <span class="ds__tag ds__tag--placeholder">PLACEHOLDER</span></p></div></div>
+          <div class="acordeon__item"><h3><button class="acordeon__boton" aria-expanded="false" aria-controls="ac-2">Becas que aplican a este programa<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 7l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2"/></svg></button></h3><div class="acordeon__panel" id="ac-2" hidden><p>Tipos de beca, requisitos y convenios (B25).</p></div></div>
+        </div>
+        <nav class="migas" aria-label="Ubicación"><ol><li><a href="#">Programas</a></li><li><a href="#">Derecho</a></li><li aria-current="page">Maestría en Derecho Fiscal</li></ol></nav>
+        <nav class="anclas" aria-label="Secciones de este programa"><ul><li><a href="#" aria-current="location">Datos clave</a></li><li><a href="#">Plan de estudios</a></li><li><a href="#">Tu asesor</a></li><li><a href="#">Admisión</a></li></ul></nav>
+      </div>
+    </section>
+
+    <!-- ================================================================ -->
+    <section class="ds__seccion" id="c-flotantes">
+      <div class="encabezado"><h2 class="t-h2">Banner de cookies y WhatsApp</h2><p class="encabezado__apoyo">Los únicos elementos con sombra: flotan sobre la página. Dos opciones de igual peso en cookies.</p></div>
+      <div class="ds__lienzo ds__lienzo--sangre"><div class="cookies" role="region" aria-label="Consentimiento de cookies"><p class="t-pequeno">Usamos cookies propias y de terceros para medir el uso del sitio y mejorar tu experiencia. Puedes aceptarlas o rechazarlas; consulta la <a href="#">política de cookies</a>. <span class="ds__tag ds__tag--placeholder">PLACEHOLDER</span></p><div class="cookies__acciones"><button class="boton boton--secundario">Rechazar</button><button class="boton boton--secundario">Aceptar</button></div></div></div>
+      <div class="ds__lienzo ds__lienzo--papel"><a class="whatsapp" href="#" aria-label="Escribir por WhatsApp a Posgrados CDMX"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8.5 8.5c0 3 2.5 6 6 7l1.5-1.5-2-1-1 1a5 5 0 0 1-2.5-2.5l1-1-1-2z" fill="currentColor"/></svg><span>WhatsApp</span></a></div>
+    </section>
+
+    <!-- ================================================================ -->
+    <section class="ds__seccion" id="c-pie">
+      <div class="encabezado"><h2 class="t-h2">Pie</h2><p class="encabezado__apoyo">Superficie profunda; el único lugar donde el dorado es texto (6.03:1). Contenido real del pie actual.</p></div>
+      <div class="ds__lienzo ds__lienzo--sangre">
+        <footer class="pie inverso">
+          <div class="pie__cols">
+            <div><h3>Sedes</h3><address>CDMX · Mixcoac<br>Augusto Rodin 498, Col. Insurgentes Mixcoac, C.P. 03920<br><a href="tel:+525554821600">+52 (55) 5482 1600</a></address><address style="margin-top:var(--espacio-base)">CDMX · Santa Fe<br>Av. Javier Barros Sierra 540, piso 3, Col. Santa Fe, C.P. 01210</address></div>
+            <div><address>Guadalajara<br>Av. Álvaro del Portillo 49, Ciudad Granja, Zapopan, C.P. 45010<br><a href="tel:+523313682200">+52 (33) 1368 2200</a></address><address style="margin-top:var(--espacio-base)">Aguascalientes<br>José María Escrivá de Balaguer 101, Villas Bonaterra, C.P. 20296<br><a href="tel:+524499106200">+52 (449) 910 6200</a></address></div>
+            <nav aria-label="Pie de página"><h3>Navegación</h3><ul style="display:grid;gap:var(--espacio-compacto);font-size:var(--texto-pequeno)"><li><a href="#">Programas</a></li><li><a href="#">Sedes</a></li><li><a href="#">Admisiones</a></li><li><a href="#">Becas y financiamiento</a></li><li><a href="#">Nosotros</a></li><li><a href="#">Noticias</a></li><li><a href="#">Eventos</a></li><li><a href="#">Contacto</a></li></ul></nav>
+            <div><h3>Legal</h3><ul style="display:grid;gap:var(--espacio-compacto);font-size:var(--texto-pequeno)"><li><a href="#">Aviso de privacidad</a></li><li><a href="#">Cookies</a></li><li><a href="#">UP en LinkedIn</a></li><li><a href="#">UP en Instagram</a></li></ul></div>
+          </div>
+          <p class="pie__legal"><span>© Centros Culturales de México A.C.</span><span>Universidad Panamericana · Posgrados</span></p>
+        </footer>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+// Demo de movimiento
+const caja = document.getElementById('demo-caja');
+document.getElementById('demo-entrada').addEventListener('click', () => { caja.classList.add('fuera'); requestAnimationFrame(() => requestAnimationFrame(() => caja.classList.remove('fuera'))); });
+
+// Acordeón
+document.querySelectorAll('.acordeon__boton').forEach(b => b.addEventListener('click', () => {
+  const abierto = b.getAttribute('aria-expanded') === 'true';
+  b.setAttribute('aria-expanded', String(!abierto));
+  document.getElementById(b.getAttribute('aria-controls')).hidden = abierto;
+}));
+
+// Catálogo: 18 programas del inventario oficial (2026-09-22)
+const programas = [
+  ["CDMX","Ingeniería","Maestría en Ciencia de Datos"],["Aguascalientes","Ingeniería","Maestría en Ciencias"],["CDMX","Derecho","Especialidad en Derecho de la Empresa"],["Guadalajara","Empresariales","Doctorado en Ciencias Empresariales"],["Aguascalientes","Agroalimentos","Especialidad en Producción del Vino"],["Aguascalientes","Pedagogía","Maestría en Innovación Educativa"],["CDMX","Comunicación","Maestría en Comunicación Política y Pública"],["CDMX","Bellas Artes y Gobierno y Economía","Diplomado en Gobernanza y Diplomacia Cultural"],["Aguascalientes","Agroalimentos","Especialidad en Negocios Agroalimentarios"],["CDMX","Ingeniería","Especialidad en Logística Internacional"],["Aguascalientes","Ingeniería","Maestría en Inteligencia Artificial y Ciencia de Datos"],["CDMX","Gobierno y Economía","Maestría en Ciencias Políticas"],["CDMX","Empresariales","Doctorado en Ciencias Empresariales"],["Aguascalientes","Ingeniería","Maestría en Administración de la Cadena de Valor"],["Aguascalientes","Ingeniería","Maestría en Dirección de la Manufactura y Calidad"],["Guadalajara","Empresariales","Maestría en Empresariales"],["CDMX","Derecho","Maestría en Derecho Fiscal"],["Aguascalientes","Ingeniería","Maestría en Ingeniería de Economía Circular"]
+];
+const nivelDe = n => (n.match(/^(Doctorado|Maestría|Especialidad|Diplomado)/)||[])[1] || 'Diplomado';
+const lista = document.getElementById('lista');
+const ok = '<svg class="chip__ok" viewBox="0 0 16 16" aria-hidden="true"></svg>';
+lista.innerHTML = programas.map(([c,a,n]) => `<li class="programa" data-campus="${c}" data-nivel="${nivelDe(n)}"><a class="programa__nombre" href="#">${n}</a><div class="programa__meta"><span class="chip chip--nivel">${nivelDe(n)}</span><span>${a}</span><span>${c}</span></div></li>`).join('');
+const form = document.getElementById('filtros'), nEl = document.getElementById('contador-n'), sEl = document.getElementById('contador-s'), apoyo = document.getElementById('contador-apoyo'), vacio = document.getElementById('vacio');
+const reducido = matchMedia('(prefers-reduced-motion: reduce)').matches;
+let actual = programas.length;
+function tick(desde, hasta) {
+  if (reducido || desde === hasta) { nEl.textContent = hasta; return; }
+  const t0 = performance.now(), dur = 400;
+  const paso = t => { const p = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - p, 3); nEl.textContent = Math.round(desde + (hasta - desde) * e); if (p < 1) requestAnimationFrame(paso); };
+  requestAnimationFrame(paso);
+}
+function filtrar() {
+  const campus = [...form.querySelectorAll('input[name=campus]:checked')].map(i => i.value);
+  const nivel = [...form.querySelectorAll('input[name=nivel]:checked')].map(i => i.value);
+  let n = 0;
+  lista.querySelectorAll('.programa').forEach(li => {
+    const ver = (!campus.length || campus.includes(li.dataset.campus)) && (!nivel.length || nivel.includes(li.dataset.nivel));
+    li.classList.toggle('programa--oculto', !ver); if (ver) n++;
+  });
+  tick(actual, n); actual = n;
+  sEl.textContent = n === 1 ? 'programa' : 'programas';
+  const desc = [...campus, ...nivel]; apoyo.textContent = desc.length ? 'en ' + desc.join(' · ') : 'en la muestra';
+  vacio.hidden = n > 0; lista.hidden = n === 0;
+}
+form.addEventListener('change', filtrar);
+const reset = () => { form.reset(); filtrar(); };
+document.getElementById('quitar').addEventListener('click', e => { e.preventDefault(); reset(); });
+document.getElementById('quitar2').addEventListener('click', reset);
+</script>
+</body>
+</html>
