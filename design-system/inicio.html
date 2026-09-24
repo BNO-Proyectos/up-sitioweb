@@ -58,27 +58,27 @@
 
 <main class="pagina" id="contenido">
 
-  <!-- 1. Banner principal -->
-  <section class="franco franco--campana inverso revela" aria-labelledby="h-hero" style="--foco: 85% 40%; --foco-movil: 100% 45%; --tahali-x: 0; --tahali-alto: 60%">
-    <div class="franco__bloque">
+  <!-- 1. Banner principal: foto a sangre + bloque verde superpuesto -->
+  <section class="hero revela" aria-labelledby="h-hero" style="--foco: 42% 45%; --tahali-x: 66%">
+    <div class="hero__foto"><img src="img/escena-03.jpg" width="1440" height="960" alt="Clase de posgrado en el campus Mixcoac: el profesor explica frente al grupo" fetchpriority="high"><div class="tahali" aria-hidden="true"></div></div>
+    <div class="hero__bloque">
       <p class="t-etiqueta">Posgrados Panamericana</p>
-      <h1 class="t-display" id="h-hero">Tu siguiente nivel empieza aquí.</h1>
-      <p class="franco__apoyo">150 programas de posgrado en tres campus, con horarios pensados para quien trabaja. <span class="ds__tag ds__tag--placeholder" style="border-color:rgba(247,245,240,.5);color:inherit">PLACEHOLDER</span></p>
-      <div class="franco__acciones"><a class="boton boton--primario" href="#form" data-ir-form>Solicitar información</a></div>
+      <h1 class="t-display--xl" id="h-hero" data-palabras>Tu siguiente nivel empieza aquí.</h1>
+      <p class="hero__apoyo">150 programas de posgrado en tres campus, con horarios pensados para quien trabaja. <span class="ds__tag ds__tag--placeholder" style="border-color:rgba(247,245,240,.5);color:inherit">PLACEHOLDER</span></p>
+      <div class="franco__acciones"><a class="boton boton--primario" href="#form" data-ir-form>Solicitar información</a><a class="boton boton--secundario" href="#h-oferta">Explorar la oferta</a></div>
     </div>
-    <div class="franco__foto"><img src="img/escena-01.jpg" width="1440" height="960" alt="Estudiantes de posgrado conversan en un aula del campus Mixcoac" fetchpriority="high"><div class="tahali tahali--multiply" aria-hidden="true"></div></div>
   </section>
 
   <!-- 2. Explora la oferta (propuesta B&O) -->
   <section class="seccion seccion--media" aria-labelledby="h-oferta">
-    <div class="seccion__cabeza"><div class="encabezado encabezado--filete"><h2 class="t-h2" id="h-oferta">Explora la oferta</h2><p class="encabezado__apoyo">Elige por nivel, o filtra por campus y área.</p></div><span class="ds__tag">Propuesta B&amp;O · no estaba en la estructura del cliente</span></div>
-    <div class="accesos">
-      <a class="acceso" href="#"><span class="acceso__cifra">10</span><span class="acceso__nombre">Doctorados</span><span class="acceso__nota">Investigación y docencia</span></a>
-      <a class="acceso" href="#"><span class="acceso__cifra">84</span><span class="acceso__nombre">Maestrías</span><span class="acceso__nota">Incluye Máster</span></a>
-      <a class="acceso" href="#"><span class="acceso__cifra">41</span><span class="acceso__nombre">Especialidades</span><span class="acceso__nota">Incluye Especialización</span></a>
-      <a class="acceso" href="#"><span class="acceso__cifra">15</span><span class="acceso__nombre">Educación continua</span><span class="acceso__nota">Diplomados, cursos y acreditaciones</span></a>
+    <div class="seccion__cabeza" data-entra><div class="encabezado encabezado--filete"><h2 class="t-h2" id="h-oferta">Explora la oferta</h2><p class="encabezado__apoyo">Elige por nivel, o filtra por campus y área.</p></div><span class="ds__tag">Propuesta B&amp;O · no estaba en la estructura del cliente</span></div>
+    <div class="accesos" data-entra-grupo>
+      <a class="acceso" href="#"><span class="acceso__cifra" data-cuenta="10">10</span><span class="acceso__nombre">Doctorados</span><span class="acceso__nota">Investigación y docencia</span></a>
+      <a class="acceso" href="#"><span class="acceso__cifra" data-cuenta="84">84</span><span class="acceso__nombre">Maestrías</span><span class="acceso__nota">Incluye Máster</span></a>
+      <a class="acceso" href="#"><span class="acceso__cifra" data-cuenta="41">41</span><span class="acceso__nombre">Especialidades</span><span class="acceso__nota">Incluye Especialización</span></a>
+      <a class="acceso" href="#"><span class="acceso__cifra" data-cuenta="15">15</span><span class="acceso__nombre">Educación continua</span><span class="acceso__nota">Diplomados, cursos y acreditaciones</span></a>
     </div>
-    <form class="filtros" style="margin-top:var(--espacio-grupo);grid-template-columns:1fr 1fr auto;align-items:end" onsubmit="return false" aria-label="Filtro rápido">
+    <form class="filtros" style="margin-top:var(--espacio-grupo);grid-template-columns:1fr 1fr auto;align-items:end" onsubmit="return false" aria-label="Filtro rápido" data-entra style="--i:2">
       <div class="campo"><label class="campo__etiqueta" for="fr-campus">Campus</label><select class="campo__control" id="fr-campus"><option>Todos</option><option>CDMX</option><option>Guadalajara</option><option>Aguascalientes</option></select></div>
       <div class="campo"><label class="campo__etiqueta" for="fr-area">Área</label><select class="campo__control" id="fr-area"><option>Todas</option><option>Agroalimentos</option><option>Arquitectura</option><option>Bellas Artes</option><option>Ciencias de la Salud</option><option>Comunicación</option><option>Derecho</option><option>Empresariales</option><option>ESDAI</option><option>Filosofía</option><option>Gobierno y Economía</option><option>Ingeniería</option><option>Pedagogía</option><option>Psicología</option></select></div>
       <div><a class="boton boton--primario" href="#">Ver programas</a></div>
@@ -86,9 +86,10 @@
   </section>
 
   <!-- 3. ¿Por qué Posgrados Panamericana? -->
-  <section class="seccion" aria-labelledby="h-porque">
-    <div class="seccion__cabeza"><div class="encabezado encabezado--filete"><h2 class="t-h2" id="h-porque">¿Por qué Posgrados Panamericana?</h2><p class="encabezado__apoyo">Seis razones, de la más concreta a la más institucional. <span class="ds__tag ds__tag--placeholder">PLACEHOLDER</span> — las redacta el cliente; sin cifras ni acreditaciones sin fuente.</p></div></div>
-    <ol class="razones">
+  <section class="seccion seccion--marca seccion--brand inverso" aria-labelledby="h-porque">
+    <div class="tahali tahali--atenuado" aria-hidden="true"></div>
+    <div class="seccion__cabeza" data-entra><div class="encabezado encabezado--filete"><h2 class="t-h2" id="h-porque">¿Por qué Posgrados Panamericana?</h2><p class="encabezado__apoyo">Seis razones, de la más concreta a la más institucional. <span class="ds__tag ds__tag--placeholder">PLACEHOLDER</span> — las redacta el cliente; sin cifras ni acreditaciones sin fuente.</p></div></div>
+    <ol class="razones" data-entra-grupo>
       <li class="razon"><div><h3>Título de la primera razón, hasta cincuenta caracteres</h3><p>Texto de longitud realista, entre ochenta y doscientos caracteres, que explica la razón sin cifras ni rankings hasta que el cliente los respalde con una fuente.</p></div></li>
       <li class="razon"><div><h3>Horarios pensados para quien trabaja</h3><p>Texto de longitud realista que describe la modalidad vespertina y de fin de semana, tal como aparece hoy en las fichas de programa.</p></div></li>
       <li class="razon"><div><h3>Un asesor con nombre desde el primer contacto</h3><p>Texto de longitud realista sobre la atención personalizada que el sitio actual ya ofrece en cada ficha.</p></div></li>
@@ -98,11 +99,21 @@
     </ol>
   </section>
 
+  <!-- 3b. Sedes · banda tipográfica (propuesta B&O) -->
+  <section class="ciudades" aria-labelledby="h-ciudades">
+    <div class="seccion__cabeza" data-entra style="max-width:var(--contenedor-maximo)"><div class="encabezado encabezado--filete"><h2 class="t-h2" id="h-ciudades">Tres campus, cuatro sedes</h2></div><span class="ds__tag">Propuesta B&amp;O · no estaba en la estructura del cliente</span></div>
+    <ul data-entra-grupo style="max-width:var(--contenedor-maximo)">
+      <li><a href="#sedes"><span class="t-display--l">Ciudad de México</span><span class="ciudades__meta"><b>75</b>programas · Mixcoac y Santa Fe</span></a></li>
+      <li><a href="#sedes"><span class="t-display--l">Guadalajara</span><span class="ciudades__meta"><b>44</b>programas</span></a></li>
+      <li><a href="#sedes"><span class="t-display--l">Aguascalientes</span><span class="ciudades__meta"><b>31</b>programas</span></a></li>
+    </ul>
+  </section>
+
   <!-- 4. Testimonios -->
-  <section class="seccion seccion--elevada" aria-labelledby="h-testimonios">
-    <div class="seccion__cabeza"><div class="encabezado encabezado--filete"><h2 class="t-h2" id="h-testimonios">La experiencia de quienes ya cursaron nuestros posgrados</h2><p class="encabezado__apoyo">Testimonios en imagen y en video. <span class="ds__tag ds__tag--placeholder">PLACEHOLDER</span> — esta sección <strong>no se publica</strong> hasta tener personas reales con consentimiento (BRIEF B27).</p></div></div>
-    <ul class="testimonios">
-      <li><figure class="testimonio"><div class="testimonio__media">Video · póster 3:2 · subtítulos<button class="boton boton--primario testimonio__reproducir" type="button">Reproducir testimonio</button></div><blockquote>«Cita de entre ciento veinte y doscientos ochenta caracteres, en la voz de la persona egresada, sobre qué cambió en su trabajo después del programa.»</blockquote><figcaption><span class="testimonio__nombre">Nombre y apellido</span><span class="testimonio__programa">Maestría en Finanzas · Guadalajara</span></figcaption></figure></li>
+  <section class="seccion seccion--elevada seccion--brand" aria-labelledby="h-testimonios">
+    <div class="seccion__cabeza" data-entra><div class="encabezado encabezado--filete"><h2 class="t-h2" id="h-testimonios">La experiencia de quienes ya cursaron nuestros posgrados</h2><p class="encabezado__apoyo">Testimonios en imagen y en video. <span class="ds__tag ds__tag--placeholder">PLACEHOLDER</span> — esta sección <strong>no se publica</strong> hasta tener personas reales con consentimiento (BRIEF B27).</p></div></div>
+    <ul class="testimonios" data-entra-grupo>
+      <li class="testimonio--destacado"><figure class="testimonio testimonio--destacado"><div class="testimonio__media">Video · póster · subtítulos<button class="boton boton--primario testimonio__reproducir" type="button">Reproducir testimonio</button></div><blockquote>«Cita de entre ciento veinte y doscientos ochenta caracteres, en la voz de la persona egresada, sobre qué cambió en su trabajo después del programa.»</blockquote><figcaption><span class="testimonio__nombre">Nombre y apellido</span><span class="testimonio__programa">Maestría en Finanzas · Guadalajara</span></figcaption></figure></li>
       <li><figure class="testimonio"><div class="testimonio__media testimonio__media--retrato">Foto 1:1</div><blockquote>«Cita de longitud realista de una persona egresada, con nombre, programa y sede, que el cliente entregará con consentimiento.»</blockquote><figcaption><span class="testimonio__nombre">Nombre y apellido</span><span class="testimonio__programa">Especialidad en Ciencia de Datos · CDMX</span></figcaption></figure></li>
       <li><figure class="testimonio"><div class="testimonio__media testimonio__media--retrato">Foto 1:1</div><blockquote>«Cita de longitud realista de una persona egresada, con nombre, programa y sede.»</blockquote><figcaption><span class="testimonio__nombre">Nombre y apellido</span><span class="testimonio__programa">Doctorado en Ingeniería · Aguascalientes</span></figcaption></figure></li>
     </ul>
@@ -110,8 +121,8 @@
 
   <!-- 5. Noticias -->
   <section class="seccion" aria-labelledby="h-noticias" id="noticias">
-    <div class="seccion__cabeza"><div class="encabezado encabezado--filete"><h2 class="t-h2" id="h-noticias">Noticias</h2></div><a href="#">Ver todas las noticias</a></div>
-    <ul class="contenidos">
+    <div class="seccion__cabeza" data-entra><div class="encabezado encabezado--filete"><h2 class="t-h2" id="h-noticias">Noticias</h2></div><a href="#">Ver todas las noticias</a></div>
+    <ul class="contenidos" data-entra-grupo>
       <li><article class="contenido"><time datetime="2026-09-15">15 de septiembre de 2026</time><h3 class="contenido__titulo"><a href="#">Título de noticia de longitud realista, hasta noventa caracteres</a></h3><p class="t-pequeno" style="color:var(--contenido-secundario)">Resumen de hasta ciento sesenta caracteres. <span class="ds__tag ds__tag--placeholder">PLACEHOLDER</span> — desde el blog de HubSpot o HubDB (B24).</p></article></li>
       <li><article class="contenido"><time datetime="2026-09-08">8 de septiembre de 2026</time><h3 class="contenido__titulo"><a href="#">Segundo título de noticia de longitud realista</a></h3><p class="t-pequeno" style="color:var(--contenido-secundario)">Resumen de hasta ciento sesenta caracteres que anticipa el contenido.</p></article></li>
       <li><article class="contenido"><time datetime="2026-09-01">1 de septiembre de 2026</time><h3 class="contenido__titulo"><a href="#">Tercer título de noticia</a></h3><p class="t-pequeno" style="color:var(--contenido-secundario)">Resumen de hasta ciento sesenta caracteres.</p></article></li>
@@ -120,8 +131,8 @@
 
   <!-- 6. Preguntas frecuentes -->
   <section class="seccion seccion--media" aria-labelledby="h-faq">
-    <div class="encabezado" style="margin-bottom:var(--espacio-modulo)"><h2 class="t-h2" id="h-faq">Preguntas frecuentes sobre posgrados Panamericana</h2><p class="encabezado__apoyo"><span class="ds__tag ds__tag--placeholder">PLACEHOLDER</span> — las preguntas reales salen de lo que escucha Admisiones (B2).</p></div>
-    <div class="acordeon">
+    <div class="encabezado" style="margin-bottom:var(--espacio-modulo)" data-entra><h2 class="t-h2" id="h-faq">Preguntas frecuentes sobre posgrados Panamericana</h2><p class="encabezado__apoyo"><span class="ds__tag ds__tag--placeholder">PLACEHOLDER</span> — las preguntas reales salen de lo que escucha Admisiones (B2).</p></div>
+    <div class="acordeon" data-entra style="--i:1">
       <div class="acordeon__item"><h3><button class="acordeon__boton" aria-expanded="true" aria-controls="faq-1">¿Puedo estudiar un posgrado mientras trabajo?<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 7l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2"/></svg></button></h3><div class="acordeon__panel" id="faq-1"><div><p>Respuesta de longitud realista, entre ochenta y cuatrocientos caracteres, que resuelve la duda con datos concretos: horarios vespertinos y de sábado, duración y modalidad.</p></div></div></div>
       <div class="acordeon__item"><h3><button class="acordeon__boton" aria-expanded="false" aria-controls="faq-2">¿Qué requisitos de admisión hay?<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 7l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2"/></svg></button></h3><div class="acordeon__panel" id="faq-2" data-cerrado><div><p>Respuesta de longitud realista.</p></div></div></div>
       <div class="acordeon__item"><h3><button class="acordeon__boton" aria-expanded="false" aria-controls="faq-3">¿Hay becas o financiamiento?<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 7l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2"/></svg></button></h3><div class="acordeon__panel" id="faq-3" data-cerrado><div><p>Respuesta de longitud realista.</p></div></div></div>
@@ -132,7 +143,7 @@
 
   <!-- 7. Solicitar información -->
   <section class="seccion seccion--elevada seccion--media" aria-labelledby="h-form" id="form">
-    <div class="encabezado" style="margin-bottom:var(--espacio-grupo)"><h2 class="t-h2" id="h-form" tabindex="-1">Solicita información</h2><p class="encabezado__apoyo">Un asesor del campus y área que elijas te contacta en menos de 24 horas hábiles. <span class="ds__tag ds__tag--placeholder">PLACEHOLDER</span></p></div>
+    <div class="encabezado" style="margin-bottom:var(--espacio-grupo)" data-entra><h2 class="t-h2" id="h-form" tabindex="-1">Solicita información</h2><p class="encabezado__apoyo">Un asesor del campus y área que elijas te contacta en menos de 24 horas hábiles. <span class="ds__tag ds__tag--placeholder">PLACEHOLDER</span></p></div>
     <form class="formulario" onsubmit="return false">
       <div class="formulario__fila">
         <div class="campo"><label class="campo__etiqueta" for="f-nombre">Nombre(s) <span>(obligatorio)</span></label><input class="campo__control" id="f-nombre" type="text" autocomplete="given-name" required></div>
@@ -171,14 +182,38 @@
   <p class="pie__legal"><span>© Centros Culturales de México A.C.</span><span><a href="#">Cookies</a></span><span class="ds__tag" style="border-color:rgba(247,245,240,.4);color:inherit">Fila de sedes y legales: propuesta B&amp;O, no estaba en el wireframe</span></p>
 </footer>
 
-<p class="aviso-maqueta">Maqueta de revisión de la Home (PAGE-SPEC-inicio, borrador). Textos marcados PLACEHOLDER no son contenido del cliente. <a href="index.html">Ver design system</a></p>
+
 
 <script>
+// Titular palabra por palabra (una vez)
+document.querySelectorAll('[data-palabras]').forEach(h => { const w = h.textContent.trim().split(/\s+/); h.innerHTML = w.map((p, i) => `<span class="palabra"><span style="--i:${i}">${p}</span></span>`).join(' '); });
+
+// Cabecera pegajosa: pliega la barra institucional tras 120 px
+const cab = document.querySelector('.cabecera');
+addEventListener('scroll', () => cab.classList.toggle('cabecera--compacta', scrollY > 120), { passive: true });
+
+// Entrada de módulos: una vez, al 20 % visible; fail-safe a 2 s
+const entradas = [...document.querySelectorAll('[data-entra], [data-entra-grupo]')];
+const ioEntra = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('en-vista'); ioEntra.unobserve(e.target); } }), { threshold: 0.2, rootMargin: '0px 0px -8% 0px' });
+entradas.forEach(el => ioEntra.observe(el));
+setTimeout(() => entradas.forEach(el => { if (el.getBoundingClientRect().top < innerHeight) el.classList.add('en-vista'); }), 2000);
+
+// Cifras que cuentan (una vez)
+const reducidoMov = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const ioCuenta = new IntersectionObserver(es => es.forEach(e => {
+  if (!e.isIntersecting) return; ioCuenta.unobserve(e.target);
+  const fin = +e.target.dataset.cuenta; if (reducidoMov) { e.target.textContent = fin; return; }
+  const t0 = performance.now(), dur = 900;
+  const paso = t => { const p = Math.min(1, (t - t0) / dur), k = 1 - Math.pow(1 - p, 3); e.target.textContent = Math.round(fin * k); if (p < 1) requestAnimationFrame(paso); };
+  e.target.textContent = '0'; requestAnimationFrame(paso);
+}), { threshold: 0.6 });
+document.querySelectorAll('[data-cuenta]').forEach(el => ioCuenta.observe(el));
+
 // Revelado del hero (una vez) con fail-safe
 const revelar = el => { el.classList.remove('revelado'); void el.offsetWidth; requestAnimationFrame(() => el.classList.add('revelado')); };
 const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { revelar(e.target); io.unobserve(e.target); } }), { threshold: 0.35 });
-document.querySelectorAll('.franco.revela').forEach(el => io.observe(el));
-setTimeout(() => document.querySelectorAll('.franco.revela:not(.revelado)').forEach(el => el.classList.add('revelado')), 1500);
+document.querySelectorAll('.revela').forEach(el => io.observe(el));
+setTimeout(() => document.querySelectorAll('.revela:not(.revelado)').forEach(el => el.classList.add('revelado')), 1500);
 
 // CTA → #form con foco en el encabezado
 const reducido = matchMedia('(prefers-reduced-motion: reduce)').matches;
