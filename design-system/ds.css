@@ -636,3 +636,29 @@ code { font-family: ui-monospace, Menlo, monospace; font-size: 0.85em; backgroun
 /* Anclas bajo cabecera pegajosa */
 [id] { scroll-margin-top: 96px; }
 .hero.revela > .hero__foto { opacity: 1; transform: none; }
+
+/* ==========================================================================
+   8. Contenedor fijo centrado (corrección 2026-09-24): 1200 px, 12 col, canal 24.
+   Los fondos van a sangre; el contenido nunca supera el contenedor y se centra.
+   ========================================================================== */
+:root { --sangrado: max(var(--margen-lateral), calc((100% - var(--contenedor-maximo)) / 2)); }
+.seccion { width: 100%; max-width: none; margin-inline: auto; padding-left: var(--sangrado); padding-right: var(--sangrado); }
+.seccion > * { max-width: var(--contenedor-maximo); margin-inline: auto; }
+.seccion--elevada, .seccion--marca { max-width: none; }
+.seccion--marca > * { max-width: var(--contenedor-maximo); margin-inline: auto; }
+.seccion--marca .tahali { max-width: none; margin: 0; right: max(2%, calc((100% - var(--contenedor-maximo)) / 2 - var(--tahali-ancho))); }
+.ciudades { padding-left: var(--sangrado); padding-right: var(--sangrado); }
+.ciudades > * { max-width: var(--contenedor-maximo); margin-inline: auto; }
+.cabecera__institucional, .cabecera__barra, .buscador, .pie, .cookies { padding-left: var(--sangrado); padding-right: var(--sangrado); }
+.pie > * { max-width: var(--contenedor-maximo); margin-inline: auto; width: 100%; }
+.pie { display: grid; justify-items: stretch; }
+/* Hero: el bloque nace en el borde izquierdo del contenedor */
+@media (min-width: 900px) {
+  .hero__bloque { left: max(0px, calc((100% - var(--contenedor-maximo)) / 2 - var(--margen-lateral))); width: min(48vw, 680px); padding-left: var(--margen-lateral); padding-right: var(--espacio-modulo); }
+}
+@media (min-width: 1200px) { .hero__bloque { width: 680px; padding-left: var(--margen-lateral); } }
+/* Escala tipográfica con techo fijo (no crece sin límite en pantallas anchas) */
+.t-display--xl { font-size: clamp(2.75rem, 1.4rem + 4.2vw, 5rem); }
+.t-display--l { font-size: clamp(2rem, 1.3rem + 2.4vw, 3.25rem); }
+.seccion--brand .seccion__cabeza .t-h2 { font-size: clamp(2rem, 1.3rem + 2vw, 3rem); }
+.franco--hero .t-display { font-size: clamp(2.5rem, 1.5rem + 2.8vw, 3.75rem); }
