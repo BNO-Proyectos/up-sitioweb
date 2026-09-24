@@ -75,6 +75,7 @@
   --duracion-instante: 120ms; --duracion-base: 200ms; --duracion-contador: 400ms;
   --curva-estandar: cubic-bezier(0.2, 0, 0, 1); --curva-salida: cubic-bezier(0.4, 0, 1, 1);
   --desplazamiento-entrada: 8px;
+  --duracion-revelado: 400ms; --retardo-escalon: 60ms; --escala-hover: 1.03;
   /* Capas */
   --capa-base: 0; --capa-relieve: 1; --capa-fija: 10; --capa-desplegable: 20; --capa-banner: 30; --capa-velo: 40; --capa-modal: 50;
   /* Foco */
@@ -84,7 +85,7 @@
 @media (min-width: 600px) { :root { --margen-lateral: 32px; } }
 @media (min-width: 900px) { :root { --margen-lateral: 48px; --tahali-ancho: 72px; --espacio-seccion-compacta: 64px; --espacio-seccion: 96px; --espacio-seccion-amplia: 128px; } }
 @media (min-width: 1200px) { :root { --tahali-ancho: 96px; } }
-@media (prefers-reduced-motion: reduce) { :root { --duracion-instante: 1ms; --duracion-base: 1ms; --duracion-contador: 1ms; --desplazamiento-entrada: 0px; } }
+@media (prefers-reduced-motion: reduce) { :root { --duracion-instante: 1ms; --duracion-base: 1ms; --duracion-contador: 1ms; --duracion-revelado: 1ms; --retardo-escalon: 0ms; --desplazamiento-entrada: 0px; --escala-hover: 1; } }
 
 /* ==========================================================================
    2. Normalización y elementos
@@ -146,6 +147,7 @@ code { font-family: ui-monospace, Menlo, monospace; font-size: 0.85em; backgroun
   .ds__nav { display: block; position: sticky; top: 0; align-self: start; height: 100vh; overflow: auto; padding: var(--espacio-grupo) var(--espacio-bloque); border-right: var(--borde-fino) solid var(--borde-suave); }
   .ds__nav a { display: block; color: var(--contenido-secundario); text-decoration: none; padding: 6px 0; font-size: var(--texto-pequeno); }
   .ds__nav a:hover { color: var(--contenido-primario); text-decoration: underline; text-decoration-thickness: 2px; }
+  .ds__nav a[aria-current="location"] { color: var(--contenido-marca); font-weight: 500; border-left: var(--borde-grueso) solid var(--contenido-marca); padding-left: 10px; margin-left: -12px; }
   .ds__nav strong { display: block; font-weight: 500; margin: var(--espacio-base) 0 var(--espacio-hilo); color: var(--contenido-terciario); font-size: var(--texto-pequeno); }
 }
 
@@ -203,7 +205,9 @@ code { font-family: ui-monospace, Menlo, monospace; font-size: 0.85em; backgroun
 .chip { display: inline-flex; align-items: center; gap: var(--espacio-compacto); min-height: 44px; padding: 8px 16px; border-radius: var(--radio-pastilla); border: var(--borde-medio) solid var(--borde-marca); color: var(--contenido-marca); background: transparent; font-size: var(--texto-etiqueta); font-weight: 500; cursor: pointer; transition: background-color var(--duracion-instante) var(--curva-estandar), color var(--duracion-instante) var(--curva-estandar); }
 .chip:hover { background: var(--superficie-marca-tinte); }
 .chip input { position: absolute; opacity: 0; width: 1px; height: 1px; }
-.chip__ok { display: none; width: 14px; height: 14px; }
+.chip__ok { display: none; width: 14px; height: 14px; transform: scale(0.6); }
+@keyframes chip-pop { from { transform: scale(0.6); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+.chip:has(input:checked) .chip__ok { animation: chip-pop var(--duracion-base) var(--curva-estandar) forwards; }
 .chip--activo, .chip:has(input:checked) { background: var(--superficie-marca); color: var(--contenido-inverso); border-color: var(--superficie-marca); }
 .chip--activo .chip__ok, .chip:has(input:checked) .chip__ok { display: block; }
 .chip:has(input:focus-visible) { outline: var(--foco-anillo); outline-offset: 2px; }
@@ -245,23 +249,30 @@ code { font-family: ui-monospace, Menlo, monospace; font-size: 0.85em; backgroun
 .franco { position: relative; display: grid; background: var(--superficie-base); overflow-x: clip; }
 .franco__bloque { position: relative; background: var(--superficie-marca); color: var(--contenido-inverso); padding: var(--franco-cuartel-relleno) var(--margen-lateral); display: grid; gap: var(--espacio-bloque); align-content: center; z-index: var(--capa-base); }
 .franco__foto { position: relative; }
-.franco__foto .tahali { top: 0; height: 112%; left: 58%; }
+.franco__foto { overflow: hidden; }
+.franco__foto .tahali { top: 0; height: var(--tahali-alto, 78%); left: var(--tahali-x, 0); }
+.franco__foto img { object-position: var(--foco-movil, var(--foco, 50% 50%)); }
 .franco__foto img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 1 / 1; }
 .franco__apoyo { font-size: var(--texto-cuerpo-grande); max-width: var(--contenedor-lectura); }
 .franco__meta { display: flex; flex-wrap: wrap; gap: var(--espacio-compacto) var(--espacio-base); font-size: var(--texto-pequeno); }
 .franco__acciones { display: flex; flex-wrap: wrap; gap: var(--espacio-base); }
-.tahali { position: absolute; z-index: var(--capa-relieve); width: var(--tahali-ancho); background: var(--superficie-marca); pointer-events: none; transform: skewX(calc(90deg - var(--tahali-angulo))); }
+.tahali { position: absolute; z-index: var(--capa-relieve); width: var(--tahali-ancho); background: var(--superficie-marca); pointer-events: none; transform-origin: top left; transform: skewX(calc(90deg - var(--tahali-angulo))); }
+.tahali--atenuado { background: var(--superficie-marca-atenuada); }
 .tahali--multiply { mix-blend-mode: multiply; }
 .tahali--contorno { background: transparent; border: var(--borde-fino) solid var(--acento-ceremonial); }
 @media (min-width: 900px) {
   .franco { grid-template-columns: 5fr 7fr; }
   .franco__foto img { aspect-ratio: 3 / 2; height: 100%; }
-  .franco__foto .tahali { left: 0; }
+  .franco__foto .tahali { left: var(--tahali-x, 0); }
+  .franco__foto img { object-position: var(--foco, 50% 50%); }
+  .franco--campana { grid-template-columns: 7fr 5fr; }
+  .franco--campana .franco__bloque { padding-right: var(--espacio-grupo); }
+  .franco--campana .t-display { font-size: clamp(2.5rem, 1.6rem + 2.4vw, 3.5rem); max-width: 12ch; }
 }
 .franco--sinfoto { grid-template-columns: 1fr; }
 .franco--sinfoto { overflow: hidden; }
 .franco--sinfoto .franco__bloque { padding-right: calc(var(--margen-lateral) + var(--tahali-ancho) * 2); min-height: 320px; }
-.franco--sinfoto .tahali { top: -10%; height: 120%; left: auto; right: calc(var(--tahali-ancho) * 1.2); }
+.franco--sinfoto .tahali { top: 0; height: 100%; left: auto; right: calc(var(--tahali-ancho) * 2.4); }
 .datos { display: grid; gap: var(--espacio-base); }
 .datos__fila { display: grid; gap: var(--espacio-hilo); }
 .datos dt { font-size: var(--texto-etiqueta); font-weight: 500; opacity: 0.85; }
@@ -269,6 +280,18 @@ code { font-family: ui-monospace, Menlo, monospace; font-size: 0.85em; backgroun
 .datos dd.datos--largo { font-family: var(--fuente-texto); font-size: var(--texto-cuerpo); line-height: 1.5; }
 .datos--papel { background: var(--superficie-marca-tinte); padding: var(--espacio-bloque); }
 @media (min-width: 600px) { .datos--papel { grid-template-columns: 1fr 1fr; } }
+
+/* Revelado al cargar (variante campaña y cabecera de ficha): una sola vez */
+.revela > * { opacity: 0; transform: translateY(var(--desplazamiento-entrada)); }
+.revela.revelado > * { opacity: 1; transform: none; transition: opacity var(--duracion-revelado) var(--curva-estandar), transform var(--duracion-revelado) var(--curva-estandar); }
+.revela.revelado > *:nth-child(2) { transition-delay: calc(var(--retardo-escalon) * 1); }
+.revela.revelado > *:nth-child(3) { transition-delay: calc(var(--retardo-escalon) * 2); }
+.revela.revelado > *:nth-child(4) { transition-delay: calc(var(--retardo-escalon) * 3); }
+.revela.revelado > *:nth-child(5) { transition-delay: calc(var(--retardo-escalon) * 4); }
+.franco.revela .tahali { transform: skewX(calc(90deg - var(--tahali-angulo))) scaleY(0); }
+.franco.revela.revelado .tahali { transform: skewX(calc(90deg - var(--tahali-angulo))) scaleY(1); transition: transform calc(var(--duracion-revelado) * 1.5) var(--curva-estandar) calc(var(--retardo-escalon) * 3); }
+.franco.revela .franco__foto img { transform: scale(1.04); }
+.franco.revela.revelado .franco__foto img { transform: scale(1); transition: transform calc(var(--duracion-revelado) * 2) var(--curva-estandar); }
 
 /* Cabecera */
 .cabecera { background: var(--superficie-base); border-bottom: var(--borde-fino) solid var(--borde-suave); }
@@ -291,6 +314,16 @@ code { font-family: ui-monospace, Menlo, monospace; font-size: 0.85em; backgroun
   .cabecera__menu { display: none; }
 }
 
+/* Menú móvil */
+.menu-movil { position: fixed; inset: 0; z-index: var(--capa-modal); background: var(--superficie-velo); display: grid; align-items: start; }
+.menu-movil[hidden] { display: none; }
+.menu-movil__panel { background: var(--superficie-base); padding: var(--espacio-bloque) var(--margen-lateral) var(--espacio-grupo); display: grid; gap: var(--espacio-base); box-shadow: var(--sombra-flotante); transform: translateY(calc(-1 * var(--desplazamiento-entrada))); opacity: 0; animation: menu-entra var(--duracion-base) var(--curva-estandar) forwards; }
+@keyframes menu-entra { to { transform: none; opacity: 1; } }
+.menu-movil__cerrar { justify-self: end; }
+.menu-movil nav a { display: block; padding: 12px 0; color: var(--contenido-primario); text-decoration: none; border-bottom: var(--borde-fino) solid var(--borde-suave); }
+.menu-movil nav a[aria-current="page"] { color: var(--contenido-marca); font-weight: 500; }
+.menu-movil .primaria a { font-size: var(--texto-h3); font-weight: 700; }
+
 /* Filtros · Contador · Tarjeta de programa */
 .filtros { background: var(--superficie-marca-tinte); padding: var(--espacio-bloque) var(--espacio-base); display: grid; gap: var(--espacio-bloque); }
 .filtros fieldset { border: 0; padding: 0; margin: 0; display: grid; gap: var(--espacio-compacto); }
@@ -303,7 +336,9 @@ code { font-family: ui-monospace, Menlo, monospace; font-size: 0.85em; backgroun
 .contador__apoyo { color: var(--contenido-terciario); font-size: var(--texto-pequeno); }
 .lista-programas { display: grid; gap: 0; }
 .programa { position: relative; display: grid; gap: var(--espacio-compacto); padding: var(--espacio-bloque) var(--espacio-base); border-bottom: var(--borde-fino) solid var(--borde-suave); transition: background-color var(--duracion-instante) var(--curva-estandar); }
+.programa::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: var(--borde-grueso); background: var(--contenido-marca); transform: scaleY(0); transform-origin: top; transition: transform var(--duracion-base) var(--curva-estandar); }
 .programa:hover { background: var(--superficie-elevada); }
+.programa:hover::before, .programa:focus-within::before { transform: scaleY(1); }
 .programa:hover .programa__nombre { text-decoration-thickness: 2px; }
 .programa__nombre { font-size: var(--texto-h3); font-weight: 700; line-height: 1.3; color: var(--contenido-primario); text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 0.15em; }
 .programa__nombre::after { content: ""; position: absolute; inset: 0; }
@@ -328,8 +363,13 @@ code { font-family: ui-monospace, Menlo, monospace; font-size: 0.85em; backgroun
 @media (min-width: 1200px) { .sedes { grid-template-columns: repeat(4, 1fr); } }
 .sede { position: relative; background: var(--superficie-elevada); border: var(--borde-fino) solid var(--borde-suave); display: grid; }
 .sede__foto { aspect-ratio: 3 / 2; object-fit: cover; width: 100%; }
-.sede__franja { aspect-ratio: 3 / 2; background: var(--superficie-marca); color: var(--contenido-inverso); display: grid; align-content: end; padding: var(--espacio-base); font-family: var(--fuente-titulos); font-size: var(--texto-h2); position: relative; overflow: hidden; }
-.sede__franja .tahali { top: -20%; height: 140%; right: 18%; left: auto; width: 24px; background: transparent; border: var(--borde-fino) solid var(--acento-ceremonial); }
+.sede__franja { aspect-ratio: 3 / 2; background: var(--superficie-marca); color: var(--contenido-inverso); display: grid; align-content: end; padding: var(--espacio-base); font-family: var(--fuente-titulos); font-size: var(--texto-cifra); line-height: 1.1; position: relative; overflow: hidden; }
+.sede__franja span { position: relative; z-index: 2; }
+.sede__franja .tahali { top: 0; height: 100%; right: 34%; left: auto; width: 32px; background: var(--superficie-marca-atenuada); transition: transform var(--duracion-base) var(--curva-estandar); }
+.sede:hover .sede__franja .tahali { transform: skewX(calc(90deg - var(--tahali-angulo))) translateX(12px); }
+.sede__foto { transition: transform var(--duracion-base) var(--curva-estandar); }
+.sede { overflow: hidden; }
+.sede:hover .sede__foto { transform: scale(var(--escala-hover)); }
 .sede__cuerpo { padding: var(--espacio-base); display: grid; gap: var(--espacio-hilo); }
 .sede__nombre { font-size: var(--texto-h3); font-weight: 700; }
 .sede__nombre a { color: inherit; text-decoration: none; }
@@ -344,7 +384,10 @@ code { font-family: ui-monospace, Menlo, monospace; font-size: 0.85em; backgroun
 .mosaico__fotos img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 1; }
 .mosaico__fotos li:first-child img { aspect-ratio: 3 / 2; }
 .mosaico__vacio { position: relative; overflow: hidden; background: var(--superficie-marca); color: var(--contenido-inverso); min-height: 280px; display: grid; align-content: end; padding: var(--espacio-grupo); font-family: var(--fuente-titulos); font-size: var(--texto-display); line-height: 1.05; }
-.mosaico__vacio .tahali { top: -10%; height: 120%; right: 22%; left: auto; background: transparent; border: var(--borde-fino) solid var(--acento-ceremonial); }
+.mosaico__vacio .tahali { top: 0; height: 100%; right: 30%; left: auto; background: var(--superficie-marca-atenuada); }
+.mosaico__fotos figure { overflow: hidden; margin: 0; height: 100%; }
+.mosaico__fotos img { transition: transform var(--duracion-base) var(--curva-estandar); }
+.mosaico__fotos li:hover img { transform: scale(var(--escala-hover)); }
 @media (min-width: 600px) { .mosaico__fotos { grid-template-columns: repeat(3, 1fr); } .mosaico__fotos li:first-child { grid-column: 1 / 3; grid-row: 1 / 3; } .mosaico__fotos li:nth-child(n+4) { display: block; } .mosaico__fotos li:first-child img { aspect-ratio: auto; } }
 @media (min-width: 900px) { .mosaico { grid-template-columns: 5fr 7fr; } }
 .contenidos { display: grid; gap: var(--espacio-bloque); }
@@ -374,8 +417,10 @@ code { font-family: ui-monospace, Menlo, monospace; font-size: 0.85em; backgroun
 .acordeon__boton:hover { background: var(--superficie-marca-tinte); }
 .acordeon__boton svg { width: 20px; height: 20px; flex: 0 0 auto; transition: transform var(--duracion-base) var(--curva-estandar); }
 .acordeon__boton[aria-expanded="true"] svg { transform: rotate(180deg); }
-.acordeon__panel { padding: 0 0 var(--espacio-base); color: var(--contenido-secundario); }
-.acordeon__panel[hidden] { display: none; }
+.acordeon__panel { display: grid; grid-template-rows: 1fr; color: var(--contenido-secundario); transition: grid-template-rows var(--duracion-base) var(--curva-estandar); }
+.acordeon__panel > div { overflow: hidden; padding: 0 0 var(--espacio-base); }
+.acordeon__panel[data-cerrado] { grid-template-rows: 0fr; }
+.acordeon__panel[data-cerrado] > div { padding-bottom: 0; }
 .migas ol { display: flex; flex-wrap: wrap; gap: var(--espacio-compacto); font-size: var(--texto-pequeno); color: var(--contenido-terciario); }
 .migas a { color: var(--contenido-secundario); text-decoration: none; }
 .migas a:hover { text-decoration: underline; text-decoration-thickness: 2px; }
@@ -558,13 +603,14 @@ code { font-family: ui-monospace, Menlo, monospace; font-size: 0.85em; backgroun
 
     <!-- ================================================================ -->
     <section class="ds__seccion" id="movimiento">
-      <div class="encabezado encabezado--filete"><h2 class="t-h2">Movimiento · L2</h2><p class="encabezado__apoyo">Tres duraciones: 120 ms (hover, foco), 200 ms (menús, chips, mensajes), 400 ms (el contador). Dos curvas. Solo <code>opacity</code>, <code>transform</code> y colores. Con <code>prefers-reduced-motion</code> todo pasa a 1 ms y el contador se anuncia por región viva.</p></div>
+      <div class="encabezado encabezado--filete"><h2 class="t-h2">Movimiento · L2+</h2><p class="encabezado__apoyo">El movimiento se gasta donde ayuda a decidir, nunca al hacer scroll. Tres momentos: el <strong>revelado del bloque de marca</strong> al entrar en pantalla (una vez), el <strong>contador y reacomodo</strong> al filtrar, y la <strong>respuesta al cursor</strong> en sedes y mosaico. Más micro-interacciones de estado: chips, acordeón, tarjetas, menú. Duraciones 120 / 200 / 400 ms, dos curvas, solo <code>opacity</code>, <code>transform</code> y colores. Con <code>prefers-reduced-motion</code> todo ocurre sin transición y el contador se anuncia por región viva.</p></div>
       <div class="ds__lienzo demo-mov">
         <div class="ds__fila">
           <button class="boton boton--secundario" id="demo-entrada">Reproducir entrada (200 ms)</button>
           <div class="demo-mov__caja" id="demo-caja" aria-hidden="true"></div>
         </div>
-        <p class="ds__nota">El único momento con movimiento intencional del sitio es el contador de la Oferta: ver <a href="#c-catalogo">Filtros, contador, tarjeta</a>.</p>
+        <p class="ds__nota">Ver el revelado en <a href="#franco">Franco cuartel</a>, el reacomodo en <a href="#c-catalogo">Filtros, contador, tarjeta</a> y el hover en <a href="#c-sedes">Sedes y mosaico</a>.</p>
+        <div><button class="boton boton--secundario" id="repetir-revelado">Repetir revelado del hero</button></div>
       </div>
     </section>
 
@@ -573,13 +619,13 @@ code { font-family: ui-monospace, Menlo, monospace; font-size: 0.85em; backgroun
       <div class="encabezado encabezado--filete"><h2 class="t-h2">Sistema gráfico · Franco cuartel + Tahalí</h2><p class="encabezado__apoyo">El bloque de marca aloja título, contexto y CTA sobre verde sólido; el tahalí (60°, una vez por página) cruza el borde entre bloque y foto o papel. Texto nunca sobre la foto.</p></div>
 
       <h3 class="t-h3 ds__sub">Variante campaña (Inicio) — referencia ESIC</h3>
-      <p class="ds__estado">Titular de campaña <span class="ds__tag ds__tag--placeholder">PLACEHOLDER</span> · foto del banco (Mixcoac) · un CTA · estático</p>
+      <p class="ds__estado">Titular de campaña ≤ 40 caracteres <span class="ds__tag ds__tag--placeholder">PLACEHOLDER</span> · bloque 7/12 · display máx. 56 px y 12 ch · foto con punto focal · revelado una sola vez al entrar en pantalla · el tahalí nace en el borde y no cruza el centro de la foto</p>
       <div class="ds__lienzo ds__lienzo--sangre">
-        <section class="franco inverso" aria-labelledby="h-campana">
+        <section class="franco franco--campana inverso revela" aria-labelledby="h-campana" style="--foco: 60% 40%; --foco-movil: 100% 45%; --tahali-x: 0; --tahali-alto: 70%">
           <div class="franco__bloque">
             <p class="t-etiqueta">Posgrados Panamericana</p>
-            <h1 class="t-display" id="h-campana">Lo que sabes te trajo aquí. Lo que aprendas te lleva más lejos.</h1>
-            <p class="franco__apoyo">Maestrías, especialidades y doctorados en tres campus, con horarios pensados para quien trabaja.</p>
+            <h1 class="t-display" id="h-campana">Tu siguiente nivel empieza aquí.</h1>
+            <p class="franco__apoyo">150 programas de posgrado en tres campus, con horarios pensados para quien trabaja. <span class="ds__tag ds__tag--placeholder" style="border-color:rgba(247,245,240,.5);color:inherit">PLACEHOLDER</span></p>
             <div class="franco__acciones"><a class="boton boton--primario" href="#c-catalogo">Explorar los programas</a></div>
           </div>
           <div class="franco__foto"><img src="img/escena-01.jpg" width="1440" height="960" alt="Estudiantes de posgrado conversan en un aula del campus Mixcoac"><div class="tahali tahali--multiply" aria-hidden="true"></div></div>
@@ -590,7 +636,7 @@ code { font-family: ui-monospace, Menlo, monospace; font-size: 0.85em; backgroun
       <p class="ds__estado">Contenido real de la ficha actual de Maestría en Comunicación Institucional (CDMX)</p>
       <div class="ds__lienzo ds__lienzo--sangre">
         <nav class="migas" aria-label="Ubicación" style="padding:var(--espacio-base) var(--margen-lateral)"><ol><li><a href="#">Programas</a></li><li><a href="#">Comunicación</a></li><li aria-current="page">Maestría en Comunicación Institucional</li></ol></nav>
-        <section class="franco inverso" aria-labelledby="h-ficha">
+        <section class="franco inverso revela" aria-labelledby="h-ficha" style="--foco: 78% 50%; --foco-movil: 100% 50%; --tahali-x: 0; --tahali-alto: 52%; --tahali-ancho: 56px">
           <div class="franco__bloque">
             <div class="franco__meta"><span class="chip chip--nivel" style="background:rgba(247,245,240,0.16);color:var(--contenido-inverso)">Maestría</span><span>Comunicación</span><span>CDMX · Mixcoac</span></div>
             <h1 class="t-h1" id="h-ficha">Maestría en Comunicación Institucional</h1>
@@ -608,7 +654,7 @@ code { font-family: ui-monospace, Menlo, monospace; font-size: 0.85em; backgroun
       </div>
 
       <h3 class="t-h3 ds__sub">Variante sin foto — sedes sin fotografía propia</h3>
-      <p class="ds__estado">Guadalajara, Aguascalientes y Santa Fe mientras no exista material. El tahalí va sólido con contorno dorado; nada de banco.</p>
+      <p class="ds__estado">Guadalajara, Aguascalientes y Santa Fe mientras no exista material. El tahalí va en 329 al 75 % (permitido por el manual); nada de banco.</p>
       <div class="ds__lienzo ds__lienzo--sangre">
         <section class="franco franco--sinfoto inverso" aria-labelledby="h-sinfoto">
           <div class="franco__bloque">
@@ -617,7 +663,7 @@ code { font-family: ui-monospace, Menlo, monospace; font-size: 0.85em; backgroun
             <p class="franco__apoyo">31 programas de posgrado en Ingeniería, Empresariales, Pedagogía, Derecho y Agroalimentos.</p>
             <div class="franco__acciones"><a class="boton boton--primario" href="#">Ver programas en Aguascalientes</a></div>
           </div>
-          <div class="tahali tahali--contorno" aria-hidden="true"></div>
+          <div class="tahali tahali--atenuado" aria-hidden="true"></div>
         </section>
       </div>
     </section>
@@ -632,11 +678,19 @@ code { font-family: ui-monospace, Menlo, monospace; font-size: 0.85em; backgroun
             <a class="cabecera__logo" href="#" aria-label="Posgrados Panamericana — Inicio"><img src="img/logo-posgrados.webp" width="137" height="160" alt=""></a>
             <nav class="cabecera__nav" aria-label="Principal"><a href="#" aria-current="page">Programas</a><a href="#">Sedes</a><a href="#">Admisiones</a><a href="#">Becas y financiamiento</a></nav>
             <a class="boton boton--primario" href="#">Inicia tu proceso</a>
-            <button class="cabecera__menu" aria-expanded="false" aria-controls="menu-movil">Menú</button>
+            <button class="cabecera__menu" id="abrir-menu" aria-expanded="false" aria-controls="menu-movil">Menú</button>
           </div>
         </header>
+        <div class="menu-movil" id="menu-movil" role="dialog" aria-modal="true" aria-label="Menú" hidden>
+          <div class="menu-movil__panel">
+            <button class="boton boton--secundario menu-movil__cerrar" id="cerrar-menu">Cerrar</button>
+            <nav class="primaria" aria-label="Principal"><a href="#" aria-current="page">Programas</a><a href="#">Sedes</a><a href="#">Admisiones</a><a href="#">Becas y financiamiento</a></nav>
+            <a class="boton boton--primario boton--bloque" href="#">Inicia tu proceso</a>
+            <nav aria-label="Secundaria"><a href="#">Nosotros</a><a href="#">Noticias</a><a href="#">Eventos</a><a href="#">Contacto</a></nav>
+          </div>
+        </div>
       </div>
-      <p class="ds__nota">El logotipo es el WebP de 137 × 160 px disponible; se sustituye por el vector cuando llegue (B10).</p>
+      <p class="ds__nota">Reduce la ventana a menos de 900 px y pulsa «Menú» para ver el menú móvil (foco atrapado, Esc cierra). El logotipo es el WebP de 137 × 160 px disponible; se sustituye por el vector cuando llegue (B10).</p>
     </section>
 
     <!-- ================================================================ -->
@@ -701,7 +755,7 @@ code { font-family: ui-monospace, Menlo, monospace; font-size: 0.85em; backgroun
 
     <!-- ================================================================ -->
     <section class="ds__seccion" id="c-catalogo">
-      <div class="encabezado"><h2 class="t-h2">Filtros, contador y tarjeta de programa</h2><p class="encabezado__apoyo">Demo funcional con 18 programas del inventario oficial. El contador es la región viva y el único movimiento intencional del sitio. La tarjeta es tipográfica: los programas no tienen foto.</p></div>
+      <div class="encabezado"><h2 class="t-h2">Filtros, contador y tarjeta de programa</h2><p class="encabezado__apoyo">Demo funcional con 18 programas del inventario oficial. El contador es la región viva; al filtrar, las tarjetas se reacomodan a su nueva posición. La tarjeta es tipográfica: los programas no tienen foto.</p></div>
       <div class="ds__lienzo ds__lienzo--papel">
         <form class="filtros" role="search" aria-label="Filtrar programas" id="filtros" onsubmit="return false">
           <fieldset><legend>Campus</legend><div class="filtros__chips">
@@ -752,9 +806,9 @@ code { font-family: ui-monospace, Menlo, monospace; font-size: 0.85em; backgroun
       <div class="ds__lienzo ds__lienzo--papel">
         <ul class="sedes">
           <li class="sede"><img class="sede__foto" src="img/escena-03.jpg" width="1440" height="960" alt="Aula del campus Mixcoac con estudiantes y profesor"><div class="sede__cuerpo"><h3 class="sede__nombre"><a href="#">CDMX · Mixcoac</a></h3><address>Augusto Rodin 498, Col. Insurgentes Mixcoac</address></div></li>
-          <li class="sede"><div class="sede__franja">Santa Fe<div class="tahali" aria-hidden="true"></div></div><div class="sede__cuerpo"><h3 class="sede__nombre"><a href="#">CDMX · Santa Fe</a></h3><address>Av. Javier Barros Sierra 540, Col. Santa Fe</address></div></li>
-          <li class="sede"><div class="sede__franja">Guadalajara<div class="tahali" aria-hidden="true"></div></div><div class="sede__cuerpo"><h3 class="sede__nombre"><a href="#">Guadalajara</a></h3><address>Av. Álvaro del Portillo 49, Ciudad Granja, Zapopan</address></div></li>
-          <li class="sede"><div class="sede__franja">Aguascalientes<div class="tahali" aria-hidden="true"></div></div><div class="sede__cuerpo"><h3 class="sede__nombre"><a href="#">Aguascalientes</a></h3><address>José María Escrivá de Balaguer 101, Villas Bonaterra</address></div></li>
+          <li class="sede"><div class="sede__franja"><span>Santa Fe</span><div class="tahali" aria-hidden="true"></div></div><div class="sede__cuerpo"><h3 class="sede__nombre"><a href="#">CDMX · Santa Fe</a></h3><address>Av. Javier Barros Sierra 540, Col. Santa Fe</address></div></li>
+          <li class="sede"><div class="sede__franja"><span>Guadalajara</span><div class="tahali" aria-hidden="true"></div></div><div class="sede__cuerpo"><h3 class="sede__nombre"><a href="#">Guadalajara</a></h3><address>Av. Álvaro del Portillo 49, Ciudad Granja, Zapopan</address></div></li>
+          <li class="sede"><div class="sede__franja"><span>Aguascalientes</span><div class="tahali" aria-hidden="true"></div></div><div class="sede__cuerpo"><h3 class="sede__nombre"><a href="#">Aguascalientes</a></h3><address>José María Escrivá de Balaguer 101, Villas Bonaterra</address></div></li>
         </ul>
       </div>
       <h3 class="t-h3 ds__sub">Mosaico de sede — con fotografía (Mixcoac)</h3>
@@ -801,8 +855,8 @@ code { font-family: ui-monospace, Menlo, monospace; font-size: 0.85em; backgroun
           <li class="paso"><div><h3>Entrevista y admisión</h3><p class="t-cuerpo" style="color:var(--contenido-secundario)">Texto de longitud realista sobre la entrevista y la carta de aceptación.</p></div></li>
         </ol>
         <div class="acordeon" id="acordeon">
-          <div class="acordeon__item"><h3><button class="acordeon__boton" aria-expanded="true" aria-controls="ac-1">Plan de estudios<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 7l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2"/></svg></button></h3><div class="acordeon__panel" id="ac-1"><p>Contenido opcional y largo: materias por semestre, créditos, seminarios. <span class="ds__tag ds__tag--placeholder">PLACEHOLDER</span></p></div></div>
-          <div class="acordeon__item"><h3><button class="acordeon__boton" aria-expanded="false" aria-controls="ac-2">Becas que aplican a este programa<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 7l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2"/></svg></button></h3><div class="acordeon__panel" id="ac-2" hidden><p>Tipos de beca, requisitos y convenios (B25).</p></div></div>
+          <div class="acordeon__item"><h3><button class="acordeon__boton" aria-expanded="true" aria-controls="ac-1">Plan de estudios<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 7l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2"/></svg></button></h3><div class="acordeon__panel" id="ac-1"><div><p>Contenido opcional y largo: materias por semestre, créditos, seminarios. <span class="ds__tag ds__tag--placeholder">PLACEHOLDER</span></p></div></div></div>
+          <div class="acordeon__item"><h3><button class="acordeon__boton" aria-expanded="false" aria-controls="ac-2">Becas que aplican a este programa<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 7l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2"/></svg></button></h3><div class="acordeon__panel" id="ac-2" data-cerrado><div><p>Tipos de beca, requisitos y convenios (B25).</p></div></div></div>
         </div>
         <nav class="migas" aria-label="Ubicación"><ol><li><a href="#">Programas</a></li><li><a href="#">Derecho</a></li><li aria-current="page">Maestría en Derecho Fiscal</li></ol></nav>
         <nav class="anclas" aria-label="Secciones de este programa"><ul><li><a href="#" aria-current="location">Datos clave</a></li><li><a href="#">Plan de estudios</a></li><li><a href="#">Tu asesor</a></li><li><a href="#">Admisión</a></li></ul></nav>
@@ -840,12 +894,39 @@ code { font-family: ui-monospace, Menlo, monospace; font-size: 0.85em; backgroun
 const caja = document.getElementById('demo-caja');
 document.getElementById('demo-entrada').addEventListener('click', () => { caja.classList.add('fuera'); requestAnimationFrame(() => requestAnimationFrame(() => caja.classList.remove('fuera'))); });
 
-// Acordeón
+// Revelado del bloque de marca: una vez, cuando entra en pantalla
+const revelar = el => { el.classList.remove('revelado'); void el.offsetWidth; requestAnimationFrame(() => el.classList.add('revelado')); };
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { revelar(e.target); io.unobserve(e.target); } }), { threshold: 0.35 });
+document.querySelectorAll('.franco.revela').forEach(el => io.observe(el));
+setTimeout(() => document.querySelectorAll('.franco.revela:not(.revelado)').forEach(el => el.classList.add('revelado')), 1500); // fail-safe: nunca dejar el bloque invisible
+document.getElementById('repetir-revelado').addEventListener('click', () => { const h = document.querySelector('#franco .franco.revela'); h.scrollIntoView({ block: 'center' }); setTimeout(() => revelar(h), 250); });
+
+// Acordeón (altura animada con grid-template-rows)
 document.querySelectorAll('.acordeon__boton').forEach(b => b.addEventListener('click', () => {
   const abierto = b.getAttribute('aria-expanded') === 'true';
   b.setAttribute('aria-expanded', String(!abierto));
-  document.getElementById(b.getAttribute('aria-controls')).hidden = abierto;
+  document.getElementById(b.getAttribute('aria-controls')).toggleAttribute('data-cerrado', abierto);
 }));
+
+// Menú móvil: foco atrapado, Esc cierra, el foco vuelve al botón
+const menu = document.getElementById('menu-movil'), abrir = document.getElementById('abrir-menu'), cerrar = document.getElementById('cerrar-menu');
+const focables = () => [...menu.querySelectorAll('a, button')];
+function abrirMenu() { menu.hidden = false; abrir.setAttribute('aria-expanded', 'true'); cerrar.focus(); document.addEventListener('keydown', teclaMenu); }
+function cerrarMenu() { menu.hidden = true; abrir.setAttribute('aria-expanded', 'false'); abrir.focus(); document.removeEventListener('keydown', teclaMenu); }
+function teclaMenu(e) {
+  if (e.key === 'Escape') return cerrarMenu();
+  if (e.key !== 'Tab') return;
+  const f = focables(), primero = f[0], ultimo = f[f.length - 1];
+  if (e.shiftKey && document.activeElement === primero) { e.preventDefault(); ultimo.focus(); }
+  else if (!e.shiftKey && document.activeElement === ultimo) { e.preventDefault(); primero.focus(); }
+}
+abrir.addEventListener('click', abrirMenu); cerrar.addEventListener('click', cerrarMenu);
+menu.addEventListener('click', e => { if (e.target === menu) cerrarMenu(); });
+
+// Navegación lateral: sección actual (scroll-spy)
+const navLinks = [...document.querySelectorAll('.ds__nav a')];
+const spy = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) navLinks.forEach(a => { if (a.getAttribute('href') === '#' + e.target.id) a.setAttribute('aria-current', 'location'); else a.removeAttribute('aria-current'); }); }), { rootMargin: '-20% 0px -70% 0px' });
+document.querySelectorAll('.ds__seccion[id]').forEach(s => spy.observe(s));
 
 // Catálogo: 18 programas del inventario oficial (2026-09-22)
 const programas = [
@@ -867,10 +948,18 @@ function tick(desde, hasta) {
 function filtrar() {
   const campus = [...form.querySelectorAll('input[name=campus]:checked')].map(i => i.value);
   const nivel = [...form.querySelectorAll('input[name=nivel]:checked')].map(i => i.value);
+  const items = [...lista.querySelectorAll('.programa')];
+  const antes = new Map(items.filter(li => !li.classList.contains('programa--oculto')).map(li => [li, li.getBoundingClientRect()]));
   let n = 0;
-  lista.querySelectorAll('.programa').forEach(li => {
+  items.forEach(li => {
     const ver = (!campus.length || campus.includes(li.dataset.campus)) && (!nivel.length || nivel.includes(li.dataset.nivel));
     li.classList.toggle('programa--oculto', !ver); if (ver) n++;
+  });
+  if (!reducido) items.forEach(li => {
+    const a = antes.get(li); if (!a || li.classList.contains('programa--oculto')) return;
+    const b = li.getBoundingClientRect(), dx = a.left - b.left, dy = a.top - b.top;
+    if (!dx && !dy) return;
+    li.animate([{ transform: `translate(${dx}px, ${dy}px)` }, { transform: 'none' }], { duration: 400, easing: 'cubic-bezier(0.2, 0, 0, 1)' });
   });
   tick(actual, n); actual = n;
   sEl.textContent = n === 1 ? 'programa' : 'programas';
