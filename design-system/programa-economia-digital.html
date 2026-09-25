@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maestría en Economía Digital · Posgrados Universidad Panamericana · CDMX, sede Santa Fe</title>
+<meta name="description" content="Maestría en Economía Digital de la Universidad Panamericana: 4 semestres, presencial en la sede Santa Fe (CDMX), RVOE 20262339. Microeconomía, datos, plataformas, blockchain e inteligencia artificial.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="ds.css?v=6">
+<link rel="stylesheet" href="camino.css?v=6">
+<link rel="stylesheet" href="campus.css?v=13">
+<link rel="stylesheet" href="programa.css?v=21">
+</head>
+<body class="cp-pagina pg-pagina">
+<a class="oculto-visual" href="#contenido">Saltar al contenido</a>
+<!--
+  Página de programa · Maestría en Economía Digital (2026-09-25)
+  Estructura y copy: wireframe de Figma «Programa — Maestría en Economía Digital» (17 módulos).
+  Piel, cabecera y movimiento: Propuesta B. El programa NO está en el inventario oficial de 150 (programa nuevo;
+  el wireframe lo marca como página propuesta pendiente de aprobación en el mapa de sitio).
+-->
+
+<!-- Cabecera según el wireframe de Figma (2026-09-25, a pedido de Jazmín Córdova):
+     logo · Oferta académica ▾ · Conoce Posgrados Panamericana ▾ · Noticias · Eventos · Contacto · Solicitar información.
+     Sin barra institucional. El contenido de los desplegables no está en el Figma: sale de la lista de páginas
+     del cliente y del inventario oficial (pendiente B29). -->
+<header class="cp-cab" id="cab">
+  <div class="contenedor cp-cab__barra">
+    <a class="cp-cab__logo" href="#" aria-label="Posgrados Panamericana — Inicio"><img src="img/logo-posgrados.webp" width="137" height="160" alt=""></a>
+    <nav class="cp-nav" aria-label="Principal">
+      <ul class="cp-nav__lista">
+        <li class="cp-nav__item">
+          <button class="cp-nav__boton" type="button" aria-expanded="false" aria-controls="d-oferta">Oferta académica<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+          <div class="cp-desp" id="d-oferta" hidden><div class="contenedor cp-desp__rejilla">
+          <div class="cp-desp__col">
+            <p class="cp-desp__titulo">Por nivel</p>
+            <ul>
+              <li><a href="#"><span>Maestrías</span><b>84</b></a></li>
+              <li><a href="#"><span>Especialidades</span><b>41</b></a></li>
+              <li><a href="#"><span>Doctorados</span><b>10</b></a></li>
+              <li><a href="#"><span>Diplomados</span><b>13</b></a></li>
+              <li><a href="#"><span>Educación continua</span><b>2</b></a></li>
+            </ul>
+          </div>
+          <div class="cp-desp__col">
+            <p class="cp-desp__titulo">Por campus</p>
+            <ul>
+              <li><a href="inicio-b.html#sedes"><span>Ciudad de México</span><b>75</b></a></li>
+              <li><a href="inicio-b.html#sedes"><span>Guadalajara</span><b>44</b></a></li>
+              <li><a href="inicio-b.html#sedes"><span>Aguascalientes</span><b>31</b></a></li>
+            </ul>
+          </div>
+          <div class="cp-desp__col cp-desp__col--marca">
+            <div class="banda" aria-hidden="true"></div>
+            <p class="cp-desp__cifra"><b>150</b> programas de posgrado en 3 campus</p>
+            <a class="cp-desp__todo" href="#">Ver todos los programas <span aria-hidden="true">→</span></a>
+          </div>
+          </div></div>
+        </li>
+        <li class="cp-nav__item">
+          <button class="cp-nav__boton" type="button" aria-expanded="false" aria-controls="d-conoce">Conoce Posgrados Panamericana<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+          <div class="cp-desp" id="d-conoce" hidden><div class="contenedor cp-desp__rejilla">
+          <div class="cp-desp__col">
+            <p class="cp-desp__titulo">Posgrados Panamericana</p>
+            <ul>
+              <li><a href="#"><span>Nosotros</span></a></li>
+              <li><a href="inicio-b.html#sedes"><span>Sedes</span></a></li>
+              <li><a href="#"><span>Admisiones</span></a></li>
+              <li><a href="#"><span>Becas, financiamiento y convenios</span></a></li>
+            </ul>
+          </div>
+          <div class="cp-desp__col">
+            <p class="cp-desp__titulo">En esta página</p>
+            <ul>
+              <li><a href="inicio-b.html#por-que"><span>¿Por qué Posgrados Panamericana?</span></a></li>
+              <li><a href="inicio-b.html#testimonios"><span>Experiencia de egresados</span></a></li>
+              <li><a href="inicio-b.html#preguntas"><span>Preguntas frecuentes</span></a></li>
+            </ul>
+          </div>
+          <div class="cp-desp__col cp-desp__col--marca">
+            <div class="banda" aria-hidden="true"></div>
+            <p class="cp-desp__cifra">Un espacio para descubrir tu mejor versión.</p>
+            <a class="cp-desp__todo" href="#solicitud" data-ir-form>Solicita información <span aria-hidden="true">→</span></a>
+          </div>
+          </div></div>
+        </li>
+        <li class="cp-nav__item"><a class="cp-nav__enlace" href="inicio-b.html#noticias">Noticias</a></li>
+        <li class="cp-nav__item"><a class="cp-nav__enlace" href="inicio-b.html#noticias">Eventos</a></li>
+        <li class="cp-nav__item"><a class="cp-nav__enlace" href="#">Contacto</a></li>
+      </ul>
+    </nav>
+    <a class="boton boton--primario cp-cab__cta" href="#solicitud" data-ir-form>Solicitar información</a>
+    <span class="cp-progreso" id="progreso" aria-hidden="true"></span>
+    <button class="cab__menu cp-cab__menu" id="abrir-menu" type="button" aria-expanded="false" aria-controls="capa-menu"><span class="hamb" aria-hidden="true"><i></i><i></i><i></i></span>Menú</button>
+  </div>
+</header>
+<div class="cp-velo" id="velo" hidden></div>
+
+<!-- Menú móvil: la misma estructura del Figma, con acordeones -->
+<div class="capa cp-capa" id="capa-menu" role="dialog" aria-modal="true" aria-label="Menú" hidden>
+  <div class="banda banda--atenuada banda--traza" aria-hidden="true"></div>
+  <div class="contenedor">
+    <div class="capa__cabeza">
+      <span class="marca-texto">Posgrados Panamericana</span>
+      <button class="cab__menu" id="cerrar-menu" type="button">Cerrar</button>
+    </div>
+    <nav class="cp-capa__nav" aria-label="Principal (móvil)">
+      <div class="cp-capa__item">
+        <button class="cp-capa__boton" type="button" aria-expanded="false" aria-controls="m-oferta">Oferta académica<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+        <div class="cp-capa__panel" id="m-oferta" hidden><div class="cp-desp__col">
+            <p class="cp-desp__titulo">Por nivel</p>
+            <ul>
+              <li><a href="#"><span>Maestrías</span><b>84</b></a></li>
+              <li><a href="#"><span>Especialidades</span><b>41</b></a></li>
+              <li><a href="#"><span>Doctorados</span><b>10</b></a></li>
+              <li><a href="#"><span>Diplomados</span><b>13</b></a></li>
+              <li><a href="#"><span>Educación continua</span><b>2</b></a></li>
+            </ul>
+          </div>
+          <div class="cp-desp__col">
+            <p class="cp-desp__titulo">Por campus</p>
+            <ul>
+              <li><a href="inicio-b.html#sedes"><span>Ciudad de México</span><b>75</b></a></li>
+              <li><a href="inicio-b.html#sedes"><span>Guadalajara</span><b>44</b></a></li>
+              <li><a href="inicio-b.html#sedes"><span>Aguascalientes</span><b>31</b></a></li>
+            </ul>
+          </div>
+          <div class="cp-desp__col cp-desp__col--marca">
+            <div class="banda" aria-hidden="true"></div>
+            <p class="cp-desp__cifra"><b>150</b> programas de posgrado en 3 campus</p>
+            <a class="cp-desp__todo" href="#">Ver todos los programas <span aria-hidden="true">→</span></a>
+          </div></div>
+      </div>
+      <div class="cp-capa__item">
+        <button class="cp-capa__boton" type="button" aria-expanded="false" aria-controls="m-conoce">Conoce Posgrados Panamericana<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+        <div class="cp-capa__panel" id="m-conoce" hidden><div class="cp-desp__col">
+            <p class="cp-desp__titulo">Posgrados Panamericana</p>
+            <ul>
+              <li><a href="#"><span>Nosotros</span></a></li>
+              <li><a href="inicio-b.html#sedes"><span>Sedes</span></a></li>
+              <li><a href="#"><span>Admisiones</span></a></li>
+              <li><a href="#"><span>Becas, financiamiento y convenios</span></a></li>
+            </ul>
+          </div>
+          <div class="cp-desp__col">
+            <p class="cp-desp__titulo">En esta página</p>
+            <ul>
+              <li><a href="inicio-b.html#por-que"><span>¿Por qué Posgrados Panamericana?</span></a></li>
+              <li><a href="inicio-b.html#testimonios"><span>Experiencia de egresados</span></a></li>
+              <li><a href="inicio-b.html#preguntas"><span>Preguntas frecuentes</span></a></li>
+            </ul>
+          </div>
+          <div class="cp-desp__col cp-desp__col--marca">
+            <div class="banda" aria-hidden="true"></div>
+            <p class="cp-desp__cifra">Un espacio para descubrir tu mejor versión.</p>
+            <a class="cp-desp__todo" href="#solicitud" data-ir-form>Solicita información <span aria-hidden="true">→</span></a>
+          </div></div>
+      </div>
+      <div class="cp-capa__item"><a class="cp-capa__enlace" href="inicio-b.html#noticias">Noticias</a></div>
+      <div class="cp-capa__item"><a class="cp-capa__enlace" href="inicio-b.html#noticias">Eventos</a></div>
+      <div class="cp-capa__item"><a class="cp-capa__enlace" href="#">Contacto</a></div>
+    </nav>
+    <a class="boton boton--primario cp-capa__cta" href="#solicitud" data-ir-form>Solicitar información</a>
+  </div>
+</div>
+
+
+<main id="contenido">
+
+  <div class="contenedor pg-migas"><nav aria-label="Ruta"><ol>
+    <li><a href="inicio-b.html">Inicio</a></li><li><a href="inicio-b.html#sedes">CDMX</a></li><li><a href="#">Gobierno y Economía</a></li><li aria-current="page">Maestría en Economía Digital</li>
+  </ol></nav></div>
+
+  <!-- 01 · Hero -->
+  <section class="pg-hero" id="inicio" aria-labelledby="h1">
+    <div class="contenedor">
+      <div class="pg-hero__texto">
+        <p class="cap-etiqueta">Maestría · Campus CDMX — sede Santa Fe</p>
+        <h1 id="h1"><span class="linea"><span>Maestría en</span></span> <span class="linea"><span>Economía Digital</span></span></h1>
+        <p class="pg-hero__lema">Lidera la economía del mañana, hoy.</p>
+        <p class="pg-hero__desc">Comprende los mercados digitales, diseña estrategias con datos y toma decisiones con criterio ético en un entorno que la tecnología redefine todos los días. Todo esto, con el acompañamiento cercano que distingue a la Universidad Panamericana.</p>
+        <div class="pg-hero__acciones">
+          <a class="boton boton--primario" href="#solicitud" data-intencion="info" data-origen="portada">Solicitar información</a>
+          <a class="boton boton--secundario" href="#plan-modal" data-abre-plan data-origen="portada">Quiero recibir el plan de estudios</a>
+        </div>
+      </div>
+      <div class="pg-hero__escena">
+        <figure class="pg-hero__foto" style="--foco: 42% 40%">
+          <img src="img/escena-02.jpg" width="1440" height="960" alt="Estudiante de posgrado participa en clase" fetchpriority="high" data-parallax="0.12">
+          <figcaption class="pg-hero__ref">Foto de referencia · sustituir por imagen o video del programa</figcaption>
+        </figure>
+        <!-- Tahalí 329 en multiply (Master graphic B, Posgrados · variante A): cruza el borde inferior del franco cuartel, lejos del rostro -->
+        <div class="pg-hero__tahali" aria-hidden="true"></div>
+      </div>
+    </div>
+    <div class="contenedor pg-datos">
+      <dl>
+        <div><dt>Modalidad</dt><dd>Presencial</dd></div>
+        <div><dt>Duración</dt><dd>4 semestres (2 años)</dd></div>
+        <div><dt>Campus</dt><dd>CDMX — Santa Fe</dd></div>
+        <div><dt>Próximo inicio</dt><dd>Agosto 2027</dd></div>
+        <div><dt>RVOE</dt><dd>20262339</dd></div>
+        <div><dt>Idioma</dt><dd>Español</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- 02 · Pestañas -->
+  <nav class="pg-tabs" id="tabs" aria-label="Secciones del programa">
+    <div class="contenedor">
+      <div class="pg-tabs__pista" id="tabs-pista">
+        <a href="#resumen">Resumen</a>
+        <a href="#plan">Plan de estudios</a>
+        <a href="#perfil">Perfil</a>
+        <a href="#profesores">Profesores</a>
+        <a href="#admisiones">Admisiones</a>
+        <a href="#apoyo">Becas y convenios</a>
+        <a href="#preguntas">Preguntas frecuentes</a>
+        <span class="pg-tabs__indicador" id="tabs-indicador" aria-hidden="true"></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 03 · Lo esencial -->
+  <section class="pg-seccion pg-seccion--elevada" id="resumen" aria-labelledby="h-esencial">
+    <div class="contenedor">
+      <div class="pg-cabeza"><p class="cap-etiqueta">Resumen</p><h2 class="cp-h2 cp-mascara" id="h-esencial">Lo esencial del programa</h2></div>
+      <ul class="pg-esencial">
+        <li class="cp-revela" style="--k:0"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><b>Duración</b><span>4 semestres / 2 años</span></li>
+        <li class="cp-revela" style="--k:1"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 20V9l8-5 8 5v11"/><path d="M9 20v-6h6v6"/></svg><b>Modalidad</b><span>Presencial</span></li>
+        <li class="cp-revela" style="--k:2"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="16"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><b>Días y horarios</b><span>Viernes 16:00–22:00 y sábado 8:00–14:00 h <span class="ds__tag ds__tag--placeholder">PENDIENTE</span></span></li>
+        <li class="cp-revela" style="--k:3"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><b>Campus</b><span>CDMX — sede Santa Fe</span></li>
+        <li class="cp-revela" style="--k:4"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg><b>Próximo inicio</b><span>Agosto 2027</span></li>
+        <li class="cp-revela" style="--k:5"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3l7 3v5c0 5-3 8.5-7 10-4-1.5-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg><b>RVOE y validez</b><span>RVOE 20262339 (26/05/2026)</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 04 · ¿Qué es? -->
+  <!-- 04 · ¿Qué es? — paneles expandibles: rotan solos, se pausan al pasar el cursor y se eligen con clic -->
+  <section class="pg-seccion pg-seccion--papel" aria-labelledby="h-quees">
+    <div class="contenedor">
+      <div class="pg-cabeza"><p class="cap-etiqueta">El programa</p><h2 class="cp-h2 cp-mascara" id="h-quees">¿Qué es la Maestría en Economía Digital?</h2></div>
+      <div class="pg-quees pg-quees--paneles">
+        <p class="pg-quees__texto cp-revela">La Maestría en Economía Digital es un posgrado de la Universidad Panamericana para profesionales que quieren entender —y liderar, con sentido humano— la transformación digital desde una mirada económica rigurosa. A lo largo de cuatro semestres combinarás microeconomía avanzada, teoría de juegos, econometría y ciencia de datos con temas de vanguardia como la economía de plataformas, blockchain, la inteligencia artificial como factor productivo y el diseño de mercados. Al terminar, tendrás las herramientas conceptuales y técnicas para analizar mercados digitales, diseñar estrategias basadas en datos y tomar decisiones informadas en un entorno donde la tecnología redefine constantemente las reglas del juego.</p>
+        <div class="pg-paneles cp-revela" id="paneles" aria-label="Lo que desarrollarás">
+          <div class="pg-panel pg-panel--activo">
+            <div class="textura-roble textura-roble--acercamiento" aria-hidden="true"></div>
+            <h3><button class="pg-panel__boton" type="button" id="pb-1" aria-expanded="true" aria-controls="pp-1"><span class="pg-panel__n">01</span><span class="pg-panel__t">Criterio económico</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 7l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2"/></svg></button></h3>
+            <div class="pg-panel__cuerpo" id="pp-1" role="region" aria-labelledby="pb-1"><p>Analiza cómo la tecnología transforma mercados, competencia, costos y creación de valor.</p></div>
+            <span class="pg-panel__barra" aria-hidden="true"></span>
+          </div>
+          <div class="pg-panel">
+            <div class="textura-roble textura-roble--acercamiento" aria-hidden="true"></div>
+            <h3><button class="pg-panel__boton" type="button" id="pb-2" aria-expanded="false" aria-controls="pp-2"><span class="pg-panel__n">02</span><span class="pg-panel__t">Criterio estratégico</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 7l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2"/></svg></button></h3>
+            <div class="pg-panel__cuerpo" id="pp-2" role="region" aria-labelledby="pb-2"><p>Identifica oportunidades y evalúa tecnologías y modelos de negocio para construir ventajas competitivas.</p></div>
+            <span class="pg-panel__barra" aria-hidden="true"></span>
+          </div>
+          <div class="pg-panel">
+            <div class="textura-roble textura-roble--acercamiento" aria-hidden="true"></div>
+            <h3><button class="pg-panel__boton" type="button" id="pb-3" aria-expanded="false" aria-controls="pp-3"><span class="pg-panel__n">03</span><span class="pg-panel__t">Capacidad directiva</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 7l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2"/></svg></button></h3>
+            <div class="pg-panel__cuerpo" id="pp-3" role="region" aria-labelledby="pb-3"><p>Toma decisiones basadas en datos y lidera iniciativas digitales considerando viabilidad, regulación e implicaciones éticas.</p></div>
+            <span class="pg-panel__barra" aria-hidden="true"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 · ¿Para quién? -->
+  <section class="pg-seccion pg-seccion--elevada" aria-labelledby="h-quien">
+    <div class="contenedor">
+      <div class="pg-cabeza"><p class="cap-etiqueta">Perfil de ingreso</p><h2 class="cp-h2 cp-mascara" id="h-quien">¿Para quién es este programa?</h2></div>
+      <div class="pg-quien">
+        <div class="cp-revela" style="--k:0"><h3>Perfil de ingreso</h3><p>Un directivo con al menos 3 años de experiencia profesional. Directivos en áreas de transformación tecnológica, emprendedores, consultores y reguladores que buscan oportunidades de negocio en mercados digitales y quieren liderar el cambio que traen las tecnologías digitales.</p></div>
+        <div class="cp-revela" style="--k:1"><h3>Es ideal si buscas…</h3><ul class="pg-lista"><li>Entender la economía digital para dirigir un proyecto tecnológico o emprender en mercados digitales.</li><li>Liderar el cambio tecnológico para crecer profesionalmente o lanzar tu propio proyecto.</li><li>Combinar bases teóricas sólidas con una aplicación práctica al mundo de los negocios.</li></ul></div>
+        <div class="pg-quien--aviso cp-revela" style="--k:2"><h3>Antes de aplicar</h3><p>Esta es una maestría nueva en la UP, por lo que aún no contamos con generaciones previas ni testimonios de egresados. El reto principal suele ser el tiempo que exige compaginar la maestría con una vida profesional de tiempo completo, y los traslados a la sede Santa Fe.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 · ¿Qué vas a aprender? -->
+  <section class="pg-seccion pg-seccion--papel" id="plan" aria-labelledby="h-plan">
+    <div class="contenedor pg-plan">
+      <div class="pg-plan__fijo">
+        <p class="cap-etiqueta">Plan de estudios</p>
+        <h2 class="cp-h2 cp-mascara" id="h-plan">¿Qué vas a aprender?</h2>
+        <div class="pg-plan__estructura">
+          <div><b>4</b><span>semestres</span></div>
+          <div><b>9</b><span>ejes temáticos</span></div>
+          <div><b>1</b><span>proyecto final para titularte</span></div>
+        </div>
+        <p class="cp-apoyo">Modalidad presencial. El plan completo te llega por correo al solicitarlo.</p>
+        <a class="boton boton--secundario" href="#plan-modal" data-abre-plan data-origen="plan-de-estudios" style="justify-self:start">Quiero recibir el plan de estudios</a>
+      </div>
+      <div>
+        <p class="pg-nota" style="margin:0 0 var(--espacio-base)">Ejes temáticos del plan de estudios</p>
+        <ol class="pg-ejes" id="ejes">
+          <li>Microeconomía avanzada</li>
+          <li>Teoría de juegos</li>
+          <li>Econometría</li>
+          <li>Ciencia de datos aplicada a la economía</li>
+          <li>Economía de plataformas</li>
+          <li>Blockchain (cadena de bloques)</li>
+          <li>Inteligencia artificial como factor productivo</li>
+          <li>Diseño de mercados</li>
+          <li>Economía de la inteligencia artificial</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- 07 · ¿Por qué en la UP? -->
+  <section class="pg-seccion pg-seccion--marca pg-seccion--roble" aria-labelledby="h-porque">
+    <div class="textura-roble" aria-hidden="true"></div>
+    <div class="contenedor" style="position:relative;z-index:1">
+      <div class="pg-cabeza"><p class="cap-etiqueta">Diferenciadores</p><h2 class="cp-h2 cp-mascara" id="h-porque">¿Por qué estudiar este programa en la UP?</h2></div>
+      <ol class="pg-porque">
+        <li class="cp-revela" style="--k:0"><h3>Claustro conectado con la economía digital real</h3><p>Aprende de directivos y empresarios con experiencia directa en cripto, activos digitales, fintech y regulación de mercados digitales.</p></li>
+        <li class="cp-revela" style="--k:1"><h3>Rigor económico y práctica digital</h3><p>Fundamentos económicos sólidos con las herramientas prácticas que necesitas para competir con éxito en mercados digitales.</p></li>
+        <li class="cp-revela" style="--k:2"><h3>Currículum de vanguardia</h3><p>Cursos como Economía de la IA, Cadena de Bloques y Diseño de Mercados abordan temas que apenas entran a la conversación académica.</p></li>
+        <li class="cp-revela" style="--k:3"><h3>Formación con sentido humano</h3><p>En la UP formamos personas que lideran la transformación digital con ética y vocación de servicio, con educación personalizada.</p></li>
+      </ol>
+      <div class="pg-llamado pg-llamado--verde cp-revela">
+        <p class="pg-llamado__texto">¿Te ves en este programa?</p>
+        <a class="boton pg-llamado__boton" href="#solicitud" data-intencion="info" data-origen="por-que-up">Solicitar información</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 08 · Claustro -->
+  <section class="pg-seccion pg-seccion--elevada" id="profesores" aria-labelledby="h-claustro">
+    <div class="contenedor">
+      <div class="pg-cabeza"><p class="cap-etiqueta">Profesores</p><h2 class="cp-h2 cp-mascara" id="h-claustro">Nuestro claustro académico</h2></div>
+      <ul class="pg-claustro" id="claustro">
+        <li class="pg-profe cp-revela" style="--k:0"><div class="pg-profe__foto" aria-hidden="true"><span>JL</span></div><h3>Jorge López Farjeat</h3><p>Head of Crypto Business, Grupo Salinas</p></li>
+        <li class="pg-profe cp-revela" style="--k:1"><div class="pg-profe__foto" aria-hidden="true"><span>RA</span></div><h3>Rodrigo Alcázar Silva</h3><p>Ex Comisionado, Comisión Federal de Competencia Económica</p></li>
+        <li class="pg-profe cp-revela" style="--k:2"><div class="pg-profe__foto" aria-hidden="true"><span>AP</span></div><h3>Andrés Ponce de León</h3><p>Cofundador y CEO, Entropía AI</p></li>
+        <li class="pg-profe cp-revela pg-profe--extra" style="--k:0"><div class="pg-profe__foto" aria-hidden="true"><span>BG</span></div><h3>Bernardo González Rosas</h3><p>Presidente del Consejo, Banco Plata</p></li>
+        <li class="pg-profe cp-revela pg-profe--extra" style="--k:1"><div class="pg-profe__foto" aria-hidden="true"><span>CR</span></div><h3>Carlos Ruíz González</h3><p>Profesor decano, IPADE</p></li>
+        <li class="pg-profe cp-revela pg-profe--extra" style="--k:2"><div class="pg-profe__foto" aria-hidden="true"><span>PC</span></div><h3>Pablo Cázares</h3><p>Ads Measurement Lead, Uber</p></li>
+      </ul>
+      <div class="pg-ver-mas"><button class="boton boton--secundario" type="button" id="ver-claustro" aria-expanded="false" aria-controls="claustro">Ver todos los maestros</button></div>
+    </div>
+  </section>
+
+  <!-- 09 · Egreso -->
+  <section class="pg-seccion pg-seccion--papel" id="perfil" aria-labelledby="h-egreso">
+    <div class="contenedor">
+      <div class="pg-cabeza"><p class="cap-etiqueta">Perfil de egreso</p><h2 class="cp-h2 cp-mascara" id="h-egreso">¿Qué podrás hacer al egresar?</h2></div>
+      <div class="pg-egreso">
+        <div class="cp-revela"><h3>Perfil de egreso</h3><ul class="pg-lista">
+          <li>Liderar proyectos y emprendimientos digitales que impulsen una transformación positiva del negocio, aprovechando la tecnología.</li>
+          <li>Comprender a fondo los temas tecnológicos y de negocio para generar una ventaja competitiva sostenible.</li>
+          <li>Diseñar nuevos modelos de negocio o reinventar los existentes para competir en mercados digitales.</li>
+          <li>Aprovechar la inteligencia artificial, la cadena de bloques y otras tecnologías emergentes para mejorar la posición competitiva de tu empresa.</li>
+          <li>Tender puentes entre tecnología y estrategia, como consultor, directivo o emprendedor.</li>
+          <li>Integrar una visión ética y humanista para liderar el cambio tecnológico.</li>
+          <li>Comunicar con claridad temas complejos y proponer soluciones a los retos sociales, económicos y políticos de la economía digital.</li>
+        </ul></div>
+        <div><h3>Campo laboral</h3><ul class="pg-campos">
+          <li class="cp-revela" style="--k:0"><b>Empresa</b><span>Nuevos negocios, growth, desarrollo de negocio, transformación digital, innovación y productos digitales.</span></li>
+          <li class="cp-revela" style="--k:1"><b>Sector financiero y ecosistema digital</b><span>Bancos, fintech, startups, empresas tecnológicas y consultoras de transformación digital.</span></li>
+          <li class="cp-revela" style="--k:2"><b>Gobierno y reguladores</b><span>Instituciones públicas vinculadas con regulación digital, política digital e innovación financiera.</span></li>
+        </ul></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10 · Voces (condicional: programa nuevo, sin egresados) -->
+  <section class="pg-seccion pg-seccion--elevada" aria-labelledby="h-voces" data-condicional>
+    <div class="contenedor">
+      <div class="pg-cabeza"><p class="cap-etiqueta">Egresados</p><h2 class="cp-h2 cp-mascara" id="h-voces">La voz de nuestros egresados</h2></div>
+      <div class="pg-voces">
+        <figure class="cp-revela"><blockquote>«Testimonio breve enfocado en una transformación medible.»</blockquote><figcaption>Nombre del egresado · Generación <span class="ds__tag ds__tag--placeholder">PLACEHOLDER</span></figcaption></figure>
+        <div class="pg-video cp-revela" style="--k:1"><button type="button" aria-label="Reproducir testimonio en video"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><small>Video de 1 a 2 minutos con subtítulos</small></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11 · Admisión -->
+  <section class="pg-seccion pg-seccion--papel" id="admisiones" aria-labelledby="h-admision">
+    <div class="contenedor">
+      <div class="pg-cabeza"><p class="cap-etiqueta">Admisiones</p><h2 class="cp-h2 cp-mascara" id="h-admision">¿Cómo ingresar al programa?</h2></div>
+      <ol class="pg-pasos cp-revela" id="pasos">
+        <li style="--k:0"><span><a class="pg-enlace-cta" href="#solicitud" data-intencion="info" data-origen="admision">Solicita información</a> con el equipo de admisiones.</span></li>
+        <li style="--k:1">Entrega tu documentación, incluido tu título de licenciatura.</li>
+        <li style="--k:2">Presenta el examen de admisión.</li>
+        <li style="--k:3">Realiza tu entrevista de admisión.</li>
+        <li style="--k:4">Confirma tu inscripción para agosto de 2027.</li>
+      </ol>
+      <p class="pg-requisitos"><b>Requisitos de admisión</b><span>Título de licenciatura, examen de admisión y entrevista.</span></p>
+    </div>
+  </section>
+
+  <!-- 12 · Apoyo financiero -->
+  <section class="pg-seccion pg-seccion--elevada" id="apoyo" aria-labelledby="h-apoyo">
+    <div class="contenedor">
+      <div class="pg-cabeza"><p class="cap-etiqueta">Becas y convenios</p><h2 class="cp-h2 cp-mascara" id="h-apoyo">Apoyo financiero</h2></div>
+      <ul class="pg-apoyo">
+        <li class="cp-revela" style="--k:0"><a href="#"><b>Financiamiento</b><span>Opciones para pagar tu posgrado en plazos. <span class="ds__tag ds__tag--placeholder">PENDIENTE</span></span><em>Ver más <span aria-hidden="true">→</span></em></a></li>
+        <li class="cp-revela" style="--k:1"><a href="#"><b>Becas</b><span>Apoyos académicos y requisitos para solicitarlos. <span class="ds__tag ds__tag--placeholder">PENDIENTE</span></span><em>Ver más <span aria-hidden="true">→</span></em></a></li>
+        <li class="cp-revela" style="--k:2"><a href="#"><b>Convenios</b><span>Descuentos con empresas e instituciones aliadas. <span class="ds__tag ds__tag--placeholder">PENDIENTE</span></span><em>Ver más <span aria-hidden="true">→</span></em></a></li>
+      </ul>
+      <div class="pg-llamado cp-revela">
+        <p class="pg-llamado__texto">Cada caso se revisa con un asesor de admisiones.</p>
+        <a class="boton boton--secundario" href="#solicitud" data-intencion="info" data-origen="apoyo-financiero">Pregunta por becas y financiamiento</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 13 · Preguntas frecuentes -->
+  <section class="pg-seccion pg-seccion--papel" id="preguntas" aria-labelledby="h-faq">
+    <div class="contenedor cp-faq">
+      <div class="pg-cabeza" style="margin:0"><p class="cap-etiqueta">Preguntas frecuentes</p><h2 class="cp-h2 cp-mascara" id="h-faq">Resuelve tus dudas</h2></div>
+      <div class="acordeon">
+        <div class="acordeon__item"><h3><button class="acordeon__boton" aria-expanded="true" aria-controls="faq-1"><span class="q">¿Cuánto dura la Maestría en Economía Digital?</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 7l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2"/></svg></button></h3><div class="acordeon__panel" id="faq-1"><div><p>El programa dura 4 semestres (2 años), en modalidad presencial en la sede Santa Fe de la Universidad Panamericana, en la Ciudad de México. </p></div></div></div>
+        <div class="acordeon__item"><h3><button class="acordeon__boton" aria-expanded="false" aria-controls="faq-2"><span class="q">¿En qué horario son las clases?</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 7l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2"/></svg></button></h3><div class="acordeon__panel" id="faq-2" data-cerrado><div><p>Viernes de 16:00 a 22:00 h y sábados de 8:00 a 14:00 h. <span class="ds__tag ds__tag--placeholder">PENDIENTE</span> El cliente debe confirmar el horario: otra fuente dice lunes y viernes.</p></div></div></div>
+        <div class="acordeon__item"><h3><button class="acordeon__boton" aria-expanded="false" aria-controls="faq-3"><span class="q">¿El programa tiene validez oficial (RVOE)?</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 7l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2"/></svg></button></h3><div class="acordeon__panel" id="faq-3" data-cerrado><div><p>Sí. El programa cuenta con RVOE 20262339, con fecha del 26 de mayo de 2026. </p></div></div></div>
+        <div class="acordeon__item"><h3><button class="acordeon__boton" aria-expanded="false" aria-controls="faq-4"><span class="q">¿Cuáles son los requisitos de admisión?</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 7l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2"/></svg></button></h3><div class="acordeon__panel" id="faq-4" data-cerrado><div><p>Título de licenciatura, examen de admisión y entrevista. </p></div></div></div>
+        <div class="acordeon__item"><h3><button class="acordeon__boton" aria-expanded="false" aria-controls="faq-5"><span class="q">¿Con qué perfil profesional puedo ingresar?</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 7l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2"/></svg></button></h3><div class="acordeon__panel" id="faq-5" data-cerrado><div><p>Directivos con al menos 3 años de experiencia en transformación tecnológica, emprendimiento, consultoría o regulación. </p></div></div></div>
+        <div class="acordeon__item"><h3><button class="acordeon__boton" aria-expanded="false" aria-controls="faq-6"><span class="q">¿Hay becas disponibles?</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 7l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2"/></svg></button></h3><div class="acordeon__panel" id="faq-6" data-cerrado><div><p> <span class="ds__tag ds__tag--placeholder">PENDIENTE</span> Por confirmar con la UP.</p></div></div></div>
+      </div>
+      <div class="pg-llamado pg-llamado--dudas cp-revela">
+        <p class="pg-llamado__texto">¿No encontraste tu respuesta?</p>
+        <div class="pg-llamado__acciones"><a class="boton boton--primario" href="#solicitud" data-intencion="info" data-origen="preguntas-frecuentes">Habla con un asesor</a><a class="pg-enlace-cta" href="#" data-origen="preguntas-frecuentes">Escríbenos por WhatsApp</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 14 · Programas relacionados -->
+  <section class="pg-seccion pg-seccion--elevada" aria-labelledby="h-rel">
+    <div class="contenedor">
+      <div class="pg-cabeza"><p class="cap-etiqueta">También te puede interesar</p><h2 class="cp-h2 cp-mascara" id="h-rel">Programas relacionados</h2></div>
+      <div class="pg-carrusel"><ul class="pg-relacionados" id="relacionados">
+        <li class="cp-revela" style="--k:0"><a href="#"><small>Gobierno y Economía · CDMX</small><b>Maestría en Gobierno y Políticas Públicas</b><span>Conocer programa →</span></a></li>
+        <li class="cp-revela" style="--k:1"><a href="#"><small>Gobierno y Economía · CDMX</small><b>Maestría en Anticorrupción</b><span>Conocer programa →</span></a></li>
+        <li class="cp-revela" style="--k:2"><a href="#"><small>Gobierno y Economía · CDMX</small><b>Maestría en Ciencias Políticas</b><span>Conocer programa →</span></a></li>
+        <li class="cp-revela" style="--k:3"><a href="#"><small>Ingeniería · CDMX</small><b>Maestría en Ciencia de Datos</b><span>Conocer programa →</span></a></li>
+      </ul><div class="pg-carrusel__control"><button type="button" id="rel-ant" aria-label="Programas anteriores" aria-controls="relacionados"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M12 4l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button><button type="button" id="rel-sig" aria-label="Más programas" aria-controls="relacionados"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M8 4l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button></div></div>
+    </div>
+  </section>
+
+  <!-- 15 · Noticias y publicaciones (condicional) -->
+  <section class="pg-seccion pg-seccion--papel" aria-labelledby="h-pub" data-condicional>
+    <div class="contenedor">
+      <div class="pg-cabeza"><p class="cap-etiqueta">Publicaciones</p><h2 class="cp-h2 cp-mascara" id="h-pub">Noticias y publicaciones</h2><p class="cp-apoyo">Artículos y guías que ayudan a resolver dudas frecuentes y conectan el programa con tus áreas de interés.</p></div>
+      <ul class="cp-noticias">
+        <li class="cp-noticia cp-revela" style="--k:0"><a href="#"><div class="cp-noticia__img"><img src="img/mosaico-03.jpg" width="960" height="639" alt="" loading="lazy" data-parallax="0.06"><span class="cp-noticia__tipo">Guía</span></div><h3>Guía o artículo 1 <span class="ds__tag ds__tag--placeholder">PLACEHOLDER</span></h3><p class="cp-noticia__meta">Resumen breve del contenido, en no más de dos líneas.</p><span class="cp-noticia__leer">Leer contenido <span aria-hidden="true">→</span></span></a></li>
+        <li class="cp-noticia cp-revela" style="--k:1"><a href="#"><div class="cp-noticia__img"><img src="img/mosaico-05.jpg" width="960" height="640" alt="" loading="lazy" data-parallax="0.06"><span class="cp-noticia__tipo">Artículo</span></div><h3>Guía o artículo 2</h3><p class="cp-noticia__meta">Resumen breve del contenido, en no más de dos líneas.</p><span class="cp-noticia__leer">Leer contenido <span aria-hidden="true">→</span></span></a></li>
+        <li class="cp-noticia cp-revela" style="--k:2"><a href="#"><div class="cp-noticia__img"><img src="img/mosaico-04.jpg" width="960" height="639" alt="" loading="lazy" data-parallax="0.06"><span class="cp-noticia__tipo">Guía</span></div><h3>Guía o artículo 3</h3><p class="cp-noticia__meta">Resumen breve del contenido, en no más de dos líneas.</p><span class="cp-noticia__leer">Leer contenido <span aria-hidden="true">→</span></span></a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 16 · CTA final -->
+  <section class="cp-seccion cp-cta cp-cta--roble pg-cta" id="solicitud" aria-labelledby="h-cta">
+    <div class="textura-roble" data-parallax="0.12" aria-hidden="true"></div>
+    <div class="contenedor">
+      <div class="cp-cta__mensaje">
+        <p class="cap-etiqueta" style="color:var(--contenido-acento-inverso)">Solicita información</p>
+        <h2 id="h-cta" tabindex="-1">Domina la disrupción. Impulsa el cambio.</h2>
+        <p>Da el siguiente paso en tu carrera con la Maestría en Economía Digital de la Universidad Panamericana. Solicita información y un asesor de admisiones te acompañará en el proceso.</p>
+        <p class="cp-cta__alt">Alternativa de contacto: <a href="#">WhatsApp</a> · <a href="#">llamada</a></p>
+      </div>
+      <form class="cp-form" id="form-programa" onsubmit="return false" aria-labelledby="h-form">
+        
+        <h3 id="h-form">Solicita información</h3>
+        <div class="campo"><label class="campo__etiqueta" for="p-nombre">Nombre <span>(obligatorio)</span></label><input class="campo__control" id="p-nombre" type="text" autocomplete="name" required></div>
+        <div class="campo"><label class="campo__etiqueta" for="p-correo">Correo <span>(obligatorio)</span></label><input class="campo__control" id="p-correo" type="email" autocomplete="email" required></div>
+        <div class="campo"><label class="campo__etiqueta" for="p-tel">Teléfono</label><input class="campo__control" id="p-tel" type="tel" autocomplete="tel"><p class="campo__ayuda">Te contacta un asesor por WhatsApp o llamada.</p></div>
+        <div class="pg-prellenado"><span>Programa y campus</span><b>Maestría en Economía Digital — CDMX, sede Santa Fe</b><input type="hidden" name="programa" value="Maestría en Economía Digital — CDMX, sede Santa Fe"><input type="hidden" name="origen" id="p-origen" value="directo"></div>
+        <div class="campo campo--casilla"><input type="checkbox" id="p-priv" required><label for="p-priv">He leído el <a href="#">aviso de privacidad</a> y acepto el tratamiento de mis datos.</label></div>
+        <button class="boton boton--primario" type="submit" id="p-enviar">Enviar solicitud</button>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="pie-camino" id="pie">
+  <div class="contenedor">
+    <div style="display:grid;gap:var(--espacio-base)">
+      <p class="marca-texto">Universidad Panamericana</p>
+      <nav aria-label="Pie de página"><ul><li><a href="#">Oferta académica</a></li><li><a href="#">Admisiones</a></li><li><a href="#">Campus</a></li><li><a href="#">Comunidad</a></li><li><a href="#">Contacto</a></li><li><a href="#">Aviso de privacidad</a></li></ul></nav>
+    </div>
+    <div class="sedes">
+      <address>CDMX · Mixcoac<br>Augusto Rodin 498, Col. Insurgentes Mixcoac, C.P. 03920<br><a href="tel:+525554821600">+52 (55) 5482 1600</a></address>
+      <address>CDMX · Santa Fe<br>Av. Javier Barros Sierra 540, piso 3, Col. Santa Fe, C.P. 01210</address>
+      <address>Guadalajara<br>Av. Álvaro del Portillo 49, Ciudad Granja, Zapopan, C.P. 45010<br><a href="tel:+523313682200">+52 (33) 1368 2200</a></address>
+      <address>Aguascalientes<br>José María Escrivá de Balaguer 101, Villas Bonaterra, C.P. 20296<br><a href="tel:+524499106200">+52 (449) 910 6200</a></address>
+    </div>
+    <p class="legal"><span>© Centros Culturales de México A.C.</span><a href="#">Cookies</a></p>
+  </div>
+</footer>
+
+
+<!-- Ventana emergente: plan de estudios a cambio de datos (formulario corto) -->
+<dialog class="pg-modal" id="plan-modal" aria-labelledby="h-modal">
+  <form class="pg-modal__form" id="form-plan" method="dialog" novalidate>
+    <button class="pg-modal__cerrar" type="button" id="cerrar-plan" aria-label="Cerrar"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15" stroke="currentColor" stroke-width="1.8"/></svg></button>
+    <div class="pg-modal__marca" aria-hidden="true"><div class="textura-roble textura-roble--acercamiento"></div><span>Plan de estudios</span></div>
+    <div class="pg-modal__cuerpo" id="plan-pasos">
+      <p class="cap-etiqueta">Maestría en Economía Digital</p>
+      <h2 id="h-modal">Recibe el plan de estudios en tu correo</h2>
+      <p class="pg-modal__apoyo">Materias por semestre, horarios y requisitos de titulación. Te lo enviamos en unos minutos.</p>
+      <div class="campo"><label class="campo__etiqueta" for="m-nombre">Nombre <span>(obligatorio)</span></label><input class="campo__control" id="m-nombre" type="text" autocomplete="name" required></div>
+      <div class="campo"><label class="campo__etiqueta" for="m-correo">Correo <span>(obligatorio)</span></label><input class="campo__control" id="m-correo" type="email" autocomplete="email" required></div>
+      <div class="campo campo--casilla"><input type="checkbox" id="m-priv" required><label for="m-priv">He leído el <a href="#">aviso de privacidad</a> y acepto el tratamiento de mis datos.</label></div>
+      <input type="hidden" name="programa" value="Maestría en Economía Digital — CDMX, sede Santa Fe"><input type="hidden" name="origen" id="m-origen" value="directo">
+      <p class="pg-modal__error" id="m-error" role="alert" hidden>Revisa tu nombre, un correo válido y el aviso de privacidad.</p>
+      <button class="boton boton--primario" type="submit">Enviar el plan a mi correo</button>
+    </div>
+    <div class="pg-modal__cuerpo pg-modal__gracias" id="plan-gracias" hidden tabindex="-1">
+      <p class="cap-etiqueta">Listo</p>
+      <h2>Revisa tu correo</h2>
+      <p class="pg-modal__apoyo">Te enviamos el plan de estudios. Si tienes dudas, un asesor de admisiones puede acompañarte.</p>
+      <a class="boton boton--secundario" href="#solicitud" data-intencion="info" data-origen="modal-plan">Hablar con un asesor</a>
+    </div>
+  </form>
+</dialog>
+
+<div class="cp-fija" id="cta-fija" aria-hidden="true">
+  <a class="boton boton--secundario" href="#plan-modal" data-abre-plan data-origen="barra-movil" tabindex="-1">Plan de estudios</a>
+  <a class="boton boton--primario" href="#solicitud" data-intencion="info" data-origen="barra-movil" tabindex="-1">Solicitar información</a>
+</div>
+
+<script>
+const reducido = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const suave = reducido ? 'auto' : 'smooth';
+const hero = document.getElementById('inicio'), cab = document.getElementById('cab');
+const enCaptura = location.search.includes('captura=1');
+if (enCaptura) { const st = document.createElement('style'); st.textContent = '*{transition:none!important;animation:none!important}.cp-revela,.cp-mascara{opacity:1!important;transform:none!important}.pg-hero__foto{clip-path:none!important}.pg-hero h1 .linea>span,.pg-hero__lema,.pg-hero__desc,.pg-hero__acciones,.pg-hero .cap-etiqueta{transform:none!important;opacity:1!important}.cp-hero__tahali::before{transform:skewX(30deg)!important}.pg-hero__tahali{transform:skewX(30deg) scaleY(1)!important}'; document.head.appendChild(st); }
+
+// Módulos condicionales (egresados y noticias): visibles como ejemplo para el cliente; en producción se ocultan si no hay contenido real
+
+// Portada: titular por líneas, foto que se descubre y tahalí que se traza
+requestAnimationFrame(() => requestAnimationFrame(() => hero.classList.add('trazada')));
+setTimeout(() => hero.classList.add('trazada'), 1200);
+
+// Revelado al entrar en vista
+const io = new IntersectionObserver(es => es.forEach(e => { if (!e.isIntersecting) return; e.target.classList.add(e.target.matches('[data-traza-en-vista]') ? 'trazada' : 'cp-visto'); io.unobserve(e.target); }), { threshold: 0.2 });
+document.querySelectorAll('.cp-revela, .cp-mascara, [data-traza-en-vista]').forEach(el => io.observe(el));
+setTimeout(() => document.querySelectorAll('.cp-revela, .cp-mascara').forEach(el => { if (el.getBoundingClientRect().top < innerHeight) el.classList.add('cp-visto'); }), 1500);
+
+// Cabecera plegable
+addEventListener('scroll', () => cab.classList.toggle('cp-cab--plegada', scrollY > 80), { passive: true });
+
+// Formulario principal y ventana del plan de estudios
+const form = document.getElementById('form-programa');
+function ir(id, foco) { cerrarMenu(); document.getElementById(id).scrollIntoView({ behavior: suave, block: 'start' }); if (foco) setTimeout(() => document.getElementById(foco).focus({ preventScroll: true }), reducido ? 0 : 600); }
+function alFormulario(origen) {
+  document.getElementById('p-origen').value = origen || 'sin-origen'; ir('solicitud');
+  setTimeout(() => { form.classList.remove('pg-destello'); void form.offsetWidth; form.classList.add('pg-destello'); document.getElementById('p-nombre').focus({ preventScroll: true }); }, reducido ? 0 : 650);
+}
+document.addEventListener('click', e => {
+  const a = e.target.closest('[data-intencion]'); if (!a) return;
+  e.preventDefault(); if (modal.open) modal.close(); alFormulario(a.dataset.origen);
+});
+document.querySelectorAll('[data-ir-form]').forEach(a => a.addEventListener('click', e => { e.preventDefault(); document.getElementById('p-origen').value = a.closest('.cp-cab, .capa') ? 'menu' : 'sin-origen'; ir('solicitud', 'h-cta'); }));
+
+const modal = document.getElementById('plan-modal'), formPlan = document.getElementById('form-plan');
+document.querySelectorAll('[data-abre-plan]').forEach(a => a.addEventListener('click', e => {
+  e.preventDefault(); cerrarMenu();
+  document.getElementById('m-origen').value = a.dataset.origen || 'sin-origen';
+  document.getElementById('plan-pasos').hidden = false; document.getElementById('plan-gracias').hidden = true; document.getElementById('m-error').hidden = true;
+  modal.showModal(); document.body.style.overflow = 'hidden'; setTimeout(() => document.getElementById('m-nombre').focus(), 50);
+}));
+document.getElementById('cerrar-plan').addEventListener('click', () => modal.close());
+modal.addEventListener('close', () => { document.body.style.overflow = ''; });
+modal.addEventListener('click', e => { if (e.target === modal) modal.close(); });
+formPlan.addEventListener('submit', e => {
+  e.preventDefault();
+  const ok = document.getElementById('m-nombre').value.trim() && /\S+@\S+\.\S+/.test(document.getElementById('m-correo').value) && document.getElementById('m-priv').checked;
+  document.getElementById('m-error').hidden = !!ok; if (!ok) return;
+  // Prototipo: aquí se envía al formulario de HubSpot del plan de estudios (pendiente B30)
+  document.getElementById('plan-pasos').hidden = true; const g = document.getElementById('plan-gracias'); g.hidden = false; g.focus();
+});
+
+// Claustro: 3 visibles (4 en móvil) y el resto se despliega
+const btnClaustro = document.getElementById('ver-claustro'), claustro = document.getElementById('claustro');
+btnClaustro.addEventListener('click', () => {
+  const abierto = claustro.classList.toggle('pg-claustro--abierto');
+  btnClaustro.setAttribute('aria-expanded', String(abierto)); btnClaustro.textContent = abierto ? 'Ver menos' : 'Ver todos los maestros';
+  if (!abierto) claustro.scrollIntoView({ behavior: suave, block: 'start' });
+});
+
+// Programas relacionados: carrusel con flechas (se desliza con el dedo en móvil)
+const pistaRel = document.getElementById('relacionados'), relAnt = document.getElementById('rel-ant'), relSig = document.getElementById('rel-sig');
+const pasoRel = () => (pistaRel.querySelector('li')?.getBoundingClientRect().width || 300) + 16;
+relAnt.addEventListener('click', () => pistaRel.scrollBy({ left: -pasoRel(), behavior: suave }));
+relSig.addEventListener('click', () => pistaRel.scrollBy({ left: pasoRel(), behavior: suave }));
+function estadoRel() { const max = pistaRel.scrollWidth - pistaRel.clientWidth - 2; relAnt.disabled = pistaRel.scrollLeft <= 2; relSig.disabled = pistaRel.scrollLeft >= max; }
+pistaRel.addEventListener('scroll', estadoRel, { passive: true }); addEventListener('resize', estadoRel); estadoRel();
+
+// Acordeón
+document.querySelectorAll('.acordeon__boton').forEach(b => b.addEventListener('click', () => { const ab = b.getAttribute('aria-expanded') === 'true'; b.setAttribute('aria-expanded', String(!ab)); document.getElementById(b.getAttribute('aria-controls')).toggleAttribute('data-cerrado', ab); }));
+
+// Pestañas: sección activa, indicador que se desliza y pestaña visible en móvil
+const tabs = document.getElementById('tabs'), pista = document.getElementById('tabs-pista'), indicador = document.getElementById('tabs-indicador');
+const enlacesTabs = [...pista.querySelectorAll('a')];
+const secciones = enlacesTabs.map(a => document.querySelector(a.getAttribute('href')));
+let tabActual = null;
+function marcarTab(a) {
+  if (a === tabActual) return; tabActual = a;
+  enlacesTabs.forEach(x => x.setAttribute('aria-current', String(x === a)));
+  if (!a) { indicador.style.setProperty('--iw', 0); return; }
+  indicador.style.setProperty('--ix', `${a.offsetLeft}px`); indicador.style.setProperty('--iw', a.offsetWidth);
+  const izq = a.offsetLeft - pista.clientWidth / 2 + a.offsetWidth / 2; pista.scrollTo({ left: izq, behavior: suave });
+}
+enlacesTabs.forEach(a => a.addEventListener('click', e => { e.preventDefault(); document.querySelector(a.getAttribute('href')).scrollIntoView({ behavior: suave, block: 'start' }); history.replaceState(null, '', a.getAttribute('href')); }));
+
+// Paneles expandibles: clic o teclado eligen; rotación automática mientras está en vista (se pausa con cursor o foco)
+const contPaneles = document.getElementById('paneles'), paneles = [...contPaneles.querySelectorAll('.pg-panel')];
+let panelActual = 0;
+function activarPanel(i, porUsuario) {
+  panelActual = (i + paneles.length) % paneles.length;
+  paneles.forEach((pn, k) => {
+    const on = k === panelActual; pn.classList.remove('pg-panel--activo'); if (on) { void pn.offsetWidth; pn.classList.add('pg-panel--activo'); }
+    pn.querySelector('.pg-panel__boton').setAttribute('aria-expanded', String(on));
+  });
+  if (porUsuario) contPaneles.classList.remove('pg-paneles--auto');
+}
+paneles.forEach((pn, k) => {
+  const b = pn.querySelector('.pg-panel__boton');
+  b.addEventListener('click', () => activarPanel(k, true));
+  b.addEventListener('keydown', e => { const d = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[e.key]; if (!d) return; e.preventDefault(); activarPanel(k + d, true); paneles[panelActual].querySelector('.pg-panel__boton').focus(); });
+  pn.querySelector('.pg-panel__barra').addEventListener('animationend', () => { if (contPaneles.classList.contains('pg-paneles--auto')) activarPanel(panelActual + 1, false); });
+  pn.addEventListener('click', e => { if (!pn.classList.contains('pg-panel--activo') && !e.target.closest('button')) activarPanel(k, true); });
+});
+if (!reducido && !enCaptura) new IntersectionObserver(([e], obs) => { if (e.isIntersecting) { contPaneles.classList.add('pg-paneles--auto'); obs.disconnect(); } }, { threshold: 0.5 }).observe(contPaneles);
+
+// Movimiento ligado al desplazamiento
+const progreso = document.getElementById('progreso');
+const capasParallax = [...document.querySelectorAll('[data-parallax]')];
+const ejes = [...document.querySelectorAll('#ejes li')];
+const fija = document.getElementById('cta-fija'), formulario = document.getElementById('solicitud');
+let pendiente = false;
+function mover() {
+  pendiente = false;
+  const vh = innerHeight, max = document.documentElement.scrollHeight - vh;
+  progreso.style.setProperty('--p', max > 0 ? (scrollY / max).toFixed(4) : 0);
+  // pestaña activa: la última sección cuyo inicio pasó bajo las pestañas
+  const linea = tabs.getBoundingClientRect().bottom + 40;
+  let activa = null; secciones.forEach((s, k) => { if (s && !s.hidden && s.getBoundingClientRect().top <= linea) activa = enlacesTabs[k]; });
+  marcarTab(activa);
+  // CTA fija en móvil
+  const ver = hero.getBoundingClientRect().bottom < 0 && formulario.getBoundingClientRect().top > vh * 0.85;
+  fija.classList.toggle('cp-fija--visible', ver); fija.setAttribute('aria-hidden', String(!ver)); fija.querySelectorAll('a').forEach(a => a.tabIndex = ver ? 0 : -1);
+  // ejes: se enciende el que cruza el centro de la pantalla
+  ejes.forEach(li => { const r = li.getBoundingClientRect(); li.classList.toggle('pg-activo', enCaptura || reducido || (r.top < vh * 0.56 && r.bottom > vh * 0.44)); });
+  if (reducido || enCaptura) return;
+  capasParallax.forEach(el => {
+    const marco = el.tagName === 'IMG' ? el.parentElement : el;
+    const r = marco.getBoundingClientRect(); if (r.bottom < -100 || r.top > vh + 100) return;
+    let y = -(r.top + r.height / 2 - vh / 2) * (+el.dataset.parallax);
+    if (el.tagName === 'IMG') { const lim = r.height * 0.11; y = Math.max(-lim, Math.min(lim, y)); }
+    el.style.setProperty('--py', `${y.toFixed(1)}px`);
+  });
+}
+const pedir = () => { if (!pendiente) { pendiente = true; requestAnimationFrame(mover); } };
+addEventListener('scroll', pedir, { passive: true }); addEventListener('resize', () => { tabActual = null; pedir(); }); addEventListener('load', mover); mover();
+// Solo verificación: ?y=<px> fija el desplazamiento al cargar
+const yPrueba = new URLSearchParams(location.search).get('y');
+if (yPrueba !== null) addEventListener('load', () => { document.documentElement.style.scrollBehavior = 'auto'; scrollTo(0, +yPrueba); document.querySelectorAll('.cp-revela,.cp-mascara').forEach(e => e.classList.add('cp-visto')); hero.classList.add('trazada'); cab.classList.toggle('cp-cab--plegada', scrollY > 80); mover(); });
+
+// Desplegables de escritorio (patrón disclosure: clic, teclado y cursor)
+const botonesNav = [...document.querySelectorAll('.cp-nav__boton')];
+const velo = document.getElementById('velo');
+const hayCursor = matchMedia('(hover: hover) and (pointer: fine)');
+let temporizador = null;
+function cerrarDesp(devolverFoco) {
+  botonesNav.forEach(b => { if (b.getAttribute('aria-expanded') === 'true') { b.setAttribute('aria-expanded', 'false'); document.getElementById(b.getAttribute('aria-controls')).hidden = true; if (devolverFoco) b.focus(); } });
+  velo.hidden = true; cab.classList.remove('cp-cab--abierta');
+}
+function abrirDesp(b) {
+  if (b.getAttribute('aria-expanded') === 'true') return;
+  cerrarDesp(false);
+  b.setAttribute('aria-expanded', 'true'); document.getElementById(b.getAttribute('aria-controls')).hidden = false;
+  velo.hidden = false; cab.classList.add('cp-cab--abierta');
+}
+botonesNav.forEach(b => {
+  const item = b.closest('.cp-nav__item');
+  b.addEventListener('click', () => b.getAttribute('aria-expanded') === 'true' ? cerrarDesp(false) : abrirDesp(b));
+  item.addEventListener('mouseenter', () => { if (!hayCursor.matches) return; clearTimeout(temporizador); temporizador = setTimeout(() => abrirDesp(b), 120); });
+  item.addEventListener('mouseleave', () => { if (!hayCursor.matches) return; clearTimeout(temporizador); temporizador = setTimeout(() => cerrarDesp(false), 200); });
+  item.addEventListener('focusout', e => { if (!item.contains(e.relatedTarget)) { const d = document.getElementById(b.getAttribute('aria-controls')); if (!d.hidden) cerrarDesp(false); } });
+});
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && !velo.hidden) cerrarDesp(true); });
+velo.addEventListener('click', () => cerrarDesp(false));
+document.querySelectorAll('.cp-nav__enlace').forEach(a => a.addEventListener('mouseenter', () => { if (hayCursor.matches) cerrarDesp(false); }));
+
+// Menú móvil en capa (foco atrapado, Esc) con acordeones
+const capa = document.getElementById('capa-menu'), abrir = document.getElementById('abrir-menu'), cerrar = document.getElementById('cerrar-menu');
+let ultimoFoco = null;
+function abrirMenu() { ultimoFoco = document.activeElement; capa.hidden = false; abrir.setAttribute('aria-expanded', 'true'); document.body.style.overflow = 'hidden'; requestAnimationFrame(() => capa.querySelector('.banda').classList.add('trazada')); cerrar.focus(); document.addEventListener('keydown', teclaMenu); }
+function cerrarMenu() { cerrarDesp(false); if (capa.hidden) return; capa.hidden = true; capa.querySelector('.banda').classList.remove('trazada'); abrir.setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; document.removeEventListener('keydown', teclaMenu); ((ultimoFoco && ultimoFoco !== document.body) ? ultimoFoco : abrir).focus(); }
+function teclaMenu(e) { if (e.key === 'Escape') return cerrarMenu(); if (e.key !== 'Tab') return; const f = [...capa.querySelectorAll('a, button')].filter(x => x.offsetParent), p = f[0], u = f[f.length - 1]; if (e.shiftKey && document.activeElement === p) { e.preventDefault(); u.focus(); } else if (!e.shiftKey && document.activeElement === u) { e.preventDefault(); p.focus(); } }
+abrir.addEventListener('click', abrirMenu); cerrar.addEventListener('click', cerrarMenu);
+document.querySelectorAll('.cp-capa__boton').forEach(b => b.addEventListener('click', () => { const ab = b.getAttribute('aria-expanded') === 'true'; b.setAttribute('aria-expanded', String(!ab)); document.getElementById(b.getAttribute('aria-controls')).hidden = ab; }));
+document.querySelectorAll('[data-cierra-desp]').forEach(a => a.addEventListener('click', e => { const id = a.getAttribute('href').slice(1); if (!id) return; e.preventDefault(); ir(id); }));
+</script>
+<!-- BnO Review: solo se activa con ?review=true&token=… -->
+<script type="module" src="../assets/review/review.js"></script>
+</body>
+</html>

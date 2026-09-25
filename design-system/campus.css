@@ -384,3 +384,27 @@ img[data-parallax] { position: absolute; left: 0; top: 0; width: 100%; }
 }
 @media (min-width: 1100px) and (max-height: 820px) { .cp-pilar { width: min(30vw, 400px); } .cp-pilar:nth-child(even) { margin-top: 5vh; } }
 .cp-capa__panel[hidden], .cp-desp[hidden] { display: none; }
+
+/* ==========================================================================
+   Textura Roble (2026-09-25) — trazo oficial extraído del Manual de Marca UP (pp. 75–78).
+   Tono sobre tono: 329 CP con 329 al 75 % (#408E86). Solo en bloques de color sin fotografía,
+   al 100 % de opacidad, sin efectos y nunca junto al tahalí en el mismo bloque (usos incorrectos 02, 04, 07, 08).
+   ========================================================================== */
+.textura-roble { position: absolute; pointer-events: none; background: var(--superficie-marca-atenuada);
+  -webkit-mask: url(img/texturas/roble-textura.svg) no-repeat center bottom / contain; mask: url(img/texturas/roble-textura.svg) no-repeat center bottom / contain; }
+.textura-roble--acercamiento { -webkit-mask-size: 260% auto; mask-size: 260% auto; -webkit-mask-position: 58% 42%; mask-position: 58% 42%; }
+
+/* Sedes y pilares sin foto: acercamiento que llena el marco (más alto para el parallax) */
+.cp-sede__foto--sin .textura-roble, .cp-pilar__plasta .textura-roble { left: 0; right: 0; top: -12%; bottom: -12%; }
+.cp-sede__foto--sin { background: var(--superficie-marca); }
+
+/* Cierre con formulario sobre verde 329 y el Roble completo tras la columna del formulario */
+.cp-cta--roble { background: var(--superficie-marca); }
+.cp-cta--roble > .banda { display: none; }
+.cp-cta--roble .textura-roble { width: min(62vw, 760px); aspect-ratio: 553 / 571; right: max(-6vw, -80px); bottom: -14%; }
+.cp-cta--roble .contenedor { position: relative; z-index: 1; }
+@media (max-width: 899px) { .cp-cta--roble .textura-roble { width: 120vw; right: -30vw; bottom: -6%; } }
+.cp-cta--roble { color: var(--contenido-inverso); }
+/* El Roble ocupa el espacio libre bajo el mensaje, no queda tapado por el formulario */
+@media (min-width: 900px) { .cp-cta--roble .textura-roble { right: auto; left: calc(var(--sangrado) - 120px); bottom: -38%; width: min(46vw, 600px); } }
+.cp-cta--roble { overflow: hidden; }
