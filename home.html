@@ -591,5 +591,7 @@ abrir.addEventListener('click', abrirMenu); cerrar.addEventListener('click', cer
 document.querySelectorAll('.cp-capa__boton').forEach(b => b.addEventListener('click', () => { const ab = b.getAttribute('aria-expanded') === 'true'; b.setAttribute('aria-expanded', String(!ab)); document.getElementById(b.getAttribute('aria-controls')).hidden = ab; }));
 document.querySelectorAll('[data-cierra-desp]').forEach(a => a.addEventListener('click', e => { const id = a.getAttribute('href').slice(1); if (!id) return; e.preventDefault(); ir(id); }));
 </script>
+<!-- BnO Review: solo se activa con ?review=true&token=… -->
+<script type="module" src="design-system/../assets/review/review.js"></script>
 </body>
 </html>

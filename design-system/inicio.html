@@ -311,5 +311,7 @@ document.querySelectorAll('[data-abre-menu]').forEach(b => b.addEventListener('c
 capa.querySelectorAll('.capa__indice a').forEach(a => a.addEventListener('click', () => { cerrarMenu(); }));
 document.getElementById('abrir-buscar').addEventListener('click', e => { e.preventDefault(); abrirMenu(); });
 </script>
+<!-- BnO Review: solo se activa con ?review=true&token=… -->
+<script type="module" src="../assets/review/review.js"></script>
 </body>
 </html>

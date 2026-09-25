@@ -530,5 +530,7 @@ const reset = () => { form.reset(); filtrar(); };
 document.getElementById('quitar').addEventListener('click', e => { e.preventDefault(); reset(); });
 document.getElementById('quitar2').addEventListener('click', reset);
 </script>
+<!-- BnO Review: solo se activa con ?review=true&token=… -->
+<script type="module" src="../assets/review/review.js"></script>
 </body>
 </html>
