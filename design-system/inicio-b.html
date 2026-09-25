@@ -8,7 +8,7 @@
 <meta name="robots" content="noindex, nofollow">
 <link rel="stylesheet" href="ds.css?v=6">
 <link rel="stylesheet" href="camino.css?v=6">
-<link rel="stylesheet" href="campus.css?v=3">
+<link rel="stylesheet" href="campus.css?v=9">
 </head>
 <body class="cp-pagina">
 <a class="oculto-visual" href="#contenido">Saltar al contenido</a>
@@ -16,51 +16,150 @@
   Home · Propuesta B «Campus primero» (2026-09-24)
   Estructura, orden y copy de trabajo: wireframe de Figma «UP - Wireframes (Home)».
   Piel: sistema UP (DESIGN · TOKENS · COMPONENTS). La Propuesta A «El camino» (inicio.html) no se modifica.
-  Cabecera y pie: los aprobados por el cliente (UX-SPEC §2), no los del wireframe (conflicto C1–C2).
+  Cabecera: la del wireframe (decisión de Jazmín Córdova, 2026-09-25). Pie: el aprobado por el cliente (UX-SPEC §2; conflicto C2 abierto).
 -->
 
-<header class="cab" id="cab">
-  <div class="cab__inst">
-    <div class="contenedor">
-      <a class="marca-texto" href="https://www.up.edu.mx/">Universidad Panamericana</a>
-      <nav aria-label="Institucional"><a href="#pie">Campus</a><a href="#" rel="external">Portal alumnos</a><a href="#" id="abrir-buscar">Buscar</a></nav>
-    </div>
-  </div>
-  <div class="cab__barra">
-    <div class="contenedor">
-      <a class="cab__logo" href="#" aria-label="Posgrados Panamericana — Inicio"><img src="img/logo-posgrados.webp" width="137" height="160" alt=""></a>
-      <nav class="cab__nav" aria-label="Principal">
-        <button type="button" data-abre-menu data-grupo="oferta">Oferta académica<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
-        <button type="button" data-abre-menu data-grupo="conoce">Conoce Posgrados UP<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
-        <button type="button" data-abre-menu data-grupo="comunidad">Comunidad<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
-        <a href="#">Contacto</a>
-      </nav>
-      <a class="boton boton--primario" href="#solicitud" data-ir-form>Solicitar información</a>
-      <button class="cab__menu" id="abrir-menu" aria-expanded="false" aria-controls="capa-menu"><span class="hamb" aria-hidden="true"><i></i><i></i><i></i></span>Menú</button>
-    </div>
+<!-- Cabecera según el wireframe de Figma (2026-09-25, a pedido de Jazmín Córdova):
+     logo · Oferta académica ▾ · Conoce Posgrados Panamericana ▾ · Noticias · Eventos · Contacto · Solicitar información.
+     Sin barra institucional. El contenido de los desplegables no está en el Figma: sale de la lista de páginas
+     del cliente y del inventario oficial (pendiente B29). -->
+<header class="cp-cab" id="cab">
+  <div class="contenedor cp-cab__barra">
+    <a class="cp-cab__logo" href="#" aria-label="Posgrados Panamericana — Inicio"><img src="img/logo-posgrados.webp" width="137" height="160" alt=""></a>
+    <nav class="cp-nav" aria-label="Principal">
+      <ul class="cp-nav__lista">
+        <li class="cp-nav__item">
+          <button class="cp-nav__boton" type="button" aria-expanded="false" aria-controls="d-oferta">Oferta académica<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+          <div class="cp-desp" id="d-oferta" hidden><div class="contenedor cp-desp__rejilla">
+          <div class="cp-desp__col">
+            <p class="cp-desp__titulo">Por nivel</p>
+            <ul>
+              <li><a href="#"><span>Maestrías</span><b>84</b></a></li>
+              <li><a href="#"><span>Especialidades</span><b>41</b></a></li>
+              <li><a href="#"><span>Doctorados</span><b>10</b></a></li>
+              <li><a href="#"><span>Diplomados</span><b>13</b></a></li>
+              <li><a href="#"><span>Educación continua</span><b>2</b></a></li>
+            </ul>
+          </div>
+          <div class="cp-desp__col">
+            <p class="cp-desp__titulo">Por campus</p>
+            <ul>
+              <li><a href="#sedes" data-cierra-desp><span>Ciudad de México</span><b>75</b></a></li>
+              <li><a href="#sedes" data-cierra-desp><span>Guadalajara</span><b>44</b></a></li>
+              <li><a href="#sedes" data-cierra-desp><span>Aguascalientes</span><b>31</b></a></li>
+            </ul>
+          </div>
+          <div class="cp-desp__col cp-desp__col--marca">
+            <div class="banda" aria-hidden="true"></div>
+            <p class="cp-desp__cifra"><b>150</b> programas de posgrado en 3 campus</p>
+            <a class="cp-desp__todo" href="#">Ver todos los programas <span aria-hidden="true">→</span></a>
+          </div>
+          </div></div>
+        </li>
+        <li class="cp-nav__item">
+          <button class="cp-nav__boton" type="button" aria-expanded="false" aria-controls="d-conoce">Conoce Posgrados Panamericana<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+          <div class="cp-desp" id="d-conoce" hidden><div class="contenedor cp-desp__rejilla">
+          <div class="cp-desp__col">
+            <p class="cp-desp__titulo">Posgrados Panamericana</p>
+            <ul>
+              <li><a href="#"><span>Nosotros</span></a></li>
+              <li><a href="#sedes" data-cierra-desp><span>Sedes</span></a></li>
+              <li><a href="#"><span>Admisiones</span></a></li>
+              <li><a href="#"><span>Becas, financiamiento y convenios</span></a></li>
+            </ul>
+          </div>
+          <div class="cp-desp__col">
+            <p class="cp-desp__titulo">En esta página</p>
+            <ul>
+              <li><a href="#por-que" data-cierra-desp><span>¿Por qué Posgrados Panamericana?</span></a></li>
+              <li><a href="#testimonios" data-cierra-desp><span>Experiencia de egresados</span></a></li>
+              <li><a href="#preguntas" data-cierra-desp><span>Preguntas frecuentes</span></a></li>
+            </ul>
+          </div>
+          <div class="cp-desp__col cp-desp__col--marca">
+            <div class="banda" aria-hidden="true"></div>
+            <p class="cp-desp__cifra">Un espacio para descubrir tu mejor versión.</p>
+            <a class="cp-desp__todo" href="#solicitud" data-ir-form>Solicita información <span aria-hidden="true">→</span></a>
+          </div>
+          </div></div>
+        </li>
+        <li class="cp-nav__item"><a class="cp-nav__enlace" href="#noticias">Noticias</a></li>
+        <li class="cp-nav__item"><a class="cp-nav__enlace" href="#noticias">Eventos</a></li>
+        <li class="cp-nav__item"><a class="cp-nav__enlace" href="#">Contacto</a></li>
+      </ul>
+    </nav>
+    <a class="boton boton--primario cp-cab__cta" href="#solicitud" data-ir-form>Solicitar información</a>
+    <span class="cp-progreso" id="progreso" aria-hidden="true"></span>
+    <button class="cab__menu cp-cab__menu" id="abrir-menu" type="button" aria-expanded="false" aria-controls="capa-menu"><span class="hamb" aria-hidden="true"><i></i><i></i><i></i></span>Menú</button>
   </div>
 </header>
+<div class="cp-velo" id="velo" hidden></div>
 
-<div class="capa" id="capa-menu" role="dialog" aria-modal="true" aria-label="Menú" hidden>
+<!-- Menú móvil: la misma estructura del Figma, con acordeones -->
+<div class="capa cp-capa" id="capa-menu" role="dialog" aria-modal="true" aria-label="Menú" hidden>
   <div class="banda banda--atenuada banda--traza" aria-hidden="true"></div>
   <div class="contenedor">
     <div class="capa__cabeza">
       <span class="marca-texto">Posgrados Panamericana</span>
-      <button class="cab__menu" id="cerrar-menu">Cerrar</button>
+      <button class="cab__menu" id="cerrar-menu" type="button">Cerrar</button>
     </div>
-    <div class="capa__cuerpo">
-      <nav class="capa__indice" aria-label="Campus">
-        <a href="#sedes"><span class="rom">01</span><span class="nom">Ciudad de México</span><span class="est">Mixcoac · Santa Fe</span></a>
-        <a href="#sedes"><span class="rom">02</span><span class="nom">Guadalajara</span><span class="est">Ciudad Granja, Zapopan</span></a>
-        <a href="#sedes"><span class="rom">03</span><span class="nom">Aguascalientes</span><span class="est">Villas Bonaterra</span></a>
-      </nav>
-      <div class="capa__grupos">
-        <div class="capa__grupo" id="g-oferta"><h3>Oferta académica</h3><a href="#">Todos los programas</a><a href="#">Maestrías</a><a href="#">Especialidades</a><a href="#">Doctorados</a><a href="#">Diplomados</a><a href="#">Educación continua</a></div>
-        <div class="capa__grupo" id="g-conoce"><h3>Conoce Posgrados UP</h3><a href="#">Nosotros</a><a href="#">Sedes</a><a href="#">Admisiones</a><a href="#">Becas, financiamiento y convenios</a></div>
-        <div class="capa__grupo" id="g-comunidad"><h3>Comunidad</h3><a href="#">Noticias</a><a href="#">Eventos</a><a href="#">Contacto</a></div>
-        <div class="capa__grupo"><h3>Universidad Panamericana</h3><a href="https://www.up.edu.mx/">up.edu.mx</a><a href="#">Campus</a><a href="#">Portal alumnos</a><a href="#">Buscar</a></div>
+    <nav class="cp-capa__nav" aria-label="Principal (móvil)">
+      <div class="cp-capa__item">
+        <button class="cp-capa__boton" type="button" aria-expanded="false" aria-controls="m-oferta">Oferta académica<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+        <div class="cp-capa__panel" id="m-oferta" hidden><div class="cp-desp__col">
+            <p class="cp-desp__titulo">Por nivel</p>
+            <ul>
+              <li><a href="#"><span>Maestrías</span><b>84</b></a></li>
+              <li><a href="#"><span>Especialidades</span><b>41</b></a></li>
+              <li><a href="#"><span>Doctorados</span><b>10</b></a></li>
+              <li><a href="#"><span>Diplomados</span><b>13</b></a></li>
+              <li><a href="#"><span>Educación continua</span><b>2</b></a></li>
+            </ul>
+          </div>
+          <div class="cp-desp__col">
+            <p class="cp-desp__titulo">Por campus</p>
+            <ul>
+              <li><a href="#sedes" data-cierra-desp><span>Ciudad de México</span><b>75</b></a></li>
+              <li><a href="#sedes" data-cierra-desp><span>Guadalajara</span><b>44</b></a></li>
+              <li><a href="#sedes" data-cierra-desp><span>Aguascalientes</span><b>31</b></a></li>
+            </ul>
+          </div>
+          <div class="cp-desp__col cp-desp__col--marca">
+            <div class="banda" aria-hidden="true"></div>
+            <p class="cp-desp__cifra"><b>150</b> programas de posgrado en 3 campus</p>
+            <a class="cp-desp__todo" href="#">Ver todos los programas <span aria-hidden="true">→</span></a>
+          </div></div>
       </div>
-    </div>
+      <div class="cp-capa__item">
+        <button class="cp-capa__boton" type="button" aria-expanded="false" aria-controls="m-conoce">Conoce Posgrados Panamericana<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+        <div class="cp-capa__panel" id="m-conoce" hidden><div class="cp-desp__col">
+            <p class="cp-desp__titulo">Posgrados Panamericana</p>
+            <ul>
+              <li><a href="#"><span>Nosotros</span></a></li>
+              <li><a href="#sedes" data-cierra-desp><span>Sedes</span></a></li>
+              <li><a href="#"><span>Admisiones</span></a></li>
+              <li><a href="#"><span>Becas, financiamiento y convenios</span></a></li>
+            </ul>
+          </div>
+          <div class="cp-desp__col">
+            <p class="cp-desp__titulo">En esta página</p>
+            <ul>
+              <li><a href="#por-que" data-cierra-desp><span>¿Por qué Posgrados Panamericana?</span></a></li>
+              <li><a href="#testimonios" data-cierra-desp><span>Experiencia de egresados</span></a></li>
+              <li><a href="#preguntas" data-cierra-desp><span>Preguntas frecuentes</span></a></li>
+            </ul>
+          </div>
+          <div class="cp-desp__col cp-desp__col--marca">
+            <div class="banda" aria-hidden="true"></div>
+            <p class="cp-desp__cifra">Un espacio para descubrir tu mejor versión.</p>
+            <a class="cp-desp__todo" href="#solicitud" data-ir-form>Solicita información <span aria-hidden="true">→</span></a>
+          </div></div>
+      </div>
+      <div class="cp-capa__item"><a class="cp-capa__enlace" href="#noticias" data-cierra-desp>Noticias</a></div>
+      <div class="cp-capa__item"><a class="cp-capa__enlace" href="#noticias" data-cierra-desp>Eventos</a></div>
+      <div class="cp-capa__item"><a class="cp-capa__enlace" href="#">Contacto</a></div>
+    </nav>
+    <a class="boton boton--primario cp-capa__cta" href="#solicitud" data-ir-form>Solicitar información</a>
   </div>
 </div>
 
@@ -71,7 +170,7 @@
     <div class="contenedor">
       <div class="cp-hero__texto">
         <p class="cap-etiqueta">Posgrados · 3 campus</p>
-        <h1 id="h1">Posgrados Universidad Panamericana</h1>
+        <h1 id="h1" data-lineas><span class="linea"><span>Posgrados</span></span> <span class="linea"><span>Universidad</span></span> <span class="linea"><span>Panamericana</span></span></h1>
         <p class="cp-hero__promesa">Un espacio para descubrir tu mejor versión, acompañado por una comunidad que cree en tu potencial.</p>
         <p class="cp-hero__aeo">Maestrías, especialidades, doctorados, diplomados y educación continua en Ciudad de México, Guadalajara y Aguascalientes.</p>
         <div class="cp-hero__acciones">
@@ -79,21 +178,27 @@
           <a class="boton boton--secundario" href="#solicitud" data-ir-form>Solicita información</a>
         </div>
       </div>
-      <figure class="cp-hero__foto" style="--foco: 60% 35%">
-        <img src="img/escena-01.jpg" width="1440" height="960" alt="Estudiantes de posgrado en clase en el campus Mixcoac" fetchpriority="high">
-        <div class="banda banda--traza" aria-hidden="true"></div>
-        <div class="banda banda--multiply banda--traza" aria-hidden="true"></div>
-        <p class="cp-hero__cifra"><b data-cuenta="150">150</b>programas de posgrado</p>
-      </figure>
+      <div class="cp-hero__escena">
+        <div class="cp-hero__tahali" data-parallax="-0.08" aria-hidden="true"></div>
+        <figure class="cp-hero__foto" style="--foco: 60% 35%">
+          <img src="img/escena-01.jpg" width="1440" height="960" alt="Estudiantes de posgrado en clase en el campus Mixcoac" fetchpriority="high" data-parallax="0.12">
+        </figure>
+        <p class="cp-hero__cifra" data-parallax="-0.08"><b data-cuenta="150">150</b>programas de posgrado</p>
+      </div>
     </div>
   </section>
 
   <!-- 02 · Reconocimiento social -->
   <section class="cp-confianza" aria-label="Reconocimientos">
     <div class="contenedor">
-      <ul>
-        <li>Acreditadora 1</li><li>Acreditadora 2</li><li>Acreditadora 3</li><li>Ranking o membresía 1</li><li>Ranking o membresía 2</li><li>Premio institucional</li>
-      </ul>
+      <div class="cp-cinta">
+        <ul class="cp-cinta__pista">
+          <li>Acreditadora 1</li><li>Acreditadora 2</li><li>Acreditadora 3</li><li>Ranking o membresía 1</li><li>Ranking o membresía 2</li><li>Premio institucional</li>
+        </ul>
+        <ul class="cp-cinta__pista" aria-hidden="true">
+          <li>Acreditadora 1</li><li>Acreditadora 2</li><li>Acreditadora 3</li><li>Ranking o membresía 1</li><li>Ranking o membresía 2</li><li>Premio institucional</li>
+        </ul>
+      </div>
       <p><span class="ds__tag ds__tag--placeholder">PENDIENTE</span> Nombres exactos de acreditadoras, rankings y premios (conflicto C9). Sin ellos, esta franja no se publica.</p>
     </div>
   </section>
@@ -104,7 +209,7 @@
       <div class="cp-cabeza">
         <div>
           <p class="cap-etiqueta">Elige tu campus</p>
-          <h2 class="cp-h2" id="h-sedes">Sedes de posgrados de la Universidad Panamericana</h2>
+          <h2 class="cp-h2 cp-mascara" id="h-sedes">Sedes de posgrados de la Universidad Panamericana</h2>
         </div>
         <div class="cp-filtro" role="group" aria-label="Filtrar campus por tipo de programa">
           <span class="cp-filtro__etiqueta">Ver por nivel:</span>
@@ -119,7 +224,7 @@
       <p class="oculto-visual" aria-live="polite" id="sedes-estado"></p>
       <ul class="cp-sedes" id="lista-sedes">
         <li class="cp-sede cp-revela" style="--k:0" data-campus="cdmx" data-todos="75" data-maestrias="37" data-especialidades="18" data-doctorados="6" data-diplomados="13" data-continua="1">
-          <div class="cp-sede__foto"><img src="img/mosaico-02.jpg" width="960" height="640" alt="Salón de posgrados del campus Mixcoac durante una clase" loading="lazy"><div class="banda banda--multiply" aria-hidden="true"></div></div>
+          <div class="cp-sede__foto"><img src="img/mosaico-02.jpg" width="960" height="640" alt="Salón de posgrados del campus Mixcoac durante una clase" loading="lazy" data-parallax="0.08"></div>
           <div class="cp-sede__cuerpo">
             <p class="cp-sede__cuenta"><b data-n>75</b><span data-etq>programas</span></p>
             <h3>Posgrados en Ciudad de México</h3>
@@ -162,7 +267,7 @@
       <div class="cp-cabeza">
         <div>
           <p class="cap-etiqueta">Cinco niveles</p>
-          <h2 class="cp-h2" id="h-niveles">Tipos de programa que ofrece la UP</h2>
+          <h2 class="cp-h2 cp-mascara" id="h-niveles">Tipos de programa que ofrece la UP</h2>
           <p class="cp-apoyo">Elige un nivel y te mostramos en qué campus se imparte.</p>
         </div>
       </div>
@@ -178,33 +283,42 @@
   </section>
 
   <!-- 05 · ¿Por qué Posgrados Panamericana? -->
-  <section class="cp-seccion cp-seccion--papel" id="por-que" aria-labelledby="h-porque">
+  <section class="cp-seccion cp-seccion--papel cp-porque" id="por-que" aria-labelledby="h-porque">
     <div class="contenedor">
       <div class="cp-cabeza">
         <div>
           <p class="cap-etiqueta">Pilares de la UP</p>
-          <h2 class="cp-h2" id="h-porque">¿Por qué Posgrados Panamericana?</h2>
+          <h2 class="cp-h2 cp-mascara" id="h-porque">¿Por qué Posgrados Panamericana?</h2>
           <p class="cp-apoyo">Nuestros posgrados no solo buscan formarte en una disciplina: buscan acompañarte a desarrollar tu grandeza humana para el bien común, con una mentoría cercana desde el primer día.</p>
         </div>
       </div>
-      <ol class="cp-pilares">
-        <li class="cp-pilar cp-revela" style="--k:0"><h3>Educación personalizada</h3><p>Mentoría desde el inicio, acompañamiento individual y una relación humana, no solo académica.</p></li>
-        <li class="cp-pilar cp-revela" style="--k:1"><h3>Excelencia académica</h3><p>Un claustro con perfil investigador y vinculación con universidades e industria a nivel internacional.</p></li>
-        <li class="cp-pilar cp-revela" style="--k:2"><h3>Formación humana</h3><p>Una experiencia que va más allá del aula, con espacios de arte, cultura, deporte y bienestar.</p></li>
-        <li class="cp-pilar cp-revela" style="--k:3"><h3>Compromiso social</h3><p>Programas y espacios donde tu formación se traduce en servicio real a la comunidad.</p></li>
-        <li class="cp-pilar cp-revela" style="--k:4"><h3>Investigación y difusión</h3><p>Una universidad reconocida por su liderazgo científico entre instituciones privadas del país.</p></li>
-      </ol>
+    </div>
+    <div class="cp-recorrido" id="recorrido">
+      <div class="cp-recorrido__fijo">
+        <div class="cp-recorrido__marco">
+          <ol class="cp-pilares" id="pilares">
+          <li class="cp-pilar"><span class="cp-pilar__n" aria-hidden="true">01</span><h3>Educación personalizada</h3><p>Mentoría desde el inicio, acompañamiento individual y una relación humana, no solo académica.</p><figure class="cp-pilar__foto"><img src="img/mosaico-05.jpg" width="960" height="640" alt="Conversación entre estudiantes de posgrado" loading="lazy"></figure></li>
+          <li class="cp-pilar"><span class="cp-pilar__n" aria-hidden="true">02</span><h3>Excelencia académica</h3><p>Un claustro con perfil investigador y vinculación con universidades e industria a nivel internacional.</p><figure class="cp-pilar__foto"><img src="img/mosaico-04.jpg" width="960" height="640" alt="Profesor de posgrado durante una sesión con su grupo" loading="lazy"></figure></li>
+          <li class="cp-pilar"><span class="cp-pilar__n" aria-hidden="true">03</span><h3>Formación humana</h3><p>Una experiencia que va más allá del aula, con espacios de arte, cultura, deporte y bienestar.</p><div class="cp-pilar__plasta" aria-hidden="true"><div class="banda"></div></div></li>
+          <li class="cp-pilar"><span class="cp-pilar__n" aria-hidden="true">04</span><h3>Compromiso social</h3><p>Programas y espacios donde tu formación se traduce en servicio real a la comunidad.</p><div class="cp-pilar__plasta" aria-hidden="true"><div class="banda"></div></div></li>
+          <li class="cp-pilar"><span class="cp-pilar__n" aria-hidden="true">05</span><h3>Investigación y difusión</h3><p>Una universidad reconocida por su liderazgo científico entre instituciones privadas del país.</p><figure class="cp-pilar__foto"><img src="img/mosaico-03.jpg" width="960" height="640" alt="Reunión académica en el campus Mixcoac" loading="lazy"></figure></li>
+          </ol>
+        </div>
+        <div class="contenedor cp-recorrido__pie" aria-hidden="true"><span class="cp-recorrido__barra"><i id="recorrido-barra"></i></span><span id="recorrido-pos">01 / 05</span></div>
+      </div>
+    </div>
 
-      <div class="cp-cifras cp-revela">
-        <div class="banda banda--traza" data-traza-en-vista aria-hidden="true"></div>
-        <div class="cp-cifras__intro">
+    <div class="cp-cifras" id="cifras">
+      <div class="cp-cifras__fondo" aria-hidden="true"><img src="img/escena-03.jpg" width="1440" height="960" alt="" loading="lazy" data-parallax="0.2"></div>
+      <div class="contenedor">
+        <div class="cp-cifras__intro cp-revela">
           <p class="cap-etiqueta">Una comunidad con presencia global</p>
           <p>Intercambio académico con 80 universidades en más de 30 países, más de 140 docentes y directivos en el Sistema Nacional de Investigadores y primer lugar entre universidades privadas del país en Liderazgo Científico.</p>
         </div>
         <ul>
-          <li><b data-cuenta="80">80</b><span>universidades de intercambio en más de 30 países</span></li>
-          <li><b><span data-cuenta="140">140</span>+</b><span>docentes y directivos en el Sistema Nacional de Investigadores</span></li>
-          <li><b>1.<sup>er</sup> lugar</b><span>en Liderazgo Científico entre universidades privadas del país</span></li>
+          <li class="cp-revela" style="--k:0"><b data-cuenta="80">80</b><span>universidades de intercambio en más de 30 países</span></li>
+          <li class="cp-revela" style="--k:1"><b><span data-cuenta="140">140</span>+</b><span>docentes y directivos en el Sistema Nacional de Investigadores</span></li>
+          <li class="cp-revela" style="--k:2"><b>1.<sup>er</sup> lugar</b><span>en Liderazgo Científico entre universidades privadas del país</span></li>
         </ul>
         <p class="cp-fuente">Fuente: Manual de Marca UP, p. 8, «Pilares de marca». Son cifras de la Universidad, no desglosadas por Posgrados.</p>
       </div>
@@ -214,11 +328,10 @@
   <!-- 05b · Testimonios -->
   <section class="cp-seccion cp-seccion--elevada" id="testimonios" aria-labelledby="h-testimonios">
     <div class="contenedor">
-      <div class="cp-cabeza"><div><p class="cap-etiqueta">Egresados</p><h2 class="cp-h2" id="h-testimonios">La experiencia de quienes ya cursaron nuestros posgrados</h2></div></div>
+      <div class="cp-cabeza"><div><p class="cap-etiqueta">Egresados</p><h2 class="cp-h2 cp-mascara" id="h-testimonios">La experiencia de quienes ya cursaron nuestros posgrados</h2></div></div>
       <div class="cp-prueba">
         <figure class="cp-testimonio cp-revela">
-          <div class="banda" aria-hidden="true"></div>
-          <blockquote>«Testimonio breve enfocado en una transformación verificable. Se sustituye por una cita real, con nombre y consentimiento.»</blockquote>
+          <blockquote data-ilumina>«Testimonio breve enfocado en una transformación verificable. Se sustituye por una cita real, con nombre y consentimiento.»</blockquote>
           <figcaption><b>Nombre y apellido</b><span>Generación · cargo e institución</span><span class="ds__tag ds__tag--placeholder">PLACEHOLDER</span></figcaption>
         </figure>
         <div class="cp-datos cp-revela" style="--k:1">
@@ -236,15 +349,15 @@
       <div class="cp-cabeza">
         <div>
           <p class="cap-etiqueta">Comunidad</p>
-          <h2 class="cp-h2" id="h-noticias">Noticias y eventos</h2>
+          <h2 class="cp-h2 cp-mascara" id="h-noticias">Noticias y eventos</h2>
           <p class="cp-apoyo">Conferencias, foros académicos, actividades de vinculación y las últimas noticias de nuestras facultades.</p>
         </div>
         <a class="enlace-filete" href="#">Ver todas</a>
       </div>
       <ul class="cp-noticias">
-        <li class="cp-noticia cp-revela" style="--k:0"><a href="#"><div class="cp-noticia__img"><img src="img/mosaico-03.jpg" width="960" height="639" alt="" loading="lazy"><span class="cp-noticia__tipo">Evento</span></div><p class="cp-noticia__meta">Fecha · Categoría</p><h3>Noticia o evento 1 <span class="ds__tag ds__tag--placeholder">PLACEHOLDER</span></h3><span class="cp-noticia__leer">Leer más <span aria-hidden="true">→</span></span></a></li>
-        <li class="cp-noticia cp-revela" style="--k:1"><a href="#"><div class="cp-noticia__img"><img src="img/mosaico-05.jpg" width="960" height="640" alt="" loading="lazy"><span class="cp-noticia__tipo">Noticia</span></div><p class="cp-noticia__meta">Fecha · Categoría</p><h3>Noticia o evento 2</h3><span class="cp-noticia__leer">Leer más <span aria-hidden="true">→</span></span></a></li>
-        <li class="cp-noticia cp-revela" style="--k:2"><a href="#"><div class="cp-noticia__img"><img src="img/escena-02.jpg" width="1440" height="960" alt="" loading="lazy"><span class="cp-noticia__tipo">Noticia</span></div><p class="cp-noticia__meta">Fecha · Categoría</p><h3>Noticia o evento 3</h3><span class="cp-noticia__leer">Leer más <span aria-hidden="true">→</span></span></a></li>
+        <li class="cp-noticia cp-revela" style="--k:0"><a href="#"><div class="cp-noticia__img"><img src="img/mosaico-06.jpg" width="960" height="640" alt="" loading="lazy" data-parallax="0.06"><span class="cp-noticia__tipo">Evento</span></div><p class="cp-noticia__meta">Fecha · Categoría</p><h3>Noticia o evento 1 <span class="ds__tag ds__tag--placeholder">PLACEHOLDER</span></h3><span class="cp-noticia__leer">Leer más <span aria-hidden="true">→</span></span></a></li>
+        <li class="cp-noticia cp-revela" style="--k:1"><a href="#"><div class="cp-noticia__img"><img src="img/mosaico-01.jpg" width="960" height="640" alt="" loading="lazy" data-parallax="0.06"><span class="cp-noticia__tipo">Noticia</span></div><p class="cp-noticia__meta">Fecha · Categoría</p><h3>Noticia o evento 2</h3><span class="cp-noticia__leer">Leer más <span aria-hidden="true">→</span></span></a></li>
+        <li class="cp-noticia cp-revela" style="--k:2"><a href="#"><div class="cp-noticia__img"><img src="img/escena-02.jpg" width="1440" height="960" alt="" loading="lazy" data-parallax="0.06"><span class="cp-noticia__tipo">Noticia</span></div><p class="cp-noticia__meta">Fecha · Categoría</p><h3>Noticia o evento 3</h3><span class="cp-noticia__leer">Leer más <span aria-hidden="true">→</span></span></a></li>
       </ul>
       <p class="cp-fuente">Módulo dinámico de HubSpot. Si no hay publicaciones, la sección entera se oculta; nunca se muestra vacía.</p>
     </div>
@@ -253,7 +366,7 @@
   <!-- 07 · Preguntas frecuentes -->
   <section class="cp-seccion cp-seccion--elevada" id="preguntas" aria-labelledby="h-preguntas">
     <div class="contenedor cp-faq">
-      <div class="cp-cabeza" style="margin:0"><div><p class="cap-etiqueta">Dudas frecuentes</p><h2 class="cp-h2" id="h-preguntas">Preguntas frecuentes sobre posgrados Panamericana</h2></div></div>
+      <div class="cp-cabeza" style="margin:0"><div><p class="cap-etiqueta">Dudas frecuentes</p><h2 class="cp-h2 cp-mascara" id="h-preguntas">Preguntas frecuentes sobre posgrados Panamericana</h2></div></div>
       <div class="acordeon">
         <div class="acordeon__item"><h3><button class="acordeon__boton" aria-expanded="true" aria-controls="faq-1"><span class="q">¿Qué tipos de posgrado ofrece la Universidad Panamericana?</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 7l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2"/></svg></button></h3><div class="acordeon__panel" id="faq-1"><div><p>Maestrías, especialidades, doctorados, diplomados y programas de educación continua: 150 programas en total entre los tres campus.</p></div></div></div>
         <div class="acordeon__item"><h3><button class="acordeon__boton" aria-expanded="false" aria-controls="faq-2"><span class="q">¿En qué ciudades puedo estudiar un posgrado con la UP?</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 7l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2"/></svg></button></h3><div class="acordeon__panel" id="faq-2" data-cerrado><div><p>En Ciudad de México, con sedes en Mixcoac y Santa Fe; en Guadalajara, en Ciudad Granja, Zapopan; y en Aguascalientes, en Villas Bonaterra.</p></div></div></div>
@@ -313,7 +426,7 @@ const reducido = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const suave = reducido ? 'auto' : 'smooth';
 
 // Modo de captura (solo verificación)
-if (location.search.includes('captura=1')) { const st = document.createElement('style'); st.textContent = '*{transition:none!important;animation:none!important}.cp-revela{opacity:1!important;transform:none!important}'; document.head.appendChild(st); window.sinConteo = true; }
+if (location.search.includes('captura=1')) { const st = document.createElement('style'); st.textContent = '*{transition:none!important;animation:none!important}.cp-revela{opacity:1!important;transform:none!important}.cp-mascara{opacity:1!important;transform:none!important}.cp-hero__foto{clip-path:none!important}.cp-hero h1 .linea>span,.cp-hero__promesa,.cp-hero__aeo,.cp-hero__acciones{transform:none!important;opacity:1!important}.cp-hero__tahali::before{transform:skewX(30deg)!important}.cp-cinta__pista{animation:none!important}[data-ilumina] .pal{opacity:1!important}'; document.head.appendChild(st); window.sinConteo = true; }
 
 // Hero: la banda se traza al cargar
 const hero = document.getElementById('inicio');
@@ -321,8 +434,8 @@ requestAnimationFrame(() => requestAnimationFrame(() => { hero.classList.add('tr
 
 // Revelado escalonado y bandas que se trazan al entrar en vista
 const io = new IntersectionObserver(es => es.forEach(e => { if (!e.isIntersecting) return; e.target.classList.add(e.target.matches('[data-traza-en-vista]') ? 'trazada' : 'cp-visto'); io.unobserve(e.target); }), { threshold: 0.2 });
-document.querySelectorAll('.cp-revela, [data-traza-en-vista]').forEach(el => io.observe(el));
-setTimeout(() => document.querySelectorAll('.cp-revela').forEach(el => { if (el.getBoundingClientRect().top < innerHeight) el.classList.add('cp-visto'); }), 1500);
+document.querySelectorAll('.cp-revela, .cp-mascara, [data-traza-en-vista]').forEach(el => io.observe(el));
+setTimeout(() => document.querySelectorAll('.cp-revela, .cp-mascara').forEach(el => { if (el.getBoundingClientRect().top < innerHeight) el.classList.add('cp-visto'); }), 1500);
 
 // Cifras que cuentan
 const ioCuenta = new IntersectionObserver(es => es.forEach(e => {
@@ -333,6 +446,15 @@ const ioCuenta = new IntersectionObserver(es => es.forEach(e => {
   requestAnimationFrame(paso);
 }), { threshold: 0.6 });
 document.querySelectorAll('[data-cuenta]').forEach(el => ioCuenta.observe(el));
+
+// Número que viaja de su valor actual al nuevo
+function contarA(el, fin) {
+  const ini = +el.textContent || 0; if (ini === fin) return;
+  if (reducido) { el.textContent = fin; return; }
+  el.classList.add('cp-cambia'); const t0 = performance.now(), dur = 500;
+  const paso = t => { const p = Math.min(1, (t - t0) / dur); el.textContent = Math.round(ini + (fin - ini) * (1 - Math.pow(1 - p, 3))); if (p < 1) requestAnimationFrame(paso); else el.classList.remove('cp-cambia'); };
+  requestAnimationFrame(paso);
+}
 
 // Sedes: filtro por nivel (sin URL nueva; campus-first)
 const nombres = { '': 'programas', maestrias: 'maestrías', especialidades: 'especialidades', doctorados: 'doctorados', diplomados: 'diplomados', continua: 'de educación continua' };
@@ -346,7 +468,7 @@ function filtrar(nivel) {
   const resumen = [];
   sedes.forEach(s => {
     const n = +s.dataset[nivel || 'todos'];
-    s.querySelector('[data-n]').textContent = n;
+    const num = s.querySelector('[data-n]'); contarA(num, n);
     s.querySelector('[data-etq]').textContent = n === 1 ? singular[nivel] : nombres[nivel];
     s.classList.toggle('cp-sede--vacia', n === 0);
     resumen.push(`${s.querySelector('h3').textContent}: ${n}`);
@@ -370,7 +492,7 @@ document.querySelectorAll('.acordeon__boton').forEach(b => b.addEventListener('c
 
 // Cabecera plegable
 const cab = document.getElementById('cab');
-addEventListener('scroll', () => cab.classList.toggle('cab--plegada', scrollY > 120), { passive: true });
+addEventListener('scroll', () => cab.classList.toggle('cp-cab--plegada', scrollY > 80), { passive: true });
 
 // CTA persistente en móvil: aparece tras el hero y se retira cuando el formulario está en vista
 const fija = document.getElementById('cta-fija');
@@ -381,16 +503,93 @@ function actualizarFija() {
 }
 addEventListener('scroll', actualizarFija, { passive: true }); addEventListener('resize', actualizarFija); actualizarFija();
 
-// Menú en capa
+// Movimiento ligado al desplazamiento: parallax, progreso, recorrido horizontal y cita que se ilumina
+const enCaptura = location.search.includes('captura=1');
+const progreso = document.getElementById('progreso');
+const capasParallax = [...document.querySelectorAll('[data-parallax]')];
+const recorrido = document.getElementById('recorrido'), pilares = document.getElementById('pilares');
+const barraRec = document.getElementById('recorrido-barra'), posRec = document.getElementById('recorrido-pos');
+const nPilares = pilares.children.length;
+const cita = document.querySelector('[data-ilumina]');
+cita.innerHTML = cita.textContent.trim().split(/\s+/).map(p => `<span class="pal">${p}</span>`).join(' ');
+const palabras = [...cita.querySelectorAll('.pal')];
+const fijarRecorrido = () => matchMedia('(min-width: 1100px)').matches && !reducido && !enCaptura;
+function medirRecorrido() {
+  if (!fijarRecorrido()) { recorrido.style.removeProperty('--alto-recorrido'); pilares.style.removeProperty('--tx'); return; }
+  const extra = Math.max(0, pilares.scrollWidth - innerWidth);
+  recorrido.style.setProperty('--alto-recorrido', `${extra + innerHeight}px`);
+}
+let pendienteMov = false;
+function mover() {
+  pendienteMov = false;
+  const vh = innerHeight, max = document.documentElement.scrollHeight - vh;
+  progreso.style.setProperty('--p', max > 0 ? (scrollY / max).toFixed(4) : 0);
+  if (reducido || enCaptura) { palabras.forEach(w => w.classList.add('on')); return; }
+  capasParallax.forEach(el => {
+    const marco = el.tagName === 'IMG' ? el.parentElement : el;
+    const r = marco.getBoundingClientRect(); if (r.bottom < -100 || r.top > vh + 100) return;
+    const d = (r.top + r.height / 2 - vh / 2);
+    let y = -d * (+el.dataset.parallax);
+    if (el.tagName === 'IMG') { const lim = r.height * 0.11; y = Math.max(-lim, Math.min(lim, y)); }
+    el.style.setProperty('--py', `${y.toFixed(1)}px`);
+  });
+  if (fijarRecorrido()) {
+    const r = recorrido.getBoundingClientRect(), recorridoTotal = r.height - (vh - cab.offsetHeight);
+    const p = Math.max(0, Math.min(1, -(r.top - cab.offsetHeight) / Math.max(1, recorridoTotal)));
+    const extra = Math.max(0, pilares.scrollWidth - innerWidth);
+    pilares.style.setProperty('--tx', `${(-p * extra).toFixed(1)}px`);
+    barraRec.style.setProperty('--rp', p.toFixed(4));
+    posRec.textContent = `0${Math.min(nPilares, 1 + Math.floor(p * nPilares * 0.999))} / 0${nPilares}`;
+  }
+  const rc = cita.getBoundingClientRect();
+  const pc = Math.max(0, Math.min(1, (vh * 0.85 - rc.top) / (vh * 0.85 - vh * 0.3 + rc.height * 0.5)));
+  const encendidas = Math.round(pc * palabras.length);
+  palabras.forEach((w, k) => w.classList.toggle('on', k < encendidas));
+}
+const pedirMov = () => { if (!pendienteMov) { pendienteMov = true; requestAnimationFrame(mover); } };
+addEventListener('scroll', pedirMov, { passive: true });
+addEventListener('resize', () => { medirRecorrido(); pedirMov(); });
+addEventListener('load', () => { medirRecorrido(); mover(); });
+medirRecorrido(); mover();
+// Solo verificación: ?y=<px> fija el desplazamiento al cargar (para capturas sin interacción)
+const yPrueba = new URLSearchParams(location.search).get('y');
+if (yPrueba !== null) addEventListener('load', () => { document.documentElement.style.scrollBehavior = 'auto'; scrollTo(0, +yPrueba); document.querySelectorAll('.cp-revela,.cp-mascara').forEach(e => e.classList.add('cp-visto')); hero.classList.add('trazada'); cab.classList.toggle('cp-cab--plegada', scrollY > 80); mover(); });
+
+// Desplegables de escritorio (patrón disclosure: clic, teclado y cursor)
+const botonesNav = [...document.querySelectorAll('.cp-nav__boton')];
+const velo = document.getElementById('velo');
+const hayCursor = matchMedia('(hover: hover) and (pointer: fine)');
+let temporizador = null;
+function cerrarDesp(devolverFoco) {
+  botonesNav.forEach(b => { if (b.getAttribute('aria-expanded') === 'true') { b.setAttribute('aria-expanded', 'false'); document.getElementById(b.getAttribute('aria-controls')).hidden = true; if (devolverFoco) b.focus(); } });
+  velo.hidden = true; cab.classList.remove('cp-cab--abierta');
+}
+function abrirDesp(b) {
+  if (b.getAttribute('aria-expanded') === 'true') return;
+  cerrarDesp(false);
+  b.setAttribute('aria-expanded', 'true'); document.getElementById(b.getAttribute('aria-controls')).hidden = false;
+  velo.hidden = false; cab.classList.add('cp-cab--abierta');
+}
+botonesNav.forEach(b => {
+  const item = b.closest('.cp-nav__item');
+  b.addEventListener('click', () => b.getAttribute('aria-expanded') === 'true' ? cerrarDesp(false) : abrirDesp(b));
+  item.addEventListener('mouseenter', () => { if (!hayCursor.matches) return; clearTimeout(temporizador); temporizador = setTimeout(() => abrirDesp(b), 120); });
+  item.addEventListener('mouseleave', () => { if (!hayCursor.matches) return; clearTimeout(temporizador); temporizador = setTimeout(() => cerrarDesp(false), 200); });
+  item.addEventListener('focusout', e => { if (!item.contains(e.relatedTarget)) { const d = document.getElementById(b.getAttribute('aria-controls')); if (!d.hidden) cerrarDesp(false); } });
+});
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && !velo.hidden) cerrarDesp(true); });
+velo.addEventListener('click', () => cerrarDesp(false));
+document.querySelectorAll('.cp-nav__enlace').forEach(a => a.addEventListener('mouseenter', () => { if (hayCursor.matches) cerrarDesp(false); }));
+
+// Menú móvil en capa (foco atrapado, Esc) con acordeones
 const capa = document.getElementById('capa-menu'), abrir = document.getElementById('abrir-menu'), cerrar = document.getElementById('cerrar-menu');
 let ultimoFoco = null;
-function abrirMenu(grupo) { ultimoFoco = document.activeElement; capa.hidden = false; abrir.setAttribute('aria-expanded', 'true'); document.body.style.overflow = 'hidden'; requestAnimationFrame(() => capa.querySelector('.banda').classList.add('trazada')); (grupo ? document.getElementById('g-' + grupo)?.querySelector('a') : cerrar).focus(); document.addEventListener('keydown', teclaMenu); }
-function cerrarMenu() { if (capa.hidden) return; capa.hidden = true; capa.querySelector('.banda').classList.remove('trazada'); abrir.setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; document.removeEventListener('keydown', teclaMenu); ((ultimoFoco && ultimoFoco !== document.body) ? ultimoFoco : abrir).focus(); }
-function teclaMenu(e) { if (e.key === 'Escape') return cerrarMenu(); if (e.key !== 'Tab') return; const f = [...capa.querySelectorAll('a, button')], p = f[0], u = f[f.length - 1]; if (e.shiftKey && document.activeElement === p) { e.preventDefault(); u.focus(); } else if (!e.shiftKey && document.activeElement === u) { e.preventDefault(); p.focus(); } }
-abrir.addEventListener('click', () => abrirMenu()); cerrar.addEventListener('click', cerrarMenu);
-document.querySelectorAll('[data-abre-menu]').forEach(b => b.addEventListener('click', () => abrirMenu(b.dataset.grupo)));
-capa.querySelectorAll('.capa__indice a').forEach(a => a.addEventListener('click', e => { e.preventDefault(); ir('sedes'); }));
-document.getElementById('abrir-buscar').addEventListener('click', e => { e.preventDefault(); abrirMenu(); });
+function abrirMenu() { ultimoFoco = document.activeElement; capa.hidden = false; abrir.setAttribute('aria-expanded', 'true'); document.body.style.overflow = 'hidden'; requestAnimationFrame(() => capa.querySelector('.banda').classList.add('trazada')); cerrar.focus(); document.addEventListener('keydown', teclaMenu); }
+function cerrarMenu() { cerrarDesp(false); if (capa.hidden) return; capa.hidden = true; capa.querySelector('.banda').classList.remove('trazada'); abrir.setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; document.removeEventListener('keydown', teclaMenu); ((ultimoFoco && ultimoFoco !== document.body) ? ultimoFoco : abrir).focus(); }
+function teclaMenu(e) { if (e.key === 'Escape') return cerrarMenu(); if (e.key !== 'Tab') return; const f = [...capa.querySelectorAll('a, button')].filter(x => x.offsetParent), p = f[0], u = f[f.length - 1]; if (e.shiftKey && document.activeElement === p) { e.preventDefault(); u.focus(); } else if (!e.shiftKey && document.activeElement === u) { e.preventDefault(); p.focus(); } }
+abrir.addEventListener('click', abrirMenu); cerrar.addEventListener('click', cerrarMenu);
+document.querySelectorAll('.cp-capa__boton').forEach(b => b.addEventListener('click', () => { const ab = b.getAttribute('aria-expanded') === 'true'; b.setAttribute('aria-expanded', String(!ab)); document.getElementById(b.getAttribute('aria-controls')).hidden = ab; }));
+document.querySelectorAll('[data-cierra-desp]').forEach(a => a.addEventListener('click', e => { const id = a.getAttribute('href').slice(1); if (!id) return; e.preventDefault(); ir(id); }));
 </script>
 </body>
 </html>
