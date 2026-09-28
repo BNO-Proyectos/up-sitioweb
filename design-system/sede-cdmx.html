@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Posgrados en Ciudad de México · Campus Mixcoac y Santa Fe · Universidad Panamericana</title>
+<meta name="description" content="Maestrías, especialidades, doctorados, diplomados y cursos de la Universidad Panamericana en Ciudad de México, en los campus Mixcoac y Santa Fe. Busca tu programa por nivel, área o sede.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://posgrados-panamericana.up.edu.mx/cdmx">
+<link rel="stylesheet" href="ds.css?v=6">
+<link rel="stylesheet" href="camino.css?v=6">
+<link rel="stylesheet" href="campus.css?v=20">
+<link rel="stylesheet" href="programa.css?v=21">
+<link rel="stylesheet" href="sede.css?v=3">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://posgrados-panamericana.up.edu.mx/"}, {"@type": "ListItem", "position": 2, "name": "Ciudad de México", "item": "https://posgrados-panamericana.up.edu.mx/cdmx"}]}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Qué posgrados ofrece la Universidad Panamericana en Ciudad de México?", "acceptedAnswer": {"@type": "Answer", "text": "En Ciudad de México, la Universidad Panamericana ofrece maestrías, especialidades, doctorados, diplomados y cursos. Abarcan áreas como Derecho, Ingeniería, Ciencias de la Salud, Comunicación, Empresariales, Filosofía, Bellas Artes, Gobierno y Economía, Pedagogía y ESDAI. Puedes explorarlos en esta página y filtrarlos por nivel, área o sede."}}, {"@type": "Question", "name": "¿Cuál es la diferencia entre Campus Mixcoac y Campus Santa Fe?", "acceptedAnswer": {"@type": "Answer", "text": "Mixcoac es la sede con más programas de posgrado en la ciudad: ahí se imparte la mayor parte de la oferta de Ingeniería, Derecho, Ciencias de la Salud, Filosofía y Comunicación. Santa Fe concentra los posgrados de Gobierno y programas de Empresariales, Derecho, Comunicación, Filosofía, Pedagogía y Bellas Artes. En ambas vivirás el mismo modelo de formación integral."}}, {"@type": "Question", "name": "¿Cómo puedo buscar programas por sede?", "acceptedAnswer": {"@type": "Answer", "text": "En la sección «Explora los posgrados disponibles en CDMX» escribe el nombre o tema del programa y combina los filtros de nivel, área académica y sede. También puedes entrar desde la tarjeta de cada sede o de cada área."}}, {"@type": "Question", "name": "¿Dónde encuentro requisitos, costos y próximas convocatorias?", "acceptedAnswer": {"@type": "Answer", "text": "Cada programa tiene su propia página con requisitos de admisión. Para costos y fechas de las próximas convocatorias, solicita información y un asesor de admisiones te responde."}}]}]</script>
+</head>
+<body class="cp-pagina pg-pagina sd-pagina">
+<a class="oculto-visual" href="#contenido">Saltar al contenido</a>
+<!--
+  Página de sede · Ciudad de México (2026-09-28)
+  Estructura y copy: wireframe de Figma «Sede — Ciudad de México · textos reales (áreas 4-4-3)».
+  Sistema: Propuesta B (cabecera del Figma aprobada, escala tipográfica por roles, Master graphic B, textura Roble sin foto).
+  Datos: inventario oficial del cliente (22 sep 2026) + Maestría en Economía Digital (programa nuevo).
+-->
+
+<!-- Cabecera según el wireframe de Figma (2026-09-25, a pedido de Jazmín Córdova):
+     logo · Oferta académica ▾ · Conoce Posgrados Panamericana ▾ · Noticias · Eventos · Contacto · Solicitar información.
+     Sin barra institucional. El contenido de los desplegables no está en el Figma: sale de la lista de páginas
+     del cliente y del inventario oficial (pendiente B29). -->
+<header class="cp-cab" id="cab">
+  <div class="contenedor cp-cab__barra">
+    <a class="cp-cab__logo" href="#" aria-label="Posgrados Panamericana — Inicio"><img src="img/logo-posgrados.webp" width="137" height="160" alt=""></a>
+    <nav class="cp-nav" aria-label="Principal">
+      <ul class="cp-nav__lista">
+        <li class="cp-nav__item">
+          <button class="cp-nav__boton" type="button" aria-expanded="false" aria-controls="d-oferta">Oferta académica<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+          <div class="cp-desp" id="d-oferta" hidden><div class="contenedor cp-desp__rejilla">
+          <div class="cp-desp__col">
+            <p class="cp-desp__titulo">Por nivel</p>
+            <ul>
+              <li><a href="#"><span>Maestrías</span><b>84</b></a></li>
+              <li><a href="#"><span>Especialidades</span><b>41</b></a></li>
+              <li><a href="#"><span>Doctorados</span><b>10</b></a></li>
+              <li><a href="#"><span>Diplomados</span><b>13</b></a></li>
+              <li><a href="#"><span>Educación continua</span><b>2</b></a></li>
+            </ul>
+          </div>
+          <div class="cp-desp__col">
+            <p class="cp-desp__titulo">Por campus</p>
+            <ul>
+              <li><a href="sede-cdmx.html" aria-current="page"><span>Ciudad de México</span><b>75</b></a></li>
+              <li><a href="inicio-b.html#sedes"><span>Guadalajara</span><b>44</b></a></li>
+              <li><a href="inicio-b.html#sedes"><span>Aguascalientes</span><b>31</b></a></li>
+            </ul>
+          </div>
+          <div class="cp-desp__col cp-desp__col--marca">
+            <div class="banda" aria-hidden="true"></div>
+            <p class="cp-desp__cifra"><b>150</b> programas de posgrado en 3 campus</p>
+            <a class="cp-desp__todo" href="#">Ver todos los programas <span aria-hidden="true">→</span></a>
+          </div>
+          </div></div>
+        </li>
+        <li class="cp-nav__item">
+          <button class="cp-nav__boton" type="button" aria-expanded="false" aria-controls="d-conoce">Conoce Posgrados Panamericana<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+          <div class="cp-desp" id="d-conoce" hidden><div class="contenedor cp-desp__rejilla">
+          <div class="cp-desp__col">
+            <p class="cp-desp__titulo">Posgrados Panamericana</p>
+            <ul>
+              <li><a href="#"><span>Nosotros</span></a></li>
+              <li><a href="inicio-b.html#sedes"><span>Sedes</span></a></li>
+              <li><a href="#"><span>Admisiones</span></a></li>
+              <li><a href="#"><span>Becas, financiamiento y convenios</span></a></li>
+            </ul>
+          </div>
+          <div class="cp-desp__col">
+            <p class="cp-desp__titulo">En esta página</p>
+            <ul>
+              <li><a href="inicio-b.html#por-que"><span>¿Por qué Posgrados Panamericana?</span></a></li>
+              <li><a href="inicio-b.html#testimonios"><span>Experiencia de egresados</span></a></li>
+              <li><a href="inicio-b.html#preguntas"><span>Preguntas frecuentes</span></a></li>
+            </ul>
+          </div>
+          <div class="cp-desp__col cp-desp__col--marca">
+            <div class="banda" aria-hidden="true"></div>
+            <p class="cp-desp__cifra">Un espacio para descubrir tu mejor versión.</p>
+            <a class="cp-desp__todo" href="#solicitud" data-ir-form>Solicita información <span aria-hidden="true">→</span></a>
+          </div>
+          </div></div>
+        </li>
+        <li class="cp-nav__item"><a class="cp-nav__enlace" href="inicio-b.html#noticias">Noticias</a></li>
+        <li class="cp-nav__item"><a class="cp-nav__enlace" href="inicio-b.html#noticias">Eventos</a></li>
+        <li class="cp-nav__item"><a class="cp-nav__enlace" href="#">Contacto</a></li>
+      </ul>
+    </nav>
+    <a class="boton boton--primario cp-cab__cta" href="#solicitud" data-ir-form>Solicitar información</a>
+    <span class="cp-progreso" id="progreso" aria-hidden="true"></span>
+    <button class="cab__menu cp-cab__menu" id="abrir-menu" type="button" aria-expanded="false" aria-controls="capa-menu"><span class="hamb" aria-hidden="true"><i></i><i></i><i></i></span>Menú</button>
+  </div>
+</header>
+<div class="cp-velo" id="velo" hidden></div>
+
+<!-- Menú móvil: la misma estructura del Figma, con acordeones -->
+<div class="capa cp-capa" id="capa-menu" role="dialog" aria-modal="true" aria-label="Menú" hidden>
+  <div class="banda banda--atenuada banda--traza" aria-hidden="true"></div>
+  <div class="contenedor">
+    <div class="capa__cabeza">
+      <span class="marca-texto">Posgrados Panamericana</span>
+      <button class="cab__menu" id="cerrar-menu" type="button">Cerrar</button>
+    </div>
+    <nav class="cp-capa__nav" aria-label="Principal (móvil)">
+      <div class="cp-capa__item">
+        <button class="cp-capa__boton" type="button" aria-expanded="false" aria-controls="m-oferta">Oferta académica<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+        <div class="cp-capa__panel" id="m-oferta" hidden><div class="cp-desp__col">
+            <p class="cp-desp__titulo">Por nivel</p>
+            <ul>
+              <li><a href="#"><span>Maestrías</span><b>84</b></a></li>
+              <li><a href="#"><span>Especialidades</span><b>41</b></a></li>
+              <li><a href="#"><span>Doctorados</span><b>10</b></a></li>
+              <li><a href="#"><span>Diplomados</span><b>13</b></a></li>
+              <li><a href="#"><span>Educación continua</span><b>2</b></a></li>
+            </ul>
+          </div>
+          <div class="cp-desp__col">
+            <p class="cp-desp__titulo">Por campus</p>
+            <ul>
+              <li><a href="sede-cdmx.html" aria-current="page"><span>Ciudad de México</span><b>75</b></a></li>
+              <li><a href="inicio-b.html#sedes"><span>Guadalajara</span><b>44</b></a></li>
+              <li><a href="inicio-b.html#sedes"><span>Aguascalientes</span><b>31</b></a></li>
+            </ul>
+          </div>
+          <div class="cp-desp__col cp-desp__col--marca">
+            <div class="banda" aria-hidden="true"></div>
+            <p class="cp-desp__cifra"><b>150</b> programas de posgrado en 3 campus</p>
+            <a class="cp-desp__todo" href="#">Ver todos los programas <span aria-hidden="true">→</span></a>
+          </div></div>
+      </div>
+      <div class="cp-capa__item">
+        <button class="cp-capa__boton" type="button" aria-expanded="false" aria-controls="m-conoce">Conoce Posgrados Panamericana<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+        <div class="cp-capa__panel" id="m-conoce" hidden><div class="cp-desp__col">
+            <p class="cp-desp__titulo">Posgrados Panamericana</p>
+            <ul>
+              <li><a href="#"><span>Nosotros</span></a></li>
+              <li><a href="inicio-b.html#sedes"><span>Sedes</span></a></li>
+              <li><a href="#"><span>Admisiones</span></a></li>
+              <li><a href="#"><span>Becas, financiamiento y convenios</span></a></li>
+            </ul>
+          </div>
+          <div class="cp-desp__col">
+            <p class="cp-desp__titulo">En esta página</p>
+            <ul>
+              <li><a href="inicio-b.html#por-que"><span>¿Por qué Posgrados Panamericana?</span></a></li>
+              <li><a href="inicio-b.html#testimonios"><span>Experiencia de egresados</span></a></li>
+              <li><a href="inicio-b.html#preguntas"><span>Preguntas frecuentes</span></a></li>
+            </ul>
+          </div>
+          <div class="cp-desp__col cp-desp__col--marca">
+            <div class="banda" aria-hidden="true"></div>
+            <p class="cp-desp__cifra">Un espacio para descubrir tu mejor versión.</p>
+            <a class="cp-desp__todo" href="#solicitud" data-ir-form>Solicita información <span aria-hidden="true">→</span></a>
+          </div></div>
+      </div>
+      <div class="cp-capa__item"><a class="cp-capa__enlace" href="inicio-b.html#noticias">Noticias</a></div>
+      <div class="cp-capa__item"><a class="cp-capa__enlace" href="inicio-b.html#noticias">Eventos</a></div>
+      <div class="cp-capa__item"><a class="cp-capa__enlace" href="#">Contacto</a></div>
+    </nav>
+    <a class="boton boton--primario cp-capa__cta" href="#solicitud" data-ir-form>Solicitar información</a>
+  </div>
+</div>
+
+
+
+<main id="contenido">
+
+  <div class="contenedor pg-migas"><nav aria-label="Ruta"><ol>
+    <li><a href="inicio-b.html">Inicio</a></li><li aria-current="page">Ciudad de México</li>
+  </ol></nav></div>
+
+  <!-- 01 · Portada -->
+  <section class="pg-hero sd-hero" id="inicio" aria-labelledby="h1">
+    <div class="contenedor">
+      <div class="pg-hero__texto">
+        <p class="cap-etiqueta">Posgrados · Ciudad de México</p>
+        <h1 id="h1"><span class="linea"><span>Posgrados en</span></span> <span class="linea"><span>Ciudad de México</span></span></h1>
+        <p class="pg-hero__lema">Crece profesional y personalmente en una comunidad que cree en tu potencial, con posgrados conectados con los retos de una de las ciudades más dinámicas de México.</p>
+        <div class="pg-hero__acciones">
+          <a class="boton boton--primario" href="#programas" data-ir-seccion="programas">Explorar programas</a>
+          <a class="boton boton--secundario" href="#solicitud" data-intencion="info" data-origen="portada">Solicitar información</a>
+        </div>
+      </div>
+      <div class="pg-hero__escena">
+        <figure class="pg-hero__foto" style="--foco: 50% 40%">
+          <img src="img/escena-03.jpg" width="1440" height="960" alt="Profesor de posgrado frente a su grupo en el campus Mixcoac" fetchpriority="high" data-parallax="0.12">
+        </figure>
+        <div class="pg-hero__tahali" aria-hidden="true"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 · Navegación interna -->
+  <nav class="pg-tabs" id="tabs" aria-label="Secciones de la página">
+    <div class="contenedor">
+      <div class="pg-tabs__pista" id="tabs-pista">
+        <a href="#sedes">Sedes</a>
+        <a href="#programas">Programas</a>
+        <a href="#areas">Áreas académicas</a>
+        <a href="#experiencia">Experiencia UP</a>
+        <a href="#preguntas">Preguntas frecuentes</a>
+        <span class="pg-tabs__indicador" id="tabs-indicador" aria-hidden="true"></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 03 · Estudia un posgrado en CDMX -->
+  <section class="pg-seccion pg-seccion--elevada" aria-labelledby="h-estudia">
+    <div class="contenedor sd-estudia">
+      <div class="sd-estudia__texto">
+        <h2 class="cp-h2 cp-mascara sd-h2" id="h-estudia">Estudia un posgrado en Ciudad de México</h2>
+        <p class="cp-revela">En la Universidad Panamericana creemos que cada persona puede alcanzar su mejor versión. En Ciudad de México te acompañamos en ese camino desde dos campus: Mixcoac y Santa Fe.</p>
+        <p class="cp-revela" style="--k:1">Si buscas maestrías en CDMX, doctorados, especialidades, diplomados o cursos, aquí encontrarás opciones en áreas como Derecho, Ingeniería, Salud, Comunicación, Negocios y Humanidades. Sea cual sea tu meta, vivirás una formación exigente, humana y pensada para que tu trabajo aporte al bien común.</p>
+      </div>
+      <dl class="sd-datos">
+        <div class="cp-revela" style="--k:0"><dt>Dónde estudiar</dt><dd><b data-cuenta="2">2</b> sedes</dd><span>Mixcoac y Santa Fe</span></div>
+        <div class="cp-revela" style="--k:1"><dt>Oferta</dt><dd><b data-cuenta="76">76</b> programas</dd><span>Cinco niveles de posgrado</span></div>
+        <div class="cp-revela" style="--k:2"><dt>Áreas académicas</dt><dd><b data-cuenta="11">11</b> áreas</dd><span>De Derecho a Ingeniería</span></div>
+        <div class="cp-revela" style="--k:3"><dt>Orientación</dt><dd>Personalizada</dd><span>Un asesor te acompaña</span></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- 04 · Sedes -->
+  <section class="pg-seccion pg-seccion--papel" id="sedes" aria-labelledby="h-sedes">
+    <div class="contenedor">
+      <div class="pg-cabeza"><p class="cap-etiqueta">Dos campus, una comunidad</p><h2 class="cp-h2 cp-mascara sd-h2 sd-h2--principal" id="h-sedes">Conoce nuestras sedes en Ciudad de México</h2><p class="cp-apoyo">Dos campus, una misma comunidad. En Mixcoac y en Santa Fe vivirás el modelo de formación integral de la Panamericana. Cada sede reúne programas de distintas áreas: elige la que mejor se adapte a tu interés y a tu día a día.</p></div>
+      <ul class="sd-sedes">
+        <li class="sd-sede cp-revela" id="sede-mixcoac" style="--k:0">
+          <div class="sd-sede__foto"><img src="img/mosaico-02.jpg" width="960" height="640" alt="Salón de posgrados del campus Mixcoac durante una clase" loading="lazy" data-parallax="0.08"></div>
+          <div class="sd-sede__cuerpo">
+            <h3>Campus Mixcoac</h3>
+            <p class="sd-sede__dir">Augusto Rodin 498, Col. Insurgentes Mixcoac</p>
+            <p>Es la sede con más programas de posgrado en Ciudad de México. Aquí se imparte la mayor parte de la oferta de Ingeniería, Derecho, Ciencias de la Salud, Filosofía y Comunicación, además de programas de Empresariales, Pedagogía, Bellas Artes y ESDAI.</p>
+            <a class="boton boton--primario" href="#programas" data-ver-sede="Mixcoac">Ver programas en Mixcoac</a>
+          </div>
+        </li>
+        <li class="sd-sede cp-revela" id="sede-santa-fe" style="--k:1">
+          <div class="sd-sede__foto sd-sede__foto--sin"><div class="textura-roble textura-roble--acercamiento" data-parallax="0.06" aria-hidden="true"></div><span>Fotografía de Santa Fe pendiente</span></div>
+          <div class="sd-sede__cuerpo">
+            <h3>Campus Santa Fe</h3>
+            <p class="sd-sede__dir">Av. Javier Barros Sierra 540, piso 3, Col. Santa Fe</p>
+            <p>Concentra los posgrados de Gobierno y programas de Empresariales, Derecho, Comunicación, Filosofía, Pedagogía y Bellas Artes, como la Maestría en Gobierno y Políticas Públicas, la Maestría Internacional en Finanzas y la Maestría en Mercadotecnia Estratégica.</p>
+            <a class="boton boton--primario" href="#programas" data-ver-sede="Santa Fe">Ver programas en Santa Fe</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 05 · Explorador de programas -->
+  <section class="pg-seccion pg-seccion--elevada" id="programas" aria-labelledby="h-programas">
+    <div class="contenedor">
+      <div class="pg-cabeza"><p class="cap-etiqueta">Oferta en CDMX</p><h2 class="cp-h2 cp-mascara sd-h2 sd-h2--principal" id="h-programas">Explora los posgrados disponibles en CDMX</h2><p class="cp-apoyo">Encuentra el programa que conecta con lo que quieres construir. Busca por nombre o tema, o usa los filtros para ver solo lo que te interesa.</p></div>
+      <form class="sd-buscador" id="buscador" role="search" aria-label="Buscar programas en Ciudad de México" onsubmit="return false">
+        <div class="sd-buscador__texto">
+          <label for="b-texto">Buscar programa</label>
+          <input id="b-texto" type="search" placeholder="Programa o tema (ej. finanzas, datos)" autocomplete="off">
+        </div>
+        <button class="sd-buscador__filtros-btn" type="button" id="b-filtros-btn" aria-expanded="false" aria-controls="b-filtros">Filtros <span id="b-activos"></span></button>
+        <div class="sd-buscador__filtros" id="b-filtros">
+          <div><label for="b-nivel">Nivel</label><select id="b-nivel"><option value="">Todos los niveles</option><option value="Maestría">Maestría</option><option value="Especialidad">Especialidad</option><option value="Doctorado">Doctorado</option><option value="Diplomado">Diplomado</option><option value="Curso">Curso</option></select></div>
+          <div><label for="b-area">Área académica</label><select id="b-area"><option value="">Todas las áreas</option><option value="Bellas Artes">Bellas Artes</option><option value="Ciencias de la Salud">Ciencias de la Salud</option><option value="Comunicación">Comunicación</option><option value="Derecho">Derecho</option><option value="Economía">Economía</option><option value="Empresariales">Empresariales</option><option value="Filosofía">Filosofía</option><option value="Gobierno">Gobierno</option><option value="Ingeniería">Ingeniería</option><option value="ESDAI">Negocios en Hospitalidad y Alimentos (ESDAI)</option><option value="Pedagogía">Pedagogía</option></select></div>
+          <div><label for="b-sede">Sede</label><select id="b-sede"><option value="">Ambas sedes</option><option>Mixcoac</option><option>Santa Fe</option></select></div>
+          <button class="sd-buscador__limpiar" type="button" id="b-limpiar">Limpiar</button>
+        </div>
+      </form>
+      <p class="sd-resultado" id="b-resultado" aria-live="polite"></p>
+      <ul class="sd-programas" id="lista-programas"></ul>
+      <p class="sd-vacio" id="b-vacio" hidden>No encontramos programas con esa combinación. <button type="button" class="pg-enlace-cta" id="b-vacio-limpiar">Quitar filtros</button></p>
+      <div class="pg-ver-mas"><button class="boton boton--secundario" type="button" id="b-mas" aria-controls="lista-programas" aria-expanded="false">Ver todos los programas</button></div>
+    </div>
+  </section>
+
+  <!-- 06 · Áreas académicas -->
+  <section class="pg-seccion pg-seccion--papel" id="areas" aria-labelledby="h-areas">
+    <div class="contenedor">
+      <div class="pg-cabeza"><p class="cap-etiqueta">Áreas académicas</p><h2 class="cp-h2 cp-mascara sd-h2" id="h-areas">Encuentra tu área académica</h2><p class="cp-apoyo">Cada área reúne programas con un mismo propósito: formar profesionales capaces y personas íntegras. Explora la que conecta con tu vocación.</p></div>
+      <ul class="sd-areas">
+        <li class="sd-area cp-revela" style="--k:0"><button type="button" data-area="Bellas Artes"><span class="sd-area__n">4 <small>programas</small></span><span class="sd-area__nombre">Bellas Artes</span><span class="sd-area__ir">Explorar área <span aria-hidden="true">→</span></span></button></li>
+        <li class="sd-area cp-revela" style="--k:1"><button type="button" data-area="Ciencias de la Salud"><span class="sd-area__n">12 <small>programas</small></span><span class="sd-area__nombre">Ciencias de la Salud</span><span class="sd-area__ir">Explorar área <span aria-hidden="true">→</span></span></button></li>
+        <li class="sd-area cp-revela" style="--k:2"><button type="button" data-area="Comunicación"><span class="sd-area__n">9 <small>programas</small></span><span class="sd-area__nombre">Comunicación</span><span class="sd-area__ir">Explorar área <span aria-hidden="true">→</span></span></button></li>
+        <li class="sd-area cp-revela" style="--k:3"><button type="button" data-area="Derecho"><span class="sd-area__n">14 <small>programas</small></span><span class="sd-area__nombre">Derecho</span><span class="sd-area__ir">Explorar área <span aria-hidden="true">→</span></span></button></li>
+        <li class="sd-area cp-revela" style="--k:0"><button type="button" data-area="Economía"><span class="sd-area__n">1 <small>programa · nuevo</small></span><span class="sd-area__nombre">Economía</span><span class="sd-area__ir">Explorar área <span aria-hidden="true">→</span></span></button></li>
+        <li class="sd-area cp-revela" style="--k:1"><button type="button" data-area="Empresariales"><span class="sd-area__n">10 <small>programas</small></span><span class="sd-area__nombre">Empresariales</span><span class="sd-area__ir">Explorar área <span aria-hidden="true">→</span></span></button></li>
+        <li class="sd-area cp-revela" style="--k:2"><button type="button" data-area="Filosofía"><span class="sd-area__n">4 <small>programas</small></span><span class="sd-area__nombre">Filosofía</span><span class="sd-area__ir">Explorar área <span aria-hidden="true">→</span></span></button></li>
+        <li class="sd-area cp-revela" style="--k:3"><button type="button" data-area="Gobierno"><span class="sd-area__n">4 <small>programas</small></span><span class="sd-area__nombre">Gobierno</span><span class="sd-area__sub">Gobierno y Economía</span><span class="sd-area__ir">Explorar área <span aria-hidden="true">→</span></span></button></li>
+        <li class="sd-area cp-revela" style="--k:0"><button type="button" data-area="Ingeniería"><span class="sd-area__n">12 <small>programas</small></span><span class="sd-area__nombre">Ingeniería</span><span class="sd-area__ir">Explorar área <span aria-hidden="true">→</span></span></button></li>
+        <li class="sd-area cp-revela" style="--k:1"><button type="button" data-area="ESDAI"><span class="sd-area__n">4 <small>programas</small></span><span class="sd-area__nombre">Negocios en Hospitalidad y Alimentos</span><span class="sd-area__sub">ESDAI</span><span class="sd-area__ir">Explorar área <span aria-hidden="true">→</span></span></button></li>
+        <li class="sd-area cp-revela" style="--k:2"><button type="button" data-area="Pedagogía"><span class="sd-area__n">5 <small>programas</small></span><span class="sd-area__nombre">Pedagogía</span><span class="sd-area__ir">Explorar área <span aria-hidden="true">→</span></span></button></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 07 · Experiencia UP -->
+  <section class="pg-seccion pg-seccion--elevada" id="experiencia" aria-labelledby="h-exp">
+    <div class="contenedor">
+      <div class="pg-cabeza"><p class="cap-etiqueta">Vida universitaria</p><h2 class="cp-h2 cp-mascara sd-h2" id="h-exp">Vive la experiencia UP en Ciudad de México</h2><p class="cp-apoyo">Estudiar un posgrado en la Panamericana es más que tomar clases. Es formar parte de una comunidad que te conoce por tu nombre, te reta a crecer y te invita a poner tu talento al servicio de los demás.</p></div>
+      <div class="sd-exp">
+        <div class="sd-galeria cp-revela" id="galeria" aria-roledescription="carrusel" aria-label="Fotografías de la vida en el campus">
+          <div class="sd-galeria__marco"><img src="img/escena-03.jpg" alt="Profesor de posgrado frente a su grupo en un salón de Mixcoac" loading="lazy" class="sd-galeria--activa"><img src="img/mosaico-04.jpg" alt="Profesor y estudiantes de posgrado conversan en clase" loading="lazy"><img src="img/escena-01.jpg" alt="Estudiantes de posgrado participan en clase" loading="lazy"><img src="img/mosaico-06.jpg" alt="Estudiantes de posgrado en una sesión de trabajo" loading="lazy"><img src="img/mosaico-05.jpg" alt="Conversación entre estudiantes de posgrado" loading="lazy"></div>
+          <div class="sd-galeria__puntos"><button type="button" aria-label="Foto 1 de 5" aria-current="true"></button><button type="button" aria-label="Foto 2 de 5"></button><button type="button" aria-label="Foto 3 de 5"></button><button type="button" aria-label="Foto 4 de 5"></button><button type="button" aria-label="Foto 5 de 5"></button></div>
+        </div>
+        <div class="sd-exp__texto">
+          <h3>Una red académica conectada con la ciudad</h3>
+          <ul class="sd-exp__lista">
+            <li class="cp-revela" style="--k:0"><b>Profesores que acompañan.</b> Aprende de un claustro con perfil investigador y experiencia profesional, que te guía como mentor, no solo como docente.</li>
+            <li class="cp-revela" style="--k:1"><b>Vinculación con tu entorno.</b> Conecta con empresas, instituciones y proyectos con impacto real en la comunidad.</li>
+            <li class="cp-revela" style="--k:2"><b>Espacios para crecer como persona.</b> Arte, cultura, deporte y bienestar, según los servicios disponibles en cada sede.</li>
+            <li class="cp-revela" style="--k:3"><b>Una comunidad viva.</b> Conferencias, foros y actividades académicas para seguir aprendiendo y construir relaciones duraderas.</li>
+          </ul>
+          <div class="sd-exp__acciones"><a class="boton boton--secundario" href="#sede-mixcoac" data-ir-sede="sede-mixcoac">Conoce Mixcoac</a><a class="boton boton--secundario" href="#sede-santa-fe" data-ir-sede="sede-santa-fe">Conoce Santa Fe</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 08 · Preguntas frecuentes -->
+  <section class="pg-seccion pg-seccion--papel" id="preguntas" aria-labelledby="h-faq">
+    <div class="contenedor cp-faq">
+      <div class="pg-cabeza" style="margin:0"><p class="cap-etiqueta">Preguntas frecuentes</p><h2 class="cp-h2 cp-mascara sd-h2" id="h-faq">Preguntas frecuentes sobre Posgrados UP en CDMX</h2><p class="cp-apoyo">Resolvemos las dudas más comunes para que elijas con claridad.</p></div>
+      <div class="acordeon">
+        <div class="acordeon__item"><h3><button class="acordeon__boton" aria-expanded="true" aria-controls="faq-1"><span class="q">¿Qué posgrados ofrece la Universidad Panamericana en Ciudad de México?</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 7l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2"/></svg></button></h3><div class="acordeon__panel" id="faq-1"><div><p>En Ciudad de México, la Universidad Panamericana ofrece maestrías, especialidades, doctorados, diplomados y cursos. Abarcan áreas como Derecho, Ingeniería, Ciencias de la Salud, Comunicación, Empresariales, Filosofía, Bellas Artes, Gobierno y Economía, Pedagogía y ESDAI. Puedes explorarlos en esta página y filtrarlos por nivel, área o sede.</p></div></div></div>
+        <div class="acordeon__item"><h3><button class="acordeon__boton" aria-expanded="false" aria-controls="faq-2"><span class="q">¿Cuál es la diferencia entre Campus Mixcoac y Campus Santa Fe?</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 7l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2"/></svg></button></h3><div class="acordeon__panel" id="faq-2" data-cerrado><div><p>Mixcoac es la sede con más programas de posgrado en la ciudad: ahí se imparte la mayor parte de la oferta de Ingeniería, Derecho, Ciencias de la Salud, Filosofía y Comunicación. Santa Fe concentra los posgrados de Gobierno y programas de Empresariales, Derecho, Comunicación, Filosofía, Pedagogía y Bellas Artes. En ambas vivirás el mismo modelo de formación integral.</p></div></div></div>
+        <div class="acordeon__item"><h3><button class="acordeon__boton" aria-expanded="false" aria-controls="faq-3"><span class="q">¿Cómo puedo buscar programas por sede?</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 7l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2"/></svg></button></h3><div class="acordeon__panel" id="faq-3" data-cerrado><div><p>En la sección «Explora los posgrados disponibles en CDMX» escribe el nombre o tema del programa y combina los filtros de nivel, área académica y sede. También puedes entrar desde la tarjeta de cada sede o de cada área.</p></div></div></div>
+        <div class="acordeon__item"><h3><button class="acordeon__boton" aria-expanded="false" aria-controls="faq-4"><span class="q">¿Dónde encuentro requisitos, costos y próximas convocatorias?</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 7l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2"/></svg></button></h3><div class="acordeon__panel" id="faq-4" data-cerrado><div><p>Cada programa tiene su propia página con requisitos de admisión. Para costos y fechas de las próximas convocatorias, solicita información y un asesor de admisiones te responde.</p></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 09 · Cierre con formulario -->
+  <section class="cp-seccion cp-cta cp-cta--roble pg-cta" id="solicitud" aria-labelledby="h-cta">
+    <div class="textura-roble" data-parallax="0.12" aria-hidden="true"></div>
+    <div class="contenedor">
+      <div class="cp-cta__mensaje">
+        <p class="cap-etiqueta" style="color:var(--contenido-acento-inverso)">Solicita información</p>
+        <h2 id="h-cta" tabindex="-1">¿Necesitas ayuda para elegir un posgrado?</h2>
+        <p>Elegir un posgrado es una decisión importante, y no tienes que tomarla sin compañía. Cuéntanos qué te interesa y te ayudaremos a encontrar el programa que mejor impulse tu crecimiento profesional y personal.</p>
+        <p><a class="boton sd-boton-claro" href="#programas" data-ir-seccion="programas">Explorar programas</a></p>
+      </div>
+      <form class="cp-form" id="form-sede" onsubmit="return false" aria-labelledby="h-form">
+        <h3 id="h-form">Solicita información</h3>
+        <div class="campo"><label class="campo__etiqueta" for="f-nombre">Nombre completo <span>(obligatorio)</span></label><input class="campo__control" id="f-nombre" type="text" autocomplete="name" placeholder="Escribe tu nombre y apellidos" required></div>
+        <div class="campo"><label class="campo__etiqueta" for="f-correo">Correo electrónico <span>(obligatorio)</span></label><input class="campo__control" id="f-correo" type="email" autocomplete="email" placeholder="nombre@correo.com" required></div>
+        <div class="campo"><label class="campo__etiqueta" for="f-tel">Teléfono <span>(obligatorio)</span></label><input class="campo__control" id="f-tel" type="tel" autocomplete="tel" inputmode="numeric" placeholder="10 dígitos" required></div>
+        <div class="campo"><label class="campo__etiqueta" for="f-interes">Programa o área de interés <span>(obligatorio)</span></label><select class="campo__control" id="f-interes" required><option value="">Selecciona un programa o área</option><optgroup label="Áreas académicas"><option>Área: Bellas Artes</option><option>Área: Ciencias de la Salud</option><option>Área: Comunicación</option><option>Área: Derecho</option><option>Área: Economía</option><option>Área: Empresariales</option><option>Área: Filosofía</option><option>Área: Gobierno</option><option>Área: Ingeniería</option><option>Área: Negocios en Hospitalidad y Alimentos (ESDAI)</option><option>Área: Pedagogía</option></optgroup><optgroup label="Bellas Artes"><option>Diplomado en Arquitectura de Interiores</option><option>Diplomado en Economía e Industrias Creativas</option><option>Diplomado en Gobernanza y Diplomacia Cultural</option><option>Maestría en Gestión de las Artes y Políticas Culturales</option></optgroup><optgroup label="Ciencias de la Salud"><option>Curso de Preparación para el ENARM</option><option>Diplomado de Educación en Ciencias de la Salud</option><option>Doctorado en Bioética</option><option>Especialidad en Heridas, Estomas y Quemaduras</option><option>Especialidad en Neuropsicología</option><option>Especialidad en Psicología Clínica y de la Salud</option><option>Especialidad en Psicología Educativa</option><option>Especialidad en Psicología Organizacional</option><option>Maestría en Bioética</option><option>Maestría en Ciencias en Salud Pública</option><option>Maestría en Liderazgo y Alta Dirección para Médicos</option><option>Maestría en Terapia de Heridas, Estomas y Quemaduras</option></optgroup><optgroup label="Comunicación"><option>Diplomado en Comunicación Política</option><option>Diplomado en Creación y Gestión de Proyectos de Entretenimiento y Experiencias</option><option>Diplomado en Fashion Branding, Digital &amp; Innovation</option><option>Especialidad en Publicidad y Creación de Contenidos</option><option>Especialidad en Relaciones Públicas y Reputación de Marca</option><option>Maestría en Comunicaciones de Marca</option><option>Maestría en Comunicación Institucional</option><option>Maestría en Comunicación Política y Pública</option><option>Maestría en Narrativa y Producción Audiovisual</option></optgroup><optgroup label="Derecho"><option>Diplomado en Ciberjusticia</option><option>Doctorado en Derecho</option><option>Especialidad en Derecho Procesal Civil y Mercantil</option><option>Especialidad en Derecho de Amparo</option><option>Especialidad en Derecho de la Empresa</option><option>Maestría en Ciencias Jurídicas</option><option>Maestría en Derecho Administrativo</option><option>Maestría en Derecho Fiscal</option><option>Maestría en Derecho Laboral</option><option>Maestría en Derecho Procesal Constitucional</option><option>Maestría en Derecho de la Empresa</option><option>Maestría en Derechos Humanos</option><option>Maestría en Instituciones de Derecho Financiero</option><option>Maestría en Propiedad Industrial, Derechos de Autor y Nuevas Tecnologías</option></optgroup><optgroup label="Economía"><option>Maestría en Economía Digital</option></optgroup><optgroup label="Empresariales"><option>Diplomado Mujeres de Impacto: Liderazgo y Finanzas Estratégicas</option><option>Diplomado en Administración Estratégica del Fútbol</option><option>Diplomado en Dirección de Control de Gestión y Business Analytics</option><option>Doctorado en Ciencias Empresariales</option><option>Maestría Internacional en Finanzas</option><option>Maestría en Administración de Proyectos</option><option>Maestría en Dirección del Capital Humano</option><option>Maestría en Finanzas</option><option>Maestría en Impuestos</option><option>Maestría en Mercadotecnia Estratégica</option></optgroup><optgroup label="Filosofía"><option>Doctorado en Filosofía Práctica y Ética Aplicada</option><option>Doctorado en Historia del Pensamiento</option><option>Maestría en Filosofía Antigua</option><option>Maestría en Historia del Pensamiento</option></optgroup><optgroup label="Gobierno"><option>Diplomado en Gobernanza y Diplomacia Cultural</option><option>Maestría en Anticorrupción</option><option>Maestría en Ciencias Políticas</option><option>Maestría en Gobierno y Políticas Públicas</option></optgroup><optgroup label="Ingeniería"><option>Doctorado en Inteligencia Artificial</option><option>Especialidad en Automatización Inteligente</option><option>Especialidad en Dirección de Operaciones</option><option>Especialidad en Diseño Interactivo</option><option>Especialidad en Ingeniería y Gestión de Proyectos</option><option>Especialidad en Logística Internacional</option><option>Especialidad en Sostenibilidad y Economía Circular</option><option>Maestría en Ciencia de Datos</option><option>Maestría en Dirección de Operaciones</option><option>Maestría en Dirección de Producto</option><option>Maestría en Ingeniería</option><option>Maestría en Ingeniería y Gestión de la Cadena de Suministro</option></optgroup><optgroup label="ESDAI"><option>Diplomado en Experiencias Gourmet</option><option>Diplomado en Wellness</option><option>Especialidad en Emprendedores de Negocios de Alimentos y Bebidas</option><option>Especialidad en Gestión de Eventos</option></optgroup><optgroup label="Pedagogía"><option>Diplomado en Administración Estratégica del Fútbol</option><option>Maestría en Dirección de Instituciones Educativas</option><option>Maestría en Dirección del Capital Humano</option><option>Maestría en Gestión de Competencias Socioemocionales</option><option>Maestría en Neuropsicología y Educación</option></optgroup><option>Aún no lo sé</option></select></div>
+        <input type="hidden" name="campus" value="Ciudad de México"><input type="hidden" name="origen" id="p-origen" value="directo">
+        <div class="campo campo--casilla"><input type="checkbox" id="f-priv" required><label for="f-priv">He leído el <a href="#">aviso de privacidad</a> y acepto el tratamiento de mis datos.</label></div>
+        <button class="boton boton--primario" type="submit">Enviar solicitud</button>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="pie-camino" id="pie">
+  <div class="contenedor">
+    <div style="display:grid;gap:var(--espacio-base)">
+      <p class="marca-texto">Universidad Panamericana</p>
+      <nav aria-label="Pie de página"><ul><li><a href="#">Oferta académica</a></li><li><a href="#">Admisiones</a></li><li><a href="#">Campus</a></li><li><a href="#">Comunidad</a></li><li><a href="#">Contacto</a></li><li><a href="#">Aviso de privacidad</a></li></ul></nav>
+      <ul class="pie-redes" aria-label="Redes sociales">
+        <li><a href="https://www.facebook.com/UPinstitucional/" target="_blank" rel="noopener" aria-label="Facebook de la Universidad Panamericana (se abre en otra pestaña)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H7.8v3h2.6V21z" fill="currentColor"/></svg></a></li>
+        <li><a href="https://www.instagram.com/upmexico/" target="_blank" rel="noopener" aria-label="Instagram de la Universidad Panamericana (se abre en otra pestaña)"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg></a></li>
+        <li><a href="https://www.linkedin.com/school/universidad-panamericana/" target="_blank" rel="noopener" aria-label="LinkedIn de la Universidad Panamericana (se abre en otra pestaña)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 9h3v10H5zM6.5 4.3a1.8 1.8 0 110 3.6 1.8 1.8 0 010-3.6zM10.2 9h2.9v1.4h.1c.4-.8 1.4-1.6 2.9-1.6 3.1 0 3.6 2 3.6 4.6V19h-3v-4.9c0-1.2 0-2.7-1.6-2.7s-1.9 1.3-1.9 2.6v5h-3z" fill="currentColor"/></svg></a></li>
+      </ul>
+    </div>
+    <div class="sedes">
+      <address>CDMX · Mixcoac<br>Augusto Rodin 498, Col. Insurgentes Mixcoac, C.P. 03920<br><a href="tel:+525554821600">+52 (55) 5482 1600</a></address>
+      <address>CDMX · Santa Fe<br>Av. Javier Barros Sierra 540, piso 3, Col. Santa Fe, C.P. 01210</address>
+      <address>Guadalajara<br>Av. Álvaro del Portillo 49, Ciudad Granja, Zapopan, C.P. 45010<br><a href="tel:+523313682200">+52 (33) 1368 2200</a></address>
+      <address>Aguascalientes<br>José María Escrivá de Balaguer 101, Villas Bonaterra, C.P. 20296<br><a href="tel:+524499106200">+52 (449) 910 6200</a></address>
+    </div>
+    <p class="legal"><span>© Centros Culturales de México A.C.</span><a href="#">Cookies</a></p>
+  </div>
+</footer>
+
+<div class="cp-fija" id="cta-fija" aria-hidden="true">
+  <a class="boton boton--secundario" href="#programas" data-ir-seccion="programas" tabindex="-1">Explorar programas</a>
+  <a class="boton boton--primario" href="#solicitud" data-intencion="info" data-origen="barra-movil" tabindex="-1">Solicitar información</a>
+</div>
+
+<script>
+const reducido = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const suave = reducido ? 'auto' : 'smooth';
+const hero = document.getElementById('inicio'), cab = document.getElementById('cab');
+const enCaptura = location.search.includes('captura=1');
+if (enCaptura) { const st = document.createElement('style'); st.textContent = '*{transition:none!important;animation:none!important}.cp-revela,.cp-mascara{opacity:1!important;transform:none!important}.pg-hero__foto{clip-path:none!important}.pg-hero h1 .linea>span,.pg-hero__lema,.pg-hero__acciones,.pg-hero .cap-etiqueta{transform:none!important;opacity:1!important}.pg-hero__tahali{transform:skewX(30deg) scaleY(1)!important}'; document.head.appendChild(st); }
+
+// Datos: programas de CDMX (inventario oficial del cliente, 22 sep 2026)
+const PROGRAMAS = [{"n": "Maestría en Neuropsicología y Educación", "v": "Maestría", "a": ["Pedagogía"], "s": "", "u": "#"}, {"n": "Doctorado en Bioética", "v": "Doctorado", "a": ["Ciencias de la Salud"], "s": "Mixcoac", "u": "#"}, {"n": "Especialidad en Heridas, Estomas y Quemaduras", "v": "Especialidad", "a": ["Ciencias de la Salud"], "s": "", "u": "#"}, {"n": "Diplomado en Arquitectura de Interiores", "v": "Diplomado", "a": ["Bellas Artes"], "s": "Santa Fe", "u": "#"}, {"n": "Maestría en Gobierno y Políticas Públicas", "v": "Maestría", "a": ["Gobierno"], "s": "Santa Fe", "u": "#"}, {"n": "Curso de Preparación para el ENARM", "v": "Curso", "a": ["Ciencias de la Salud"], "s": "", "u": "#"}, {"n": "Diplomado Mujeres de Impacto: Liderazgo y Finanzas Estratégicas", "v": "Diplomado", "a": ["Empresariales"], "s": "", "u": "#"}, {"n": "Diplomado de Educación en Ciencias de la Salud", "v": "Diplomado", "a": ["Ciencias de la Salud"], "s": "", "u": "#"}, {"n": "Diplomado en Administración Estratégica del Fútbol", "v": "Diplomado", "a": ["Empresariales", "Pedagogía"], "s": "", "u": "#"}, {"n": "Diplomado en Ciberjusticia", "v": "Diplomado", "a": ["Derecho"], "s": "", "u": "#"}, {"n": "Diplomado en Comunicación Política", "v": "Diplomado", "a": ["Comunicación"], "s": "", "u": "#"}, {"n": "Diplomado en Creación y Gestión de Proyectos de Entretenimiento y Experiencias", "v": "Diplomado", "a": ["Comunicación"], "s": "", "u": "#"}, {"n": "Diplomado en Dirección de Control de Gestión y Business Analytics", "v": "Diplomado", "a": ["Empresariales"], "s": "", "u": "#"}, {"n": "Diplomado en Economía e Industrias Creativas", "v": "Diplomado", "a": ["Bellas Artes"], "s": "", "u": "#"}, {"n": "Diplomado en Experiencias Gourmet", "v": "Diplomado", "a": ["ESDAI"], "s": "", "u": "#"}, {"n": "Diplomado en Fashion Branding, Digital & Innovation", "v": "Diplomado", "a": ["Comunicación"], "s": "", "u": "#"}, {"n": "Diplomado en Gobernanza y Diplomacia Cultural", "v": "Diplomado", "a": ["Bellas Artes", "Gobierno"], "s": "", "u": "#"}, {"n": "Diplomado en Wellness", "v": "Diplomado", "a": ["ESDAI"], "s": "Mixcoac y Santa Fe", "u": "#"}, {"n": "Doctorado en Ciencias Empresariales", "v": "Doctorado", "a": ["Empresariales"], "s": "", "u": "#"}, {"n": "Doctorado en Derecho", "v": "Doctorado", "a": ["Derecho"], "s": "", "u": "#"}, {"n": "Doctorado en Filosofía Práctica y Ética Aplicada", "v": "Doctorado", "a": ["Filosofía"], "s": "", "u": "#"}, {"n": "Doctorado en Historia del Pensamiento", "v": "Doctorado", "a": ["Filosofía"], "s": "", "u": "#"}, {"n": "Doctorado en Inteligencia Artificial", "v": "Doctorado", "a": ["Ingeniería"], "s": "", "u": "#"}, {"n": "Especialidad en Automatización Inteligente", "v": "Especialidad", "a": ["Ingeniería"], "s": "", "u": "#"}, {"n": "Especialidad en Derecho Procesal Civil y Mercantil", "v": "Especialidad", "a": ["Derecho"], "s": "", "u": "#"}, {"n": "Especialidad en Derecho de Amparo", "v": "Especialidad", "a": ["Derecho"], "s": "", "u": "#"}, {"n": "Especialidad en Derecho de la Empresa", "v": "Especialidad", "a": ["Derecho"], "s": "", "u": "#"}, {"n": "Especialidad en Dirección de Operaciones", "v": "Especialidad", "a": ["Ingeniería"], "s": "", "u": "#"}, {"n": "Especialidad en Diseño Interactivo", "v": "Especialidad", "a": ["Ingeniería"], "s": "", "u": "#"}, {"n": "Especialidad en Emprendedores de Negocios de Alimentos y Bebidas", "v": "Especialidad", "a": ["ESDAI"], "s": "", "u": "#"}, {"n": "Especialidad en Gestión de Eventos", "v": "Especialidad", "a": ["ESDAI"], "s": "", "u": "#"}, {"n": "Especialidad en Ingeniería y Gestión de Proyectos", "v": "Especialidad", "a": ["Ingeniería"], "s": "", "u": "#"}, {"n": "Especialidad en Logística Internacional", "v": "Especialidad", "a": ["Ingeniería"], "s": "", "u": "#"}, {"n": "Especialidad en Neuropsicología", "v": "Especialidad", "a": ["Ciencias de la Salud"], "s": "", "u": "#"}, {"n": "Especialidad en Psicología Clínica y de la Salud", "v": "Especialidad", "a": ["Ciencias de la Salud"], "s": "", "u": "#"}, {"n": "Especialidad en Psicología Educativa", "v": "Especialidad", "a": ["Ciencias de la Salud"], "s": "", "u": "#"}, {"n": "Especialidad en Psicología Organizacional", "v": "Especialidad", "a": ["Ciencias de la Salud"], "s": "", "u": "#"}, {"n": "Especialidad en Publicidad y Creación de Contenidos", "v": "Especialidad", "a": ["Comunicación"], "s": "", "u": "#"}, {"n": "Especialidad en Relaciones Públicas y Reputación de Marca", "v": "Especialidad", "a": ["Comunicación"], "s": "", "u": "#"}, {"n": "Especialidad en Sostenibilidad y Economía Circular", "v": "Especialidad", "a": ["Ingeniería"], "s": "", "u": "#"}, {"n": "Maestría Internacional en Finanzas", "v": "Maestría", "a": ["Empresariales"], "s": "", "u": "#"}, {"n": "Maestría en Administración de Proyectos", "v": "Maestría", "a": ["Empresariales"], "s": "", "u": "#"}, {"n": "Maestría en Anticorrupción", "v": "Maestría", "a": ["Gobierno"], "s": "", "u": "#"}, {"n": "Maestría en Bioética", "v": "Maestría", "a": ["Ciencias de la Salud"], "s": "", "u": "#"}, {"n": "Maestría en Ciencia de Datos", "v": "Maestría", "a": ["Ingeniería"], "s": "", "u": "#"}, {"n": "Maestría en Ciencias Jurídicas", "v": "Maestría", "a": ["Derecho"], "s": "", "u": "#"}, {"n": "Maestría en Ciencias Políticas", "v": "Maestría", "a": ["Gobierno"], "s": "", "u": "#"}, {"n": "Maestría en Ciencias en Salud Pública", "v": "Maestría", "a": ["Ciencias de la Salud"], "s": "", "u": "#"}, {"n": "Maestría en Comunicaciones de Marca", "v": "Maestría", "a": ["Comunicación"], "s": "", "u": "#"}, {"n": "Maestría en Comunicación Institucional", "v": "Maestría", "a": ["Comunicación"], "s": "", "u": "#"}, {"n": "Maestría en Comunicación Política y Pública", "v": "Maestría", "a": ["Comunicación"], "s": "", "u": "#"}, {"n": "Maestría en Derecho Administrativo", "v": "Maestría", "a": ["Derecho"], "s": "", "u": "#"}, {"n": "Maestría en Derecho Fiscal", "v": "Maestría", "a": ["Derecho"], "s": "", "u": "#"}, {"n": "Maestría en Derecho Laboral", "v": "Maestría", "a": ["Derecho"], "s": "", "u": "#"}, {"n": "Maestría en Derecho Procesal Constitucional", "v": "Maestría", "a": ["Derecho"], "s": "", "u": "#"}, {"n": "Maestría en Derecho de la Empresa", "v": "Maestría", "a": ["Derecho"], "s": "", "u": "#"}, {"n": "Maestría en Derechos Humanos", "v": "Maestría", "a": ["Derecho"], "s": "", "u": "#"}, {"n": "Maestría en Dirección de Instituciones Educativas", "v": "Maestría", "a": ["Pedagogía"], "s": "", "u": "#"}, {"n": "Maestría en Dirección de Operaciones", "v": "Maestría", "a": ["Ingeniería"], "s": "", "u": "#"}, {"n": "Maestría en Dirección de Producto", "v": "Maestría", "a": ["Ingeniería"], "s": "", "u": "#"}, {"n": "Maestría en Dirección del Capital Humano", "v": "Maestría", "a": ["Empresariales", "Pedagogía"], "s": "", "u": "#"}, {"n": "Maestría en Economía Digital", "v": "Maestría", "a": ["Economía"], "s": "Santa Fe", "u": "programa-economia-digital.html", "nuevo": true}, {"n": "Maestría en Filosofía Antigua", "v": "Maestría", "a": ["Filosofía"], "s": "", "u": "#"}, {"n": "Maestría en Finanzas", "v": "Maestría", "a": ["Empresariales"], "s": "", "u": "#"}, {"n": "Maestría en Gestión de Competencias Socioemocionales", "v": "Maestría", "a": ["Pedagogía"], "s": "", "u": "#"}, {"n": "Maestría en Gestión de las Artes y Políticas Culturales", "v": "Maestría", "a": ["Bellas Artes"], "s": "", "u": "#"}, {"n": "Maestría en Historia del Pensamiento", "v": "Maestría", "a": ["Filosofía"], "s": "", "u": "#"}, {"n": "Maestría en Impuestos", "v": "Maestría", "a": ["Empresariales"], "s": "", "u": "#"}, {"n": "Maestría en Ingeniería", "v": "Maestría", "a": ["Ingeniería"], "s": "", "u": "#"}, {"n": "Maestría en Ingeniería y Gestión de la Cadena de Suministro", "v": "Maestría", "a": ["Ingeniería"], "s": "", "u": "#"}, {"n": "Maestría en Instituciones de Derecho Financiero", "v": "Maestría", "a": ["Derecho"], "s": "", "u": "#"}, {"n": "Maestría en Liderazgo y Alta Dirección para Médicos", "v": "Maestría", "a": ["Ciencias de la Salud"], "s": "", "u": "#"}, {"n": "Maestría en Mercadotecnia Estratégica", "v": "Maestría", "a": ["Empresariales"], "s": "", "u": "#"}, {"n": "Maestría en Narrativa y Producción Audiovisual", "v": "Maestría", "a": ["Comunicación"], "s": "", "u": "#"}, {"n": "Maestría en Propiedad Industrial, Derechos de Autor y Nuevas Tecnologías", "v": "Maestría", "a": ["Derecho"], "s": "", "u": "#"}, {"n": "Maestría en Terapia de Heridas, Estomas y Quemaduras", "v": "Maestría", "a": ["Ciencias de la Salud"], "s": "", "u": "#"}];
+
+// Portada
+requestAnimationFrame(() => requestAnimationFrame(() => hero.classList.add('trazada')));
+setTimeout(() => hero.classList.add('trazada'), 1200);
+
+// Revelado al entrar en vista
+const io = new IntersectionObserver(es => es.forEach(e => { if (!e.isIntersecting) return; e.target.classList.add(e.target.matches('[data-traza-en-vista]') ? 'trazada' : 'cp-visto'); io.unobserve(e.target); }), { threshold: 0.15 });
+function observarRevela(root) { root.querySelectorAll('.cp-revela, .cp-mascara, [data-traza-en-vista]').forEach(el => io.observe(el)); }
+observarRevela(document);
+setTimeout(() => document.querySelectorAll('.cp-revela, .cp-mascara').forEach(el => { if (el.getBoundingClientRect().top < innerHeight) el.classList.add('cp-visto'); }), 1500);
+
+// Cifras que cuentan
+const ioCuenta = new IntersectionObserver(es => es.forEach(e => {
+  if (!e.isIntersecting) return; ioCuenta.unobserve(e.target);
+  const fin = +e.target.dataset.cuenta; if (reducido || enCaptura) return;
+  const t0 = performance.now(), dur = 900;
+  const paso = t => { const p = Math.min(1, (t - t0) / dur); e.target.textContent = Math.round(fin * (1 - Math.pow(1 - p, 3))); if (p < 1) requestAnimationFrame(paso); };
+  requestAnimationFrame(paso);
+}), { threshold: 0.6 });
+document.querySelectorAll('[data-cuenta]').forEach(el => ioCuenta.observe(el));
+
+// Cabecera plegable
+addEventListener('scroll', () => cab.classList.toggle('cp-cab--plegada', scrollY > 80), { passive: true });
+
+// Navegación a secciones y formulario
+const form = document.getElementById('form-sede');
+function ir(id, foco) { cerrarMenu(); document.getElementById(id).scrollIntoView({ behavior: suave, block: 'start' }); if (foco) setTimeout(() => document.getElementById(foco).focus({ preventScroll: true }), reducido ? 0 : 600); }
+document.addEventListener('click', e => {
+  const a = e.target.closest('[data-intencion]'); if (!a) return;
+  e.preventDefault(); document.getElementById('p-origen').value = a.dataset.origen || 'sin-origen'; ir('solicitud');
+  setTimeout(() => { form.classList.remove('pg-destello'); void form.offsetWidth; form.classList.add('pg-destello'); document.getElementById('f-nombre').focus({ preventScroll: true }); }, reducido ? 0 : 650);
+});
+document.querySelectorAll('[data-ir-form]').forEach(a => a.addEventListener('click', e => { e.preventDefault(); document.getElementById('p-origen').value = 'menu'; ir('solicitud', 'h-cta'); }));
+document.querySelectorAll('[data-ir-seccion]').forEach(a => a.addEventListener('click', e => { e.preventDefault(); ir(a.dataset.irSeccion); }));
+document.querySelectorAll('[data-ir-sede]').forEach(a => a.addEventListener('click', e => { e.preventDefault(); ir(a.dataset.irSede); }));
+
+// Explorador de programas: búsqueda por texto + filtros de nivel, área y sede
+const lista = document.getElementById('lista-programas'), txt = document.getElementById('b-texto'), fNivel = document.getElementById('b-nivel'), fArea = document.getElementById('b-area'), fSede = document.getElementById('b-sede');
+const resultado = document.getElementById('b-resultado'), btnMas = document.getElementById('b-mas'), vacio = document.getElementById('b-vacio');
+const INICIALES = 6; let todos = false;
+const sinAcentos = s => s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+const nombreArea = a => a === 'ESDAI' ? 'ESDAI' : a;
+function tarjeta(p) {
+  const sede = p.s || 'Sede por confirmar';
+  return `<li class="sd-prog"><a href="${p.u}"><div class="sd-prog__marca" aria-hidden="true"><div class="textura-roble textura-roble--acercamiento"></div><span>${p.v}</span>${p.nuevo ? '<em>Nuevo</em>' : ''}</div><div class="sd-prog__cuerpo"><h3>${p.n}</h3><p class="sd-prog__meta">${p.a.map(nombreArea).join(' · ')} · <span class="${p.s ? '' : 'sd-prog__pendiente'}">${sede}</span></p><span class="sd-prog__ir">Ver programa <span aria-hidden="true">→</span></span></div></a></li>`;
+}
+function filtrar() {
+  const q = sinAcentos(txt.value.trim()), n = fNivel.value, a = fArea.value, s = fSede.value;
+  const r = PROGRAMAS.filter(p => (!q || sinAcentos(p.n + ' ' + p.a.join(' ')).includes(q)) && (!n || p.v === n) && (!a || p.a.includes(a)) && (!s || !p.s || p.s.includes(s)));
+  if (s) r.sort((x, y) => (y.s ? 1 : 0) - (x.s ? 1 : 0));
+  const confirmados = s ? r.filter(p => p.s).length : 0;
+  const hayFiltro = !!(q || n || a || s);
+  const visibles = (todos || hayFiltro) ? r : r.slice(0, INICIALES);
+  lista.innerHTML = visibles.map(tarjeta).join('');
+  lista.querySelectorAll('.sd-prog').forEach((li, k) => { li.style.setProperty('--k', k % 3); requestAnimationFrame(() => li.classList.add('sd-prog--entra')); });
+  vacio.hidden = r.length > 0;
+  resultado.textContent = r.length === PROGRAMAS.length && !hayFiltro ? `${PROGRAMAS.length} programas en Ciudad de México` : `${r.length} ${r.length === 1 ? 'programa' : 'programas'} con estos filtros` ;
+  if (s && r.length) resultado.textContent = `${confirmados} ${confirmados === 1 ? 'programa confirmado' : 'programas confirmados'} en ${s}` + (r.length > confirmados ? ` · ${r.length - confirmados} de CDMX con sede por confirmar` : '');
+  btnMas.parentElement.hidden = hayFiltro || r.length <= INICIALES;
+  btnMas.textContent = todos ? 'Ver menos programas' : `Ver todos los programas (${PROGRAMAS.length})`;
+  btnMas.setAttribute('aria-expanded', String(todos));
+  const activos = [n, a, s].filter(Boolean).length; document.getElementById('b-activos').textContent = activos ? `(${activos})` : '';
+}
+[txt, fNivel, fArea, fSede].forEach(el => el.addEventListener('input', filtrar));
+function limpiar() { txt.value = ''; fNivel.value = ''; fArea.value = ''; fSede.value = ''; filtrar(); }
+document.getElementById('b-limpiar').addEventListener('click', limpiar);
+document.getElementById('b-vacio-limpiar').addEventListener('click', limpiar);
+btnMas.addEventListener('click', () => { todos = !todos; filtrar(); if (!todos) document.getElementById('programas').scrollIntoView({ behavior: suave, block: 'start' }); });
+const btnFiltros = document.getElementById('b-filtros-btn');
+btnFiltros.addEventListener('click', () => { const ab = btnFiltros.getAttribute('aria-expanded') === 'true'; btnFiltros.setAttribute('aria-expanded', String(!ab)); document.getElementById('b-filtros').classList.toggle('sd-buscador__filtros--abierto', !ab); });
+function aplicar(campo, valor) { limpiar(); campo.value = valor; filtrar(); ir('programas'); }
+document.querySelectorAll('[data-ver-sede]').forEach(b => b.addEventListener('click', e => { e.preventDefault(); aplicar(fSede, b.dataset.verSede); }));
+document.querySelectorAll('[data-area]').forEach(b => b.addEventListener('click', () => aplicar(fArea, b.dataset.area)));
+filtrar();
+
+// Galería de la experiencia: cambia sola cada 5 s; los puntos la controlan; se pausa con cursor o foco
+const gal = document.getElementById('galeria'), fotos = [...gal.querySelectorAll('.sd-galeria__marco img')], puntos = [...gal.querySelectorAll('.sd-galeria__puntos button')];
+let fotoActual = 0, pausa = false;
+function mostrarFoto(i) { fotoActual = (i + fotos.length) % fotos.length; fotos.forEach((f, k) => f.classList.toggle('sd-galeria--activa', k === fotoActual)); puntos.forEach((b, k) => b.toggleAttribute('aria-current', k === fotoActual)); }
+puntos.forEach((b, k) => b.addEventListener('click', () => mostrarFoto(k)));
+gal.addEventListener('mouseenter', () => pausa = true); gal.addEventListener('mouseleave', () => pausa = false);
+gal.addEventListener('focusin', () => pausa = true); gal.addEventListener('focusout', () => pausa = false);
+if (!reducido && !enCaptura) setInterval(() => { if (!pausa && !document.hidden) mostrarFoto(fotoActual + 1); }, 5000);
+
+// Acordeón
+document.querySelectorAll('.acordeon__boton').forEach(b => b.addEventListener('click', () => { const ab = b.getAttribute('aria-expanded') === 'true'; b.setAttribute('aria-expanded', String(!ab)); document.getElementById(b.getAttribute('aria-controls')).toggleAttribute('data-cerrado', ab); }));
+
+// Pestañas: sección activa e indicador
+const tabs = document.getElementById('tabs'), pista = document.getElementById('tabs-pista'), indicador = document.getElementById('tabs-indicador');
+const enlacesTabs = [...pista.querySelectorAll('a')], secciones = enlacesTabs.map(a => document.querySelector(a.getAttribute('href')));
+let tabActual = null;
+function marcarTab(a) {
+  if (a === tabActual) return; tabActual = a;
+  enlacesTabs.forEach(x => x.setAttribute('aria-current', String(x === a)));
+  if (!a) { indicador.style.setProperty('--iw', 0); return; }
+  indicador.style.setProperty('--ix', `${a.offsetLeft}px`); indicador.style.setProperty('--iw', a.offsetWidth);
+  pista.scrollTo({ left: a.offsetLeft - pista.clientWidth / 2 + a.offsetWidth / 2, behavior: suave });
+}
+enlacesTabs.forEach(a => a.addEventListener('click', e => { e.preventDefault(); document.querySelector(a.getAttribute('href')).scrollIntoView({ behavior: suave, block: 'start' }); history.replaceState(null, '', a.getAttribute('href')); }));
+
+// Movimiento ligado al desplazamiento
+const progreso = document.getElementById('progreso'), capasParallax = [...document.querySelectorAll('[data-parallax]')];
+const fija = document.getElementById('cta-fija'), formulario = document.getElementById('solicitud');
+let pendiente = false;
+function mover() {
+  pendiente = false;
+  const vh = innerHeight, max = document.documentElement.scrollHeight - vh;
+  progreso.style.setProperty('--p', max > 0 ? (scrollY / max).toFixed(4) : 0);
+  const linea = tabs.getBoundingClientRect().bottom + 40;
+  let activa = null; secciones.forEach((s, k) => { if (s && s.getBoundingClientRect().top <= linea) activa = enlacesTabs[k]; });
+  marcarTab(activa);
+  const ver = hero.getBoundingClientRect().bottom < 0 && formulario.getBoundingClientRect().top > vh * 0.85;
+  fija.classList.toggle('cp-fija--visible', ver); fija.setAttribute('aria-hidden', String(!ver)); fija.querySelectorAll('a').forEach(a => a.tabIndex = ver ? 0 : -1);
+  if (reducido || enCaptura) return;
+  capasParallax.forEach(el => {
+    const marco = el.tagName === 'IMG' ? el.parentElement : el;
+    const r = marco.getBoundingClientRect(); if (r.bottom < -100 || r.top > vh + 100) return;
+    let y = -(r.top + r.height / 2 - vh / 2) * (+el.dataset.parallax);
+    if (el.tagName === 'IMG') { const lim = r.height * 0.11; y = Math.max(-lim, Math.min(lim, y)); }
+    el.style.setProperty('--py', `${y.toFixed(1)}px`);
+  });
+}
+const pedir = () => { if (!pendiente) { pendiente = true; requestAnimationFrame(mover); } };
+addEventListener('scroll', pedir, { passive: true }); addEventListener('resize', () => { tabActual = null; pedir(); }); addEventListener('load', mover); mover();
+
+// Desplegables de escritorio (patrón disclosure: clic, teclado y cursor)
+const botonesNav = [...document.querySelectorAll('.cp-nav__boton')];
+const velo = document.getElementById('velo');
+const hayCursor = matchMedia('(hover: hover) and (pointer: fine)');
+let temporizador = null;
+function cerrarDesp(devolverFoco) {
+  botonesNav.forEach(b => { if (b.getAttribute('aria-expanded') === 'true') { b.setAttribute('aria-expanded', 'false'); document.getElementById(b.getAttribute('aria-controls')).hidden = true; if (devolverFoco) b.focus(); } });
+  velo.hidden = true; cab.classList.remove('cp-cab--abierta');
+}
+function abrirDesp(b) {
+  if (b.getAttribute('aria-expanded') === 'true') return;
+  cerrarDesp(false);
+  b.setAttribute('aria-expanded', 'true'); document.getElementById(b.getAttribute('aria-controls')).hidden = false;
+  velo.hidden = false; cab.classList.add('cp-cab--abierta');
+}
+botonesNav.forEach(b => {
+  const item = b.closest('.cp-nav__item');
+  b.addEventListener('click', () => b.getAttribute('aria-expanded') === 'true' ? cerrarDesp(false) : abrirDesp(b));
+  item.addEventListener('mouseenter', () => { if (!hayCursor.matches) return; clearTimeout(temporizador); temporizador = setTimeout(() => abrirDesp(b), 120); });
+  item.addEventListener('mouseleave', () => { if (!hayCursor.matches) return; clearTimeout(temporizador); temporizador = setTimeout(() => cerrarDesp(false), 200); });
+  item.addEventListener('focusout', e => { if (!item.contains(e.relatedTarget)) { const d = document.getElementById(b.getAttribute('aria-controls')); if (!d.hidden) cerrarDesp(false); } });
+});
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && !velo.hidden) cerrarDesp(true); });
+velo.addEventListener('click', () => cerrarDesp(false));
+document.querySelectorAll('.cp-nav__enlace').forEach(a => a.addEventListener('mouseenter', () => { if (hayCursor.matches) cerrarDesp(false); }));
+
+// Menú móvil en capa (foco atrapado, Esc) con acordeones
+const capa = document.getElementById('capa-menu'), abrir = document.getElementById('abrir-menu'), cerrar = document.getElementById('cerrar-menu');
+let ultimoFoco = null;
+function abrirMenu() { ultimoFoco = document.activeElement; capa.hidden = false; abrir.setAttribute('aria-expanded', 'true'); document.body.style.overflow = 'hidden'; requestAnimationFrame(() => capa.querySelector('.banda').classList.add('trazada')); cerrar.focus(); document.addEventListener('keydown', teclaMenu); }
+function cerrarMenu() { cerrarDesp(false); if (capa.hidden) return; capa.hidden = true; capa.querySelector('.banda').classList.remove('trazada'); abrir.setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; document.removeEventListener('keydown', teclaMenu); ((ultimoFoco && ultimoFoco !== document.body) ? ultimoFoco : abrir).focus(); }
+function teclaMenu(e) { if (e.key === 'Escape') return cerrarMenu(); if (e.key !== 'Tab') return; const f = [...capa.querySelectorAll('a, button')].filter(x => x.offsetParent), p = f[0], u = f[f.length - 1]; if (e.shiftKey && document.activeElement === p) { e.preventDefault(); u.focus(); } else if (!e.shiftKey && document.activeElement === u) { e.preventDefault(); p.focus(); } }
+abrir.addEventListener('click', abrirMenu); cerrar.addEventListener('click', cerrarMenu);
+document.querySelectorAll('.cp-capa__boton').forEach(b => b.addEventListener('click', () => { const ab = b.getAttribute('aria-expanded') === 'true'; b.setAttribute('aria-expanded', String(!ab)); document.getElementById(b.getAttribute('aria-controls')).hidden = ab; }));
+document.querySelectorAll('[data-cierra-desp]').forEach(a => a.addEventListener('click', e => { const id = a.getAttribute('href').slice(1); if (!id) return; e.preventDefault(); ir(id); }));
+</script>
+<!-- BnO Review: solo se activa con ?review=true&token=… -->
+<script type="module" src="../assets/review/review.js"></script>
+</body>
+</html>

@@ -422,7 +422,8 @@ img[data-parallax] { position: absolute; left: 0; top: 0; width: 100%; }
    Las cifras de dato (conteos) no superan al título que acompañan; los numerales de índice (dorados) sí, porque ordenan y no informan.
    Alcance: .cp-home (la página de programa se ajusta después con la misma escala).
    ========================================================================== */
-.cp-home {
+/* Variables disponibles para todas las páginas B; las reglas de la Home siguen bajo .cp-home */
+.cp-pagina {
   --t-display: clamp(2.625rem, 1.929rem + 2.857vw, 4.5rem);        /* 42→72 */
   --t-h2-principal: clamp(2.125rem, 1.614rem + 2.095vw, 3.5rem);   /* 34→56 */
   --t-h2-apoyo: clamp(1.875rem, 1.55rem + 1.333vw, 2.75rem);       /* 30→44 */
