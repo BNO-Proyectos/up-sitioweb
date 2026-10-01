@@ -384,3 +384,12 @@
 .pg-modal__cerrar:hover { background: var(--superficie-marca-tinte); }
 .pg-modal__gracias:focus { outline: none; }
 @media (prefers-reduced-motion: reduce) { .pg-modal[open], .pg-claustro--abierto .pg-profe--extra { animation: none; } }
+
+/* Paneles expandibles: altura constante (el JS fija la mayor de las combinaciones); durante la medición no hay transiciones */
+.pg-paneles--midiendo, .pg-paneles--midiendo * { transition: none !important; animation: none !important; }
+@media (min-width: 900px) { .pg-panel { min-height: 0; } .pg-panel--activo .pg-panel__cuerpo { margin-top: auto; } }
+.pg-paneles--midiendo .textura-roble { display: none !important; }
+
+/* ¿Qué es? — título y párrafo en la columna izquierda; los paneles arrancan arriba, a la altura del título */
+.pg-quees__col { display: grid; gap: var(--espacio-bloque); align-content: start; }
+.pg-quees__col .pg-cabeza { margin-bottom: 0; }

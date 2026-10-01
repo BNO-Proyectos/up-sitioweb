@@ -1,0 +1,37 @@
+/* ==========================================================================
+   facultad.css — Hub de facultad · Comunicación · CDMX (2026-10-01)
+   Estructura: wireframe de Figma «Facultad — Comunicación CDMX».
+   Reutiliza campus.css (sistema B, escala por roles), programa.css (portada, pestañas, paneles,
+   beneficios, pasos, apoyo, llamados) y sede.css (tarjetas de programa, títulos). Prefijo fc-.
+   ========================================================================== */
+
+/* Tipografía por roles en los componentes heredados de la página de programa */
+.fc-pagina .pg-hero__lema { font-family: var(--fuente-titulos); font-size: var(--t-lead); line-height: 1.25; }
+.fc-pagina .pg-hero__desc { font-size: var(--t-cuerpo); line-height: 1.6; max-width: 36rem; }
+.fc-pagina .pg-datos dd { font-size: var(--t-h3-tarjeta); }
+.fc-pagina .pg-quees__texto { font-size: var(--t-lead-2); line-height: 1.65; }
+.fc-pagina .pg-porque h3 { font-size: var(--t-h3-tarjeta); line-height: 1.15; }
+.fc-pagina .pg-porque p { font-size: var(--t-cuerpo-tarjeta); line-height: 1.6; }
+.fc-pagina .pg-porque li::before { font-size: var(--t-numeral); }
+.fc-pagina .pg-llamado__texto { font-size: var(--t-h3-destacada); }
+.fc-pagina .pg-pasos li { font-size: var(--t-cuerpo-tarjeta); line-height: 1.5; }
+.fc-pagina .pg-apoyo b { font-size: var(--t-h3-tarjeta); }
+.fc-pagina .pg-apoyo a > span { font-size: var(--t-cuerpo-tarjeta); }
+.fc-pagina .pg-seccion--marca .sd-h2 { color: var(--contenido-inverso); }
+
+/* Portada: fila de cinco datos */
+@media (min-width: 1100px) { .fc-pagina .pg-datos dl { grid-template-columns: 1.4fr repeat(3, 1fr) 1.6fr; } }
+
+/* Programas: chips por grado y tarjetas con descripción */
+.fc-chips { margin-bottom: var(--espacio-grupo); }
+.fc-chips button { min-height: 44px; padding: 0 18px; font-size: var(--t-cuerpo-tarjeta); }
+.fc-prog[hidden] { display: none; }
+.fc-prog.cp-revela { transition: none; }
+.fc-prog { opacity: 0; transform: translateY(12px); }
+.fc-prog.cp-visto, .fc-prog--entra { opacity: 1; transform: none; transition: opacity 500ms var(--curva-estandar), transform 500ms var(--curva-estandar); transition-delay: calc(var(--k, 0) * 70ms); }
+.fc-prog__desc { font-size: var(--t-cuerpo-tarjeta); line-height: 1.55; color: var(--contenido-secundario); }
+.fc-prog .sd-prog__cuerpo { gap: var(--espacio-base); }
+.fc-prog .sd-prog__ir { margin-top: auto; }
+.fc-prog a { grid-template-rows: auto 1fr; }
+.fc-prog .sd-prog__cuerpo { display: flex; flex-direction: column; }
+@media (prefers-reduced-motion: reduce) { .fc-prog { opacity: 1; transform: none; transition: none; } }

@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="ds.css?v=6">
 <link rel="stylesheet" href="camino.css?v=6">
 <link rel="stylesheet" href="campus.css?v=14">
-<link rel="stylesheet" href="programa.css?v=21">
+<link rel="stylesheet" href="programa.css?v=24">
 </head>
 <body class="cp-pagina pg-pagina">
 <a class="oculto-visual" href="#contenido">Saltar al contenido</a>
@@ -240,9 +240,11 @@
   <!-- 04 · ¿Qué es? — paneles expandibles: rotan solos, se pausan al pasar el cursor y se eligen con clic -->
   <section class="pg-seccion pg-seccion--papel" aria-labelledby="h-quees">
     <div class="contenedor">
-      <div class="pg-cabeza"><p class="cap-etiqueta">El programa</p><h2 class="cp-h2 cp-mascara" id="h-quees">¿Qué es la Maestría en Economía Digital?</h2></div>
       <div class="pg-quees pg-quees--paneles">
-        <p class="pg-quees__texto cp-revela">La Maestría en Economía Digital es un posgrado de la Universidad Panamericana para profesionales que quieren entender —y liderar, con sentido humano— la transformación digital desde una mirada económica rigurosa. A lo largo de cuatro semestres combinarás microeconomía avanzada, teoría de juegos, econometría y ciencia de datos con temas de vanguardia como la economía de plataformas, blockchain, la inteligencia artificial como factor productivo y el diseño de mercados. Al terminar, tendrás las herramientas conceptuales y técnicas para analizar mercados digitales, diseñar estrategias basadas en datos y tomar decisiones informadas en un entorno donde la tecnología redefine constantemente las reglas del juego.</p>
+        <div class="pg-quees__col">
+          <div class="pg-cabeza"><p class="cap-etiqueta">El programa</p><h2 class="cp-h2 cp-mascara" id="h-quees">¿Qué es la Maestría en Economía Digital?</h2></div>
+          <p class="pg-quees__texto cp-revela">La Maestría en Economía Digital es un posgrado de la Universidad Panamericana para profesionales que quieren entender —y liderar, con sentido humano— la transformación digital desde una mirada económica rigurosa. A lo largo de cuatro semestres combinarás microeconomía avanzada, teoría de juegos, econometría y ciencia de datos con temas de vanguardia como la economía de plataformas, blockchain, la inteligencia artificial como factor productivo y el diseño de mercados. Al terminar, tendrás las herramientas conceptuales y técnicas para analizar mercados digitales, diseñar estrategias basadas en datos y tomar decisiones informadas en un entorno donde la tecnología redefine constantemente las reglas del juego.</p>
+        </div>
         <div class="pg-paneles cp-revela" id="paneles" aria-label="Lo que desarrollarás">
           <div class="pg-panel pg-panel--activo">
             <div class="textura-roble textura-roble--acercamiento" aria-hidden="true"></div>
@@ -634,6 +636,20 @@ paneles.forEach((pn, k) => {
   pn.addEventListener('click', e => { if (!pn.classList.contains('pg-panel--activo') && !e.target.closest('button')) activarPanel(k, true); });
 });
 if (!reducido && !enCaptura) new IntersectionObserver(([e], obs) => { if (e.isIntersecting) { contPaneles.classList.add('pg-paneles--auto'); obs.disconnect(); } }, { threshold: 0.5 }).observe(contPaneles);
+// Altura constante: se mide cada combinación (panel abierto + títulos verticales) y se fija la mayor
+function igualarPaneles() {
+  contPaneles.style.minHeight = '';
+  if (!matchMedia('(min-width: 900px)').matches) return;
+  contPaneles.classList.add('pg-paneles--midiendo');
+  let max = 0;
+  paneles.forEach((_, i) => { paneles.forEach((pn, k) => pn.classList.toggle('pg-panel--activo', k === i)); max = Math.max(max, ...paneles.map(pn => pn.scrollHeight), contPaneles.offsetHeight); });
+  paneles.forEach((pn, k) => pn.classList.toggle('pg-panel--activo', k === panelActual));
+  contPaneles.style.minHeight = `${Math.ceil(max)}px`;
+  void contPaneles.offsetWidth; contPaneles.classList.remove('pg-paneles--midiendo');
+}
+igualarPaneles(); addEventListener('resize', igualarPaneles); addEventListener('load', igualarPaneles);
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(igualarPaneles);
+
 
 // Movimiento ligado al desplazamiento
 const progreso = document.getElementById('progreso');
