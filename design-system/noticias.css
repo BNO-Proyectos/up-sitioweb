@@ -1,0 +1,102 @@
+/* ==========================================================================
+   noticias.css — Listado de noticias (2026-10-01)
+   Estructura: wireframe de Figma «Plantilla — Listado de noticias — copy UP».
+   Reutiliza campus.css (sistema B y escala por roles), programa.css (migas) y sede.css (títulos, vacío).
+   Prefijo nt-. Tamaños siempre desde la escala por roles (--t-*).
+   ========================================================================== */
+
+/* 01 · Encabezado editorial: sin foto; el titular manda */
+.nt-encabezado { background: var(--superficie-base); padding-block: var(--espacio-grupo) var(--espacio-seccion-compacta); }
+.nt-encabezado .contenedor { display: grid; gap: var(--espacio-bloque); }
+.nt-encabezado h1 { font-family: var(--fuente-titulos); font-weight: 600; font-size: var(--t-display); line-height: 1; letter-spacing: -0.02em; color: var(--contenido-marca); }
+.nt-encabezado h1 .linea { display: block; overflow: hidden; padding-bottom: 0.06em; margin-bottom: -0.06em; }
+.nt-encabezado h1 .linea > span { display: inline-block; transform: translateY(105%); transition: transform 900ms var(--curva-estandar); }
+.nt-encabezado h1 .linea:nth-child(2) > span { transition-delay: 90ms; }
+.nt-encabezado.trazada h1 .linea > span { transform: none; }
+.nt-encabezado__lead { font-size: var(--t-lead); line-height: 1.4; max-width: 44rem; color: var(--contenido-secundario); }
+.nt-encabezado__lead, .nt-encabezado .cap-etiqueta { opacity: 0; transform: translateY(14px); transition: opacity 700ms var(--curva-estandar), transform 700ms var(--curva-estandar); }
+.nt-encabezado.trazada .cap-etiqueta { opacity: 1; transform: none; }
+.nt-encabezado.trazada .nt-encabezado__lead { opacity: 1; transform: none; transition-delay: 300ms; }
+
+/* 02 · Filtros: barra que se fija bajo la cabecera */
+.nt-filtros { position: sticky; top: calc(var(--alto-cab) + 1px); z-index: calc(var(--capa-fija) - 2); background: var(--superficie-elevada); border-block: var(--borde-fino) solid var(--borde-suave); padding-block: var(--espacio-bloque); transition: box-shadow var(--duracion-base) var(--curva-estandar), padding var(--duracion-base) var(--curva-estandar); }
+.nt-filtros--fija { box-shadow: var(--sombra-flotante); padding-block: var(--espacio-base); }
+.nt-filtros .contenedor { display: grid; gap: var(--espacio-base); }
+.nt-filtros__fila { display: grid; gap: var(--espacio-base); grid-template-columns: minmax(0, 1fr) minmax(140px, 200px); align-items: end; }
+.nt-filtros label { display: block; font-size: var(--texto-etiqueta-capitulo); font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--contenido-terciario); margin-bottom: 6px; }
+.nt-filtros input, .nt-filtros select { width: 100%; min-height: 48px; padding: 0 14px; border: var(--borde-fino) solid var(--borde-campo); border-radius: var(--radio-campo); background: var(--superficie-base); font: inherit; font-size: var(--t-cuerpo-tarjeta); color: var(--contenido-primario); }
+.nt-filtros input:focus, .nt-filtros select:focus { outline: var(--foco-anillo); outline-offset: 2px; border-color: var(--borde-marca); }
+.nt-chips { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; padding-bottom: 2px; }
+.nt-chips::-webkit-scrollbar { display: none; }
+.nt-chips button { flex: 0 0 auto; min-height: 40px; padding: 0 16px; white-space: nowrap; }
+.nt-filtros--fija .nt-filtros__fila label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+@media (max-width: 599px) { .nt-filtros__fila { grid-template-columns: 1fr; } .nt-filtros--fija .nt-filtros__fecha { display: none; } }
+
+.nt-seccion[hidden] { display: none; }
+.nt-ejemplo { font-family: var(--fuente-texto); font-size: var(--t-pequeno); vertical-align: middle; margin-left: 8px; letter-spacing: 0; }
+
+/* Metadatos compartidos */
+.nt-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; font-size: var(--t-pequeno); color: var(--contenido-terciario); }
+.nt-cat { font-size: var(--texto-etiqueta-capitulo); font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--contenido-marca); background: var(--superficie-marca-tinte); padding: 4px 8px; }
+.nt-leer { font-size: var(--t-pequeno); font-weight: 500; color: var(--contenido-marca); white-space: nowrap; }
+.nt-leer span { display: inline-block; transition: transform var(--duracion-base) var(--curva-estandar); }
+a:hover .nt-leer span, a:focus-visible .nt-leer span { transform: translateX(4px); }
+.nt-sinfoto { position: relative; overflow: hidden; background: var(--superficie-marca); }
+.nt-sinfoto .textura-roble { left: 0; right: 0; top: -20%; bottom: -20%; }
+.nt-entra { opacity: 0; transform: translateY(14px); }
+.nt-entra--ya { opacity: 1; transform: none; transition: opacity 500ms var(--curva-estandar), transform 500ms var(--curva-estandar); transition-delay: calc(var(--k, 0) * 70ms); }
+
+/* 03 · Destacadas: una principal (7/12) y dos secundarias apiladas (5/12) */
+.nt-destacadas { display: grid; gap: var(--espacio-bloque); }
+@media (min-width: 900px) { .nt-destacadas { grid-template-columns: 7fr 5fr; grid-template-rows: 1fr 1fr; } .nt-destacada--principal { grid-row: 1 / 3; } }
+.nt-destacada a { height: 100%; display: grid; background: var(--superficie-elevada); border: var(--borde-fino) solid var(--borde-suave); color: var(--contenido-primario); text-decoration: none; overflow: hidden; transition: border-color var(--duracion-base), box-shadow var(--duracion-revelado) var(--curva-estandar), transform var(--duracion-revelado) var(--curva-estandar); }
+.nt-destacada a:hover, .nt-destacada a:focus-visible { border-color: var(--borde-marca); box-shadow: var(--sombra-flotante); transform: translateY(-4px); }
+.nt-destacada__img { overflow: hidden; background: var(--superficie-marca-tinte); aspect-ratio: 16 / 9; }
+.nt-destacada__img img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--duracion-revelado) var(--curva-estandar); }
+.nt-destacada a:hover .nt-destacada__img img { transform: scale(var(--escala-hover)); }
+.nt-destacada__cuerpo { padding: var(--espacio-bloque); display: grid; gap: var(--espacio-compacto); align-content: start; }
+.nt-destacada h3 { font-family: var(--fuente-titulos); font-weight: 400; font-size: var(--t-h3-tarjeta); line-height: 1.2; }
+.nt-destacada p:not(.nt-meta) { font-size: var(--t-cuerpo-tarjeta); line-height: 1.55; color: var(--contenido-secundario); }
+.nt-destacada .nt-leer { margin-top: var(--espacio-compacto); }
+.nt-destacada--principal a { grid-template-rows: auto 1fr; }
+.nt-destacada--principal .nt-destacada__cuerpo { padding: var(--espacio-grupo); gap: var(--espacio-base); }
+.nt-destacada--principal h3 { font-size: var(--t-h3-destacada); line-height: 1.12; }
+.nt-destacada--principal p:not(.nt-meta) { font-size: var(--t-cuerpo); }
+@media (min-width: 900px) {
+  .nt-destacada--principal .nt-destacada__img { aspect-ratio: auto; min-height: 320px; }
+  .nt-destacada:not(.nt-destacada--principal) a { grid-template-columns: 5fr 7fr; }
+  .nt-destacada:not(.nt-destacada--principal) .nt-destacada__img { aspect-ratio: auto; height: 100%; min-height: 200px; }
+}
+
+/* 04 · Listado: filas con miniatura, tema, fecha, título, resumen y enlace */
+.nt-lista { list-style: none; margin: 0; padding: 0; border-top: var(--borde-fino) solid var(--borde-suave); }
+.nt-fila a { display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: var(--espacio-base) var(--espacio-bloque); align-items: center; padding: var(--espacio-bloque) 0; border-bottom: var(--borde-fino) solid var(--borde-suave); color: var(--contenido-primario); text-decoration: none; position: relative; }
+@media (min-width: 900px) { .nt-fila a { grid-template-columns: 160px minmax(0, 1fr) auto; column-gap: var(--espacio-grupo); padding: var(--espacio-bloque) var(--espacio-base); } }
+.nt-fila a::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--superficie-marca); transform: scaleY(0); transform-origin: top; transition: transform var(--duracion-revelado) var(--curva-estandar); }
+.nt-fila a:hover, .nt-fila a:focus-visible { background: var(--superficie-base); }
+.nt-fila a:hover::before, .nt-fila a:focus-visible::before { transform: scaleY(1); }
+.nt-fila__img { overflow: hidden; aspect-ratio: 16 / 10; background: var(--superficie-marca-tinte); }
+.nt-fila__img img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--duracion-revelado) var(--curva-estandar); }
+.nt-fila a:hover .nt-fila__img img { transform: scale(var(--escala-hover)); }
+.nt-fila__cuerpo { display: grid; gap: 6px; }
+.nt-fila h3 { font-family: var(--fuente-titulos); font-weight: 400; font-size: var(--t-h3-lista); line-height: 1.25; transition: color var(--duracion-instante); }
+.nt-fila a:hover h3 { color: var(--contenido-marca); }
+.nt-fila__cuerpo > p:not(.nt-meta) { font-size: var(--t-cuerpo-tarjeta); line-height: 1.55; color: var(--contenido-secundario); }
+@media (max-width: 899px) { .nt-fila .nt-leer { grid-column: 2; } .nt-fila__img { align-self: start; } }
+
+/* Paginación */
+.nt-paginacion { display: grid; justify-items: center; gap: var(--espacio-base); margin-top: var(--espacio-grupo); }
+.nt-paginacion p { font-size: var(--t-pequeno); color: var(--contenido-terciario); }
+.nt-pagina [id] { scroll-margin-top: calc(var(--alto-cab) + 150px); }
+
+@media (prefers-reduced-motion: reduce) {
+  .nt-encabezado h1 .linea > span, .nt-encabezado__lead, .nt-encabezado .cap-etiqueta, .nt-entra { transform: none; opacity: 1; transition: none; }
+}
+.nt-pagina { overflow-x: clip; }
+/* Destacadas secundarias: título al nivel de lista y sin resumen, para que quepan junto a su imagen */
+@media (min-width: 900px) {
+  .nt-destacada:not(.nt-destacada--principal) a { grid-template-columns: 4fr 8fr; }
+  .nt-destacada:not(.nt-destacada--principal) h3 { font-size: var(--t-h3-lista); line-height: 1.22; }
+  .nt-destacada:not(.nt-destacada--principal) .nt-destacada__cuerpo > p:not(.nt-meta) { display: none; }
+  .nt-destacada:not(.nt-destacada--principal) .nt-destacada__cuerpo { align-content: center; }
+}
