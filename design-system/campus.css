@@ -197,11 +197,11 @@
    ========================================================================== */
 .cp-cab { position: sticky; top: 0; z-index: var(--capa-fija); background: var(--superficie-elevada); border-bottom: var(--borde-fino) solid var(--borde-suave); transition: box-shadow var(--duracion-base) var(--curva-estandar); }
 .cp-cab--plegada, .cp-cab--abierta { box-shadow: var(--sombra-flotante); }
-.cp-cab__barra { display: flex; align-items: center; gap: 28px; min-height: 96px; transition: min-height var(--duracion-base) var(--curva-estandar); }
+.cp-cab__barra { display: flex; align-items: center; gap: 28px; min-height: 108px; transition: min-height var(--duracion-base) var(--curva-estandar); }
 .cp-cab--plegada .cp-cab__barra { min-height: var(--alto-cab); }
 .cp-cab__logo { display: flex; align-items: center; margin-right: auto; }
-.cp-cab__logo img { height: 52px; width: auto; transition: height var(--duracion-base) var(--curva-estandar); }
-.cp-cab--plegada .cp-cab__logo img { height: 38px; }
+.cp-cab__logo img { height: 76px; width: auto; transition: height var(--duracion-base) var(--curva-estandar); }
+.cp-cab--plegada .cp-cab__logo img { height: 50px; }
 .cp-cab__cta { white-space: nowrap; }
 
 .cp-nav { display: none; }
@@ -215,7 +215,7 @@
   .cp-nav { display: block; }
   .cp-cab__menu { display: none; }
 }
-@media (max-width: 599px) { .cp-cab__barra { gap: var(--espacio-compacto); min-height: 72px; } .cp-cab__logo img { height: 44px; } .cp-cab__cta { padding-inline: 12px; font-size: var(--texto-pequeno); min-height: 40px; } .cp-cab__menu { padding-inline: 10px; } }
+@media (max-width: 599px) { .cp-cab__barra { gap: var(--espacio-compacto); min-height: 76px; } .cp-cab__logo img { height: 58px; } .cp-cab--plegada .cp-cab__logo img { height: 48px; } .cp-cab__cta { padding-inline: 12px; font-size: var(--texto-pequeno); min-height: 40px; } .cp-cab__menu { padding-inline: 10px; } }
 @media (max-width: 359px) { .cp-cab__cta { display: none; } }
 
 /* Desplegable: panel a todo el ancho bajo la cabecera, con filete dorado y tres columnas */
@@ -492,3 +492,38 @@ img[data-parallax] { position: absolute; left: 0; top: 0; width: 100%; }
 /* Menú desplegable: nombres de nivel/campus como lista */
 .cp-home .cp-desp li a span { font-size: var(--t-h3-lista); }
 .cp-home .cp-cifras__intro .cap-etiqueta { font-size: var(--texto-etiqueta-capitulo); }
+
+/* Pie: logotipo de la Universidad Panamericana en blanco */
+.pie-logo { display: inline-block; justify-self: start; }
+.pie-logo img { display: block; height: 64px; width: auto; }
+@media (max-width: 599px) { .pie-logo img { height: 56px; } }
+
+/* WhatsApp flotante: visible durante todo el recorrido; en móvil sube cuando aparece la barra fija */
+.cp-wa { position: fixed; right: 20px; bottom: calc(20px + env(safe-area-inset-bottom)); z-index: calc(var(--capa-fija) - 2); width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center; background: #25D366; color: #fff; box-shadow: 0 6px 18px rgba(20, 33, 31, 0.28); transition: transform var(--duracion-base) var(--curva-estandar), bottom var(--duracion-base) var(--curva-estandar), box-shadow var(--duracion-base) var(--curva-estandar); }
+.cp-wa:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(20, 33, 31, 0.34); }
+.cp-wa:focus-visible { outline: var(--foco-anillo); outline-offset: 3px; }
+@media (max-width: 899px) { .cp-fija--visible ~ .cp-wa { bottom: calc(84px + env(safe-area-inset-bottom)); } }
+@media (min-width: 900px) { .cp-wa { right: 28px; bottom: 28px; width: 60px; height: 60px; } }
+@media (prefers-reduced-motion: reduce) { .cp-wa { transition: none; } .cp-wa:hover { transform: none; } }
+@media print { .cp-wa { display: none; } }
+
+/* Logo colgante (2026-10-12): el logo apilado crece sin engordar la cabecera; su placa sobresale por debajo de la barra
+   y vuelve a caber dentro al plegarse la cabecera o al abrir un panel del menú. */
+.cp-cab__barra { min-height: 92px; }
+.cp-cab__logo { --logo-alto: 104px; --logo-sale: 30px; position: relative; z-index: 1; align-self: flex-start; padding: 8px 10px 10px; margin: 0 auto calc(var(--logo-sale) * -1) -10px; background: var(--superficie-elevada); transition: padding var(--duracion-base) var(--curva-estandar), margin var(--duracion-base) var(--curva-estandar); }
+.cp-cab__logo img { height: var(--logo-alto); }
+.cp-cab__logo::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: var(--logo-sale); border: var(--borde-fino) solid var(--borde-suave); border-top: 0; box-shadow: 0 8px 14px -8px rgba(20, 33, 31, 0.22); pointer-events: none; transition: opacity var(--duracion-instante); }
+.cp-cab--plegada .cp-cab__logo, .cp-cab--abierta .cp-cab__logo { align-self: center; padding: 0; margin: 0 auto 0 0; }
+.cp-cab--plegada .cp-cab__logo img, .cp-cab--abierta .cp-cab__logo img { height: 50px; }
+.cp-cab--plegada .cp-cab__logo::after, .cp-cab--abierta .cp-cab__logo::after { opacity: 0; }
+@media (max-width: 599px) {
+  .cp-cab__barra { min-height: 72px; }
+  .cp-cab__logo { --logo-alto: 76px; --logo-sale: 18px; padding: 6px 8px 8px; margin-left: -8px; }
+  .cp-cab--plegada .cp-cab__logo img, .cp-cab--abierta .cp-cab__logo img { height: 48px; }
+}
+/* Las migas bajan lo necesario para no quedar bajo la placa del logo colgante */
+.cp-pagina .pg-migas { padding-top: 46px; }
+@media (max-width: 599px) { .cp-pagina .pg-migas { padding-top: 34px; } }
+/* Logo colgante sin placa: solo el logo sobresale de la barra */
+.cp-cab__logo { background: none; }
+.cp-cab__logo::after { display: none; }

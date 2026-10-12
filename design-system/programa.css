@@ -393,3 +393,33 @@
 /* ¿Qué es? — título y párrafo en la columna izquierda; los paneles arrancan arriba, a la altura del título */
 .pg-quees__col { display: grid; gap: var(--espacio-bloque); align-content: start; }
 .pg-quees__col .pg-cabeza { margin-bottom: 0; }
+
+/* Hero con la imagen completa (sin recorte): la foto conserva su proporción original 329 × 401 y no lleva parallax */
+.pg-hero__escena--entera .pg-hero__foto { aspect-ratio: 329 / 401; }
+.pg-hero__escena--entera .pg-hero__foto img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%; }
+.pg-hero__escena--entera .pg-hero__tahali { top: 72%; height: 28%; }
+@media (min-width: 900px) { .pg-hero__escena--entera { max-width: 420px; justify-self: end; width: 100%; } }
+@media (max-width: 899px) { .pg-hero__escena--entera { max-width: 420px; } }
+
+/* Claustro con retratos: marco cuadrado para que ningún rostro quede recortado */
+.pg-profe__foto { aspect-ratio: 1; }
+.pg-profe__foto img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform var(--duracion-revelado) var(--curva-estandar); }
+.pg-profe:hover .pg-profe__foto img { transform: scale(var(--escala-hover)); }
+.pg-profe__foto::after { z-index: 1; }
+@media (prefers-reduced-motion: reduce) { .pg-profe:hover .pg-profe__foto img { transform: none; } }
+
+/* Testimonio: espacio para fotografía y credenciales (nombre, puesto y generación) */
+.pg-voz__autor { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: var(--espacio-base); align-items: center; padding-top: var(--espacio-bloque); border-top: var(--borde-fino) solid var(--borde-suave); }
+.pg-voz__foto { width: 88px; aspect-ratio: 1; display: grid; place-items: center; color: var(--contenido-marca); background: color-mix(in srgb, var(--superficie-marca) 16%, var(--superficie-elevada)); }
+.pg-voz__foto img { width: 100%; height: 100%; object-fit: cover; }
+.pg-voz__datos { display: grid; gap: 2px; font-size: var(--texto-pequeno); color: var(--contenido-secundario); }
+.pg-voz__datos strong { font-family: var(--fuente-titulos); font-weight: 400; font-size: 1.25rem; line-height: 1.2; color: var(--contenido-primario); }
+
+/* Requisitos de admisión como lista (dos columnas en escritorio) */
+.pg-requisitos--lista { display: grid; gap: var(--espacio-base); }
+.pg-requisitos--lista h3 { font-size: var(--texto-etiqueta); font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--contenido-terciario); }
+@media (min-width: 900px) { .pg-requisitos--lista .pg-lista { grid-template-columns: 1fr 1fr; column-gap: var(--espacio-grupo); } }
+
+/* Enlace con icono (WhatsApp) */
+.pg-enlace-cta--icono { display: inline-flex; align-items: center; gap: 8px; }
+.pg-enlace-cta__icono { flex: 0 0 auto; }
