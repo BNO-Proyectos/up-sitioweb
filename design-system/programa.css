@@ -423,3 +423,37 @@
 /* Enlace con icono (WhatsApp) */
 .pg-enlace-cta--icono { display: inline-flex; align-items: center; gap: 8px; }
 .pg-enlace-cta__icono { flex: 0 0 auto; }
+
+/* Testimonios en carrusel (comentario 9): una tarjeta a la vez, flechas y puntos; se desliza con el dedo */
+.pg-testimonios { display: grid; gap: var(--espacio-base); min-width: 0; }
+.pg-testimonios__pista { list-style: none; margin: 0; padding: 0; display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+.pg-testimonios__pista::-webkit-scrollbar { display: none; }
+.pg-testimonios__item { flex: 0 0 100%; scroll-snap-align: start; display: grid; }
+.pg-testimonios__item figure { height: 100%; }
+.pg-testimonios__control { display: flex; align-items: center; gap: var(--espacio-base); }
+.pg-testimonios__control button { width: 44px; height: 44px; border-radius: 50%; border: var(--borde-fino) solid var(--borde-campo); background: var(--superficie-elevada); color: var(--contenido-marca); display: grid; place-items: center; cursor: pointer; }
+.pg-testimonios__control button:hover { border-color: var(--borde-marca); }
+.pg-testimonios__control button:focus-visible { outline: var(--foco-anillo); outline-offset: 2px; }
+.pg-testimonios__puntos { display: flex; gap: 6px; }
+.pg-testimonios__puntos i { width: 8px; height: 8px; border-radius: 50%; background: var(--borde-campo); transition: background var(--duracion-instante), width var(--duracion-base) var(--curva-estandar); }
+.pg-testimonios__puntos i.activo { width: 22px; border-radius: 4px; background: var(--superficie-marca); }
+
+/* Contacto directo en el CTA final (comentario 20): botones con icono sobre el verde */
+.pg-contacto { display: grid; gap: var(--espacio-compacto); margin-top: var(--espacio-base); }
+.pg-contacto__titulo { font-size: var(--texto-etiqueta); font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.85; }
+.pg-contacto__acciones, .pg-siguiente__acciones { display: flex; flex-wrap: wrap; gap: var(--espacio-compacto); }
+.pg-contacto__boton { display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 18px; border: var(--borde-fino) solid currentColor; color: inherit; font-weight: 500; text-decoration: none; transition: background var(--duracion-instante), color var(--duracion-instante); }
+.pg-cta .pg-contacto__boton { color: var(--contenido-inverso); border-color: rgba(247, 245, 240, 0.6); }
+.pg-cta .pg-contacto__boton:hover { background: var(--contenido-inverso); color: var(--contenido-marca); }
+.pg-contacto__boton:focus-visible { outline: var(--foco-anillo); outline-offset: 2px; }
+
+/* Siguiente paso tras enviar un formulario (comentario 19) */
+.pg-siguiente { display: grid; gap: var(--espacio-compacto); padding-top: var(--espacio-base); border-top: var(--borde-fino) solid var(--borde-suave); }
+.pg-siguiente__titulo { font-weight: 500; }
+.pg-siguiente .pg-contacto__boton { color: var(--contenido-marca); border-color: var(--borde-campo); font-size: var(--texto-pequeno); min-height: 44px; padding: 0 14px; }
+.pg-siguiente .pg-contacto__boton:hover { border-color: var(--borde-marca); background: var(--superficie-marca-tinte); }
+.pg-gracias { align-content: start; }
+.pg-gracias h3 { font-family: var(--fuente-titulos); font-weight: 400; font-size: 1.75rem; line-height: 1.1; }
+.pg-gracias:focus { outline: none; }
+.cp-form .pg-modal__error { margin: 0; }
+.cp-form[hidden] { display: none; }

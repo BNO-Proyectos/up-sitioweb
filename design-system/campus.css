@@ -527,3 +527,23 @@ img[data-parallax] { position: absolute; left: 0; top: 0; width: 100%; }
 /* Logo colgante sin placa: solo el logo sobresale de la barra */
 .cp-cab__logo { background: none; }
 .cp-cab__logo::after { display: none; }
+
+/* Volver arriba (comentario 26): sobre el botón de WhatsApp; aparece tras recorrer una pantalla */
+.cp-arriba { position: fixed; right: 26px; bottom: calc(88px + env(safe-area-inset-bottom)); z-index: calc(var(--capa-fija) - 2); width: 44px; height: 44px; border-radius: 50%; border: var(--borde-fino) solid var(--borde-suave); background: var(--superficie-elevada); color: var(--contenido-marca); display: grid; place-items: center; cursor: pointer; box-shadow: 0 4px 14px rgba(20, 33, 31, 0.16); opacity: 0; visibility: hidden; transform: translateY(8px); transition: opacity var(--duracion-base) var(--curva-estandar), transform var(--duracion-base) var(--curva-estandar), visibility var(--duracion-base), bottom var(--duracion-base) var(--curva-estandar); }
+.cp-arriba--visible { opacity: 1; visibility: visible; transform: none; }
+.cp-arriba:hover { border-color: var(--borde-marca); }
+.cp-arriba:focus-visible { outline: var(--foco-anillo); outline-offset: 3px; }
+@media (max-width: 899px) { .cp-fija--visible ~ .cp-arriba { bottom: calc(152px + env(safe-area-inset-bottom)); } }
+@media (min-width: 900px) { .cp-arriba { right: 36px; bottom: 100px; } }
+@media (prefers-reduced-motion: reduce) { .cp-arriba { transition: none; } }
+@media print { .cp-arriba { display: none; } }
+
+/* Logo UP vertical (Roble en dorado, archivo oficial) en el pie */
+.pie-logo img { height: 104px; }
+@media (max-width: 599px) { .pie-logo img { height: 88px; } }
+/* Logo más pequeño (2026-10-16, comentario del cliente): ya no sobresale de la barra; con el SVG se ve nítido a este tamaño */
+.cp-cab__logo { --logo-alto: 72px; align-self: center; padding: 0; margin: 0 auto 0 0; }
+.cp-cab__logo::after { display: none; }
+@media (max-width: 599px) { .cp-cab__logo { --logo-alto: 54px; padding: 0; margin-left: 0; } }
+.cp-pagina .pg-migas { padding-top: var(--espacio-bloque); }
+@media (max-width: 599px) { .cp-pagina .pg-migas { padding-top: var(--espacio-bloque); } }

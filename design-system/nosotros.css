@@ -1,0 +1,95 @@
+/* ==========================================================================
+   nosotros.css — Página Nosotros (2026-10-16)
+   Estructura: wireframe de Figma «Plantilla — Nosotros».
+   Reutiliza campus.css (sistema B, sedes, testimonio, cinta, CTA), programa.css (migas, portada, pestañas, FAQ)
+   y sede.css. Prefijo ns-. Tamaños desde la escala por roles (--t-*).
+   ========================================================================== */
+
+/* 03 · ¿Qué es la UP? — la columna izquierda se queda fija mientras el cuerpo avanza */
+.ns-quees { display: grid; gap: var(--espacio-grupo); }
+@media (min-width: 900px) {
+  .ns-quees { grid-template-columns: 5fr 7fr; column-gap: var(--espacio-modulo); align-items: start; }
+  .ns-quees__lado { position: sticky; top: calc(var(--alto-cab) + var(--alto-tabs) + 32px); }
+}
+.ns-quees__lado { display: grid; gap: var(--espacio-bloque); align-content: start; }
+.ns-quees__lado .cp-h2 { font-size: var(--t-h2-principal); }
+.ns-cita { position: relative; overflow: hidden; margin: var(--espacio-base) 0 0; padding: var(--espacio-grupo); background: var(--superficie-marca); color: var(--contenido-inverso); min-height: 220px; display: grid; align-items: end; }
+.ns-cita .textura-roble { width: 120%; aspect-ratio: 553 / 571; right: -45%; top: -30%; }
+.ns-cita blockquote { position: relative; margin: 0; font-family: var(--fuente-titulos); font-style: italic; font-size: var(--t-cita); line-height: 1.2; }
+.ns-cita::before { content: ""; position: absolute; left: var(--espacio-grupo); top: 0; width: 48px; height: 4px; background: var(--acento-ceremonial); }
+.ns-quees__cuerpo { display: grid; gap: var(--espacio-grupo); align-content: start; }
+.ns-quees__lead { font-size: var(--t-lead); line-height: 1.4; color: var(--contenido-primario); }
+.ns-bloques { list-style: none; margin: 0; padding: 0; display: grid; }
+.ns-bloques li { display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: var(--espacio-base); padding-block: var(--espacio-bloque); border-top: var(--borde-fino) solid var(--borde-suave); }
+.ns-bloques li:last-child { border-bottom: var(--borde-fino) solid var(--borde-suave); }
+.ns-bloques__n { font-family: var(--fuente-titulos); font-size: var(--t-h3-tarjeta); line-height: 1; color: var(--acento-ceremonial); }
+.ns-bloques h3 { font-family: var(--fuente-titulos); font-weight: 400; font-size: var(--t-h3-lista); line-height: 1.2; margin-bottom: 6px; }
+.ns-bloques p { font-size: var(--t-cuerpo); line-height: 1.6; color: var(--contenido-secundario); }
+.ns-quees__cuerpo > .pg-enlace-cta { justify-self: start; }
+
+/* 04 · Sedes: tarjetas del Home sin conteos; lugar y direcciones */
+.ns-sede__lugar { font-size: var(--texto-etiqueta-capitulo); font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--contenido-marca); }
+.ns-sede__dir { list-style: none; margin: 0; padding: var(--espacio-compacto) 0 0; display: grid; gap: 4px; font-size: var(--t-pequeno); color: var(--contenido-terciario); border-top: var(--borde-fino) solid var(--borde-suave); }
+.ns-sede__dir b { font-weight: 500; color: var(--contenido-secundario); }
+.ns-sedes .cp-sede__cuerpo .boton { margin-top: var(--espacio-compacto); justify-self: start; }
+
+/* 05 · Beneficios: cinco pilares con icono; en móvil se deslizan con el dedo */
+.ns-pilares { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--espacio-base); }
+@media (min-width: 600px) and (max-width: 1099px) { .ns-pilares { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1100px) { .ns-pilares { grid-template-columns: repeat(5, 1fr); } }
+@media (max-width: 599px) {
+  .ns-pilares { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; margin-inline: calc(var(--margen-lateral) * -1); padding-inline: var(--margen-lateral); }
+  .ns-pilares::-webkit-scrollbar { display: none; }
+  .ns-pilar { flex: 0 0 80%; scroll-snap-align: start; }
+}
+.ns-pilar { position: relative; display: grid; gap: var(--espacio-compacto); align-content: start; padding: var(--espacio-bloque); background: var(--superficie-base); border-top: 3px solid var(--superficie-marca); transition: background var(--duracion-base) var(--curva-estandar), transform var(--duracion-revelado) var(--curva-estandar); }
+.ns-pilar:hover { background: var(--superficie-marca-tinte); transform: translateY(-4px); }
+.ns-pilar__icono { width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center; color: var(--contenido-marca); background: var(--superficie-elevada); border: var(--borde-fino) solid var(--borde-suave); margin-bottom: var(--espacio-compacto); transition: background var(--duracion-base), color var(--duracion-base); }
+.ns-pilar__icono svg { width: 28px; height: 28px; }
+.ns-pilar:hover .ns-pilar__icono { background: var(--superficie-marca); color: var(--contenido-inverso); border-color: var(--superficie-marca); }
+.ns-pilar__n { font-size: var(--texto-etiqueta-capitulo); font-weight: 500; letter-spacing: 0.08em; color: var(--acento-ceremonial); }
+.ns-pilar h3 { font-family: var(--fuente-titulos); font-weight: 400; font-size: var(--t-h3-lista); line-height: 1.2; }
+.ns-pilar p { font-size: var(--t-cuerpo-tarjeta); line-height: 1.55; color: var(--contenido-secundario); }
+.ns-volver { display: inline-block; margin-top: var(--espacio-grupo); }
+
+/* 06 · Reconocimientos: bloque verde con Roble tono sobre tono (sin foto ni tahalí) */
+.ns-reconoce { position: relative; overflow: hidden; background: var(--superficie-marca); color: var(--contenido-inverso); }
+.ns-reconoce .textura-roble { width: min(56vw, 700px); aspect-ratio: 553 / 571; right: -10%; top: -18%; }
+.ns-reconoce .contenedor { position: relative; }
+.ns-reconoce .cap-etiqueta { color: var(--contenido-acento-inverso); }
+.ns-reconoce .cp-h2 { color: var(--contenido-inverso); }
+.ns-reconoce .cp-apoyo { color: rgba(247, 245, 240, 0.85); }
+.ns-cifras { list-style: none; margin: var(--espacio-grupo) 0 0; padding: 0; display: grid; gap: var(--espacio-grupo); }
+@media (min-width: 900px) { .ns-cifras { grid-template-columns: repeat(3, 1fr); } }
+.ns-cifras li { display: grid; gap: var(--espacio-compacto); padding-top: var(--espacio-bloque); border-top: 2px solid var(--acento-ceremonial); }
+.ns-cifras b { font-family: var(--fuente-titulos); font-weight: 400; font-size: var(--t-cifra); line-height: 1; }
+.ns-cifras sup { font-size: 0.45em; }
+.ns-cifras span:not([data-cuenta]) { font-size: var(--t-cuerpo); line-height: 1.45; color: rgba(247, 245, 240, 0.85); }
+.ns-fuente { margin-top: var(--espacio-bloque); font-size: var(--t-pequeno); color: rgba(247, 245, 240, 0.7); }
+.ns-sellos { margin-top: var(--espacio-modulo); display: grid; gap: var(--espacio-base); }
+.ns-sellos__titulo { font-size: var(--texto-etiqueta-capitulo); font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--contenido-acento-inverso); }
+.ns-sellos ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--espacio-base); }
+@media (min-width: 900px) { .ns-sellos ul { grid-template-columns: repeat(4, 1fr); } }
+.ns-sellos li { min-height: 72px; display: grid; place-items: center; padding: 8px; border: var(--borde-fino) dashed rgba(247, 245, 240, 0.4); font-size: var(--t-pequeno); color: rgba(247, 245, 240, 0.75); }
+.ns-enlace-claro { display: inline-block; margin-top: var(--espacio-grupo); color: var(--contenido-inverso); font-weight: 500; text-decoration: underline; text-decoration-color: var(--acento-ceremonial); text-decoration-thickness: 2px; text-underline-offset: 4px; }
+.ns-enlace-claro:hover { text-decoration-color: currentColor; }
+.ns-enlace-claro:focus-visible { outline: var(--foco-anillo); outline-offset: 3px; }
+
+/* 06b · Empresas aliadas: cinta en movimiento */
+.ns-empresas { padding-block: var(--espacio-seccion-compacta); background: var(--superficie-base); border-bottom: var(--borde-fino) solid var(--borde-suave); }
+.ns-empresas__titulo { font-family: var(--fuente-titulos); font-weight: 400; font-size: var(--t-h3-destacada); line-height: 1.15; text-align: center; margin-bottom: var(--espacio-grupo); }
+.ns-empresas .cp-cinta li { flex: 0 0 auto; min-width: 150px; min-height: 64px; display: grid; place-items: center; padding: 8px 16px; border: var(--borde-fino) dashed var(--borde-suave); color: var(--contenido-terciario); font-size: var(--t-pequeno); }
+
+@media (prefers-reduced-motion: reduce) {
+  .ns-pilar, .ns-pilar__icono { transition: none; }
+  .ns-pilar:hover { transform: none; }
+}
+.ns-pagina { overflow-x: clip; }
+.cp-form[hidden] { display: none; }
+/* Ajustes tras revisión visual */
+.ns-reconoce .ds__tag { color: var(--contenido-inverso); border-color: rgba(247, 245, 240, 0.5); background: transparent; }
+.ns-reconoce .textura-roble { width: min(46vw, 580px); right: -14%; top: -8%; }
+@media (max-width: 899px) { .ns-reconoce .textura-roble { width: 110vw; right: -55vw; top: auto; bottom: -10%; } }
+.ns-sedes .cp-sede__cuerpo { display: flex; flex-direction: column; gap: var(--espacio-compacto); }
+.ns-sedes .ns-sede__dir { margin-top: auto; }
+.ns-sedes .cp-sede__cuerpo .boton { align-self: flex-start; }
