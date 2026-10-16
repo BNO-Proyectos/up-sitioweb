@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="camino.css?v=6">
 <link rel="stylesheet" href="campus.css?v=27">
 <link rel="stylesheet" href="programa.css?v=24">
-<link rel="stylesheet" href="sede.css?v=4">
+<link rel="stylesheet" href="sede.css?v=8">
 <script type="application/ld+json">[{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://posgrados-panamericana.up.edu.mx/"}, {"@type": "ListItem", "position": 2, "name": "Ciudad de México", "item": "https://posgrados-panamericana.up.edu.mx/cdmx"}]}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Qué posgrados ofrece la Universidad Panamericana en Ciudad de México?", "acceptedAnswer": {"@type": "Answer", "text": "En Ciudad de México, la Universidad Panamericana ofrece maestrías, especialidades, doctorados, diplomados y cursos. Abarcan áreas como Derecho, Ingeniería, Ciencias de la Salud, Comunicación, Empresariales, Filosofía, Bellas Artes, Gobierno y Economía, Pedagogía y ESDAI. Puedes explorarlos en esta página y filtrarlos por nivel, área o sede."}}, {"@type": "Question", "name": "¿Cuál es la diferencia entre Campus Mixcoac y Campus Santa Fe?", "acceptedAnswer": {"@type": "Answer", "text": "Mixcoac es la sede con más programas de posgrado en la ciudad: ahí se imparte la mayor parte de la oferta de Ingeniería, Derecho, Ciencias de la Salud, Filosofía y Comunicación. Santa Fe concentra los posgrados de Gobierno y programas de Empresariales, Derecho, Comunicación, Filosofía, Pedagogía y Bellas Artes. En ambas vivirás el mismo modelo de formación integral."}}, {"@type": "Question", "name": "¿Cómo puedo buscar programas por sede?", "acceptedAnswer": {"@type": "Answer", "text": "En la sección «Explora los posgrados disponibles en CDMX» escribe el nombre o tema del programa y combina los filtros de nivel, área académica y sede. También puedes entrar desde la tarjeta de cada sede o de cada área."}}, {"@type": "Question", "name": "¿Dónde encuentro requisitos, costos y próximas convocatorias?", "acceptedAnswer": {"@type": "Answer", "text": "Cada programa tiene su propia página con requisitos de admisión. Para costos y fechas de las próximas convocatorias, solicita información y un asesor de admisiones te responde."}}]}]</script>
 </head>
 <body class="cp-pagina pg-pagina sd-pagina">
@@ -176,7 +176,7 @@
   </ol></nav></div>
 
   <!-- 01 · Portada -->
-  <section class="pg-hero sd-hero" id="inicio" aria-labelledby="h1">
+  <section class="pg-hero sd-hero sd-hero--video" id="inicio" aria-labelledby="h1">
     <div class="contenedor">
       <div class="pg-hero__texto">
         <p class="cap-etiqueta">Posgrados · Ciudad de México</p>
@@ -188,8 +188,13 @@
         </div>
       </div>
       <div class="pg-hero__escena">
-        <figure class="pg-hero__foto" style="--foco: 50% 40%">
-          <img src="img/escena-03.jpg" width="1440" height="960" alt="Profesor de posgrado frente a su grupo en el campus Mixcoac" fetchpriority="high" data-parallax="0.12">
+        <figure class="pg-hero__foto sd-video" data-video-hero="72PYy7qlLzI">
+          <img class="sd-video__poster" src="img/sede-cdmx-video.jpg" width="1280" height="720" alt="Estudiantes de posgrado conviven en un evento del campus" fetchpriority="high">
+          <div class="sd-video__marco"></div>
+          <div class="sd-video__controles">
+            <button type="button" class="sd-video__pausa" aria-pressed="false" aria-label="Pausar video"><svg class="i-pausa" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2h3v12H4zM9 2h3v12H9z" fill="currentColor"/></svg><svg class="i-play" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2l10 6-10 6z" fill="currentColor"/></svg></button>
+            <button type="button" class="sd-video__sonido" aria-pressed="false" aria-label="Activar sonido"><svg class="i-mudo" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor" stroke="none"/><path d="M17 9l5 6M22 9l-5 6"/></svg><svg class="i-sonido" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor" stroke="none"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19.5 5.5a9 9 0 0 1 0 13"/></svg></button>
+          </div>
         </figure>
         <div class="pg-hero__tahali" aria-hidden="true"></div>
       </div>
@@ -265,12 +270,21 @@
         </div>
         <button class="sd-buscador__filtros-btn" type="button" id="b-filtros-btn" aria-expanded="false" aria-controls="b-filtros">Filtros <span id="b-activos"></span></button>
         <div class="sd-buscador__filtros" id="b-filtros">
-          <div><label for="b-nivel">Nivel</label><select id="b-nivel"><option value="">Todos los niveles</option><option value="Maestría">Maestría</option><option value="Especialidad">Especialidad</option><option value="Doctorado">Doctorado</option><option value="Diplomado">Diplomado</option><option value="Curso">Curso</option></select></div>
           <div><label for="b-area">Área académica</label><select id="b-area"><option value="">Todas las áreas</option><option value="Bellas Artes">Bellas Artes</option><option value="Ciencias de la Salud">Ciencias de la Salud</option><option value="Comunicación">Comunicación</option><option value="Derecho">Derecho</option><option value="Economía">Economía</option><option value="Empresariales">Empresariales</option><option value="Filosofía">Filosofía</option><option value="Gobierno">Gobierno</option><option value="Ingeniería">Ingeniería</option><option value="ESDAI">Negocios en Hospitalidad y Alimentos (ESDAI)</option><option value="Pedagogía">Pedagogía</option></select></div>
           <div><label for="b-sede">Sede</label><select id="b-sede"><option value="">Ambas sedes</option><option>Mixcoac</option><option>Santa Fe</option></select></div>
           <button class="sd-buscador__limpiar" type="button" id="b-limpiar">Limpiar</button>
         </div>
       </form>
+      <div class="cp-filtro sd-niveles" id="b-niveles" role="group" aria-label="Tipo de programa">
+        <span class="cp-filtro__etiqueta">Tipo de programa:</span>
+        <button type="button" aria-pressed="true" data-nivel="Maestría">Maestrías <span class="sd-niveles__n"></span></button>
+        <button type="button" aria-pressed="false" data-nivel="Especialidad">Especialidades <span class="sd-niveles__n"></span></button>
+        <button type="button" aria-pressed="false" data-nivel="Doctorado">Doctorados <span class="sd-niveles__n"></span></button>
+        <button type="button" aria-pressed="false" data-nivel="Diplomado">Diplomados <span class="sd-niveles__n"></span></button>
+        <button type="button" aria-pressed="false" data-nivel="Curso">Cursos <span class="sd-niveles__n"></span></button>
+        <button type="button" aria-pressed="false" data-nivel="">Todos <span class="sd-niveles__n"></span></button>
+      </div>
+      <div class="sd-activos" id="b-chips" hidden></div>
       <p class="sd-resultado" id="b-resultado" aria-live="polite"></p>
       <ul class="sd-programas" id="lista-programas"></ul>
       <p class="sd-vacio" id="b-vacio" hidden>No encontramos programas con esa combinación. <button type="button" class="pg-enlace-cta" id="b-vacio-limpiar">Quitar filtros</button></p>
@@ -290,9 +304,9 @@
         <li class="sd-area cp-revela" style="--k:0"><button type="button" data-area="Economía"><span class="sd-area__n">1 <small>programa · nuevo</small></span><span class="sd-area__nombre">Economía</span><span class="sd-area__ir">Explorar área <span aria-hidden="true">→</span></span></button></li>
         <li class="sd-area cp-revela" style="--k:1"><button type="button" data-area="Empresariales"><span class="sd-area__n">10 <small>programas</small></span><span class="sd-area__nombre">Empresariales</span><span class="sd-area__ir">Explorar área <span aria-hidden="true">→</span></span></button></li>
         <li class="sd-area cp-revela" style="--k:2"><button type="button" data-area="Filosofía"><span class="sd-area__n">4 <small>programas</small></span><span class="sd-area__nombre">Filosofía</span><span class="sd-area__ir">Explorar área <span aria-hidden="true">→</span></span></button></li>
-        <li class="sd-area cp-revela" style="--k:3"><button type="button" data-area="Gobierno"><span class="sd-area__n">4 <small>programas</small></span><span class="sd-area__nombre">Gobierno</span><span class="sd-area__sub">Gobierno y Economía</span><span class="sd-area__ir">Explorar área <span aria-hidden="true">→</span></span></button></li>
+        <li class="sd-area cp-revela" style="--k:3"><button type="button" data-area="Gobierno"><span class="sd-area__n">4 <small>programas</small></span><span class="sd-area__nombre">Gobierno</span><span class="sd-area__ir">Explorar área <span aria-hidden="true">→</span></span></button></li>
         <li class="sd-area cp-revela" style="--k:0"><button type="button" data-area="Ingeniería"><span class="sd-area__n">12 <small>programas</small></span><span class="sd-area__nombre">Ingeniería</span><span class="sd-area__ir">Explorar área <span aria-hidden="true">→</span></span></button></li>
-        <li class="sd-area cp-revela" style="--k:1"><button type="button" data-area="ESDAI"><span class="sd-area__n">4 <small>programas</small></span><span class="sd-area__nombre">Negocios en Hospitalidad y Alimentos</span><span class="sd-area__sub">ESDAI</span><span class="sd-area__ir">Explorar área <span aria-hidden="true">→</span></span></button></li>
+        <li class="sd-area cp-revela" style="--k:1"><button type="button" data-area="ESDAI"><span class="sd-area__n">4 <small>programas</small></span><span class="sd-area__nombre">Negocios en Hospitalidad y Alimentos</span><span class="sd-area__ir">Explorar área <span aria-hidden="true">→</span></span></button></li>
         <li class="sd-area cp-revela" style="--k:2"><button type="button" data-area="Pedagogía"><span class="sd-area__n">5 <small>programas</small></span><span class="sd-area__nombre">Pedagogía</span><span class="sd-area__ir">Explorar área <span aria-hidden="true">→</span></span></button></li>
       </ul>
     </div>
@@ -391,6 +405,61 @@ const suave = reducido ? 'auto' : 'smooth';
 const hero = document.getElementById('inicio'), cab = document.getElementById('cab');
 const enCaptura = location.search.includes('captura=1');
 if (enCaptura) { const st = document.createElement('style'); st.textContent = '*{transition:none!important;animation:none!important}.cp-revela,.cp-mascara{opacity:1!important;transform:none!important}.pg-hero__foto{clip-path:none!important}.pg-hero h1 .linea>span,.pg-hero__lema,.pg-hero__acciones,.pg-hero .cap-etiqueta{transform:none!important;opacity:1!important}.pg-hero__tahali{transform:skewX(30deg) scaleY(1)!important}'; document.head.appendChild(st); }
+// Hero con video de YouTube: reproducción automática sin sonido y en bucle; controles propios (pausa y sonido).
+// Con movimiento reducido no arranca solo: se muestra la portada y el botón lo reproduce.
+(() => {
+  const caja = document.querySelector('[data-video-hero]'); if (!caja) return;
+  const id = caja.dataset.videoHero, marco = caja.querySelector('.sd-video__marco');
+  const bPausa = caja.querySelector('.sd-video__pausa'), bSonido = caja.querySelector('.sd-video__sonido');
+  let iframe = null, enPausa = reducido || enCaptura, mudo = true, pausaPorVista = false, sinCc = false;
+  const enviar = (func, args = []) => iframe && iframe.contentWindow && iframe.contentWindow.postMessage(JSON.stringify({ event: 'command', func, args }), '*');
+  const pintar = () => {
+    caja.classList.toggle('sd-video--pausa', enPausa);
+    bPausa.setAttribute('aria-pressed', String(enPausa)); bPausa.setAttribute('aria-label', enPausa ? 'Reproducir video' : 'Pausar video');
+    bSonido.setAttribute('aria-pressed', String(!mudo)); bSonido.setAttribute('aria-label', mudo ? 'Activar sonido' : 'Silenciar video');
+    caja.classList.toggle('sd-video--sonido', !mudo);
+  };
+  const montar = () => {
+    if (iframe) return;
+    const q = new URLSearchParams({ autoplay: 1, mute: 1, loop: 1, playlist: id, controls: 0, rel: 0, playsinline: 1, enablejsapi: 1, iv_load_policy: 3, cc_load_policy: 0, disablekb: 1, origin: location.origin });
+    iframe = document.createElement('iframe');
+    iframe.src = `https://www.youtube-nocookie.com/embed/${id}?${q}`;
+    iframe.title = 'Video: Posgrados Universidad Panamericana';
+    iframe.allow = 'autoplay; encrypted-media; picture-in-picture';
+    iframe.tabIndex = -1;
+    iframe.addEventListener('load', () => iframe.contentWindow.postMessage(JSON.stringify({ event: 'listening', id: 1 }), '*'));
+    marco.appendChild(iframe);
+  };
+  addEventListener('message', e => {
+    if (!iframe || e.source !== iframe.contentWindow) return;
+    let d; try { d = JSON.parse(e.data); } catch { return; }
+    // Solo se muestra el reproductor mientras está en reproducción: en pausa o al cargar, YouTube pinta su propia interfaz
+    // («Más videos», título); la portada la cubre.
+    if (d.info && typeof d.info.playerState === 'number') caja.classList.toggle('sd-video--listo', d.info.playerState === 1);
+    // El video ya trae subtítulos incrustados: se apagan los subtítulos automáticos de YouTube para no duplicarlos
+    if (d.info && d.info.playerState === 1 && !sinCc) { enviar('unloadModule', ['captions']); enviar('unloadModule', ['cc']); sinCc = true; }
+  });
+  bPausa.addEventListener('click', () => {
+    enPausa = !enPausa; pausaPorVista = false;
+    if (!iframe) montar(); else enviar(enPausa ? 'pauseVideo' : 'playVideo');
+    pintar();
+  });
+  bSonido.addEventListener('click', () => {
+    mudo = !mudo;
+    if (!iframe) { enPausa = false; montar(); setTimeout(() => enviar(mudo ? 'mute' : 'unMute'), 1200); }
+    else { enviar(mudo ? 'mute' : 'unMute'); if (enPausa) { enPausa = false; enviar('playVideo'); } }
+    pintar();
+  });
+  // Fuera de vista se pausa para no consumir recursos; al volver, continúa si la persona no lo pausó
+  new IntersectionObserver(([e]) => {
+    if (!iframe) return;
+    if (!e.isIntersecting && !enPausa) { enviar('pauseVideo'); pausaPorVista = true; }
+    else if (e.isIntersecting && pausaPorVista) { enviar('playVideo'); pausaPorVista = false; }
+  }, { threshold: 0.15 }).observe(caja);
+  pintar();
+  if (!enPausa) (document.readyState === 'complete' ? montar() : addEventListener('load', montar, { once: true }));
+})();
+
 
 // Datos: programas de CDMX (inventario oficial del cliente, 22 sep 2026)
 const PROGRAMAS = [{"n": "Maestría en Neuropsicología y Educación", "v": "Maestría", "a": ["Pedagogía"], "s": "", "u": "#"}, {"n": "Doctorado en Bioética", "v": "Doctorado", "a": ["Ciencias de la Salud"], "s": "Mixcoac", "u": "#"}, {"n": "Especialidad en Heridas, Estomas y Quemaduras", "v": "Especialidad", "a": ["Ciencias de la Salud"], "s": "", "u": "#"}, {"n": "Diplomado en Arquitectura de Interiores", "v": "Diplomado", "a": ["Bellas Artes"], "s": "Santa Fe", "u": "#"}, {"n": "Maestría en Gobierno y Políticas Públicas", "v": "Maestría", "a": ["Gobierno"], "s": "Santa Fe", "u": "#"}, {"n": "Curso de Preparación para el ENARM", "v": "Curso", "a": ["Ciencias de la Salud"], "s": "", "u": "#"}, {"n": "Diplomado Mujeres de Impacto: Liderazgo y Finanzas Estratégicas", "v": "Diplomado", "a": ["Empresariales"], "s": "", "u": "#"}, {"n": "Diplomado de Educación en Ciencias de la Salud", "v": "Diplomado", "a": ["Ciencias de la Salud"], "s": "", "u": "#"}, {"n": "Diplomado en Administración Estratégica del Fútbol", "v": "Diplomado", "a": ["Empresariales", "Pedagogía"], "s": "", "u": "#"}, {"n": "Diplomado en Ciberjusticia", "v": "Diplomado", "a": ["Derecho"], "s": "", "u": "#"}, {"n": "Diplomado en Comunicación Política", "v": "Diplomado", "a": ["Comunicación"], "s": "", "u": "#"}, {"n": "Diplomado en Creación y Gestión de Proyectos de Entretenimiento y Experiencias", "v": "Diplomado", "a": ["Comunicación"], "s": "", "u": "#"}, {"n": "Diplomado en Dirección de Control de Gestión y Business Analytics", "v": "Diplomado", "a": ["Empresariales"], "s": "", "u": "#"}, {"n": "Diplomado en Economía e Industrias Creativas", "v": "Diplomado", "a": ["Bellas Artes"], "s": "", "u": "#"}, {"n": "Diplomado en Experiencias Gourmet", "v": "Diplomado", "a": ["ESDAI"], "s": "", "u": "#"}, {"n": "Diplomado en Fashion Branding, Digital & Innovation", "v": "Diplomado", "a": ["Comunicación"], "s": "", "u": "#"}, {"n": "Diplomado en Gobernanza y Diplomacia Cultural", "v": "Diplomado", "a": ["Bellas Artes", "Gobierno"], "s": "", "u": "#"}, {"n": "Diplomado en Wellness", "v": "Diplomado", "a": ["ESDAI"], "s": "Mixcoac y Santa Fe", "u": "#"}, {"n": "Doctorado en Ciencias Empresariales", "v": "Doctorado", "a": ["Empresariales"], "s": "", "u": "#"}, {"n": "Doctorado en Derecho", "v": "Doctorado", "a": ["Derecho"], "s": "", "u": "#"}, {"n": "Doctorado en Filosofía Práctica y Ética Aplicada", "v": "Doctorado", "a": ["Filosofía"], "s": "", "u": "#"}, {"n": "Doctorado en Historia del Pensamiento", "v": "Doctorado", "a": ["Filosofía"], "s": "", "u": "#"}, {"n": "Doctorado en Inteligencia Artificial", "v": "Doctorado", "a": ["Ingeniería"], "s": "", "u": "#"}, {"n": "Especialidad en Automatización Inteligente", "v": "Especialidad", "a": ["Ingeniería"], "s": "", "u": "#"}, {"n": "Especialidad en Derecho Procesal Civil y Mercantil", "v": "Especialidad", "a": ["Derecho"], "s": "", "u": "#"}, {"n": "Especialidad en Derecho de Amparo", "v": "Especialidad", "a": ["Derecho"], "s": "", "u": "#"}, {"n": "Especialidad en Derecho de la Empresa", "v": "Especialidad", "a": ["Derecho"], "s": "", "u": "#"}, {"n": "Especialidad en Dirección de Operaciones", "v": "Especialidad", "a": ["Ingeniería"], "s": "", "u": "#"}, {"n": "Especialidad en Diseño Interactivo", "v": "Especialidad", "a": ["Ingeniería"], "s": "", "u": "#"}, {"n": "Especialidad en Emprendedores de Negocios de Alimentos y Bebidas", "v": "Especialidad", "a": ["ESDAI"], "s": "", "u": "#"}, {"n": "Especialidad en Gestión de Eventos", "v": "Especialidad", "a": ["ESDAI"], "s": "", "u": "#"}, {"n": "Especialidad en Ingeniería y Gestión de Proyectos", "v": "Especialidad", "a": ["Ingeniería"], "s": "", "u": "#"}, {"n": "Especialidad en Logística Internacional", "v": "Especialidad", "a": ["Ingeniería"], "s": "", "u": "#"}, {"n": "Especialidad en Neuropsicología", "v": "Especialidad", "a": ["Ciencias de la Salud"], "s": "", "u": "#"}, {"n": "Especialidad en Psicología Clínica y de la Salud", "v": "Especialidad", "a": ["Ciencias de la Salud"], "s": "", "u": "#"}, {"n": "Especialidad en Psicología Educativa", "v": "Especialidad", "a": ["Ciencias de la Salud"], "s": "", "u": "#"}, {"n": "Especialidad en Psicología Organizacional", "v": "Especialidad", "a": ["Ciencias de la Salud"], "s": "", "u": "#"}, {"n": "Especialidad en Publicidad y Creación de Contenidos", "v": "Especialidad", "a": ["Comunicación"], "s": "", "u": "#"}, {"n": "Especialidad en Relaciones Públicas y Reputación de Marca", "v": "Especialidad", "a": ["Comunicación"], "s": "", "u": "#"}, {"n": "Especialidad en Sostenibilidad y Economía Circular", "v": "Especialidad", "a": ["Ingeniería"], "s": "", "u": "#"}, {"n": "Maestría Internacional en Finanzas", "v": "Maestría", "a": ["Empresariales"], "s": "", "u": "#"}, {"n": "Maestría en Administración de Proyectos", "v": "Maestría", "a": ["Empresariales"], "s": "", "u": "#"}, {"n": "Maestría en Anticorrupción", "v": "Maestría", "a": ["Gobierno"], "s": "", "u": "#"}, {"n": "Maestría en Bioética", "v": "Maestría", "a": ["Ciencias de la Salud"], "s": "", "u": "#"}, {"n": "Maestría en Ciencia de Datos", "v": "Maestría", "a": ["Ingeniería"], "s": "", "u": "#"}, {"n": "Maestría en Ciencias Jurídicas", "v": "Maestría", "a": ["Derecho"], "s": "", "u": "#"}, {"n": "Maestría en Ciencias Políticas", "v": "Maestría", "a": ["Gobierno"], "s": "", "u": "#"}, {"n": "Maestría en Ciencias en Salud Pública", "v": "Maestría", "a": ["Ciencias de la Salud"], "s": "", "u": "#"}, {"n": "Maestría en Comunicaciones de Marca", "v": "Maestría", "a": ["Comunicación"], "s": "", "u": "#"}, {"n": "Maestría en Comunicación Institucional", "v": "Maestría", "a": ["Comunicación"], "s": "", "u": "#"}, {"n": "Maestría en Comunicación Política y Pública", "v": "Maestría", "a": ["Comunicación"], "s": "", "u": "#"}, {"n": "Maestría en Derecho Administrativo", "v": "Maestría", "a": ["Derecho"], "s": "", "u": "#"}, {"n": "Maestría en Derecho Fiscal", "v": "Maestría", "a": ["Derecho"], "s": "", "u": "#"}, {"n": "Maestría en Derecho Laboral", "v": "Maestría", "a": ["Derecho"], "s": "", "u": "#"}, {"n": "Maestría en Derecho Procesal Constitucional", "v": "Maestría", "a": ["Derecho"], "s": "", "u": "#"}, {"n": "Maestría en Derecho de la Empresa", "v": "Maestría", "a": ["Derecho"], "s": "", "u": "#"}, {"n": "Maestría en Derechos Humanos", "v": "Maestría", "a": ["Derecho"], "s": "", "u": "#"}, {"n": "Maestría en Dirección de Instituciones Educativas", "v": "Maestría", "a": ["Pedagogía"], "s": "", "u": "#"}, {"n": "Maestría en Dirección de Operaciones", "v": "Maestría", "a": ["Ingeniería"], "s": "", "u": "#"}, {"n": "Maestría en Dirección de Producto", "v": "Maestría", "a": ["Ingeniería"], "s": "", "u": "#"}, {"n": "Maestría en Dirección del Capital Humano", "v": "Maestría", "a": ["Empresariales", "Pedagogía"], "s": "", "u": "#"}, {"n": "Maestría en Economía Digital", "v": "Maestría", "a": ["Economía"], "s": "Santa Fe", "u": "programa-economia-digital.html", "nuevo": true}, {"n": "Maestría en Filosofía Antigua", "v": "Maestría", "a": ["Filosofía"], "s": "", "u": "#"}, {"n": "Maestría en Finanzas", "v": "Maestría", "a": ["Empresariales"], "s": "", "u": "#"}, {"n": "Maestría en Gestión de Competencias Socioemocionales", "v": "Maestría", "a": ["Pedagogía"], "s": "", "u": "#"}, {"n": "Maestría en Gestión de las Artes y Políticas Culturales", "v": "Maestría", "a": ["Bellas Artes"], "s": "", "u": "#"}, {"n": "Maestría en Historia del Pensamiento", "v": "Maestría", "a": ["Filosofía"], "s": "", "u": "#"}, {"n": "Maestría en Impuestos", "v": "Maestría", "a": ["Empresariales"], "s": "", "u": "#"}, {"n": "Maestría en Ingeniería", "v": "Maestría", "a": ["Ingeniería"], "s": "", "u": "#"}, {"n": "Maestría en Ingeniería y Gestión de la Cadena de Suministro", "v": "Maestría", "a": ["Ingeniería"], "s": "", "u": "#"}, {"n": "Maestría en Instituciones de Derecho Financiero", "v": "Maestría", "a": ["Derecho"], "s": "", "u": "#"}, {"n": "Maestría en Liderazgo y Alta Dirección para Médicos", "v": "Maestría", "a": ["Ciencias de la Salud"], "s": "", "u": "#"}, {"n": "Maestría en Mercadotecnia Estratégica", "v": "Maestría", "a": ["Empresariales"], "s": "", "u": "#"}, {"n": "Maestría en Narrativa y Producción Audiovisual", "v": "Maestría", "a": ["Comunicación"], "s": "", "u": "#"}, {"n": "Maestría en Propiedad Industrial, Derechos de Autor y Nuevas Tecnologías", "v": "Maestría", "a": ["Derecho"], "s": "", "u": "#"}, {"n": "Maestría en Terapia de Heridas, Estomas y Quemaduras", "v": "Maestría", "a": ["Ciencias de la Salud"], "s": "", "u": "#"}];
@@ -430,41 +499,71 @@ document.querySelectorAll('[data-ir-form]').forEach(a => a.addEventListener('cli
 document.querySelectorAll('[data-ir-seccion]').forEach(a => a.addEventListener('click', e => { e.preventDefault(); ir(a.dataset.irSeccion); }));
 document.querySelectorAll('[data-ir-sede]').forEach(a => a.addEventListener('click', e => { e.preventDefault(); ir(a.dataset.irSede); }));
 
-// Explorador de programas: búsqueda por texto + filtros de nivel, área y sede
-const lista = document.getElementById('lista-programas'), txt = document.getElementById('b-texto'), fNivel = document.getElementById('b-nivel'), fArea = document.getElementById('b-area'), fSede = document.getElementById('b-sede');
-const resultado = document.getElementById('b-resultado'), btnMas = document.getElementById('b-mas'), vacio = document.getElementById('b-vacio');
-const INICIALES = 6; let todos = false;
-const sinAcentos = s => s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+// Explorador de programas: pestañas por tipo (Maestrías por defecto) + búsqueda por texto + filtros de área y sede.
+// Las pestañas cuentan los resultados de la búsqueda y filtros actuales; si el tipo elegido se queda sin resultados,
+// se pasa al primer tipo que sí tenga, para no dejar a la persona ante una lista vacía.
+const lista = document.getElementById('lista-programas'), txt = document.getElementById('b-texto'), fArea = document.getElementById('b-area'), fSede = document.getElementById('b-sede');
+const resultado = document.getElementById('b-resultado'), btnMas = document.getElementById('b-mas'), vacio = document.getElementById('b-vacio'), chips = document.getElementById('b-chips');
+const pestanas = [...document.querySelectorAll('#b-niveles [data-nivel]')];
+const NIVEL_DEFECTO = 'Maestría', INICIALES = 6, HASTA_SIN_CORTE = 9;
+const PLURAL = { 'Maestría': ['maestría', 'maestrías'], 'Especialidad': ['especialidad', 'especialidades'], 'Doctorado': ['doctorado', 'doctorados'], 'Diplomado': ['diplomado', 'diplomados'], 'Curso': ['curso', 'cursos'], '': ['programa', 'programas'] };
+let nivel = NIVEL_DEFECTO, todos = false;
+const sinAcentos = s => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
 const nombreArea = a => a === 'ESDAI' ? 'ESDAI' : a;
+const textoOpcion = sel => sel.selectedOptions[0] ? sel.selectedOptions[0].text : sel.value;
 function tarjeta(p) {
   const sede = p.s || 'Sede por confirmar';
   return `<li class="sd-prog"><a href="${p.u}"><div class="sd-prog__marca" aria-hidden="true"><div class="textura-roble textura-roble--acercamiento"></div><span>${p.v}</span>${p.nuevo ? '<em>Nuevo</em>' : ''}</div><div class="sd-prog__cuerpo"><h3>${p.n}</h3><p class="sd-prog__meta">${p.a.map(nombreArea).join(' · ')} · <span class="${p.s ? '' : 'sd-prog__pendiente'}">${sede}</span></p><span class="sd-prog__ir">Ver programa <span aria-hidden="true">→</span></span></div></a></li>`;
 }
-function filtrar() {
-  const q = sinAcentos(txt.value.trim()), n = fNivel.value, a = fArea.value, s = fSede.value;
-  const r = PROGRAMAS.filter(p => (!q || sinAcentos(p.n + ' ' + p.a.join(' ')).includes(q)) && (!n || p.v === n) && (!a || p.a.includes(a)) && (!s || !p.s || p.s.includes(s)));
+function filtrar(anunciarCambio) {
+  const q = sinAcentos(txt.value.trim()), a = fArea.value, s = fSede.value;
+  const base = PROGRAMAS.filter(p => (!q || sinAcentos(p.n + ' ' + p.a.join(' ')).includes(q)) && (!a || p.a.includes(a)) && (!s || !p.s || p.s.includes(s)));
+  const cuenta = v => v ? base.filter(p => p.v === v).length : base.length;
+  let cambio = '';
+  if (base.length && !cuenta(nivel)) { const sig = pestanas.find(b => cuenta(b.dataset.nivel)); cambio = nivel; nivel = sig.dataset.nivel; todos = false; }
+  pestanas.forEach(b => { const n = cuenta(b.dataset.nivel); b.querySelector('.sd-niveles__n').textContent = n; b.setAttribute('aria-pressed', String(b.dataset.nivel === nivel)); b.disabled = !n && b.dataset.nivel !== nivel; });
+  const r = base.filter(p => !nivel || p.v === nivel);
   if (s) r.sort((x, y) => (y.s ? 1 : 0) - (x.s ? 1 : 0));
-  const confirmados = s ? r.filter(p => p.s).length : 0;
-  const hayFiltro = !!(q || n || a || s);
-  const visibles = (todos || hayFiltro) ? r : r.slice(0, INICIALES);
-  lista.innerHTML = visibles.map(tarjeta).join('');
+  const corta = !todos && r.length > HASTA_SIN_CORTE;
+  lista.innerHTML = (corta ? r.slice(0, INICIALES) : r).map(tarjeta).join('');
   lista.querySelectorAll('.sd-prog').forEach((li, k) => { li.style.setProperty('--k', k % 3); requestAnimationFrame(() => li.classList.add('sd-prog--entra')); });
   vacio.hidden = r.length > 0;
-  resultado.textContent = r.length === PROGRAMAS.length && !hayFiltro ? `${PROGRAMAS.length} programas en Ciudad de México` : `${r.length} ${r.length === 1 ? 'programa' : 'programas'} con estos filtros` ;
-  if (s && r.length) resultado.textContent = `${confirmados} ${confirmados === 1 ? 'programa confirmado' : 'programas confirmados'} en ${s}` + (r.length > confirmados ? ` · ${r.length - confirmados} de CDMX con sede por confirmar` : '');
-  btnMas.parentElement.hidden = hayFiltro || r.length <= INICIALES;
-  btnMas.textContent = todos ? 'Ver menos programas' : `Ver todos los programas (${PROGRAMAS.length})`;
+  const [uno, varios] = PLURAL[nivel];
+  let msg = `${r.length} ${r.length === 1 ? uno : varios}` + (a ? ` de ${textoOpcion(fArea)}` : '') + (q ? ` para «${txt.value.trim()}»` : '') + ' en Ciudad de México';
+  if (s && r.length) { const conf = r.filter(p => p.s).length; msg = `${conf} ${conf === 1 ? uno : varios} confirmados en ${s}` + (r.length > conf ? ` · ${r.length - conf} de CDMX con sede por confirmar` : ''); }
+  if (cambio && anunciarCambio) msg = `No hay ${PLURAL[cambio][1]} con estos filtros; te mostramos ${varios}. ` + msg;
+  resultado.textContent = msg;
+  btnMas.parentElement.hidden = r.length <= HASTA_SIN_CORTE;
+  btnMas.textContent = todos ? `Ver menos` : `Ver ${nivel === 'Maestría' || nivel === 'Especialidad' ? 'todas las' : 'todos los'} ${varios} (${r.length})`;
   btnMas.setAttribute('aria-expanded', String(todos));
-  const activos = [n, a, s].filter(Boolean).length; document.getElementById('b-activos').textContent = activos ? `(${activos})` : '';
+  // Filtros activos como etiquetas que se pueden quitar
+  const activos = [];
+  if (q) activos.push(['texto', `«${txt.value.trim()}»`]);
+  if (a) activos.push(['area', textoOpcion(fArea)]);
+  if (s) activos.push(['sede', `Sede ${s}`]);
+  chips.hidden = !activos.length;
+  chips.innerHTML = activos.length ? '<span class="cp-filtro__etiqueta">Filtrando por:</span>' + activos.map(([k, t]) => `<button type="button" data-quitar="${k}" aria-label="Quitar filtro ${t}">${t} <span aria-hidden="true">×</span></button>`).join('') + '<button type="button" class="sd-activos__limpiar" data-quitar="todo">Limpiar filtros</button>' : '';
+  document.getElementById('b-activos').textContent = (a || s) ? `(${[a, s].filter(Boolean).length})` : '';
 }
-[txt, fNivel, fArea, fSede].forEach(el => el.addEventListener('input', filtrar));
-function limpiar() { txt.value = ''; fNivel.value = ''; fArea.value = ''; fSede.value = ''; filtrar(); }
+txt.addEventListener('input', () => { todos = false; filtrar(true); });
+[fArea, fSede].forEach(el => el.addEventListener('input', () => { todos = false; filtrar(true); }));
+pestanas.forEach(b => b.addEventListener('click', () => { nivel = b.dataset.nivel; todos = false; filtrar(); }));
+chips.addEventListener('click', e => {
+  const b = e.target.closest('[data-quitar]'); if (!b) return;
+  const k = b.dataset.quitar;
+  if (k === 'texto' || k === 'todo') txt.value = '';
+  if (k === 'area' || k === 'todo') fArea.value = '';
+  if (k === 'sede' || k === 'todo') fSede.value = '';
+  todos = false; filtrar(); txt.focus({ preventScroll: true });
+});
+function limpiar() { txt.value = ''; fArea.value = ''; fSede.value = ''; nivel = NIVEL_DEFECTO; todos = false; filtrar(); }
 document.getElementById('b-limpiar').addEventListener('click', limpiar);
 document.getElementById('b-vacio-limpiar').addEventListener('click', limpiar);
 btnMas.addEventListener('click', () => { todos = !todos; filtrar(); if (!todos) document.getElementById('programas').scrollIntoView({ behavior: suave, block: 'start' }); });
 const btnFiltros = document.getElementById('b-filtros-btn');
 btnFiltros.addEventListener('click', () => { const ab = btnFiltros.getAttribute('aria-expanded') === 'true'; btnFiltros.setAttribute('aria-expanded', String(!ab)); document.getElementById('b-filtros').classList.toggle('sd-buscador__filtros--abierto', !ab); });
-function aplicar(campo, valor) { limpiar(); campo.value = valor; filtrar(); ir('programas'); }
+// Desde las tarjetas de área o de sede: se suma ese filtro a los que ya había (no se reinician) y se sube al listado
+function aplicar(campo, valor) { campo.value = valor; todos = false; filtrar(true); ir('programas'); }
 document.querySelectorAll('[data-ver-sede]').forEach(b => b.addEventListener('click', e => { e.preventDefault(); aplicar(fSede, b.dataset.verSede); }));
 document.querySelectorAll('[data-area]').forEach(b => b.addEventListener('click', () => aplicar(fArea, b.dataset.area)));
 filtrar();

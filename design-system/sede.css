@@ -140,3 +140,40 @@
 @media (max-width: 379px) { .sd-datos { grid-template-columns: 1fr; } }
 
 .sd-area a { text-decoration: none; }
+
+/* Hero con video (2026-10-16): el franco cuartel pasa a 16:9 para no recortar el video; columnas a la par para darle tamaño */
+@media (min-width: 900px) { .sd-hero--video .contenedor { grid-template-columns: 6fr 6fr; } }
+.sd-hero--video .pg-hero__foto.sd-video { aspect-ratio: 16 / 9; background: var(--superficie-profunda); }
+/* El video trae franjas negras arriba y abajo: se amplía un 9 % para ocultarlas */
+.sd-video__poster, .sd-video__marco iframe { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transform: scale(1.09); }
+.sd-video__marco iframe { border: 0; pointer-events: none; opacity: 0; transition: opacity 700ms var(--curva-estandar); }
+.sd-video--listo .sd-video__marco iframe { opacity: 1; }
+.sd-video__controles { position: absolute; left: 12px; bottom: 12px; z-index: 3; display: flex; gap: 8px; }
+.sd-video__controles button { width: 40px; height: 40px; border: 0; border-radius: 50%; display: grid; place-items: center; background: rgba(20, 33, 31, 0.72); color: var(--contenido-inverso); cursor: pointer; transition: background var(--duracion-instante); }
+.sd-video__controles button:hover { background: var(--superficie-marca); }
+.sd-video__controles button:focus-visible { outline: var(--foco-anillo); outline-offset: 2px; }
+.sd-video__pausa .i-play, .sd-video--pausa .sd-video__pausa .i-pausa, .sd-video__sonido .i-sonido, .sd-video--sonido .sd-video__sonido .i-mudo { display: none; }
+.sd-video--pausa .sd-video__pausa .i-play, .sd-video--sonido .sd-video__sonido .i-sonido { display: block; }
+/* Tahalí: cruza solo el borde inferior y a la derecha, sin tapar los subtítulos del video */
+.sd-hero--video .pg-hero__tahali { left: 80%; width: 11%; top: 74%; height: 26%; }
+/* Controles arriba a la izquierda: abajo quedan los subtítulos incrustados y arriba a la derecha la firma del video */
+.sd-video__controles { top: 12px; bottom: auto; }
+
+/* Explorador (2026-10-16, comentarios 7 y 8 del cliente): pestañas por tipo de programa y filtros activos visibles */
+@media (min-width: 600px) { .sd-buscador__filtros { grid-template-columns: repeat(2, minmax(0, 1fr)) auto; } }
+.sd-niveles { margin-top: var(--espacio-bloque); flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; padding-bottom: 2px; }
+.sd-niveles::-webkit-scrollbar { display: none; }
+.sd-niveles button { flex: 0 0 auto; white-space: nowrap; display: inline-flex; align-items: center; gap: 6px; }
+.sd-niveles__n { font-size: 0.8em; color: var(--contenido-terciario); }
+.sd-niveles button[aria-pressed="true"] .sd-niveles__n { color: inherit; opacity: 0.8; }
+.sd-niveles button:disabled { opacity: 0.4; cursor: default; }
+.sd-niveles button:disabled:hover { border-color: var(--borde-campo); }
+@media (min-width: 900px) { .sd-niveles { flex-wrap: wrap; overflow: visible; } }
+.sd-activos { display: flex; flex-wrap: wrap; align-items: center; gap: var(--espacio-compacto); margin-top: var(--espacio-base); }
+.sd-activos[hidden] { display: none; }
+.sd-activos button { min-height: 36px; padding: 0 12px; border: 0; border-radius: 999px; background: var(--superficie-marca-tinte); color: var(--contenido-marca); font: inherit; font-size: var(--texto-pequeno); font-weight: 500; cursor: pointer; }
+.sd-activos button:hover { background: color-mix(in srgb, var(--superficie-marca) 22%, var(--superficie-elevada)); }
+.sd-activos button:focus-visible, .sd-niveles button:focus-visible { outline: var(--foco-anillo); outline-offset: 2px; }
+.sd-activos .sd-activos__limpiar { background: none; text-decoration: underline; text-decoration-color: var(--acento-ceremonial); text-underline-offset: 3px; }
+.sd-niveles .cp-filtro__etiqueta { flex: 0 0 auto; white-space: nowrap; }
+@media (max-width: 899px) { .sd-niveles .cp-filtro__etiqueta { display: none; } }
