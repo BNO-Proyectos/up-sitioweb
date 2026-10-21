@@ -547,3 +547,23 @@ img[data-parallax] { position: absolute; left: 0; top: 0; width: 100%; }
 @media (max-width: 599px) { .cp-cab__logo { --logo-alto: 54px; padding: 0; margin-left: 0; } }
 .cp-pagina .pg-migas { padding-top: var(--espacio-bloque); }
 @media (max-width: 599px) { .cp-pagina .pg-migas { padding-top: var(--espacio-bloque); } }
+/* Botones que son enlaces: la regla general a:hover cambiaba el texto a tinta oscura y el CTA perdía su color (2026-10-21).
+   Primario: el texto sigue blanco y el fondo baja al verde profundo del logo de Posgrados (#004C41). Secundario: conserva el verde. */
+.cp-pagina a.boton--primario:hover, .cp-pagina a.boton--primario:focus-visible { color: var(--contenido-inverso); background: #004C41; border-color: #004C41; }
+.cp-pagina a.boton--secundario:hover { color: var(--contenido-marca); }
+.cp-pagina a.boton { transition: background var(--duracion-instante) var(--curva-estandar), border-color var(--duracion-instante) var(--curva-estandar), outline-color var(--duracion-instante); }
+/* Cifra de la portada (2026-10-21, comentario del cliente): pasa a la esquina superior derecha de la foto
+   para no encimarse con el tahalí, que cruza la foto por su lado izquierdo y baja hasta el borde inferior. */
+.cp-hero__cifra { top: -18px; bottom: auto; right: -12px; }
+@media (max-width: 899px) { .cp-hero__cifra { top: -14px; bottom: auto; right: 0; } }
+@media (max-width: 899px) { .cp-hero__cifra { top: -44px; padding: 10px 14px; } .cp-hero__escena { margin-top: 44px; } }
+
+/* Testimonio con espacio para la foto del egresado (2026-10-21): la imagen se sustituye por <img> cuando haya foto autorizada */
+.cp-testimonio__autor { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: var(--espacio-base); align-items: center; padding-top: var(--espacio-bloque); border-top: var(--borde-fino) solid var(--borde-suave); }
+.cp-testimonio__foto { width: 88px; aspect-ratio: 1; display: grid; place-items: center; overflow: hidden; color: var(--contenido-marca); background: color-mix(in srgb, var(--superficie-marca) 16%, var(--superficie-elevada)); }
+.cp-testimonio__foto img { width: 100%; height: 100%; object-fit: cover; }
+.cp-testimonio__datos { display: grid; gap: 2px; justify-items: start; }
+@media (max-width: 599px) { .cp-testimonio__foto { width: 72px; } }
+/* La regla general .cp-testimonio figcaption (gap 2px) pisaba la separación entre foto y texto */
+.cp-testimonio figcaption.cp-testimonio__autor { column-gap: var(--espacio-bloque); row-gap: var(--espacio-compacto); }
+.cp-testimonio__datos { gap: 4px; }
