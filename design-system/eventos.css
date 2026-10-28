@@ -1,0 +1,101 @@
+/* ==========================================================================
+   eventos.css — Listado de eventos (2026-10-28)
+   Estructura: wireframe de Figma «Plantilla — Listado de eventos» (sigue la lógica de Noticias:
+   encabezado, filtros, destacados, agenda y paginación; la miniatura se cambia por un bloque de fecha).
+   Reutiliza noticias.css (encabezado, barra de filtros fija, etiquetas) y campus/programa/sede. Prefijo ev-.
+   ========================================================================== */
+
+/* 02 · Filtros: búsqueda + campus + modalidad + fecha; tipo de evento y Próximos/Pasados */
+.ev-filtros__fila { display: grid; gap: var(--espacio-base); grid-template-columns: minmax(0, 1fr); align-items: end; }
+@media (min-width: 600px) { .ev-filtros__fila { grid-template-columns: minmax(0, 1fr) repeat(3, minmax(0, 1fr)); } .ev-filtros__buscar { grid-column: 1 / -1; } }
+@media (min-width: 1000px) { .ev-filtros__fila { grid-template-columns: minmax(0, 2.4fr) repeat(3, minmax(140px, 1fr)); } .ev-filtros__buscar { grid-column: auto; } }
+.ev-filtros__fila2 { display: flex; flex-wrap: wrap; gap: var(--espacio-base); align-items: center; justify-content: space-between; }
+.ev-filtros__fila2 .nt-chips { flex: 1 1 auto; min-width: 0; }
+.ev-cuando { display: inline-flex; border: var(--borde-fino) solid var(--borde-campo); border-radius: 999px; padding: 3px; background: var(--superficie-base); flex: 0 0 auto; }
+.ev-cuando button { min-height: 36px; padding: 0 16px; border: 0; border-radius: 999px; background: transparent; color: var(--contenido-secundario); font: inherit; font-size: var(--t-pequeno); font-weight: 500; cursor: pointer; transition: background var(--duracion-instante), color var(--duracion-instante); }
+.ev-cuando button[aria-pressed="true"] { background: var(--superficie-marca); color: var(--contenido-inverso); }
+.ev-cuando button:focus-visible { outline: var(--foco-anillo); outline-offset: 2px; }
+.nt-filtros--fija .ev-filtros__fila label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+@media (max-width: 599px) { .nt-filtros--fija .ev-filtros__fila > div:not(.ev-filtros__buscar) { display: none; } }
+
+/* Etiquetas compartidas */
+.ev-etiquetas { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.ev-modalidad, .ev-lleno { font-size: var(--texto-etiqueta-capitulo); font-weight: 500; letter-spacing: 0.02em; padding: 3px 8px; border: var(--borde-fino) solid var(--borde-campo); color: var(--contenido-secundario); }
+.ev-lleno { border-color: var(--acento-ceremonial); color: #7A5F2E; }
+.ev-cuando-donde { display: grid; gap: 2px; font-size: var(--t-pequeno); color: var(--contenido-secundario); }
+.ev-acciones { display: flex; flex-wrap: wrap; gap: var(--espacio-base) var(--espacio-bloque); align-items: center; }
+.ev-registro { min-height: 44px; padding-inline: 20px; }
+.ev-registro[aria-disabled="true"] { background: var(--superficie-base); border-color: var(--borde-campo); color: var(--contenido-terciario); cursor: default; }
+
+/* Bloque de fecha (sustituye a la miniatura de Noticias) */
+.ev-fecha { display: grid; justify-items: center; align-content: center; gap: 2px; width: 84px; aspect-ratio: 1; background: var(--superficie-marca-tinte); color: var(--contenido-marca); text-transform: uppercase; }
+.ev-fecha b { font-family: var(--fuente-titulos); font-weight: 400; font-size: var(--t-h3-destacada); line-height: 1; }
+.ev-fecha span { font-size: var(--texto-etiqueta-capitulo); font-weight: 500; letter-spacing: 0.08em; }
+.ev-fecha__dia-semana { color: var(--contenido-terciario); }
+.ev-fecha--sobre { position: absolute; left: var(--espacio-base); top: var(--espacio-base); width: 68px; background: var(--superficie-elevada); box-shadow: var(--sombra-flotante); }
+.ev-fecha--sobre .ev-fecha__dia-semana { display: none; }
+
+/* 03 · Destacados: tres tarjetas con imagen y fecha encima */
+.ev-destacados { display: grid; gap: var(--espacio-bloque); }
+@media (min-width: 700px) { .ev-destacados { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1000px) { .ev-destacados { grid-template-columns: repeat(3, 1fr); } }
+.ev-destacado { display: grid; grid-template-rows: auto 1fr; background: var(--superficie-elevada); border: var(--borde-fino) solid var(--borde-suave); transition: border-color var(--duracion-base), box-shadow var(--duracion-revelado) var(--curva-estandar), transform var(--duracion-revelado) var(--curva-estandar); }
+.ev-destacado:hover, .ev-destacado:focus-within { border-color: var(--borde-marca); box-shadow: var(--sombra-flotante); transform: translateY(-4px); }
+.ev-destacado__img { position: relative; overflow: hidden; aspect-ratio: 16 / 10; background: var(--superficie-marca-tinte); }
+.ev-destacado__img img, .ev-pasado__img img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--duracion-revelado) var(--curva-estandar); }
+.ev-destacado:hover .ev-destacado__img img { transform: scale(var(--escala-hover)); }
+.ev-destacado__img .nt-sinfoto, .ev-pasado__img .nt-sinfoto { position: absolute; inset: 0; }
+.ev-destacado__cuerpo { display: grid; gap: var(--espacio-compacto); align-content: start; padding: var(--espacio-bloque); }
+.ev-destacado h3, .ev-fila h3, .ev-pasado h3 { font-family: var(--fuente-titulos); font-weight: 400; line-height: 1.2; }
+.ev-destacado h3 { font-size: var(--t-h3-tarjeta); }
+.ev-destacado h3 a, .ev-fila h3 a { color: inherit; text-decoration: none; }
+.ev-destacado h3 a:hover, .ev-fila h3 a:hover { color: var(--contenido-marca); }
+.ev-destacado .ev-acciones { margin-top: var(--espacio-compacto); justify-content: space-between; }
+
+/* 04 · Agenda por mes */
+.ev-mes { margin: var(--espacio-grupo) 0 0; padding-bottom: var(--espacio-compacto); border-bottom: var(--borde-fino) solid var(--borde-suave); font-size: var(--texto-etiqueta-capitulo); font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--contenido-terciario); }
+.ev-mes:first-child { margin-top: 0; }
+.ev-agenda { list-style: none; margin: 0; padding: 0; }
+.ev-fila { position: relative; display: grid; grid-template-columns: 84px minmax(0, 1fr); gap: var(--espacio-base) var(--espacio-bloque); align-items: center; padding: var(--espacio-bloque) var(--espacio-base) var(--espacio-bloque) 0; border-bottom: var(--borde-fino) solid var(--borde-suave); transition: background var(--duracion-base); }
+.ev-fila::before { content: ""; position: absolute; left: -12px; top: 0; bottom: 0; width: 3px; background: var(--superficie-marca); transform: scaleY(0); transform-origin: top; transition: transform var(--duracion-revelado) var(--curva-estandar); }
+.ev-fila:hover, .ev-fila:focus-within { background: var(--superficie-base); }
+.ev-fila:hover::before, .ev-fila:focus-within::before { transform: scaleY(1); }
+.ev-fila__cuerpo { display: grid; gap: 6px; }
+.ev-fila h3 { font-size: var(--t-h3-lista); }
+@media (min-width: 900px) { .ev-fila { grid-template-columns: 84px minmax(0, 1fr) auto; column-gap: var(--espacio-grupo); } .ev-fila .ev-acciones { justify-content: flex-end; } }
+@media (max-width: 899px) { .ev-fila .ev-acciones { grid-column: 2; } }
+@media (max-width: 599px) { .ev-fila { grid-template-columns: 64px minmax(0, 1fr); } .ev-fila .ev-fecha { width: 64px; } .ev-fila .ev-fecha b { font-size: var(--t-h3-tarjeta); } }
+.ev-vacio { display: grid; gap: var(--espacio-base); justify-items: start; }
+.ev-vacio__acciones { display: flex; flex-wrap: wrap; gap: var(--espacio-base); }
+
+/* 05 · Eventos pasados */
+.ev-cabeza-pasados { display: flex; flex-wrap: wrap; gap: var(--espacio-base); align-items: end; justify-content: space-between; }
+.ev-cabeza-pasados .pg-enlace-cta { background: none; border: 0; padding: 0; font: inherit; font-weight: 500; cursor: pointer; }
+.ev-pasados { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--espacio-bloque); }
+@media (min-width: 700px) { .ev-pasados { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1000px) { .ev-pasados { grid-template-columns: repeat(3, 1fr); } }
+.ev-pasado a { height: 100%; display: grid; grid-template-rows: auto 1fr; background: var(--superficie-elevada); border: var(--borde-fino) solid var(--borde-suave); color: var(--contenido-primario); text-decoration: none; transition: border-color var(--duracion-base), transform var(--duracion-revelado) var(--curva-estandar); }
+.ev-pasado a:hover, .ev-pasado a:focus-visible { border-color: var(--borde-marca); transform: translateY(-4px); }
+.ev-pasado__img { position: relative; overflow: hidden; aspect-ratio: 16 / 9; background: var(--superficie-marca-tinte); }
+.ev-pasado__img img { filter: saturate(0.85); }
+.ev-pasado a:hover .ev-pasado__img img { transform: scale(var(--escala-hover)); filter: none; }
+.ev-pasado__cuerpo { display: grid; gap: var(--espacio-compacto); align-content: start; padding: var(--espacio-bloque); }
+.ev-pasado h3 { font-size: var(--t-h3-lista); }
+
+/* 06 · Cierre en verde con Roble (sin foto ni tahalí) */
+.ev-cierre { position: relative; overflow: hidden; background: var(--superficie-marca); color: var(--contenido-inverso); }
+.ev-cierre .textura-roble { width: min(40vw, 460px); aspect-ratio: 553 / 571; right: -6%; top: -40%; }
+.ev-cierre__fila { position: relative; display: flex; flex-wrap: wrap; gap: var(--espacio-bloque); align-items: center; justify-content: space-between; }
+.ev-cierre h2 { font-family: var(--fuente-titulos); font-weight: 400; font-size: var(--t-h2-apoyo); line-height: 1.1; margin-bottom: var(--espacio-compacto); }
+.ev-cierre p { color: rgba(247, 245, 240, 0.85); max-width: 40rem; }
+.ev-cierre__boton { background: var(--superficie-elevada); color: var(--contenido-marca); border-color: var(--superficie-elevada); }
+.ev-cierre__boton:hover { background: var(--superficie-base); color: var(--contenido-marca); }
+
+@media (prefers-reduced-motion: reduce) {
+  .ev-destacado, .ev-pasado a, .ev-fila::before { transition: none; }
+  .ev-destacado:hover, .ev-pasado a:hover { transform: none; }
+}
+.ev-pagina { overflow-x: clip; }
+/* Ajustes tras revisión: en la agenda, horario y sede en una sola línea; «Ver todos» a la derecha del título */
+.ev-fila .ev-cuando-donde { display: block; }
+.pg-cabeza.ev-cabeza-pasados { max-width: none; }
