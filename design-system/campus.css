@@ -504,6 +504,12 @@ img[data-parallax] { position: absolute; left: 0; top: 0; width: 100%; }
 .cp-wa:focus-visible { outline: var(--foco-anillo); outline-offset: 3px; }
 @media (max-width: 899px) { .cp-fija--visible ~ .cp-wa { bottom: calc(84px + env(safe-area-inset-bottom)); } }
 @media (min-width: 900px) { .cp-wa { right: 28px; bottom: 28px; width: 60px; height: 60px; } }
+/* Con texto (comentario ClickUp: que no se pierda en pantallas grandes) */
+.cp-wa__texto { display: none; }
+@media (min-width: 900px) {
+  .cp-wa:has(.cp-wa__texto) { width: auto; height: 64px; padding-inline: 20px 26px; border-radius: 32px; display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: var(--texto-base); text-decoration: none; }
+  .cp-wa__texto { display: inline; }
+}
 @media (prefers-reduced-motion: reduce) { .cp-wa { transition: none; } .cp-wa:hover { transform: none; } }
 @media print { .cp-wa { display: none; } }
 
